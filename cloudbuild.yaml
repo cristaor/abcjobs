@@ -27,12 +27,13 @@ steps:
    entrypoint: 'bash'
    args: ['-c', 'docker push $$USERNAME/${REPOSITORY}:${TAG}']
    secretEnv: ['USERNAME']
+ substitutions:
+     REPOSITORY: abcjobs
+     TAG: latest
  availableSecrets:
    secretManager:
    - versionName: projects/abcjobsfront/secrets/dockerhub-password/versions/1
      env: 'PASSWORD'
    - versionName: projects/abcjobsfront/secrets/dockerhub-username/versions/1
      env: 'USERNAME'
- substitutions:
-     REPOSITORY: abcjobs
-     TAG: latest
+
