@@ -6,7 +6,12 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "coverage": "ng test --watch --code-coverage",
+    "sonar": "sonar-scanner",
+    "e2e": "ng e2e",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +24,11 @@
     "@angular/platform-browser-dynamic": "^16.1.0",
     "@angular/router": "^16.1.0",
     "bootstrap": "^5.3.2",
+    "exec-sh": "^0.4.0",
+    "intl": "^1.2.5",
+    "micromatch": "^4.0.5",
+    "ngx-toastr": "^17.0.2",
+    "puppeteer-core": "^21.3.7",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
@@ -27,13 +37,20 @@
     "@angular-devkit/build-angular": "^16.1.6",
     "@angular/cli": "~16.1.6",
     "@angular/compiler-cli": "^16.1.0",
+    "@angular/localize": "^16.2.7",
+    "@cypress/schematic": "^2.5.1",
+    "@faker-js/faker": "^8.1.0",
     "@types/jasmine": "~4.3.0",
+    "@types/node": "^20.8.2",
+    "cypress": "latest",
     "jasmine-core": "~4.6.0",
+    "jquery": "^3.7.1",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "karma-phantomjs-launcher": "^1.0.4",
     "typescript": "~5.1.3"
   }
 }
