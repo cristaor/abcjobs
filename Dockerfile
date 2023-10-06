@@ -12,6 +12,6 @@ COPY . .
 RUN npm run build --prod
 
 FROM nginx:alpine
-COPY –from=build /source/dist/todo /usr/share/nginx/html
-COPY –from=build /source/nginx.conf /etc/nginx/conf.d/
+COPY --from=build /source/dist/abcjobs /usr/share/nginx/html
+COPY --from=build /source/nginx.conf /etc/nginx/
 EXPOSE 8080
