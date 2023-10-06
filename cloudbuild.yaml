@@ -1,28 +1,18 @@
-steps:
-#Compilar app Angular
+ steps:
  - name: 'ubuntu'
    entrypoint: 'bash'
    args: ['-c', 'npm install']
- #Hacer pruebas
-
-#Hacer el build del proyecto
  - name: 'ubuntu'
    entrypoint: 'bash'
    args: ['-c', 'ng build']
-
-#loguearse en dockerHub
  - name: 'gcr.io/cloud-builders/docker'
    entrypoint: 'bash'
    args: ['-c', 'docker login --username=$$USERNAME --password=$$PASSWORD']
    secretEnv: ['USERNAME', 'PASSWORD']
-
-#compilar la imagen
  - name: 'gcr.io/cloud-builders/docker'
    entrypoint: 'bash'
    args: ['-c', 'docker build -t $$USERNAME/${REPOSITORY}:${TAG} .']
    secretEnv: ['USERNAME']
-
-#copiarla en dockerHub
  - name: 'gcr.io/cloud-builders/docker'
    entrypoint: 'bash'
    args: ['-c', 'docker push $$USERNAME/${REPOSITORY}:${TAG}']
