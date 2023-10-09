@@ -22,7 +22,9 @@
      _TAG_1: latest
  availableSecrets:
    secretManager:
-   - versionName: projects/proyecto1-399312/secrets/dockerhub-password/versions/1
+  # - versionName: projects/proyecto1-399312/secrets/dockerhub-password/versions/1
+   - versionName: projects/abcjobsfront/secrets/dockerhub-password/versions/1
      env: 'PASSWORD'
-   - versionName: projects/proyecto1-399312/secrets/dockerhub-username/versions/1
+   #- versionName: projects/proyecto1-399312/secrets/dockerhub-username/versions/1
+   - versionName: projects/abcjobsfront/secrets/dockerhub-username/versions/1
      env: 'USERNAME'

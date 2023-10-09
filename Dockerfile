@@ -14,4 +14,4 @@ RUN npm run build --prod
 FROM nginx:alpine
 COPY --from=build /source/dist/abcjobs /usr/share/nginx/html
 COPY --from=build /source/nginx.conf /etc/nginx/
-EXPOSE 8080
+EXPOSE 80

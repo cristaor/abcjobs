@@ -1,0 +1,15 @@
+apiVersion: skaffold/v3alpha1
+kind: Config
+metadata:
+  name: deploy-abcJobsWeb
+profiles:
+- name: desarrollo
+  manifests:
+    rawYaml:
+    - deploy-development.yaml
+- name: produccion
+  manifests:
+    rawYaml:
+    - deploy-production.yaml
+deploy:
+  cloudrun: {}
