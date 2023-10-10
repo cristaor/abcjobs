@@ -21,18 +21,18 @@
 #Desplegar ccanalizacion en cloudDeploy
  - name: 'gcr.io/cloud-builders/gcloud'
    entrypoint: 'bash'
-   args: ['-c', 'gcloud deploy apply --file=clouddeploy.yaml --region=$_REGION --project=$PROJECTID']
+   args: ['-c', 'gcloud deploy apply --file=clouddeploy.yaml --region=$_REGION --project=$PROJECT_ID']
 
 #Crear versiones para el despliegue
  - name: 'gcr.io/cloud-builders/gcloud'
    entrypoint: 'bash'
-   args: ['-c', 'gcloud deploy releases create abcjobsweb-$SHORT_SHA --project=$PROJECTID --region=$_REGION --delivery-pipeline=deploy-abcjobs-web –-images=abcjobsweb=docker.io/$$USERNAME/$_REPOSITORY:$_TAG']
+   args: ['-c', 'gcloud deploy releases create abcjobsweb-$SHORT_SHA --project=$PROJECT_ID --region=$_REGION --delivery-pipeline=deploy-abcjobs-web –-images=abcjobsweb=docker.io/$$USERNAME/$_REPOSITORY:$_TAG']
    secretEnv: ['USERNAME']
 
 #Escribir politica para acceso publico
  - name: 'gcr.io/cloud-builders/gcloud'
    entrypoint: 'bash'
-   args: ['-c', 'gcloud run services set-iam-policy deploy-qs-development policy.yaml --project=$PROJECTID --region=$_REGION --quiet']
+   args: ['-c', 'gcloud run services set-iam-policy deploy-qs-development policy.yaml --project=$PROJECT_ID --region=$_REGION --quiet']
 
  substitutions:
      _REPOSITORY_1: abcjobs
