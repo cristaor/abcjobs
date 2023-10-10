@@ -25,7 +25,8 @@ metadata:
   name: dev-environment
 description: Servicio de pruebas en CloudRun
 run:
-  location: projects/abcjobsfront/locations/us-central1
+  location: projects/proyecto1-399312/locations/us-central1
+  #location: projects/abcjobsfront/locations/us-central1
 ---
 
 apiVersion: deploy.cloud.google.com/v1
@@ -34,4 +35,4 @@ metadata:
   name: production-environment
 description: Servicio de despliegue a producción en CloudRun
 run:
-  location: projects/abcjobsfront/locations/us-central1
+  location: projects/proyecto1-399312/locations/us-central1
