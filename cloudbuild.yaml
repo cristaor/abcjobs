@@ -17,14 +17,31 @@
    entrypoint: 'bash'
    args: ['-c', 'docker push $$USERNAME/$_REPOSITORY:$_TAG']
    secretEnv: ['USERNAME']
+
+#Desplegar ccanalizacion en cloudDeploy
+ - name: 'gcr.io/cloud-builders/gcloud'
+   entrypoint: 'bash'
+   args: ['-c', 'gcloud deploy apply --file=clouddeploy.yaml --region=$_REGION --project=$PROJECTID']
+
+#Crear versiones para el despliegue
+ - name: 'gcr.io/cloud-builders/gcloud'
+   entrypoint: 'bash'
+   args: ['-c', 'gcloud deploy releases create abcjobsweb-$SHORT_SHA --project=$PROJECTID --region=$_REGION --delivery-pipeline=deploy-abcjobs-web –-images=abcjobsweb=docker.io/$$USERNAME/$_REPOSITORY:$_TAG']
+   secretEnv: ['USERNAME']
+
+#Escribir politica para acceso publico
+ - name: 'gcr.io/cloud-builders/gcloud'
+   entrypoint: 'bash'
+   args: ['-c', 'gcloud run services set-iam-policy deploy-qs-development policy.yaml --project=$PROJECTID --region=$_REGION --quiet']
+
  substitutions:
      _REPOSITORY_1: abcjobs
      _TAG_1: latest
  availableSecrets:
    secretManager:
   # - versionName: projects/proyecto1-399312/secrets/dockerhub-password/versions/1
-   - versionName: projects/abcjobsfront/secrets/dockerhub-password/versions/1
+   - versionName: projects/$_PROJECTID/secrets/dockerhub-password/versions/1
      env: 'PASSWORD'
    #- versionName: projects/proyecto1-399312/secrets/dockerhub-username/versions/1
-   - versionName: projects/abcjobsfront/secrets/dockerhub-username/versions/1
+   - versionName: projects/$_PROJECTID/secrets/dockerhub-username/versions/1
      env: 'USERNAME'
