@@ -29,7 +29,7 @@
    args: ['-c', 'gcloud deploy releases create abcjobsweb-$SHORT_SHA --project=$PROJECT_ID --region=$_REGION --delivery-pipeline=deploy-abcjobs-web –-images=abcjobsweb=docker.io/$$USERNAME/$_REPOSITORY:$_TAG']
    secretEnv: ['USERNAME']
 
-#Escribir politica para acceso publico
+#Re-escribir politica para acceso publico
  - name: 'gcr.io/cloud-builders/gcloud'
    entrypoint: 'bash'
    args: ['-c', 'gcloud run services set-iam-policy deploy-qs-development policy.yaml --project=$PROJECT_ID --region=$_REGION --quiet']
