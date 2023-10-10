@@ -1,19 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderComponent } from './header.component';
+import { HeaderCandidateComponent } from './header.component';
+import { RouterTestingModule } from "@angular/router/testing";
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('HeaderCandidateComponent', () => {
+  let component: HeaderCandidateComponent;
+  let fixture: ComponentFixture<HeaderCandidateComponent>;
 
-  beforeEach(() => {
+ beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HeaderComponent]
-    });
-    fixture = TestBed.createComponent(HeaderComponent);
+      imports:[RouterTestingModule],
+      declarations: [HeaderCandidateComponent]
+    })
+      .compileComponents();
+  }));
+  
+   beforeEach(() => {
+    fixture = TestBed.createComponent(HeaderCandidateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }); 
 
   it('should create', () => {
     expect(component).toBeTruthy();
