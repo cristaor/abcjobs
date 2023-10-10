@@ -30,9 +30,9 @@
    secretEnv: ['USERNAME']
 
 #Re-escribir politica para acceso publico
- - name: 'gcr.io/cloud-builders/gcloud'
-   entrypoint: 'bash'
-   args: ['-c', 'gcloud run services set-iam-policy deploy-qs-development policy.yaml --project=$PROJECT_ID --region=$_REGION --quiet']
+# - name: 'gcr.io/cloud-builders/gcloud'
+#   entrypoint: 'bash'
+#   args: ['-c', 'gcloud run services set-iam-policy deploy-qs-development policy.yaml --project=$PROJECT_ID --region=$_REGION --quiet']
 
  substitutions:
      _REPOSITORY_1: abcjobs
