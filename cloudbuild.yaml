@@ -26,7 +26,7 @@
 #Crear versiones para el despliegue
  - name: 'gcr.io/cloud-builders/gcloud'
    entrypoint: 'bash'
-   args: ['-c', 'gcloud deploy releases create abcjobsweb-$SHORT_SHA --project=$PROJECT_ID --region=$_REGION --delivery-pipeline=deploy-abcjobs-web –-images=abcjobsweb=docker.io/$$USERNAME/$_REPOSITORY:$_TAG']
+   args: ['-c', 'gcloud deploy releases create abcjobsweb-$SHORT_SHA --project=$PROJECT_ID --region=$_REGION --delivery-pipeline=deploy-abcjobs-web --images=abcjobsweb=docker.io/$$USERNAME/$_REPOSITORY:$_TAG']
    secretEnv: ['USERNAME']
 
 #Re-escribir politica para acceso publico
