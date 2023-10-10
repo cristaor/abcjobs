@@ -7,16 +7,16 @@
    secretEnv: ['USERNAME', 'PASSWORD']
 
 #compilar la imagen
- - name: 'gcr.io/cloud-builders/docker'
-   entrypoint: 'bash'
-   args: ['-c', 'docker build -t $$USERNAME/$_REPOSITORY:$_TAG .']
-   secretEnv: ['USERNAME']
+# - name: 'gcr.io/cloud-builders/docker'
+#   entrypoint: 'bash'
+#   args: ['-c', 'docker build -t $$USERNAME/$_REPOSITORY:$_TAG .']
+#   secretEnv: ['USERNAME']
 
 #copiarla en dockerHub
- - name: 'gcr.io/cloud-builders/docker'
-   entrypoint: 'bash'
-   args: ['-c', 'docker push $$USERNAME/$_REPOSITORY:$_TAG']
-   secretEnv: ['USERNAME']
+# - name: 'gcr.io/cloud-builders/docker'
+#   entrypoint: 'bash'
+#   args: ['-c', 'docker push $$USERNAME/$_REPOSITORY:$_TAG']
+#   secretEnv: ['USERNAME']
 
 #Desplegar ccanalizacion en cloudDeploy
  - name: 'gcr.io/cloud-builders/gcloud'
