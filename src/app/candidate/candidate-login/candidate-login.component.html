@@ -39,7 +39,7 @@
 					<label for="Usuario" class="col-form-label float-lg-right">Usuario</label>
 				</div>
 				<div class="col-5 input-group has-validation">
-					<input type="email" class="form-control"  id="Usuario" aria-describedby="emailHelp" placeholder="Usuario" required>
+					<input #username type="email" class="form-control"  name="username" id="username" aria-describedby="emailHelp" placeholder="Usuario" required>
 					<div class="invalid-feedback">
 					Ingrese un usuario.
 				  </div>
@@ -50,7 +50,7 @@
 					<label for="Clave" class="col-form-label float-lg-right">Clave</label>
 				</div>
 				<div class="col-5">
-					<input type="password" class="form-control" id="Clave" placeholder="Clave" minlength="6" required>
+					<input #password type="password" class="form-control" name='username' id="password" placeholder="Clave" minlength="6" required>
 					<div class="invalid-feedback">
 					Ingrese una clave mayor a 6 caracteres.
 				  </div>
@@ -61,7 +61,7 @@
 		<div class="row mt-3 align-items-center ">
 				<div class="col-4 text-right">
 					<!--<a href="index_es.html"> -->
-					<button class="btn btn-primary" type="submit">Aceptar</button>
+					<button (click)="onLogInUsuario(username.value, password.value)" class="btn btn-primary" type="button" >Aceptar</button>
 					<!--</a>-->
 				</div>
 				<div class="col-1">
@@ -76,7 +76,7 @@
 						<label for="Clave" class="col-form-label float-lg-right">¿No tiene usuario?</label>
 					</div>
 					<div class="col-6 text-left">
-						<a href="index_es.html" class="nav-link">Registrese</a>
+						<a href="/basic-candidate" class="nav-link" (click)="goTo('newCandidate')">Registrese</a>
 					</div>
 
 				</div>	

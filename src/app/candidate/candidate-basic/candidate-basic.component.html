@@ -1,36 +1,176 @@
 <header-candidate></header-candidate>
 
-<h2 class="text-center">Información Acádemica</h2>
+<h2 class="text-center">Datos Básicos</h2>
     <div class="container text-center">
-		<form class="needs-validation" action="academic_es.html" novalidate>
+		<form class="needs-validation" [formGroup]="candidateBasicForm" (ngSubmit)="createCandidate(candidateBasicForm.value)" novalidate>
 			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3 float-lg-right">
+					<label for="Username" class="col-form-label float-lg-right">Usuario</label>
+				</div>
+				<div class="col-8 input-group has-validation">
+					<input type="email" class="form-control" formControlName="Username" id="Username" aria-describedby="emailHelp" required placeholder="Usuario@mail.com">
+					<div *ngIf="candidateBasicForm.get('Username')?.hasError('required') && candidateBasicForm.get('Username')?.touched" class="invalid-feedback">
+					Ingrese un nombre de usuario, en formato de email. 
+                                         </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center form-group">
 				<div class="col-3">
-					<label for="Titulo" class="col-form-label float-lg-right">Titulo</label>
+					<label for="Password" class="col-form-label float-lg-right">Clave</label>
 				</div>
 				<div class="col-8">
-					<input type="text" class="form-control" id="Titulo" minlength="5" required placeholder="Ingrese el nombre del titulo">
+					<input type="password" class="form-control" formControlName="Password" id="Password"  minlength="6" required placeholder="Clave" pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+					 <div   class="invalid-feedback">
+					Clave mayor a 6 caracteres.Debe incluir una Mayuscula una minuscula, numero y caracter especial
+                                        </div>
+				</div>
+				
+			</div>
+                        <div class="row mt-2 align-items-center text-center form-group">
+				<div class="col-3">
+					<label for="DocumentType" class="col-form-label float-lg-right">Tipo Documento</label>
+				</div>
+				<div class="col-2">
+					<select formControlName="DocumentType" size="1" class="form-control"  id="DocumentType" required>
+						<option selected disabled value="">Seleccione</option>
+						<option>ID Nacional</option>
+						<option>Pasaporte</option>
+						<option>Otro</option>
+                                        </select>
+					 <div   class="invalid-feedback">
+					Seleccione un tipo de documento.
+                                        </div>
+				</div>
+                                <div class="col-2">
+					<label for="Document" class="col-form-label float-lg-right">Documento</label>
+					
+				</div>
+				<div class="col-4">
+					<input type="text" class="form-control" formControlName="Document" id="Document" minlength="6" required placeholder="Ingrese su  documento" pattern="[0-9]{6,30}">
 					<div class="invalid-feedback">
-					Ingrese una titulo mayor a 6 caracteres.
+					Ingrese un numero de documento entre 6 y 30 digitos.
 				  </div>
 				</div>
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Institucion" class="col-form-label float-lg-right">Institución</label>
+					<label for="FirstName" class="col-form-label float-lg-right">Nombres</label>
 				</div>
 				<div class="col-8">
-					<input type="text" class="form-control" id="Institucion" minlength="5" required placeholder="Ingrese el nombre de la institucion">
+					<input type="text" class="form-control" minlength="2" formControlName="FirstName" id="FirstName" required placeholder="Ingrese su(s) nombres(s)"  pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
 					<div class="invalid-feedback">
-					Ingrese un nombre mayor a 5 caracteres.
+					Ingrese un nombre mayor a 2 caracteres.
 				  </div>
 				</div>
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Pais_residencia" class="col-form-label float-lg-right">Pais</label>
+					<label for="LastName" class="col-form-label float-lg-right" >Apellidos</label>
 				</div>
 				<div class="col-8">
-					<select size="1" class="form-control" id="Pais_residencia" required>
+					<input type="text" class="form-control" formControlName="LastName" id="LastName" minlength="2" required placeholder="Ingrese su apellido" pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					<div class="invalid-feedback">
+					Ingrese un apellido mayor a 2 caracteres.
+				  </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Age" class="col-form-label float-lg-right">Edad</label>
+				</div>
+				<div class="col-2">
+					<select size="1" class="form-control" formControlName="Age" id="Age" required>
+						<option selected disabled value="">Seleccione</option>
+						<option>16</option>
+						<option>17</option>
+						<option>18</option>
+						<option>19</option>
+						<option>20</option>
+						<option>21</option>
+						<option>22</option>
+						<option>23</option>
+						<option>24</option>
+						<option>25</option>
+						<option>26</option>
+						<option>27</option>
+						<option>28</option>
+						<option>29</option>
+						<option>30</option>
+						<option>31</option>
+						<option>32</option>
+						<option>33</option>
+						<option>34</option>
+						<option>35</option>
+						<option>36</option>
+						<option>37</option>
+						<option>38</option>
+						<option>39</option>
+						<option>40</option>
+						<option>41</option>
+						<option>42</option>
+						<option>43</option>
+						<option>44</option>
+						<option>45</option>
+						<option>46</option>
+						<option>47</option>
+						<option>48</option>
+						<option>49</option>
+						<option>50</option>
+						<option>51</option>
+						<option>52</option>
+						<option>53</option>
+						<option>54</option>
+						<option>55</option>
+						<option>56</option>
+						<option>57</option>
+						<option>58</option>
+						<option>59</option>
+						<option>60</option>
+						<option>61</option>
+						<option>62</option>
+						<option>63</option>
+						<option>64</option>
+						<option>65</option>
+					</select>
+					<div class="invalid-feedback">
+					Seleccione una edad.
+				  </div>
+				</div>
+				<div class="col-2">
+					<label for="PhoneNumber" class="col-form-label float-lg-right">Telefono</label>
+				</div>
+				<div class="col-4">
+					<input type="text" class="form-control" formControlName="PhoneNumber" id="PhoneNumber" minlength="6" required placeholder="Ingrese un telefono" pattern="[0-9]{6,20}">
+					<div class="invalid-feedback">
+					Ingrese un numero de telefono entre 6 y 20 digitos.
+				  </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Address" class="col-form-label float-lg-right" >Direccion</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" formControlName="Address" id="Address" placeholder="Ingrese una direccion">
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="ResidenceCity" class="col-form-label float-lg-right">Ciudad</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" formControlName="ResidenceCity" id="ResidenceCity"  minlength="2" required placeholder="Ingrese su ciudad" pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					<div class="invalid-feedback">
+					Ingrese su ciudad de residencia. Minimo 2 caracteres.
+				  </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="OriginCountry" class="col-form-label float-lg-right">Pais de residencia</label>
+				</div>
+				<div class="col-8">
+					<select size="1" class="form-control" formControlName="OriginCountry" id="OriginCountry" required>
 						<option selected disabled value="">Seleccione</option>
 						<option>Colombia</option><option>Estados Unidos</option>
 					</select>
@@ -41,102 +181,50 @@
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Inicio" class="col-form-label float-lg-right">Inicio</label>
-				</div>
-				<div class="col-4">
-					<select size="1" class="form-control" id="Inicio" required>
-						<option selected disabled value="">Seleccione</option>
-						<option>	Enero	</option>
-						<option>	febrero	</option>
-						<option>	marzo	</option>
-						<option>	abril	</option>
-						<option>	mayo	</option>
-						<option>	junio	</option>
-						<option>	julio	</option>
-						<option>	agosto	</option>
-						<option>	septiembre	</option>
-						<option>	octubre	</option>
-						<option>	noviembre	</option>
-						<option>	diciembre	</option>
-
-					</select>
-					<div class="invalid-feedback">
-					Seleccione un mes.
-				  </div>
-				</div>
-				<div class="col-4">
-					<select size="1" class="form-control" id="Anio1" required>
-						<option selected disabled value="">Seleccione</option>
-						<option>2010</option><option>2011</option>
-					</select>
-					<div class="invalid-feedback">
-					Seleccione un Año.
-				  </div>
-				</div>
-			</div>
-			<div class="row mt-2 align-items-center text-center">
-				<div class="col-3">
-					<label for="Fin" class="col-form-label float-lg-right">Fin</label>
-				</div>
-				<div class="col-4">
-					<select size="1" class="form-control" id="Fin" required>
-						<option selected disabled value="">Seleccione</option>
-						<option>	Enero	</option>
-						<option>	febrero	</option>
-						<option>	marzo	</option>
-						<option>	abril	</option>
-						<option>	mayo	</option>
-						<option>	junio	</option>
-						<option>	julio	</option>
-						<option>	agosto	</option>
-						<option>	septiembre	</option>
-						<option>	octubre	</option>
-						<option>	noviembre	</option>
-						<option>	diciembre	</option>
-					</select>
-				</div>
-				<div class="col-4">
-					<select size="1" class="form-control" id="Anio2" required>
-						<option selected disabled value="">Seleccione</option>
-						<option>2012</option>
-						<option>2013</option>
-					</select>
-					<div class="invalid-feedback">
-							Seleccione un Año.
-						  </div>
-				</div>
-			</div>
-			<div class="row mt-2 align-items-center text-center">
-				<div class="col-3">
-					<label for="" class="col-form-label float-lg-right"></label>
+					<label for="ResidenceCountry" class="col-form-label float-lg-right">Pais de origen</label>
 				</div>
 				<div class="col-8">
-					<input class="form-check-input" type="checkbox" id="encurso"> 
+					<select size="1" class="form-control" formControlName="ResidenceCountry" id="ResidenceCountry" required>
+						<option selected disabled value="">Seleccione</option>
+						<option>Colombia</option><option>Estados Unidos</option>
+					</select>
+					<div class="invalid-feedback">
+					Seleccione un país.
+				  </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Photo" class="col-form-label float-lg-right">Foto</label>
+				</div>
+					<div class="card">
+						<img  id="Photo" width="15%" height="15%" src="../../../assets/images/user.png" alt="Card image cap">
+                                               
+					 </div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Policy" class="col-form-label float-lg-right">Politica</label>
+				</div>
+				<div class="col-8">
+					<input class="form-check-input" type="checkbox" formControlName="Policy" id="Policy" required> 
 						<label class="form-check-label" for="flexCheckDefault">
-						En Curso
+						Acepta la politica de Datos
 					  </label>
-				</div>
-			</div>
-		  <div class="row mt-2 align-items-center text-center">
-				<div class="col-3">
-					<label for="Direccion" class="col-form-label float-lg-right" >Descripción</label>
-			  </div>
-				<div class="col-8">
-					<textarea class="form-control" id="Descripcion" rows="3" minlength="30" required placeholder="Ingrese el detalle del titulo"></textarea>
 					<div class="invalid-feedback">
-							El detalle del titulo debe ser mayor a 30 caracteres.
-						  </div>
+					Debe aceptar la politica de datos
+				  </div>
 				</div>
 			</div>
 			<div class="row mt-2 align-items-center ">
 				<div class="col-5 text-right">
-					<button type="submit" class="btn btn-primary">Aceptar</button>
+                                    <button type="submit" class="btn btn-primary" onmouseover="checkForm()" onfocus="checkForm()">Aceptar</button>
 				</div>
 				<div class="col-1">
 					
 				</div>
 				<div class="col-5 text-left">
-					<button type="reset" class="btn btn-danger">Cancelar</button>
+                                    <button type="reset" class="btn btn-danger" >Cancelar</button>
 				</div>
 			</div>
 		</form>
@@ -145,4 +233,5 @@
 	<br>
 	<br>
 	<br>
-    
+       
+        
