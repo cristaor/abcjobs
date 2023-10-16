@@ -2,13 +2,13 @@
 
 <h2 class="text-center">Información Acádemica</h2>
     <div class="container text-center">
-		<form class="needs-validation" action="academic_es.html" novalidate>
+		<form class="needs-validation" [formGroup]="candidateAcademicForm" (ngSubmit)="createAcademicInfo(candidateAcademicForm.value)" novalidate>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Titulo" class="col-form-label float-lg-right">Titulo</label>
+					<label for="title" class="col-form-label float-lg-right">Titulo</label>
 				</div>
 				<div class="col-8">
-					<input type="text" class="form-control" id="Titulo" minlength="5" required placeholder="Ingrese el nombre del titulo">
+					<input type="text" class="form-control" formControlName="title" id="title" minlength="5" required placeholder="Ingrese el nombre del titulo">
 					<div class="invalid-feedback">
 					Ingrese una titulo mayor a 6 caracteres.
 				  </div>
@@ -19,7 +19,7 @@
 					<label for="Institucion" class="col-form-label float-lg-right">Institución</label>
 				</div>
 				<div class="col-8">
-					<input type="text" class="form-control" id="Institucion" minlength="5" required placeholder="Ingrese el nombre de la institucion">
+					<input type="text" class="form-control" formControlName="institution" id="institution" minlength="5" required placeholder="Ingrese el nombre de la institucion">
 					<div class="invalid-feedback">
 					Ingrese un nombre mayor a 5 caracteres.
 				  </div>
@@ -30,7 +30,7 @@
 					<label for="Pais_residencia" class="col-form-label float-lg-right">Pais</label>
 				</div>
 				<div class="col-8">
-					<select size="1" class="form-control" id="Pais_residencia" required>
+					<select size="1" class="form-control" formControlName="country" id="country" required>
 						<option selected disabled value="">Seleccione</option>
 						<option>Colombia</option><option>Estados Unidos</option>
 					</select>
@@ -44,20 +44,20 @@
 					<label for="Inicio" class="col-form-label float-lg-right">Inicio</label>
 				</div>
 				<div class="col-4">
-					<select size="1" class="form-control" id="Inicio" required>
+					<select size="1" class="form-control" formControlName="start_date_month" id="start_date_month" required>
 						<option selected disabled value="">Seleccione</option>
-						<option>	Enero	</option>
-						<option>	febrero	</option>
-						<option>	marzo	</option>
-						<option>	abril	</option>
-						<option>	mayo	</option>
-						<option>	junio	</option>
-						<option>	julio	</option>
-						<option>	agosto	</option>
-						<option>	septiembre	</option>
-						<option>	octubre	</option>
-						<option>	noviembre	</option>
-						<option>	diciembre	</option>
+						<option value="01">	Enero	</option>
+						<option value="02">	febrero	</option>
+						<option value="03">	marzo	</option>
+						<option value="04">	abril	</option>
+						<option value="05">	mayo	</option>
+						<option value="06">	junio	</option>
+						<option value="07">	julio	</option>
+						<option value="08">	agosto	</option>
+						<option value="09">	septiembre	</option>
+						<option value="10">	octubre	</option>
+						<option value="11">	noviembre	</option>
+						<option value="12">	diciembre	</option>
 
 					</select>
 					<div class="invalid-feedback">
@@ -65,7 +65,7 @@
 				  </div>
 				</div>
 				<div class="col-4">
-					<select size="1" class="form-control" id="Anio1" required>
+					<select size="1" class="form-control" formControlName="start_date_year" id="start_date_year" required>
 						<option selected disabled value="">Seleccione</option>
 						<option>2010</option><option>2011</option>
 					</select>
@@ -79,24 +79,24 @@
 					<label for="Fin" class="col-form-label float-lg-right">Fin</label>
 				</div>
 				<div class="col-4">
-					<select size="1" class="form-control" id="Fin" required>
+					<select size="1" class="form-control" formControlName="end_date_month" id="end_date_month" required>
 						<option selected disabled value="">Seleccione</option>
-						<option>	Enero	</option>
-						<option>	febrero	</option>
-						<option>	marzo	</option>
-						<option>	abril	</option>
-						<option>	mayo	</option>
-						<option>	junio	</option>
-						<option>	julio	</option>
-						<option>	agosto	</option>
-						<option>	septiembre	</option>
-						<option>	octubre	</option>
-						<option>	noviembre	</option>
-						<option>	diciembre	</option>
+						<option value="01">	Enero	</option>
+						<option value="02">	febrero	</option>
+						<option value="03">	marzo	</option>
+						<option value="04">	abril	</option>
+						<option value="05">	mayo	</option>
+						<option value="06">	junio	</option>
+						<option value="07">	julio	</option>
+						<option value="08">	agosto	</option>
+						<option value="09">	septiembre	</option>
+						<option value="10">	octubre	</option>
+						<option value="11">	noviembre	</option>
+						<option value="12">	diciembre	</option>
 					</select>
 				</div>
 				<div class="col-4">
-					<select size="1" class="form-control" id="Anio2" required>
+					<select size="1" class="form-control" formControlName="end_date_year" id="end_date_year" required>
 						<option selected disabled value="">Seleccione</option>
 						<option>2012</option>
 						<option>2013</option>
@@ -111,7 +111,7 @@
 					<label for="" class="col-form-label float-lg-right"></label>
 				</div>
 				<div class="col-8">
-					<input class="form-check-input" type="checkbox" id="encurso"> 
+					<input class="form-check-input" type="checkbox" formControlName="current" id="current"> 
 						<label class="form-check-label" for="flexCheckDefault">
 						En Curso
 					  </label>
@@ -122,7 +122,7 @@
 					<label for="Direccion" class="col-form-label float-lg-right" >Descripción</label>
 			  </div>
 				<div class="col-8">
-					<textarea class="form-control" id="Descripcion" rows="3" minlength="30" required placeholder="Ingrese el detalle del titulo"></textarea>
+					<textarea class="form-control" formControlName="description" id="description" rows="3" minlength="30" required placeholder="Ingrese el detalle del titulo"></textarea>
 					<div class="invalid-feedback">
 							El detalle del titulo debe ser mayor a 30 caracteres.
 						  </div>

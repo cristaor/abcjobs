@@ -48,3 +48,38 @@ export class Candidate {
         this.address=address;
     }
 }
+
+
+export class CandidateAcademicInfo {
+    title: string;
+    institution: string;
+    country: string;
+    start_date_month: string;
+    start_date_year: string;
+    end_date_month: string;
+    end_date_year: string;
+    current: string;
+    description: string;
+    
+    constructor(
+        title: string,
+        institution: string,
+        country: string,
+        start_date_month: string,
+        start_date_year: string,
+        end_date_month: string,
+        end_date_year: string,
+        current: string,
+        description: string,
+    ) {
+       this.title=title;
+        this.institution=institution;
+        this.country=country;
+        this.start_date_month=start_date_month;
+        this.start_date_year=start_date_year;
+        this.end_date_month=end_date_month;
+        this.end_date_year=end_date_year;
+        this.current=current;
+        this.description=description;
+    }
+}
