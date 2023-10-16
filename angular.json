@@ -26,6 +26,7 @@
             ],
             "styles": [
               "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/assets/css/bootstrap-4.4.1.css"
             ],
             "scripts": [
@@ -160,6 +161,7 @@
     "schematicCollections": [
       "@cypress/schematic",
       "@schematics/angular"
-    ]
+    ],
+    "analytics": "f95132c5-6686-4f79-aca4-21ccc5a9551d"
   }
 }

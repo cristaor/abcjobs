@@ -1,1 +1,91 @@
-<p>client-login works!</p>
+   <client-header/>
+	  <br>
+	  <br>
+	  <h2 class="text-center">Bienvenido a  ABC Jobs&nbsp;</h2>
+	<div class="container text-center float-lg-none">
+		<hr >
+		<div class="row mt-20 font-weight-bold text-center"><font color="#729FCF">Ingrese su usuario y clave</font></div>
+
+	  </div>
+    <div class="container text-center">
+		<form  [formGroup]="loginForm" class="needs-validation"  (ngSubmit)="!loginForm.invalid && login(loginForm.value)">
+			<div class="row mt-3 align-items-center text-center">
+				<div class="col-4">
+					<label for="user" class="col-form-label float-lg-right">Usuario</label>
+				</div>
+				<div class="col-5 input-group has-validation">
+					<input type="text" class="form-control" formControlName="user" id="user" aria-describedby="emailHelp" placeholder="Usuario" novalidate>
+				</div>
+        <div class="col-4"></div>
+        <div  class="col-5"
+
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="loginForm.get('user')!.hasError('required') && loginForm.get('user')!.touched"
+        >
+          El usuario es requerido
+        </div>
+			</div>
+			<div class="row mt-3 align-items-center text-center">
+				<div class="col-4">
+					<label for="password" class="col-form-label float-lg-right">Clave</label>
+				</div>
+				<div class="col-5">
+					<input type="password" formControlName="password" class="form-control" id="password" placeholder="Clave" minlength="6" required>
+				</div>
+        <div class="col-4"></div>
+        <div  class="col-5"
+
+          class="alert alert-danger alert-dismissible fade show"
+          *ngIf="loginForm.get('password')!.hasError('required') && loginForm.get('password')!.touched"
+        >
+        Ingrese una clave mayor a 6 caracteres.
+        </div>
+			</div>
+
+		<div class="row mt-3 align-items-center ">
+				<div class="col-4 text-right">
+					<!--<a href="index_es.html"> -->
+					<button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">Aceptar</button>
+					<!--</a>-->
+				</div>
+				<div class="col-1">
+
+				</div>
+				<div class="col-4 text-left">
+					<button type="reset" class="btn btn-danger">Cancelar</button>
+				</div>
+			</div>
+		  <div class="row mt-5 align-items-center ">
+				<div class="col-5">
+						<label class="col-form-label float-lg-right">¿No tiene usuario?</label>
+					</div>
+					<div class="col-6 text-left">
+						<a href="index_es.html" class="nav-link">Registrese</a>
+					</div>
+
+				</div>
+		  <div class="row mt-3 align-items-center ">
+				<div class="col-5">
+						<label for="Clave" class="col-form-label float-lg-right">¿Olvido sus credenciales?</label>
+					</div>
+					<div class="col-6 text-left">
+						<a href="#" class="nav-link">Recordarme</a>
+					</div>
+
+				</div>
+	  </form>
+
+
+    </div>
+	<br>
+	<br>
+	<br>
+	<footer class="fixed-bottom">
+    <div class="container-fluid bg-blueABC">
+       <div class="row">
+          <div class="text-center col-lg-20">
+			  <br>
+          </div>
+       </div>
+    </div>
+	</footer>

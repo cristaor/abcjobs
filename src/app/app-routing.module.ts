@@ -23,7 +23,7 @@ const routes: Routes = [
   },
 {
     path: 'login-candidate',
-    component: CandidateLoginComponent,
+    component: ClientLoginComponent,
     pathMatch: 'full'
   },
 {
@@ -35,12 +35,12 @@ const routes: Routes = [
     path: 'login-recruiter',
     component: RecruiterLoginComponent,
     pathMatch: 'full'
-  }, 
+  },
   {
     path: 'basic-candidate',
     component: CandidateBasicComponent,
     pathMatch: 'full'
-  },  
+  },
   {
     path: 'academic-candidate',
     component: CandidateAcademicComponent,

@@ -6,7 +6,8 @@ import { ClientCreateProjectComponent } from './client-create-project/client-cre
 import { ClientSearchComponent } from './client-search/client-search.component';
 import { ClientEvaluateComponent } from './client-evaluate/client-evaluate.component';
 import { ClientInterviewsComponent } from './client-interviews/client-interviews.component';
-
+import {HeaderClientModule} from '../header-client/header-client.module'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,10 +17,13 @@ import { ClientInterviewsComponent } from './client-interviews/client-interviews
     ClientCreateProjectComponent,
     ClientSearchComponent,
     ClientEvaluateComponent,
-    ClientInterviewsComponent
+    ClientInterviewsComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HeaderClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ClientModule { }
