@@ -1,4 +1,4 @@
-const backBaseUrl = 'https://sandbox-g8-eporra-back.herokuapp.com';
+const backBaseUrl = 'https://backend-test-dw7pbvtayq-uc.a.run.app';
 
 export const environment = {
   production: true,
