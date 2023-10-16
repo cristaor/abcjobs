@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 
-import { environment } from 'src/enviroments/environment';
+import { environment } from 'src/environments/environment';
 import { Observable,of,map,catchError } from 'rxjs';
 
 import {ClientLogin,ClientLoginResponse, UserAuthenticated, MyselfResponse} from 'src/app/client/client-login';
@@ -14,7 +14,7 @@ export class ClientLoginService {
 constructor(private http: HttpClient) { }
 
 login(client_login: ClientLogin): Observable<boolean> {
-  let url = environment.urlService +'user/login';
+  let url = environment.backBaseUrl +'user/login';
   let result = this.http.post<ClientLoginResponse>(url,client_login);
   console.info(result);
   return result
