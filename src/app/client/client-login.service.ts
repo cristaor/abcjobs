@@ -14,7 +14,7 @@ export class ClientLoginService {
 constructor(private http: HttpClient) { }
 
 login(client_login: ClientLogin): Observable<boolean> {
-  let url = environment.backBaseUrl +'user/login';
+  let url = environment.backBaseUrl +'/user/login';
   let result = this.http.post<ClientLoginResponse>(url,client_login);
   console.info(result);
   return result
@@ -31,7 +31,7 @@ login(client_login: ClientLogin): Observable<boolean> {
 }
 
 who_i_am(): Observable<UserAuthenticated> {
-  let url = environment.backBaseUrl +'user/myself';
+  let url = environment.backBaseUrl +'/user/myself';
   let token = localStorage.getItem("token");
   if (token === undefined){
     return of(new UserAuthenticated(false,"","",new Map(),""));
