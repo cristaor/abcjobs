@@ -1,1 +1,1 @@
-declare var myObj:any;
+//declare var myObj:any;

@@ -9,7 +9,7 @@ import { CandidateService } from '../candidate.service';
   styleUrls: ['./candidate-login.component.css']
 })
 export class CandidateLoginComponent implements OnInit {
-         constructor(  private routerPath: Router, private router: Router, private candidateService: CandidateService,
+         constructor(  private routerPath: Router, private router: Router
   ) { }
   
   ngOnInit() {

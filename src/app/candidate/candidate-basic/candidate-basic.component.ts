@@ -15,6 +15,8 @@ export class CandidateBasicComponent implements OnInit{
 
     candidateBasicForm!: FormGroup;
 
+    newCandidate!: Candidate;
+
     constructor(
         private candidateService: CandidateService,
         private formBuilder: FormBuilder,
@@ -52,6 +54,10 @@ export class CandidateBasicComponent implements OnInit{
     cancelCreation():void{this.candidateBasicForm.reset();this.routerPath.navigate([`/login-candidate`])}
     
     createCandidate(newCandidate: Candidate) {
+        newCandidate.username=this.candidateBasicForm.get('Username')?.value;
+        newCandidate.username=this.candidateBasicForm.get('Password')?.value;
+        
+        
         console.log(`${this.candidateBasicForm.get('Username')?.value}-
 ${this.candidateBasicForm.get('Password')?.value}-
 ${this.candidateBasicForm.get('Document')?.value}-
