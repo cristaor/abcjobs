@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ClientLoginService } from "../client-login.service";
 import {ClientLogin} from 'src/app/client/client-login';
 import { ToastrService } from 'ngx-toastr';
+import {Router} from "@angular/router"
+
 @Component({
   selector: 'app-client-login',
   templateUrl: './client-login.component.html',
@@ -22,24 +24,28 @@ export class ClientLoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private clientLoginService:ClientLoginService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   login(value:any) {
-    // Process checkout data here
+
     this.clientLoginService.login(new ClientLogin(value.user,value.password)).subscribe(result =>{
-
-      //
-
+      console.info(result)
+      if (!result){
+        this.toastr.error("Credenciales invalidas","Error" );
+        return;
+      }
       this.clientLoginService.who_i_am().subscribe(res =>{
         console.warn(res);
         if(res.is_authenticated){
-          this.toastr.success("Confirmation", "Login success");
+          this.toastr.success("Login success","Confirmation" );
+          this.router.navigate(['/'])
+        }else{
+          this.toastr.error("Credenciales invalidas","Error");
         }
-
       });
     });
-
     this.loginForm.reset();
   }
 }
