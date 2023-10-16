@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HeaderCandidateModule } from './header-candidate/header-candidate.module';
@@ -21,19 +23,19 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     HeaderCandidateModule,
     HeaderClientModule,
     HeaderRecruiterModule,
     CandidateModule,
     ClientModule,
     RecruiterModule,
-    HttpClientModule,
     ToastrModule.forRoot({
-      timeOut: 10000,
+      timeOut: 7000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
-
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderCandidateModule } from '../header-candidate/header-candidate.module';
 import { CandidateLoginComponent } from './candidate-login/candidate-login.component';
 import { CandidateBasicComponent } from './candidate-basic/candidate-basic.component';
@@ -24,7 +24,7 @@ import { CandidateInterviewsComponent } from './candidate-interviews/candidate-i
     CandidateInterviewsComponent
   ],
   imports: [
-    CommonModule, HeaderCandidateModule
+    CommonModule, HeaderCandidateModule ,ReactiveFormsModule, FormsModule
   ],
   exports: [CandidateLoginComponent,
     CandidateBasicComponent,
