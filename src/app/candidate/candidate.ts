@@ -82,4 +82,15 @@ export class CandidateAcademicInfo {
         this.current=current;
         this.description=description;
     }
+
+    isValid():boolean{
+        
+        return this.title !== "" 
+        && this.institution !== ""
+        && this.country !== ""
+        && this.start_date_month !== ""
+        && this.start_date_year !== ""
+        && this.end_date_month !== ""
+        && this.description !== ""
+    }
 }

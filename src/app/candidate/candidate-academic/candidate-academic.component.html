@@ -2,14 +2,14 @@
 
 <h2 class="text-center">Información Acádemica</h2>
     <div class="container text-center">
-		<form class="needs-validation" [formGroup]="candidateAcademicForm" (ngSubmit)="createAcademicInfo(candidateAcademicForm.value)" novalidate>
+		<form class="needs-validation" [formGroup]="candidateAcademicForm" (ngSubmit)="createAcademicInfo(candidateAcademicForm.value)" id="addAcademicoInfo" novalidate>
 			<div class="row mt-2 align-items-center text-center">
-				<div class="col-3">
+				<div class="col-3 float-lg-right">
 					<label for="title" class="col-form-label float-lg-right">Titulo</label>
 				</div>
-				<div class="col-8">
-					<input type="text" class="form-control" formControlName="title" id="title" minlength="5" required placeholder="Ingrese el nombre del titulo">
-					<div class="invalid-feedback">
+				<div class="col-8 input-group has-validation">
+					<input type="text" class="form-control" formControlName="title" id="title" required placeholder="Ingrese el nombre del titulo">
+					<div *ngIf="candidateAcademicForm.get('title')?.hasError('required') && candidateAcademicForm.get('title')?.touched" class="invalid-feedback">
 					Ingrese una titulo mayor a 6 caracteres.
 				  </div>
 				</div>
@@ -32,7 +32,8 @@
 				<div class="col-8">
 					<select size="1" class="form-control" formControlName="country" id="country" required>
 						<option selected disabled value="">Seleccione</option>
-						<option>Colombia</option><option>Estados Unidos</option>
+						<option value="CO">Colombia</option>
+						<option value="US">Estados Unidos</option>
 					</select>
 					<div class="invalid-feedback">
 					Seleccione un país.
@@ -47,17 +48,17 @@
 					<select size="1" class="form-control" formControlName="start_date_month" id="start_date_month" required>
 						<option selected disabled value="">Seleccione</option>
 						<option value="01">	Enero	</option>
-						<option value="02">	febrero	</option>
-						<option value="03">	marzo	</option>
-						<option value="04">	abril	</option>
-						<option value="05">	mayo	</option>
-						<option value="06">	junio	</option>
-						<option value="07">	julio	</option>
-						<option value="08">	agosto	</option>
-						<option value="09">	septiembre	</option>
-						<option value="10">	octubre	</option>
-						<option value="11">	noviembre	</option>
-						<option value="12">	diciembre	</option>
+						<option value="02">	Febrero	</option>
+						<option value="03">	Marzo	</option>
+						<option value="04">	Abril	</option>
+						<option value="05">	Mayo	</option>
+						<option value="06">	Junio	</option>
+						<option value="07">	Julio	</option>
+						<option value="08">	Agosto	</option>
+						<option value="09">	Septiembre	</option>
+						<option value="10"> Octubre	</option>
+						<option value="11">	Noviembre	</option>
+						<option value="12">	Diciembre	</option>
 
 					</select>
 					<div class="invalid-feedback">
@@ -67,7 +68,14 @@
 				<div class="col-4">
 					<select size="1" class="form-control" formControlName="start_date_year" id="start_date_year" required>
 						<option selected disabled value="">Seleccione</option>
-						<option>2010</option><option>2011</option>
+						<option>2010</option>
+						<option>2011</option>
+						<option>2012</option>
+						<option>2013</option>
+						<option>2014</option>
+						<option>2015</option>
+						<option>2016</option>
+						<option>2017</option>
 					</select>
 					<div class="invalid-feedback">
 					Seleccione un Año.
@@ -82,24 +90,33 @@
 					<select size="1" class="form-control" formControlName="end_date_month" id="end_date_month" required>
 						<option selected disabled value="">Seleccione</option>
 						<option value="01">	Enero	</option>
-						<option value="02">	febrero	</option>
-						<option value="03">	marzo	</option>
-						<option value="04">	abril	</option>
-						<option value="05">	mayo	</option>
-						<option value="06">	junio	</option>
-						<option value="07">	julio	</option>
-						<option value="08">	agosto	</option>
-						<option value="09">	septiembre	</option>
-						<option value="10">	octubre	</option>
-						<option value="11">	noviembre	</option>
-						<option value="12">	diciembre	</option>
+						<option value="02">	Febrero	</option>
+						<option value="03">	Marzo	</option>
+						<option value="04">	Abril	</option>
+						<option value="05">	Mayo	</option>
+						<option value="06">	Junio	</option>
+						<option value="07">	Julio	</option>
+						<option value="08">	Agosto	</option>
+						<option value="09">	Septiembre	</option>
+						<option value="10"> Octubre	</option>
+						<option value="11">	Noviembre	</option>
+						<option value="12">	Diciembre	</option>
 					</select>
+					<div class="invalid-feedback">
+						Seleccione un mes.
+					  </div>
 				</div>
 				<div class="col-4">
 					<select size="1" class="form-control" formControlName="end_date_year" id="end_date_year" required>
 						<option selected disabled value="">Seleccione</option>
+						<option>2010</option>
+						<option>2011</option>
 						<option>2012</option>
 						<option>2013</option>
+						<option>2014</option>
+						<option>2015</option>
+						<option>2016</option>
+						<option>2017</option>
 					</select>
 					<div class="invalid-feedback">
 							Seleccione un Año.
@@ -130,7 +147,7 @@
 			</div>
 			<div class="row mt-2 align-items-center ">
 				<div class="col-5 text-right">
-					<button type="submit" class="btn btn-primary">Aceptar</button>
+					<button type="submit" onmouseover="checkForm()" onfocus="checkForm()" class="btn btn-primary">Aceptar</button>
 				</div>
 				<div class="col-1">
 					
