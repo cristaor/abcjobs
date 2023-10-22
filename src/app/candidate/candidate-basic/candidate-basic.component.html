@@ -2,7 +2,7 @@
 
 <h2 class="text-center">Datos Básicos</h2>
     <div class="container text-center">
-		<form class="needs-validation" [formGroup]="candidateBasicForm" (ngSubmit)="createCandidate(candidateBasicForm.value)" id="createCandidate" novalidate>
+		<form class="needs-validation" [formGroup]="candidateBasicForm" (ngSubmit)="createCandidate(candidateBasicForm.value)" id="createCandidate" novalidate #myForm="ngForm">
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3 float-lg-right">
 					<label for="Username" class="col-form-label float-lg-right">Usuario</label>
@@ -33,10 +33,10 @@
 				<div class="col-2">
 					<select formControlName="DocumentType" size="1" class="form-control"  id="DocumentType" required>
 						<option selected disabled value="">Seleccione</option>
-						<option>ID Nacional</option>
-						<option>Pasaporte</option>
-						<option>Otro</option>
-                                        </select>
+						<option value="CC">Cédula de ciudadanía</option>
+						<option value="PASSPORT">Pasaporte</option>
+
+					</select>
 					 <div   class="invalid-feedback">
 					Seleccione un tipo de documento.
                                         </div>
@@ -156,6 +156,21 @@
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
+					<label for="OriginCountry" class="col-form-label float-lg-right">Pais de residencia</label>
+				</div>
+				<div class="col-8">
+					<select size="1" class="form-control" formControlName="OriginCountry" id="OriginCountry" required>
+						<option selected disabled value="">Seleccione</option>
+						<option value="CO">Colombia</option>
+						<option value="US">Estados Unidos</option>
+					</select>
+					<div class="invalid-feedback">
+					Seleccione un país.
+				  </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
 					<label for="ResidenceCity" class="col-form-label float-lg-right">Ciudad</label>
 				</div>
 				<div class="col-8">
@@ -165,20 +180,7 @@
 				  </div>
 				</div>
 			</div>
-			<div class="row mt-2 align-items-center text-center">
-				<div class="col-3">
-					<label for="OriginCountry" class="col-form-label float-lg-right">Pais de residencia</label>
-				</div>
-				<div class="col-8">
-					<select size="1" class="form-control" formControlName="OriginCountry" id="OriginCountry" required>
-						<option selected disabled value="">Seleccione</option>
-						<option>Colombia</option><option>Estados Unidos</option>
-					</select>
-					<div class="invalid-feedback">
-					Seleccione un país.
-				  </div>
-				</div>
-			</div>
+			
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
 					<label for="ResidenceCountry" class="col-form-label float-lg-right">Pais de origen</label>
@@ -186,7 +188,8 @@
 				<div class="col-8">
 					<select size="1" class="form-control" formControlName="ResidenceCountry" id="ResidenceCountry" required>
 						<option selected disabled value="">Seleccione</option>
-						<option>Colombia</option><option>Estados Unidos</option>
+						<option value="CO">Colombia</option>
+						<option value="US">Estados Unidos</option>
 					</select>
 					<div class="invalid-feedback">
 					Seleccione un país.
@@ -218,7 +221,7 @@
 			</div>
 			<div class="row mt-2 align-items-center ">
 				<div class="col-5 text-right">
-                                    <button type="submit" class="btn btn-primary" onmouseover="checkForm()" onfocus="checkForm()">Aceptar</button>
+					<button type="submit" class="btn btn-primary" onmouseover="checkForm()" onfocus="checkForm()">Aceptar</button>
 				</div>
 				<div class="col-1">
 					
