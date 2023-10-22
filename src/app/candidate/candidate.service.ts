@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Candidate, CandidateAcademicInfo } from './candidate';
+import { Candidate, CandidateAcademicInfo, CandidateTechnicalRoleInfo, CandidateTechnologyInfo } from './candidate';
 import { UserAuthenticated } from '../client/client-login';
 
 
@@ -12,7 +12,7 @@ import { UserAuthenticated } from '../client/client-login';
 export class CandidateService {
 
   MapperException: Record<string, string> = {
-    "ABC01": "El profesional al que se intenta crear el registro académico no existe",
+    "ABC01": "El profesional al que se intenta crear el registro no existe",
   }
 
   get_error_message(error_code: string){
@@ -51,5 +51,28 @@ export class CandidateService {
       "year_end_date": academic_info.end_date_year,
       "month_end_date": academic_info.end_date_month,
       "description": academic_info.description}, {headers: headers_s})
+    }
+
+    addTechnicalRoleInfo(technical_role: CandidateTechnicalRoleInfo, token: string): Observable<any> {
+
+      
+      let headers_s = new HttpHeaders().set('Authorization', token);
+      return this.http.post<any>(`${this.backUrl}/candidates/myself/technical_roles`, { 
+        "role": technical_role.name, 
+        "experience_years": technical_role.experience_years,
+        "description": technical_role.description
+      },{headers: headers_s})
+    }
+
+    addTechnologyInfo(technology_info: CandidateTechnologyInfo, token: string): Observable<any> {
+
+      
+      let headers_s = new HttpHeaders().set('Authorization', token);
+      return this.http.post<any>(`${this.backUrl}/candidates/myself/technologies`, { 
+        "name": technology_info.name, 
+        "experience_years": technology_info.experience_years,
+        "level": technology_info.level,
+        "description": technology_info.description
+      },{headers: headers_s})
     }
 }

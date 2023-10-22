@@ -94,3 +94,50 @@ export class CandidateAcademicInfo {
         && this.description !== ""
     }
 }
+
+export class CandidateTechnicalRoleInfo {
+    name: string;
+    experience_years: number;
+    description: string;
+    
+    constructor(
+        name: string,
+        experience_years: number,
+        description: string
+    ) {
+       this.name=name;
+        this.experience_years = experience_years;
+        this.description=description;
+    }
+
+    isValid():boolean{
+        
+        return this.name !== "" 
+        && this.description !== ""
+    }
+}
+
+export class CandidateTechnologyInfo {
+    name: string;
+    experience_years: number;
+    level: number;
+    description: string;
+
+    constructor(
+        name: string,
+        experience_years: number,
+        level: number,
+        description: string
+    ){
+        this.name=name;
+        this.experience_years = experience_years;
+        this.level = level;
+        this.description=description;
+    }
+
+    isValid():boolean{
+        
+        return this.name !== "" 
+        && this.description !== ""
+    }
+}
