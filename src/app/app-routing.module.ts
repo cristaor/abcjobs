@@ -8,7 +8,8 @@ import { CandidateInterviewsComponent } from './candidate/candidate-interviews/c
 import { CandidateLaboralComponent } from './candidate/candidate-laboral/candidate-laboral.component';
 import { CandidateLoginComponent } from './candidate/candidate-login/candidate-login.component';
 import { CandidateResultsComponent } from './candidate/candidate-results/candidate-results.component';
-import { CandidateTechnicalComponent } from './candidate/candidate-technical/candidate-technical.component';
+import { CandidateTechnicalRoleComponent } from './candidate/candidate-technical_role/candidate-technical_role.component';
+import { CandidateTechnologyComponent } from './candidate/candidate-technology/candidate-technology.component';
 import { CandidateTestComponent } from './candidate/candidate-test/candidate-test.component';
 
 import { ClientLoginComponent } from './client/client-login/client-login.component';
@@ -44,6 +45,16 @@ const routes: Routes = [
   {
     path: 'academic-candidate',
     component: CandidateAcademicComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'technical-role-candidate',
+    component: CandidateTechnicalRoleComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'technology-candidate',
+    component: CandidateTechnologyComponent,
     pathMatch: 'full'
   }
 ];
