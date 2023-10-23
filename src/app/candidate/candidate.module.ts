@@ -6,10 +6,12 @@ import { CandidateLoginComponent } from './candidate-login/candidate-login.compo
 import { CandidateBasicComponent } from './candidate-basic/candidate-basic.component';
 import { CandidateAcademicComponent } from './candidate-academic/candidate-academic.component';
 import { CandidateLaboralComponent } from './candidate-laboral/candidate-laboral.component';
-import { CandidateTechnicalComponent } from './candidate-technical/candidate-technical.component';
+import { CandidateTechnicalRoleComponent } from './candidate-technical_role/candidate-technical_role.component';
+import { CandidateTechnologyComponent } from './candidate-technology/candidate-technology.component';
 import { CandidateTestComponent } from './candidate-test/candidate-test.component';
 import { CandidateResultsComponent } from './candidate-results/candidate-results.component';
 import { CandidateInterviewsComponent } from './candidate-interviews/candidate-interviews.component';
+
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { CandidateInterviewsComponent } from './candidate-interviews/candidate-i
     CandidateBasicComponent,
     CandidateAcademicComponent,
     CandidateLaboralComponent,
-    CandidateTechnicalComponent,
+    CandidateTechnicalRoleComponent,
+    CandidateTechnologyComponent,
     CandidateTestComponent,
     CandidateResultsComponent,
     CandidateInterviewsComponent
@@ -30,7 +33,8 @@ import { CandidateInterviewsComponent } from './candidate-interviews/candidate-i
     CandidateBasicComponent,
     CandidateAcademicComponent,
     CandidateLaboralComponent,
-    CandidateTechnicalComponent,
+    CandidateTechnicalRoleComponent,
+    CandidateTechnologyComponent,
     CandidateTestComponent,
     CandidateResultsComponent,
     CandidateInterviewsComponent

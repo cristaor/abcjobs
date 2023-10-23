@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CandidateTechnicalComponent } from './candidate-technical.component';
+import { CandidateTechnologyComponent } from './candidate-technology.component';
 
 describe('CandidateTechnicalComponent', () => {
-  let component: CandidateTechnicalComponent;
-  let fixture: ComponentFixture<CandidateTechnicalComponent>;
+  let component: CandidateTechnologyComponent;
+  let fixture: ComponentFixture<CandidateTechnologyComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CandidateTechnicalComponent]
+      declarations: [CandidateTechnologyComponent]
     });
-    fixture = TestBed.createComponent(CandidateTechnicalComponent);
+    fixture = TestBed.createComponent(CandidateTechnologyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
