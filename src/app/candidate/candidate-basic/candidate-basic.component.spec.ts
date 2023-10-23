@@ -21,7 +21,7 @@ describe('CandidateBasicComponent', () => {
   let debug: DebugElement;
   let candidateService: jasmine.SpyObj<CandidateService>;
   let newCandidate: Candidate;
-  
+
   const Username='pperez@aol.co';
   const Password= 'Pe123..';
   const Document= '38246929';
@@ -35,8 +35,8 @@ describe('CandidateBasicComponent', () => {
   const ResidenceCity= 'Lima';
   const Address= 'Av Mraflores 123';
   const Policy= true;
-  
-  
+
+
         const setup = async (
           candidateServiceReturnValues?: jasmine.SpyObjMethodNames<CandidateService>,
         ) => {
@@ -45,16 +45,16 @@ describe('CandidateBasicComponent', () => {
             candidateCreate: of({ status: 200, statusText: 'Candidate Created' })
           }
           );
-        
+
         await TestBed.configureTestingModule({
             imports:[RouterTestingModule,ReactiveFormsModule, ToastrModule.forRoot(), HttpClientModule, BrowserAnimationsModule],
-            declarations: [CandidateBasicComponent,HeaderCandidateComponent],
+            declarations: [CandidateBasicComponent, HeaderCandidateComponent],
             providers:[
                   {provide: CandidateService, userValue: CandidateService}
                 ]
         }).compileComponents();
-    
- 
+
+
         fixture = TestBed.createComponent(CandidateBasicComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
@@ -81,7 +81,7 @@ describe('CandidateBasicComponent', () => {
   it('should create', () => {
     //expect(component).toBeTruthy();
   });
-  
+
   it('Debe tener un campo de nombre de usuario', fakeAsync(async () => {
       await setup();
    //expect(debug.query(By.css('div')).attributes['class']).toEqual('card-body');
@@ -89,7 +89,7 @@ describe('CandidateBasicComponent', () => {
     const element = fixture.debugElement.query(By.css("input[id='Username']")).attributes['formControlName'];
     expect(element).toEqual('Username');
      }));
-  
+
   it('submits the form successfully', fakeAsync(async () => {
     await setup();
 
@@ -99,13 +99,13 @@ describe('CandidateBasicComponent', () => {
     tick(2000);
     let button = fixture.debugElement.query(By.css("button[type='submit']"));
     button.triggerEventHandler('submit', {});
-    
+
    //component.createCandidate(newCandidate);
     fixture.detectChanges();
     //expect(candidateService.candidateCreate).toHaveBeenCalledWith(Username,Password,Document,DocumentType,FirstName,LastName,PhoneNumber,Age,OriginCountry,ResidenceCountry,ResidenceCity,Address);
    }));
-   
-  
-    
-    
+
+
+
+
 });
