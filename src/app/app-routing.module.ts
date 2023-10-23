@@ -12,6 +12,7 @@ import { CandidateTechnicalComponent } from './candidate/candidate-technical/can
 import { CandidateTestComponent } from './candidate/candidate-test/candidate-test.component';
 
 import { ClientLoginComponent } from './client/client-login/client-login.component';
+import { ClientDataComponent } from './client/client-data/client-data.component';
 
 import { RecruiterLoginComponent } from './recruiter/recruiter-login/recruiter-login.component';
 
@@ -45,7 +46,12 @@ const routes: Routes = [
     path: 'academic-candidate',
     component: CandidateAcademicComponent,
     pathMatch: 'full'
-  }
+  },
+  {
+    path: 'basic-client',
+    component: ClientDataComponent,
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
