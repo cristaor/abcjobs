@@ -25,7 +25,7 @@ const routes: Routes = [
   },
 {
     path: 'login-candidate',
-    component: ClientLoginComponent,
+    component: CandidateLoginComponent,
     pathMatch: 'full'
   },
 {
