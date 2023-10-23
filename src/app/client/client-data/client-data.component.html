@@ -1,1 +1,210 @@
-<p>client-data works!</p>
+<client-header></client-header>
+
+<h2 class="text-center">Datos Básicos</h2>
+    <div class="container text-center">
+		<form class="needs-validation" [formGroup]="clientDataForm" (ngSubmit)="createClient(clientDataForm.value)" id="createClient" novalidate #myForm="ngForm">
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3 float-lg-right">
+					<label for="Username" class="col-form-label float-lg-right">Usuario</label>
+				</div>
+				<div class="col-8 input-group has-validation">
+					<input type="email" class="form-control" formControlName="Username" id="Username" aria-describedby="emailHelp" required placeholder="Usuario@mail.com">
+					<div *ngIf="clientDataForm.get('Username')?.hasError('required') && clientDataForm.get('Username')?.touched" class="invalid-feedback">
+					Ingrese un nombre de usuario, en formato de email. 
+                                         </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center form-group">
+				<div class="col-3">
+					<label for="Password" class="col-form-label float-lg-right">Clave</label>
+				</div>
+				<div class="col-2">
+					<input type="password" class="form-control" formControlName="Password" id="Password"  minlength="6" required placeholder="Clave" pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+					 <div   class="invalid-feedback">
+					Clave mayor a 6 caracteres.Debe incluir una Mayuscula una minuscula, numero y caracter especial
+                                        </div>
+				</div>
+				
+				<div class="col-2">
+					<label for="TaxPayerId" class="col-form-label float-lg-right" >Numero Tributario</label>
+				</div>
+				<div class="col-4">
+					<input type="text" class="form-control" formControlName="TaxPayerId" id="TaxPayerId" minlength="6" required placeholder="Ingrese Numero Tributario" pattern="[0-9]{6,30}">
+					<div class="invalid-feedback">
+					Ingrese un apellido mayor a 2 caracteres.
+				  </div>
+				</div>
+			</div>
+                        <div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Name" class="col-form-label float-lg-right">Nombre Organizacion</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" minlength="2" formControlName="Name" id="Name" required placeholder="Ingrese nombre Organizacion"  pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					<div class="invalid-feedback">
+					Ingrese un nombre mayor a 2 caracteres.
+				  </div>
+				</div>
+			</div>
+                        <div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Years" class="col-form-label float-lg-right">Antiguedad</label>
+				</div>
+				<div class="col-2">
+					<input type="number" class="form-control" formControlName="Years" id="Years" minlength="6" required placeholder="0" pattern="[0-9]{1,3}">
+						
+					<div class="invalid-feedback">
+					Ingrese un número.
+				  </div>
+				</div>
+				<div class="col-2">
+					<label for="PhoneNumber" class="col-form-label float-lg-right">Telefono</label>
+				</div>
+				<div class="col-4">
+					<input type="text" class="form-control" formControlName="PhoneNumber" id="PhoneNumber" minlength="6" required placeholder="Ingrese un telefono" pattern="[0-9]{6,20}">
+					<div class="invalid-feedback">
+					Ingrese un numero de telefono entre 6 y 20 digitos.
+				  </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Address" class="col-form-label float-lg-right" >Direccion</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" formControlName="Address" id="Address" placeholder="Ingrese una direccion">
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="City" class="col-form-label float-lg-right">Ciudad</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" formControlName="City" id="City"  minlength="2" required placeholder="Ingrese la ciudad de la sede" pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					<div class="invalid-feedback">
+					Ingrese la ciudad de ubicacion. Minimo 2 caracteres.
+				  </div>
+				</div>
+			</div>
+			
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Country" class="col-form-label float-lg-right">Pais</label>
+				</div>
+				<div class="col-8">
+					<select size="1" class="form-control" formControlName="Country" id="Country" required>
+						<option selected disabled value="">Seleccione</option>
+						<option value="CO">Colombia</option>
+						<option value="US">Estados Unidos</option>
+					</select>
+					<div class="invalid-feedback">
+					Seleccione un país.
+				  </div>
+				</div>
+			</div>
+                        <hr >
+                        <h5 class="text-center">Datos Contacto</h5>
+                        <div class="row mt-2 align-items-center text-center form-group">
+				<div class="col-3">
+					<label for="DocumentType" class="col-form-label float-lg-right">Tipo Documento</label>
+				</div>
+				<div class="col-2">
+					<select formControlName="DocumentType" size="1" class="form-control"  id="DocumentType" required>
+						<option selected disabled value="">Seleccione</option>
+						<option value="CC">Cédula de ciudadanía</option>
+                                                <option value="NI">ID Nacional</option>
+						<option value="PA">Pasaporte</option>
+
+					</select>
+					 <div   class="invalid-feedback">
+					Seleccione un tipo de documento.
+                                        </div>
+				</div>
+                                <div class="col-2">
+					<label for="Document" class="col-form-label float-lg-right">Documento</label>
+					
+				</div>
+				<div class="col-4">
+					<input type="text" class="form-control" formControlName="Document" id="Document" minlength="6" required placeholder="Ingrese su  documento" pattern="[0-9]{6,30}">
+					<div class="invalid-feedback">
+					Ingrese un numero de documento entre 6 y 30 digitos.
+				  </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="FirstName" class="col-form-label float-lg-right">Nombres Contacto</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" minlength="2" formControlName="FirstName" id="FirstName" required placeholder="Ingrese su(s) nombres(s)"  pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					<div class="invalid-feedback">
+					Ingrese un nombre mayor a 2 caracteres.
+				  </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="LastName" class="col-form-label float-lg-right" >Apellidos Contacto</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" formControlName="LastName" id="LastName" minlength="2" required placeholder="Ingrese su apellido" pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					<div class="invalid-feedback">
+					Ingrese un apellido mayor a 2 caracteres.
+				  </div>
+				</div>
+			</div>
+                        <div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Profile" class="col-form-label float-lg-right" >Perfil</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" formControlName="Profile" id="Profile" minlength="2" required placeholder="Ingrese su perfil" pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					<div class="invalid-feedback">
+					Ingrese un perfil(Solo letras).
+				  </div>
+				</div>
+			</div>
+                        <div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Position" class="col-form-label float-lg-right" >Cargo</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" formControlName="Position" id="Position" minlength="2" required placeholder="Ingrese su cargo" pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					<div class="invalid-feedback">
+					Ingrese un cargo(Solo letras).
+				  </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Policy" class="col-form-label float-lg-right">Politica</label>
+				</div>
+				<div class="col-8">
+					<input class="form-check-input" type="checkbox" formControlName="Policy" id="Policy" required> 
+						<label class="form-check-label" for="flexCheckDefault">
+						Acepta la politica de Datos
+					  </label>
+					<div class="invalid-feedback">
+					Debe aceptar la politica de datos
+				  </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center ">
+				<div class="col-5 text-right">
+					<button type="submit" class="btn btn-primary" onmouseover="checkForm()" onfocus="checkForm()">Aceptar</button>
+				</div>
+				<div class="col-1">
+					
+				</div>
+				<div class="col-5 text-left">
+                                    <button type="reset" class="btn btn-danger" >Cancelar</button>
+				</div>
+			</div>
+		</form>
+       
+    </div>
+	<br>
+	<br>
+	<br>
+       
+        
