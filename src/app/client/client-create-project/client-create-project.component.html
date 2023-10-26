@@ -1,1 +1,133 @@
-<p>client-create-project works!</p>
+<client-header></client-header>
+
+<h2 class="text-center">Crear Proyecto</h2>
+    <div class="container text-center">
+		<form class="needs-validation" [formGroup]="projectDataForm" (ngSubmit)="createProject(projectDataForm.value)" id="createProject" novalidate #myForm="ngForm">
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3 float-lg-right">
+					<label for="Username" class="col-form-label float-lg-right">Nombre</label>
+				</div>
+				<div class="col-8 input-group has-validation">
+					<input type="text" class="form-control" minlength="2" formControlName="ProjectName" id="ProjectName" required placeholder="Ingrese el nombre del Proyecto"  pattern="(?=^.{6,100}$)(?=.*[A-Z]|[a-z]).*$">
+					<div class="invalid-feedback">
+					 Ingrese un nombre de proyecto mayor a 6 caracteres. 
+                                         </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Day" class="col-form-label float-lg-right">Inicia</label>
+				</div>
+				<div class="col-3">
+					<select size="1" class="form-control" formControlName="Day" id="Day" required>
+						<option selected disabled value="">Seleccione</option>
+						<option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+                                                <option>11</option>
+                                                <option>12</option>
+                                                <option>13</option>
+                                                <option>14</option>
+                                                <option>15</option>
+                                                <option>16</option>
+                                                <option>17</option>
+                                                <option>18</option>
+                                                <option>19</option>
+                                                <option>20</option>
+                                                <option>21</option>
+                                                <option>22</option>
+                                                <option>23</option>
+                                                <option>24</option>
+                                                <option>25</option>
+                                                <option>26</option>
+                                                <option>27</option>
+                                                <option>28</option>
+                                                <option>29</option>
+                                                <option>30</option>
+                                                <option>31</option>
+					</select>
+					<div class="invalid-feedback">
+					Seleccione un dia
+				  </div>
+				</div>
+				<div class="col-3">
+					<select size="1" class="form-control" formControlName="Month" id="Month" required>
+						<option value="01">	Enero	</option>
+						<option value="02">	Febrero	</option>
+						<option value="03">	Marzo	</option>
+						<option value="04">	Abril	</option>
+						<option value="05">	Mayo	</option>
+						<option value="06">	Junio	</option>
+						<option value="07">	Julio	</option>
+						<option value="08">	Agosto	</option>
+						<option value="09">	Septiembre	</option>
+						<option value="10"> Octubre	</option>
+						<option value="11">	Noviembre	</option>
+						<option value="12">	Diciembre	</option>
+					</select>
+					<div class="invalid-feedback">
+						Seleccione un mes.
+				    </div>
+				</div>
+				<div class="col-2">
+					<select size="1" class="form-control" formControlName="Year" id="Year" required>
+						<option selected disabled value="">Seleccione</option>
+						<option>2023</option><option>2024</option>
+					</select>
+					<div class="invalid-feedback">
+						Seleccione un Año.
+				    </div>
+				</div>
+				
+			</div>
+                        <div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Active" class="col-form-label float-lg-right">Activo</label>
+				</div>
+				<div class="col-8">
+					<select size="1" class="form-control" formControlName="Active" id="Active" required>
+						<option selected disabled value="">Seleccione</option>
+						<option value="1">S</option>
+						<option value="0">N</option>
+					</select>
+					<div class="invalid-feedback">
+					Seleccione un estado.
+				  </div>
+				</div>
+			</div>
+                        <div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Details" class="col-form-label float-lg-right" >Descripción</label>
+                                </div>
+				<div class="col-8">
+					<textarea class="form-control" formControlName="Details" id="Details" rows="4" minlength="30" required placeholder="Ingrese el detalle del proyecto"></textarea>
+					<div class="invalid-feedback">
+							El detalle del titulo debe ser mayor a 30 caracteres.
+                                        </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center ">
+				<div class="col-5 text-right">
+					<button type="submit" class="btn btn-primary" onmouseover="checkForm()" onfocus="checkForm()">Aceptar</button>
+				</div>
+				<div class="col-1">
+					
+				</div>
+				<div class="col-5 text-left">
+                                    <button type="reset" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+				</div>
+			</div>
+		</form>
+       
+    </div>
+	<br>
+	<br>
+	<br>
+

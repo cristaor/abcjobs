@@ -14,6 +14,7 @@ import { CandidateTestComponent } from './candidate/candidate-test/candidate-tes
 
 import { ClientLoginComponent } from './client/client-login/client-login.component';
 import { ClientDataComponent } from './client/client-data/client-data.component';
+import { ClientCreateProjectComponent } from './client/client-create-project/client-create-project.component';
 
 import { RecruiterLoginComponent } from './recruiter/recruiter-login/recruiter-login.component';
 
@@ -49,11 +50,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'basic-client',
-    component: ClientDataComponent,
-    pathMatch: 'full'
-  },
-  {
     path: 'technical-role-candidate',
     component: CandidateTechnicalRoleComponent,
     pathMatch: 'full'
@@ -61,6 +57,16 @@ const routes: Routes = [
   {
     path: 'technology-candidate',
     component: CandidateTechnologyComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'basic-client',
+    component: ClientDataComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'project-client',
+    component: ClientCreateProjectComponent,
     pathMatch: 'full'
   }
 ];
