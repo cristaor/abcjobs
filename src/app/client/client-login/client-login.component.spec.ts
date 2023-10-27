@@ -3,7 +3,6 @@ import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core
 import { By } from '@angular/platform-browser';
 import { of, throwError } from 'rxjs';
 import { DebugElement } from '@angular/core';
-import { HeaderComponent } from '../../header-client/header/header.component';
 import { RouterTestingModule } from "@angular/router/testing";
 
 
@@ -21,7 +20,7 @@ describe('ClientLoginComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
         imports:[ RouterTestingModule,ReactiveFormsModule, ToastrModule.forRoot(), HttpClientModule, BrowserAnimationsModule],
-      declarations: [ClientLoginComponent, HeaderComponent]
+      declarations: [ClientLoginComponent]
     });
     fixture = TestBed.createComponent(ClientLoginComponent);
     component = fixture.componentInstance;

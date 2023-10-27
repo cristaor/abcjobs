@@ -84,8 +84,8 @@ ${this.candidateBasicForm.get('Address')?.value}
                                         this.candidateBasicForm.get('ResidenceCity')?.value,
                                         this.candidateBasicForm.get('Address')?.value)
                                         .subscribe(candidate => {
-                                            this.routerPath.navigate([`/login-candidate`])
-      this.showSuccess(candidate)
+                                            this.routerPath.navigate([`/home-candidate`])
+      this.showSuccess(this.candidateBasicForm.get('Username')?.value)
       },
         error => {
           //console.log(error);  

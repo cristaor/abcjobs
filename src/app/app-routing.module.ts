@@ -11,10 +11,12 @@ import { CandidateResultsComponent } from './candidate/candidate-results/candida
 import { CandidateTechnicalRoleComponent } from './candidate/candidate-technical_role/candidate-technical_role.component';
 import { CandidateTechnologyComponent } from './candidate/candidate-technology/candidate-technology.component';
 import { CandidateTestComponent } from './candidate/candidate-test/candidate-test.component';
+import { CandidateHomeComponent } from './candidate/candidate-home/candidate-home.component';
 
 import { ClientLoginComponent } from './client/client-login/client-login.component';
 import { ClientDataComponent } from './client/client-data/client-data.component';
 import { ClientCreateProjectComponent } from './client/client-create-project/client-create-project.component';
+import { ClientHomeComponent } from './client/client-home/client-home.component';
 
 import { RecruiterLoginComponent } from './recruiter/recruiter-login/recruiter-login.component';
 
@@ -22,6 +24,21 @@ const routes: Routes = [
 {
     path: '',
     component: HomeComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    component: HomeComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'home-candidate',
+    component: CandidateHomeComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'home-client',
+    component: ClientHomeComponent,
     pathMatch: 'full'
   },
 {
