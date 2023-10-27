@@ -12,7 +12,7 @@ import { HeaderRecruiterModule } from './header-recruiter/header-recruiter.modul
 import { CandidateModule } from './candidate/candidate.module';
 import { ClientModule } from './client/client.module';
 import { RecruiterModule } from './recruiter/recruiter.module';
-import { HttpErrorInterceptorService } from './interceptors/mock-interceptor.service';
+
 
 
 @NgModule({
@@ -38,11 +38,6 @@ import { HttpErrorInterceptorService } from './interceptors/mock-interceptor.ser
     BrowserAnimationsModule
   ],
   providers: [
-    {
-     provide: HTTP_INTERCEPTORS,
-     useClass: HttpErrorInterceptorService,
-     multi: true
-   }
   ],
   bootstrap: [AppComponent]
 })

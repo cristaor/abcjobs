@@ -45,7 +45,7 @@ export class CandidateTechnicalRoleComponent implements OnInit{
       if(res.is_authenticated){
         let token = res.auth_headers.get("Authorization") || "token"
         this.candidateService.addTechnicalRoleInfo(technical_role,token).subscribe(candidate => {
-          this.routerPath.navigate([`/login-candidate`])
+          this.routerPath.navigate([`/home-candidate`])
           this.showSuccess(candidate)
           technical_role.name = ""
           
@@ -56,12 +56,12 @@ export class CandidateTechnicalRoleComponent implements OnInit{
         
       }else{
         this.toastr.error("Credenciales invalidas","Error");
-        this.routerPath.navigate(['/'])
+        this.routerPath.navigate(['/login-candidate'])
         
       }
     }, error => {
       this.toastr.error("Credenciales invalidas. Inicie sesión nuevamente","Error");
-      this.routerPath.navigate(['/'])
+      this.routerPath.navigate(['/login-candidate'])
     });
 
   }
