@@ -50,7 +50,7 @@ export class CandidateTechnologyComponent implements OnInit{
       if(res.is_authenticated){
         let token = res.auth_headers.get("Authorization") || "token"
         this.candidateService.addTechnologyInfo(technology_info,token).subscribe(candidate => {
-          this.routerPath.navigate([`/login-candidate`])
+          this.routerPath.navigate([`/home-candidate`])
           this.showSuccess(candidate)
           
         },
@@ -60,12 +60,12 @@ export class CandidateTechnologyComponent implements OnInit{
         
       }else{
         this.toastr.error("Credenciales invalidas","Error");
-        this.routerPath.navigate(['/'])
+        this.routerPath.navigate(['/login-candidate'])
         
       }
     }, error => {
       this.toastr.error("Credenciales invalidas. Inicie sesión nuevamente","Error");
-      this.routerPath.navigate(['/'])
+      this.routerPath.navigate(['/login-candidate'])
     });
 
   }
