@@ -8,6 +8,7 @@ import { ClientCreateProjectComponent } from './client-create-project/client-cre
 import { ClientSearchComponent } from './client-search/client-search.component';
 import { ClientEvaluateComponent } from './client-evaluate/client-evaluate.component';
 import { ClientInterviewsComponent } from './client-interviews/client-interviews.component';
+import { ClientHomeComponent } from './client-home/client-home.component';
 
 
 
@@ -19,7 +20,8 @@ import { ClientInterviewsComponent } from './client-interviews/client-interviews
     ClientCreateProjectComponent,
     ClientSearchComponent,
     ClientEvaluateComponent,
-    ClientInterviewsComponent
+    ClientInterviewsComponent,
+    ClientHomeComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { ClientInterviewsComponent } from './client-interviews/client-interviews
     ClientCreateProjectComponent,
     ClientSearchComponent,
     ClientEvaluateComponent,
-    ClientInterviewsComponent
+    ClientInterviewsComponent,
+    ClientHomeComponent
   ]
 })
 export class ClientModule { }

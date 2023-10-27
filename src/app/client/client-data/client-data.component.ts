@@ -89,7 +89,8 @@ export class ClientDataComponent implements OnInit{
       this.showSuccess(this.clientDataForm.get('Name')?.value)
       },
         error => {
-          this.showError(`Ha ocurrido un error: ${error.error}`)
+          //console.log(error);  
+          this.showError(`Ha ocurrido un error: ${error.status} - ${error.statusText}`)
         })
     }
      showError(error: string) {

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Client } from './client';
+import { Client, ClientProject } from './client';
 
 
 @Injectable({
@@ -10,6 +10,7 @@ import { Client } from './client';
 })
 export class ClientService {
 
+  newProject!: ClientProject
   private backUrl: string = environment.backBaseUrl;
   constructor(private http: HttpClient) { }
   
@@ -25,5 +26,11 @@ export class ClientService {
             "position": position
         })  
        }
-  
+  projectCreate(newProject: ClientProject, token: string): Observable<any> {  
+        const headers_request = new HttpHeaders({'Authorization': `${token}`})
+        console.log(`Token ${token}`)
+        return this.http.post<any>(`${this.backUrl}/projects`, {
+            "projectName": newProject.project_name,"startDate": newProject.start_date, "active": newProject.active,  "details": newProject.details
+        },{ headers: headers_request})  
+       }
 }

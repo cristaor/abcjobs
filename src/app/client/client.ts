@@ -51,3 +51,26 @@ export class Client {
     }       
     
 }
+
+export class ClientProject {
+    id : number
+    project_name : string
+    start_date : string
+    active : string
+    creation_time : string
+    details : string
+    company_id : string
+    constructor( id : number, project_name : string, start_date : string, active : string
+    ,creation_time : string, details : string, company_id : string)
+    {
+            this.id =id ;
+            this.project_name =project_name ;
+            this.start_date =start_date ;
+            this.active =active ;
+            this.creation_time =creation_time ;
+            this.details =details ;
+            this.company_id =company_id ;
+
+    }
+    
+}

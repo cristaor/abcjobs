@@ -88,7 +88,8 @@ ${this.candidateBasicForm.get('Address')?.value}
       this.showSuccess(candidate)
       },
         error => {
-          this.showError(`Ha ocurrido un error: ${error.error}`)
+          //console.log(error);  
+          this.showError(`Ha ocurrido un error: ${error.status} - ${error.statusText}`)
         })
     }
      

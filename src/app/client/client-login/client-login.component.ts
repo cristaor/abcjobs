@@ -40,7 +40,7 @@ export class ClientLoginComponent implements OnInit {
         console.warn(res);
         if(res.is_authenticated){
           this.toastr.success("Login success","Confirmation" );
-          this.router.navigate(['/'])
+          this.router.navigate(['/home-client'])
         }else{
           this.toastr.error("Credenciales invalidas","Error");
         }
