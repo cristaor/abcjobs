@@ -46,10 +46,10 @@ export class ClientCreateProjectComponent implements OnInit{
        }
        createProject(newProject: ClientProject)
        {
-            newProject.project_name=`${this.projectDataForm.get('ProjectName')?.value}`;
-            newProject.start_date=`${this.projectDataForm.get('Year')?.value}-${this.projectDataForm.get('Month')?.value}-${this.projectDataForm.get('Day')?.value}`
-            newProject.active=`${this.projectDataForm.get('Active')?.value}`
-            newProject.details=`${this.projectDataForm.get('Details')?.value}`   
+                newProject.project_name=`${this.projectDataForm.get('ProjectName')?.value}`;
+                newProject.start_date=`${this.projectDataForm.get('Year')?.value}-${this.projectDataForm.get('Month')?.value}-${this.projectDataForm.get('Day')?.value}`
+                newProject.active=`${this.projectDataForm.get('Active')?.value}`
+                newProject.details=`${this.projectDataForm.get('Details')?.value}`   
 
             console.log('Values: ' + JSON.stringify(newProject));
             

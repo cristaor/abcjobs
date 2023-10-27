@@ -21,7 +21,7 @@ describe('ClientDataComponent', () => {
   let debug: DebugElement;
   let clientService: jasmine.SpyObj<ClientService>;
   let newClient: Client;
-  
+
   const document="32534634";
   const documentType= "CC";
   const firstName = "German"
@@ -38,16 +38,16 @@ describe('ClientDataComponent', () => {
   const profile = "OPERATIVO"
   const position = "LIDER TECNICO"
   const policy= true;
-  
+
   const setup = async (
-          candidateServiceReturnValues?: jasmine.SpyObjMethodNames<ClientService>,
+          clientServiceReturnValues?: jasmine.SpyObjMethodNames<ClientService>,
         ) => {
           clientService = jasmine.createSpyObj<ClientService>('ClientService', {
             // Successful responses per default
             clientCreate: of({ status: 200, statusText: 'Client Created' })
           }
           );
-        
+
         await TestBed.configureTestingModule({
             imports:[RouterTestingModule,ReactiveFormsModule, ToastrModule.forRoot(), HttpClientModule, BrowserAnimationsModule],
             declarations: [ClientDataComponent,HeaderComponent],
@@ -55,8 +55,8 @@ describe('ClientDataComponent', () => {
                   {provide: ClientService, userValue: ClientService}
                 ]
         }).compileComponents();
-    
- 
+
+
         fixture = TestBed.createComponent(ClientDataComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
@@ -86,7 +86,7 @@ describe('ClientDataComponent', () => {
   it('should create', () => {
     //expect(component).toBeTruthy();
   });
-  
+
   it('Debe tener un campo de nombre de Organizacion', fakeAsync(async () => {
       await setup();
    //expect(debug.query(By.css('div')).attributes['class']).toEqual('card-body');
@@ -94,7 +94,7 @@ describe('ClientDataComponent', () => {
     const element = fixture.debugElement.query(By.css("input[id='Name']")).attributes['formControlName'];
     expect(element).toEqual('Name');
      }));
-  
+
   it('submits the form successfully', fakeAsync(async () => {
     await setup();
 
@@ -104,10 +104,10 @@ describe('ClientDataComponent', () => {
     tick(2000);
     let button = fixture.debugElement.query(By.css("button[type='submit']"));
     button.triggerEventHandler('submit', {});
-    
+
    //component.createClient(newClient);
     fixture.detectChanges();
     //expect(candidateService.candidateCreate).toHaveBeenCalledWith(Username,Password,Document,DocumentType,FirstName,LastName,PhoneNumber,Age,OriginCountry,ResidenceCountry,ResidenceCity,Address);
    }));
-   
+
 });
