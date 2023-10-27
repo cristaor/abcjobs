@@ -16,7 +16,7 @@ export class CandidateLoginComponent implements OnInit {
   }
   onLogInUsuario(username: string, password: string) {
         console.log(username, password)
-        this.router.navigate([`/basic-candidate`])
+        this.router.navigate([`/home-candidate`])
   }
   goTo(menu: string) {
     //const userId = parseInt(this.router.snapshot.params.userId)

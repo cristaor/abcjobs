@@ -11,6 +11,7 @@ import { CandidateTechnologyComponent } from './candidate-technology/candidate-t
 import { CandidateTestComponent } from './candidate-test/candidate-test.component';
 import { CandidateResultsComponent } from './candidate-results/candidate-results.component';
 import { CandidateInterviewsComponent } from './candidate-interviews/candidate-interviews.component';
+import { CandidateHomeComponent } from './candidate-home/candidate-home.component';
 
 
 
@@ -24,7 +25,8 @@ import { CandidateInterviewsComponent } from './candidate-interviews/candidate-i
     CandidateTechnologyComponent,
     CandidateTestComponent,
     CandidateResultsComponent,
-    CandidateInterviewsComponent
+    CandidateInterviewsComponent,
+    CandidateHomeComponent
   ],
   imports: [
     CommonModule, HeaderCandidateModule ,ReactiveFormsModule, FormsModule
@@ -37,7 +39,8 @@ import { CandidateInterviewsComponent } from './candidate-interviews/candidate-i
     CandidateTechnologyComponent,
     CandidateTestComponent,
     CandidateResultsComponent,
-    CandidateInterviewsComponent
+    CandidateInterviewsComponent,
+    CandidateHomeComponent
     ]
 })
 export class CandidateModule { }
