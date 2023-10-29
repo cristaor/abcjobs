@@ -1,0 +1,25 @@
+{
+
+  "I18N": {
+      "ENGLISH_PAGE": "Page in English",
+      "SPANISH_PAGE": "Page in Spanish"
+  },
+  "UI":{
+    "OK":"Ok",
+    "Cancel":"Cancel"
+  },
+  "LOGIN":{
+    "WELCOME":"Welcome to ABC Jobs",
+    "ENTER_USER_PASSWORD": "Enter username and password",
+    "USER": "Username",
+    "PASSWORD": "Password",
+    "FORGOT":"Forgot your credentials?",
+    "REGISTER":"Sign up",
+    "DONT_HAS_USERNAME": "Don't have a username?",
+    "REMEMBERME":"Remember me",
+    "VALIDATOR":{
+      "USERNAME":"Username is required",
+      "PASSWORD": "Enter a password longer than 6 characters."
+    }
+  }
+}
