@@ -29,6 +29,7 @@ export class CreateTestComponent implements OnInit {
     private formBuilder: FormBuilder,
     private testService:TestService,
     private toastr: ToastrService,
+    private router: Router,
 
   ) {}
 
@@ -63,6 +64,8 @@ export class CreateTestComponent implements OnInit {
 
 
   }
+
+  cancelCreation():void{this.loginForm.reset();this.router.navigate([`/home-client`])}
 }
 
 
