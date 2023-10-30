@@ -4,8 +4,9 @@
       "SPANISH_PAGE": "Pagina en Español"
   },
   "UI":{
-    "OK":"Ok",
-    "CANCEL":"Cancel"
+    "OK":"Aceptar",
+    "CANCEL":"Cancel",
+    "SELECT":"Seleccione"
   },
   "LOGIN":{
     "WELCOME":"Bienvenido a ABC Jobs",
@@ -19,6 +20,37 @@
     "VALIDATOR":{
       "USERNAME":"El usuario es requerido",
       "PASSWORD": "Ingrese una clave mayor a 6 caracteres."
+    }
+  },
+
+
+  "TEST":{
+    "CREATE":{
+      "CREATE_TEST":"Crear Prueba",
+      "NAME":"Nombre",
+      "INGRESS_NAME":"Ingrese el nombre de la prueba",
+      "TECHNOLOGY":"Tecnología",
+      "INGRESS_TECHNOLOGY":"Ingrese el nombre de la prueba",
+      "DURATION":"Duracion Minutos",
+      "STATUS":"Estado",
+      "STATUS_ENABLED":"Habilitado",
+      "STATUS_DISABLED":"Deshabilitado",
+      "START_DATE":"Fecha Inicial",
+      "END_DATE":"Fecha Final",
+      "DESCRIPTION":"Descripción",
+      "UI":{
+        "CREATED":"Prueba creada correctamente",
+        "ERROR":"Error creada correctamente"
+      },
+      "VALIDATOR":{
+        "NAME":"Ingrese un nombre entre 6 y 100 digitos",
+        "TECHNOLOGY":"La tecnología es requerida",
+        "DURATION":"Ingrese una duracion mayor que cero",
+        "STATUS":"El estado es requerido",
+        "START_DATE":"La fecha inicial es requerida",
+        "END_DATE":"La fecha final es requerida",
+        "DESCRIPTION":"Ingrese una descripción entre 5 y 500 digitos"
+      }
     }
   }
 }

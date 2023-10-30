@@ -19,6 +19,7 @@ import { ClientCreateProjectComponent } from './client/client-create-project/cli
 import { ClientHomeComponent } from './client/client-home/client-home.component';
 
 import { RecruiterLoginComponent } from './recruiter/recruiter-login/recruiter-login.component';
+import { CreateTestComponent } from './test/create-test/create-test.component';
 
 const routes: Routes = [
 {
@@ -39,6 +40,11 @@ const routes: Routes = [
   {
     path: 'home-client',
     component: ClientHomeComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'test',
+    component: CreateTestComponent,
     pathMatch: 'full'
   },
 {

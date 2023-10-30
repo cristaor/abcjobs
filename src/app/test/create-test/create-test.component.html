@@ -1,0 +1,158 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-blueABC">
+  <a class="navbar-brand" href="#">ABC Jobs</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav mr-auto">
+     </ul>
+  </div>
+<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+ <ul class="navbar-nav ml-auto">
+ </ul>
+ </div>
+ <div class="navbar-collapse collapse w-25 order-4 dual-collapse2">
+   <app-i18n/>
+ </div>
+
+</nav>
+<br>
+<br>
+<h2 class="text-center">{{ 'TEST.CREATE.CREATE_TEST' | translate }} </h2>
+<div class="container text-center float-lg-none">
+<hr >
+
+<div class="container text-center">
+<form  [formGroup]="loginForm" class="needs-validation" #formDirective="ngForm" (ngSubmit)="create_test(loginForm.value,formDirective)">
+ <div class="row mt-3 align-items-center text-center">
+   <div class="col-3">
+     <label for="name" class="col-form-label float-lg-right">{{'TEST.CREATE.NAME' | translate}}</label>
+   </div>
+   <div class="col-9 input-group has-validation">
+     <input type="text" class="form-control" formControlName="name" id="name" required minlength="3" maxlength="100"
+     aria-describedby="emailHelp" placeholder="{{'TEST.CREATE.INGRESS_NAME' | translate}}" novalidate>
+     <div class="invalid-feedback">
+      {{'TEST.CREATE.VALIDATOR.NAME' | translate}}
+    </div>
+   </div>
+
+ </div>
+ <div class="row mt-3 align-items-center text-center">
+   <div class="col-3">
+     <label for="technology" class="col-form-label float-lg-right">{{'TEST.CREATE.TECHNOLOGY' | translate}}</label>
+   </div>
+   <div class="col-3">
+    <select size="1" class="form-control" formControlName="technology" id="technology" required>
+      <option value="JAVA">JAVA</option>
+      <option value="PYTHON">PYTHON</option>
+      <option value="AWS">AWS</option>
+      <option value="GCP">GCP</option>
+      <option value="JAVASCRIPT">JAVASCRIPT</option>
+    </select>
+    <div class="invalid-feedback">
+      {{'TEST.CREATE.VALIDATOR.TECHNOLOGY' | translate}}
+    </div>
+   </div>
+   <div class="col-4">
+    <label for="duration_minutes"
+    class="col-form-label float-lg-right">{{'TEST.CREATE.DURATION' | translate}}</label>
+  </div>
+  <div class="col-2">
+    <input type="number" class="form-control" formControlName="duration_minutes" id="duration_minutes" min="1" required />
+    <div class="invalid-feedback">
+      {{'TEST.CREATE.VALIDATOR.DURATION' | translate}}
+    </div>
+
+  </div>
+
+ </div>
+
+ <div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="status" class="col-form-label float-lg-right">{{'TEST.CREATE.STATUS' | translate}}</label>
+  </div>
+  <div class="col-3">
+   <select size="1" class="form-control" formControlName="status" id="status" value ="" required>
+     <option value="ENABLED">{{'TEST.CREATE.STATUS_ENABLED' | translate}}</option>
+     <option value="DISABLED">{{'TEST.CREATE.STATUS_DISABLED' | translate}}</option>
+   </select>
+   <div class="invalid-feedback">
+    {{'TEST.CREATE.VALIDATOR.STATUS' | translate}}
+  </div>
+  </div>
+</div>
+
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="start_date" class="col-form-label float-lg-right">{{'TEST.CREATE.START_DATE' | translate}}</label>
+  </div>
+  <div class="col-3">
+    <input type="date" class="form-control" formControlName="start_date" id="start_date" required/>
+    <div class="invalid-feedback">
+      {{'TEST.CREATE.VALIDATOR.START_DATE' | translate}}
+    </div>
+
+  </div>
+  <div class="col-4"></div>
+
+</div>
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="end_date" class="col-form-label float-lg-right">{{'TEST.CREATE.END_DATE' | translate}}</label>
+  </div>
+  <div class="col-3">
+    <input type="date" class="form-control" formControlName="end_date" id="end_date"  required/>
+    <div class="invalid-feedback">
+      {{'TEST.CREATE.VALIDATOR.END_DATE' | translate}}
+    </div>
+
+  </div>
+  <div class="col-4"></div>
+
+</div>
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="description" class="col-form-label float-lg-right">{{'TEST.CREATE.DESCRIPTION' | translate}}</label>
+  </div>
+  <div class="col-9">
+    <textarea class="form-control" formControlName="description" id="description" minlength="5" required>
+    </textarea>
+    <div class="invalid-feedback">
+      {{'TEST.CREATE.VALIDATOR.DESCRIPTION' | translate}}
+    </div>
+
+  </div>
+
+</div>
+
+<div class="row mt-3 align-items-center ">
+   <div class="col-4 text-right">
+     <!--<a href="index_es.html"> -->
+     <button class="btn btn-primary" type="submit"  onmouseover="checkForm()" onfocus="checkForm()" >{{'UI.OK' | translate}}</button>
+     <!--</a>-->
+   </div>
+   <div class="col-1">
+
+   </div>
+   <div class="col-4 text-left">
+     <button type="reset" class="btn btn-danger">{{'UI.CANCEL' | translate}}</button>
+   </div>
+ </div>
+</form>
+
+</div>
+<br>
+<br>
+<br>
+<footer class="fixed-bottom">
+<div class="container-fluid bg-blueABC">
+  <div class="row">
+     <div class="text-center col-lg-20">
+   <br>
+     </div>
+  </div>
+</div>
+</footer>

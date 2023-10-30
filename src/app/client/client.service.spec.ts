@@ -3,7 +3,6 @@ import { inject, async,TestBed } from '@angular/core/testing';
 import { ClientService } from './client.service';
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { HttpClientModule } from '@angular/common/http';
-
 describe('ClientService', () => {
   let service: ClientService;
 
