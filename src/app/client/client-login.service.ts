@@ -45,7 +45,9 @@ who_i_am(): Observable<UserAuthenticated> {
       localStorage.setItem("token",res.new_token);
       return new UserAuthenticated(true,res.role,res.username,
         new Map().set("Authorization","Bearer "+res.new_token),res.person_id);
-    }
+    },
+    catchError(() =>
+    of(new UserAuthenticated(false,"","",new Map(),"")))
     ));
 
 }
