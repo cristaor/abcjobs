@@ -1,11 +1,11 @@
 import { defineConfig } from 'cypress'
+import { environment } from 'src/environments/environment';
 
 export default defineConfig({
   
   e2e: {
-    'baseUrl': 'http://localhost:4200'
+    'baseUrl': environment.backBaseUrl
   },
-  
   
   component: {
     devServer: {
@@ -13,6 +13,7 @@ export default defineConfig({
       bundler: 'webpack',
     },
     specPattern: '**/*.cy.ts'
-  }
+  },
+  experimentalModifyObstructiveThirdPartyCode: true
   
 })

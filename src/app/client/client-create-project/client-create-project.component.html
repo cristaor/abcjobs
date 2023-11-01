@@ -1,26 +1,26 @@
 <client-header></client-header>
 
-<h2 class="text-center">Crear Proyecto</h2>
+<h2 class="text-center">{{ 'CREATE_PROJECT.TITLE' | translate }}</h2>
     <div class="container text-center">
 		<form class="needs-validation" [formGroup]="projectDataForm" (ngSubmit)="createProject(projectDataForm.value)" id="createProject" novalidate #myForm="ngForm">
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3 float-lg-right">
-					<label for="Username" class="col-form-label float-lg-right">Nombre</label>
+					<label for="ProjectName" class="col-form-label float-lg-right">{{ 'CREATE_PROJECT.LABEL.PROJECTNAME' | translate }}</label>
 				</div>
 				<div class="col-8 input-group has-validation">
-					<input type="text" class="form-control" minlength="2" formControlName="ProjectName" id="ProjectName" required placeholder="Ingrese el nombre del Proyecto"  pattern="(?=^.{6,100}$)(?=.*[A-Z]|[a-z]).*$">
+					<input type="text" class="form-control" minlength="2" formControlName="ProjectName" id="ProjectName" required placeholder="{{ 'CREATE_PROJECT.PLACEHOLDER.PROJECTNAME' | translate }}"  pattern="(?=^.{6,100}$)(?=.*[A-Z]|[a-z]).*$">
 					<div class="invalid-feedback">
-					 Ingrese un nombre de proyecto mayor a 6 caracteres. 
+					 {{ 'CREATE_PROJECT.VALIDATOR.PROJECTNAME' | translate }}
                                          </div>
 				</div>
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Day" class="col-form-label float-lg-right">Inicia</label>
+					<label for="Day" class="col-form-label float-lg-right">{{ 'CREATE_PROJECT.LABEL.DAY' | translate }}</label>
 				</div>
 				<div class="col-3">
 					<select size="1" class="form-control" formControlName="Day" id="Day" required>
-						<option selected disabled value="">Seleccione</option>
+						<option selected disabled value="">{{ 'CREATE_PROJECT.PLACEHOLDER.DAY' | translate }}</option>
 						<option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -54,11 +54,12 @@
                                                 <option>31</option>
 					</select>
 					<div class="invalid-feedback">
-					Seleccione un dia
+					{{ 'CREATE_PROJECT.VALIDATOR.DAY' | translate }}
 				  </div>
 				</div>
 				<div class="col-3">
 					<select size="1" class="form-control" formControlName="Month" id="Month" required>
+                                            <option selected disabled value="">{{ 'CREATE_PROJECT.PLACEHOLDER.MONTH' | translate }}</option>
 						<option value="01">	Enero	</option>
 						<option value="02">	Febrero	</option>
 						<option value="03">	Marzo	</option>
@@ -73,55 +74,55 @@
 						<option value="12">	Diciembre	</option>
 					</select>
 					<div class="invalid-feedback">
-						Seleccione un mes.
+						{{ 'CREATE_PROJECT.VALIDATOR.MONTH' | translate }}
 				    </div>
 				</div>
 				<div class="col-2">
 					<select size="1" class="form-control" formControlName="Year" id="Year" required>
-						<option selected disabled value="">Seleccione</option>
-						<option>2023</option><option>2024</option>
+						<option selected disabled value="">{{ 'CREATE_PROJECT.PLACEHOLDER.YEAR' | translate }}</option>
+						<option>2024</option><option>2025</option>
 					</select>
 					<div class="invalid-feedback">
-						Seleccione un Año.
+						{{ 'CREATE_PROJECT.VALIDATOR.YEAR' | translate }}
 				    </div>
 				</div>
 				
 			</div>
                         <div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Active" class="col-form-label float-lg-right">Activo</label>
+					<label for="Active" class="col-form-label float-lg-right">{{ 'CREATE_PROJECT.LABEL.ACTIVE' | translate }}</label>
 				</div>
 				<div class="col-8">
 					<select size="1" class="form-control" formControlName="Active" id="Active" required>
-						<option selected disabled value="">Seleccione</option>
+						<option selected disabled value="">{{ 'CREATE_PROJECT.PLACEHOLDER.ACTIVE' | translate }}</option>
 						<option value="1">S</option>
 						<option value="0">N</option>
 					</select>
 					<div class="invalid-feedback">
-					Seleccione un estado.
+					{{ 'CREATE_PROJECT.VALIDATOR.ACTIVE' | translate }}
 				  </div>
 				</div>
 			</div>
                         <div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Details" class="col-form-label float-lg-right" >Descripción</label>
+					<label for="Details" class="col-form-label float-lg-right" >{{ 'CREATE_PROJECT.LABEL.DETAILS' | translate }}</label>
                                 </div>
 				<div class="col-8">
-					<textarea class="form-control" formControlName="Details" id="Details" rows="4" minlength="30" required placeholder="Ingrese el detalle del proyecto"></textarea>
+					<textarea class="form-control" formControlName="Details" id="Details" rows="4" minlength="30" required placeholder="{{ 'CREATE_PROJECT.PLACEHOLDER.DETAILS' | translate }}"></textarea>
 					<div class="invalid-feedback">
-							El detalle del titulo debe ser mayor a 30 caracteres.
+							{{ 'CREATE_PROJECT.VALIDATOR.DETAILS' | translate }}
                                         </div>
 				</div>
 			</div>
 			<div class="row mt-2 align-items-center ">
 				<div class="col-5 text-right">
-					<button type="submit" class="btn btn-primary" onmouseover="checkForm()" onfocus="checkForm()">Aceptar</button>
+					<button type="submit" class="btn btn-primary" onmouseover="checkForm()" onfocus="checkForm()">{{ 'UI.CREATE' | translate }}</button>
 				</div>
 				<div class="col-1">
 					
 				</div>
 				<div class="col-5 text-left">
-                                    <button type="reset" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+                                    <button type="reset" class="btn btn-danger" (click)="cancelCreation()">{{ 'UI.CANCEL' | translate }}</button>
 				</div>
 			</div>
 		</form>

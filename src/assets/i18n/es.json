@@ -5,8 +5,38 @@
   },
   "UI":{
     "OK":"Aceptar",
-    "CANCEL":"Cancel",
-    "SELECT":"Seleccione"
+    "CANCEL":"Cancelar",
+    "SELECT":"Seleccione",
+    "CREATE": "Crear"
+  },
+  "HEADER":{
+     "CANDIDATE":{
+        "MENU_1": "Mis Datos",
+        "MENU_2": "Mis Pruebas",
+        "MENU_3": "Mis Entrevistas"
+     },
+     "CLIENT":{
+        "MENU_1": "Mis Datos",
+        "MENU_2": "Proyectos",
+        "MENU_3": "Entrevistas"
+     },
+     "RECRUITER":{
+        "MENU_1": "Mis Datos",
+        "MENU_2": "Entrevistas",
+        "MENU_3": "Pruebas"
+     }
+  },
+  "BACK_RESPONSES":{
+        "INVALID_CREDENTIALS":"Credenciales invalidas",
+        "INVALID_CREDENTIALS2":"Credenciales expiradas. Inicie sesión nuevamente",
+        "GET_ERROR": "Ha ocurrido un error",
+        "SUCESSFULL_1": "Creación exitosa"
+  },
+  "HOME":
+  {
+        "CANDIDATE_TITLE": "Menu de Candidato",
+        "CLIENT_TITLE": "Menu de Empresa",
+        "RECRUITER_TITLE": "Menu de Reclutador"
   },
   "LOGIN":{
     "WELCOME":"Bienvenido a ABC Jobs",
@@ -22,8 +52,156 @@
       "PASSWORD": "Ingrese una clave mayor a 6 caracteres."
     }
   },
-
-
+  "CANDIDATE_BASIC":{
+    "TITLE": "Datos Básicos",
+    "LABEL":{
+      "USERNAME": "Usuario",
+      "PASSWORD": "Clave",
+      "DOCUMENTTYPE": "Tipo Documento",
+      "DOCUMENT": "Documento",
+      "FIRSTNAME": "Nombres",
+      "LASTNAME": "Apellidos",
+      "AGE": "Edad",
+      "PHONENUMBER":"Telefono",
+      "ADDRESS":"Direccion",
+      "ORIGINCOUNTRY":"Pais de origen",
+      "RESIDENCECITY":"Ciudad",
+      "RESIDENCECOUNTRY":"Pais de Residencia",
+      "PHOTO":"Foto",
+      "POLICY":"Politica"
+      },
+    "PLACEHOLDER":{
+        "USERNAME": "usuario@mail.com",
+        "PASSWORD": "Ingrese una Clave",
+        "DOCUMENTTYPE": "Seleccione",
+        "DOCUMENT": "Ingrese su  documento",
+        "FIRSTNAME": "Ingrese su(s) nombres(s)",
+        "LASTNAME": "Ingrese su apellido",
+        "AGE": "Seleccione",
+        "PHONENUMBER":"Ingrese un telefono",
+        "ADDRESS":"Ingrese una direccion",
+        "ORIGINCOUNTRY":"Seleccione",
+        "RESIDENCECITY":"Ingrese su ciudad de residencia",
+        "RESIDENCECOUNTRY":"Seleccione",
+        "PHOTO":"Cargar Foro",
+        "POLICY":"Acepta la politica de Datos"
+    },
+    "VALIDATOR":{
+        "USERNAME": "Ingrese un nombre de usuario, en formato de email.",
+        "PASSWORD": "Clave mayor a 6 caracteres.Debe incluir una Mayuscula una minuscula, numero y caracter especial",
+        "DOCUMENTTYPE": "Seleccione un tipo de documento",
+        "DOCUMENT": "Ingrese un numero de documento entre 6 y 30 digitos.",
+        "FIRSTNAME": "Ingrese un nombre mayor a 2 caracteres",
+        "LASTNAME": "Ingrese un apellido mayor a 2 caracteres",
+        "AGE": "Seleccione una edad",
+        "PHONENUMBER":"Ingrese un numero de telefono entre 6 y 20 digitos",
+        "ADDRESS":"Ingrese una direccion entre 8 y 60 caracteres",
+        "ORIGINCOUNTRY":"Seleccione un país",
+        "RESIDENCECITY":"Ingrese su ciudad de residencia. Minimo 2 caracteres",
+        "RESIDENCECOUNTRY":"Seleccione un país",
+        "PHOTO":"Cargue una foto",
+        "POLICY":"Debe aceptar la politica de datos"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"El usuario candidato",
+        "SUCESS_2":"fue creado",
+        "GET_ERROR": "Ha ocurrido un error"
+    }
+  },
+  "CLIENT_DATA":{
+    "TITLE": "Datos Básicos",
+    "TITLE2": "Datos Contacto",
+    "LABEL":{
+      "USERNAME": "Usuario",
+      "PASSWORD": "Clave",
+      "TAXPAYERID": "Numero Tributario",
+      "NAME": "Nombre Organizacion",
+      "YEARS": "Antiguedad",
+      "PHONENUMBER":"Telefono",
+      "ADDRESS":"Direccion",
+      "CITY":"Ciudad",
+      "COUNTRY":"Pais",
+      "DOCUMENTTYPE": "Tipo Documento",
+      "DOCUMENT": "Documento",
+      "FIRSTNAME": "Nombres Contacto",
+      "LASTNAME": "Apellidos Contacto",
+      "PROFILE":"Perfil",
+      "POSITION":"Posicion",
+      "POLICY":"Politica"
+      },
+    "PLACEHOLDER":{
+        "USERNAME": "usuario@mail.com",
+        "PASSWORD": "Ingrese una Clave",
+         "TAXPAYERID": "Ingrese Numero Tributario",
+        "NAME": "Ingrese nombre Organizacion",
+        "PHONENUMBER":"Ingrese un telefono",
+        "ADDRESS":"Ingrese una direccion",
+        "CITY":"Ingrese la ciudad de la sede",
+        "COUNTRY":"Seleccione",
+        "DOCUMENTTYPE": "Seleccione",
+        "DOCUMENT": "Ingrese su  documento",
+        "FIRSTNAME": "Ingrese su(s) nombres(s)",
+        "LASTNAME": "Ingrese su apellido",
+        "PROFILE":"Ingrese su perfil",
+        "POSITION":"Ingrese su cargo",
+        "POLICY":"Acepta la politica de Datos"
+    },
+    "VALIDATOR":{
+        "USERNAME": "Ingrese un nombre de usuario, en formato de email",
+        "PASSWORD": "Clave mayor a 6 caracteres.Debe incluir una Mayuscula una minuscula, numero y caracter especial",
+         "TAXPAYERID": "Ingrese Numero Tributario mayor a digitos",
+        "NAME": "Ingrese nombre Organizacion mayor a 2 caracteres",
+        "YEARS": "Ingrese un número mayor a 0",
+        "PHONENUMBER":"Ingrese un numero de telefono entre 6 y 20 digitos",
+        "ADDRESS":"Ingrese una direccion",
+        "CITY":"Ingrese la ciudad de ubicacion. Minimo 2 caracteres",
+        "COUNTRY":"Seleccione un país",
+        "DOCUMENTTYPE": "Seleccione un tipo de documento",
+        "DOCUMENT": "Ingrese un numero de documento entre 6 y 30 digitos",
+        "FIRSTNAME": "Ingrese un nombre mayor a 2 caracteres",
+        "LASTNAME": "Ingrese un apellido mayor a 2 caracteres",
+        "PROFILE":"Ingrese un perfil mayor a 2 caracteres",
+        "POSITION":"Ingrese un cargo mayor a 2 caracteres",
+        "POLICY":"Debe aceptar la politica de datos"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"The company",
+        "SUCESS_2":"was created",
+        "GET_ERROR": "Ha ocurrido un error"
+    }
+  },
+  "CREATE_PROJECT":{
+    "TITLE": "Crear Proyecto",
+    "LABEL":{
+      "PROJECTNAME": "Nombre",
+      "DAY": "Inicia",
+      "MONTH": "Mes",
+      "YEAR": "Año",
+      "ACTIVE":"Activo",
+      "DETAILS":"Descripcion"
+      },
+    "PLACEHOLDER":{
+        "PROJECTNAME": "Ingrese el nombre del Proyecto",
+        "DAY": "Seleccione",
+        "MONTH": "Seleccione",
+        "YEAR": "Seleccione",
+        "ACTIVE":"Seleccione",
+        "DETAILS":"Ingrese el detalle del proyecto"
+    },
+    "VALIDATOR":{
+        "PROJECTNAME": "Ingrese un nombre de proyecto mayor a 6 caracteres",
+        "DAY": "Seleccione un dia",
+        "MONTH": "Seleccione un mes",
+        "YEAR": "Seleccione un año",
+        "ACTIVE":"Seleccione un estado",
+        "DETAILS":"El detalle del proyecto debe ser mayor a 30 caracteres"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"El proyecto",
+        "SUCESS_2":"fue creado",
+        "GET_ERROR": "Ha ocurrido un error"
+    }
+  },
   "TEST":{
     "CREATE":{
       "CREATE_TEST":"Crear Prueba",
@@ -43,13 +221,13 @@
         "ERROR":"Error creada correctamente"
       },
       "VALIDATOR":{
-        "NAME":"Ingrese un nombre entre 6 y 100 digitos",
+        "NAME":"Ingrese un nombre entre 6 y 100 caracteres",
         "TECHNOLOGY":"La tecnología es requerida",
         "DURATION":"Ingrese una duracion mayor que cero",
         "STATUS":"El estado es requerido",
         "START_DATE":"La fecha inicial es requerida",
         "END_DATE":"La fecha final es requerida",
-        "DESCRIPTION":"Ingrese una descripción entre 5 y 500 digitos"
+        "DESCRIPTION":"Ingrese una descripción entre 5 y 500 caracteres"
       }
     }
   }

@@ -1,87 +1,87 @@
 <header-candidate></header-candidate>
 
-<h2 class="text-center">Datos Básicos</h2>
+<h2 class="text-center">{{ 'CANDIDATE_BASIC.TITLE' | translate }}</h2>
     <div class="container text-center">
 		<form class="needs-validation" [formGroup]="candidateBasicForm" (ngSubmit)="createCandidate(candidateBasicForm.value)" id="createCandidate" novalidate #myForm="ngForm">
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3 float-lg-right">
-					<label for="Username" class="col-form-label float-lg-right">Usuario</label>
+					<label for="Username" class="col-form-label float-lg-right">{{ 'CANDIDATE_BASIC.LABEL.USERNAME' | translate }}</label>
 				</div>
 				<div class="col-8 input-group has-validation">
-					<input type="email" class="form-control" formControlName="Username" id="Username" aria-describedby="emailHelp" required placeholder="Usuario@mail.com">
+					<input type="email" class="form-control" formControlName="Username" id="Username" aria-describedby="emailHelp" required placeholder="{{ 'CANDIDATE_BASIC.PLACEHOLDER.USERNAME' | translate }}">
 					<div *ngIf="candidateBasicForm.get('Username')?.hasError('required') && candidateBasicForm.get('Username')?.touched" class="invalid-feedback">
-					Ingrese un nombre de usuario, en formato de email. 
+					{{ 'CANDIDATE_BASIC.VALIDATOR.USERNAME' | translate }}
                                          </div>
 				</div>
 			</div>
 			<div class="row mt-2 align-items-center text-center form-group">
 				<div class="col-3">
-					<label for="Password" class="col-form-label float-lg-right">Clave</label>
+					<label for="Password" class="col-form-label float-lg-right">{{ 'CANDIDATE_BASIC.LABEL.PASSWORD' | translate }}</label>
 				</div>
 				<div class="col-8">
-					<input type="password" class="form-control" formControlName="Password" id="Password"  minlength="6" required placeholder="Clave" pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+					<input type="password" class="form-control" formControlName="Password" id="Password"  minlength="6" required placeholder="{{ 'CANDIDATE_BASIC.PLACEHOLDER.PASSWORD' | translate }}" pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
 					 <div   class="invalid-feedback">
-					Clave mayor a 6 caracteres.Debe incluir una Mayuscula una minuscula, numero y caracter especial
+					{{ 'CANDIDATE_BASIC.VALIDATOR.PASSWORD' | translate }}
                                         </div>
 				</div>
-				
+
 			</div>
                         <div class="row mt-2 align-items-center text-center form-group">
 				<div class="col-3">
-					<label for="DocumentType" class="col-form-label float-lg-right">Tipo Documento</label>
+					<label for="DocumentType" class="col-form-label float-lg-right">{{ 'CANDIDATE_BASIC.LABEL.DOCUMENTTYPE' | translate }}</label>
 				</div>
 				<div class="col-2">
 					<select formControlName="DocumentType" size="1" class="form-control"  id="DocumentType" required>
-						<option selected disabled value="">Seleccione</option>
+						<option selected disabled value="">{{ 'CANDIDATE_BASIC.PLACEHOLDER.DOCUMENTTYPE' | translate }}</option>
 						<option value="CC">Cédula de ciudadanía</option>
                                                 <option value="NI">ID Nacional</option>
 						<option value="PA">Pasaporte</option>
 
 					</select>
 					 <div   class="invalid-feedback">
-					Seleccione un tipo de documento.
+					{{ 'CANDIDATE_BASIC.VALIDATOR.DOCUMENTTYPE' | translate }}
                                         </div>
 				</div>
                                 <div class="col-2">
-					<label for="Document" class="col-form-label float-lg-right">Documento</label>
-					
+					<label for="Document" class="col-form-label float-lg-right">{{ 'CANDIDATE_BASIC.LABEL.DOCUMENT' | translate }}</label>
+
 				</div>
 				<div class="col-4">
-					<input type="text" class="form-control" formControlName="Document" id="Document" minlength="6" required placeholder="Ingrese su  documento" pattern="[0-9]{6,30}">
+					<input type="text" class="form-control" formControlName="Document" id="Document" minlength="6" required placeholder="{{ 'CANDIDATE_BASIC.PLACEHOLDER.DOCUMENT' | translate }}" pattern="[0-9]{6,30}">
 					<div class="invalid-feedback">
-					Ingrese un numero de documento entre 6 y 30 digitos.
+					{{ 'CANDIDATE_BASIC.VALIDATOR.DOCUMENT' | translate }}
 				  </div>
 				</div>
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="FirstName" class="col-form-label float-lg-right">Nombres</label>
+					<label for="FirstName" class="col-form-label float-lg-right">{{ 'CANDIDATE_BASIC.LABEL.FIRSTNAME' | translate }}</label>
 				</div>
 				<div class="col-8">
-					<input type="text" class="form-control" minlength="2" formControlName="FirstName" id="FirstName" required placeholder="Ingrese su(s) nombres(s)"  pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					<input type="text" class="form-control" minlength="2" formControlName="FirstName" id="FirstName" required placeholder="{{ 'CANDIDATE_BASIC.PLACEHOLDER.FIRSTNAME' | translate }}"  pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
 					<div class="invalid-feedback">
-					Ingrese un nombre mayor a 2 caracteres.
+					{{ 'CANDIDATE_BASIC.VALIDATOR.FIRSTNAME' | translate }}
 				  </div>
 				</div>
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="LastName" class="col-form-label float-lg-right" >Apellidos</label>
+					<label for="LastName" class="col-form-label float-lg-right" >{{ 'CANDIDATE_BASIC.LABEL.LASTNAME' | translate }}</label>
 				</div>
 				<div class="col-8">
-					<input type="text" class="form-control" formControlName="LastName" id="LastName" minlength="2" required placeholder="Ingrese su apellido" pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					<input type="text" class="form-control" formControlName="LastName" id="LastName" minlength="2" required placeholder="{{ 'CANDIDATE_BASIC.PLACEHOLDER.LASTNAME' | translate }}" pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
 					<div class="invalid-feedback">
-					Ingrese un apellido mayor a 2 caracteres.
+					{{ 'CANDIDATE_BASIC.VALIDATOR.LASTNAME' | translate }}
 				  </div>
 				</div>
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Age" class="col-form-label float-lg-right">Edad</label>
+					<label for="Age" class="col-form-label float-lg-right">{{ 'CANDIDATE_BASIC.LABEL.AGE' | translate }}</label>
 				</div>
 				<div class="col-2">
 					<select size="1" class="form-control" formControlName="Age" id="Age" required>
-						<option selected disabled value="">Seleccione</option>
+						<option selected disabled value="">{{ 'CANDIDATE_BASIC.PLACEHOLDER.AGE' | translate }}</option>
 						<option>16</option>
 						<option>17</option>
 						<option>18</option>
@@ -134,108 +134,107 @@
 						<option>65</option>
 					</select>
 					<div class="invalid-feedback">
-					Seleccione una edad.
+					{{ 'CANDIDATE_BASIC.VALIDATOR.AGE' | translate }}
 				  </div>
 				</div>
 				<div class="col-2">
-					<label for="PhoneNumber" class="col-form-label float-lg-right">Telefono</label>
+					<label for="PhoneNumber" class="col-form-label float-lg-right">{{ 'CANDIDATE_BASIC.LABEL.PHONENUMBER' | translate }}</label>
 				</div>
 				<div class="col-4">
-					<input type="text" class="form-control" formControlName="PhoneNumber" id="PhoneNumber" minlength="6" required placeholder="Ingrese un telefono" pattern="[0-9]{6,20}">
+					<input type="text" class="form-control" formControlName="PhoneNumber" id="PhoneNumber" minlength="6" required placeholder="{{ 'CANDIDATE_BASIC.PLACEHOLDER.PHONENUMBER' | translate }}" pattern="[0-9]{6,20}">
 					<div class="invalid-feedback">
-					Ingrese un numero de telefono entre 6 y 20 digitos.
+					{{ 'CANDIDATE_BASIC.VALIDATOR.PHONENUMBER' | translate }}
 				  </div>
 				</div>
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Address" class="col-form-label float-lg-right" >Direccion</label>
+					<label for="Address" class="col-form-label float-lg-right" >{{ 'CANDIDATE_BASIC.LABEL.ADDRESS' | translate }}</label>
 				</div>
 				<div class="col-8">
-					<input type="text" class="form-control" formControlName="Address" id="Address" placeholder="Ingrese una direccion">
+					<input type="text" class="form-control" formControlName="Address" id="Address" placeholder="{{ 'CANDIDATE_BASIC.PLACEHOLDER.ADDRESS' | translate }}">
 				</div>
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="OriginCountry" class="col-form-label float-lg-right">Pais de residencia</label>
+					<label for="OriginCountry" class="col-form-label float-lg-right">{{ 'CANDIDATE_BASIC.LABEL.ORIGINCOUNTRY' | translate }}</label>
 				</div>
 				<div class="col-8">
 					<select size="1" class="form-control" formControlName="OriginCountry" id="OriginCountry" required>
-						<option selected disabled value="">Seleccione</option>
+						<option selected disabled value="">{{ 'CANDIDATE_BASIC.PLACEHOLDER.ORIGINCOUNTRY' | translate }}</option>
 						<option value="CO">Colombia</option>
 						<option value="US">Estados Unidos</option>
 					</select>
 					<div class="invalid-feedback">
-					Seleccione un país.
+					{{ 'CANDIDATE_BASIC.VALIDATOR.ORIGINCOUNTRY' | translate }}
 				  </div>
 				</div>
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="ResidenceCity" class="col-form-label float-lg-right">Ciudad</label>
+					<label for="ResidenceCity" class="col-form-label float-lg-right">{{ 'CANDIDATE_BASIC.LABEL.RESIDENCECITY' | translate }}</label>
 				</div>
 				<div class="col-8">
-					<input type="text" class="form-control" formControlName="ResidenceCity" id="ResidenceCity"  minlength="2" required placeholder="Ingrese su ciudad" pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					<input type="text" class="form-control" formControlName="ResidenceCity" id="ResidenceCity"  minlength="2" required placeholder="{{ 'CANDIDATE_BASIC.PLACEHOLDER.RESIDENCECITY' | translate }}" pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
 					<div class="invalid-feedback">
-					Ingrese su ciudad de residencia. Minimo 2 caracteres.
+					{{ 'CANDIDATE_BASIC.VALIDATOR.RESIDENCECITY' | translate }}
 				  </div>
 				</div>
 			</div>
-			
+
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="ResidenceCountry" class="col-form-label float-lg-right">Pais de origen</label>
+					<label for="ResidenceCountry" class="col-form-label float-lg-right">{{ 'CANDIDATE_BASIC.LABEL.RESIDENCECOUNTRY' | translate }}</label>
 				</div>
 				<div class="col-8">
 					<select size="1" class="form-control" formControlName="ResidenceCountry" id="ResidenceCountry" required>
-						<option selected disabled value="">Seleccione</option>
+						<option selected disabled value="">{{ 'CANDIDATE_BASIC.PLACEHOLDER.RESIDENCECOUNTRY' | translate }}</option>
 						<option value="CO">Colombia</option>
 						<option value="US">Estados Unidos</option>
 					</select>
 					<div class="invalid-feedback">
-					Seleccione un país.
+					{{ 'CANDIDATE_BASIC.VALIDATOR.RESIDENCECOUNTRY' | translate }}
 				  </div>
 				</div>
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Photo" class="col-form-label float-lg-right">Foto</label>
+					<label for="Photo" class="col-form-label float-lg-right">{{ 'CANDIDATE_BASIC.LABEL.PHOTO' | translate }}</label>
 				</div>
 					<div class="card">
 						<img  id="Photo" width="15%" height="15%" src="../../../assets/images/user.png" alt="Card image cap">
-                                               
+
 					 </div>
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Policy" class="col-form-label float-lg-right">Politica</label>
+					<label for="Policy" class="col-form-label float-lg-right">{{ 'CANDIDATE_BASIC.LABEL.POLICY' | translate }}</label>
 				</div>
 				<div class="col-8">
-					<input class="form-check-input" type="checkbox" formControlName="Policy" id="Policy" required> 
+					<input class="form-check-input" type="checkbox" formControlName="Policy" id="Policy" required>
 						<label class="form-check-label" for="flexCheckDefault">
-						Acepta la politica de Datos
+						{{ 'CANDIDATE_BASIC.PLACEHOLDER.POLICY' | translate }}
 					  </label>
 					<div class="invalid-feedback">
-					Debe aceptar la politica de datos
+					{{ 'CANDIDATE_BASIC.VALIDATOR.POLICY' | translate }}
 				  </div>
 				</div>
 			</div>
 			<div class="row mt-2 align-items-center ">
 				<div class="col-5 text-right">
-					<button type="submit" class="btn btn-primary" onmouseover="checkForm()" onfocus="checkForm()">Aceptar</button>
+					<button type="submit" class="btn btn-primary" onmouseover="checkForm()" onfocus="checkForm()">{{ 'UI.CREATE' | translate }}</button>
 				</div>
 				<div class="col-1">
-					
+
 				</div>
 				<div class="col-5 text-left">
-                                    <button type="reset" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+                                    <button type="reset" class="btn btn-danger" (click)="cancelCreation()">{{ 'UI.CANCEL' | translate }}</button>
 				</div>
 			</div>
 		</form>
-       
+
     </div>
 	<br>
 	<br>
 	<br>
-       
-        
+

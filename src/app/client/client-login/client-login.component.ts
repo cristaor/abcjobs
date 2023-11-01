@@ -4,6 +4,7 @@ import { ClientLoginService } from "../client-login.service";
 import {ClientLogin} from 'src/app/client/client-login';
 import { ToastrService } from 'ngx-toastr';
 import {Router} from "@angular/router"
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-client-login',
@@ -11,7 +12,8 @@ import {Router} from "@angular/router"
   styleUrls: ['./client-login.component.css']
 })
 export class ClientLoginComponent implements OnInit {
-
+  title = 'angular-i18n-ngx-translate';
+  selectedLanguage = 'es';
   loginForm!: FormGroup;
 
   ngOnInit() {
@@ -25,15 +27,24 @@ export class ClientLoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private clientLoginService:ClientLoginService,
     private toastr: ToastrService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private translateService: TranslateService
+  ) {
+       this.translateService.setDefaultLang(this.selectedLanguage);
+       this.translateService.use(this.selectedLanguage);
+      }
+
+  selectLanguage(lang: string) {
+      this.translateService.use(lang);
+      console.log(lang)
+  }
 
   login(value:any) {
 
     this.clientLoginService.login(new ClientLogin(value.user,value.password)).subscribe(result =>{
       console.info(result)
       if (!result){
-        this.toastr.error("Credenciales invalidas","Error" );
+        this.toastr.error(`${this.translateService.instant('BACK_RESPONSES.INVALID_CREDENTIALS')}`,"Error" );
         return;
       }
       this.clientLoginService.who_i_am().subscribe(res =>{
@@ -42,7 +53,7 @@ export class ClientLoginComponent implements OnInit {
           this.toastr.success("Login success","Confirmation" );
           this.router.navigate(['/home-client'])
         }else{
-          this.toastr.error("Credenciales invalidas","Error");
+          this.toastr.error(`${this.translateService.instant('BACK_RESPONSES.INVALID_CREDENTIALS')}`,"Error");
         }
       });
     });

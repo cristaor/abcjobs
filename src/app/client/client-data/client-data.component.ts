@@ -5,6 +5,7 @@ import { valHooks } from 'cypress/types/jquery';
 import { ToastrService } from 'ngx-toastr';
 import { Client } from '../client';
 import { ClientService } from '../client.service'
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-client-data',
@@ -13,7 +14,8 @@ import { ClientService } from '../client.service'
 })
 export class ClientDataComponent implements OnInit{
     clientDataForm!: FormGroup;
-
+    title = 'angular-i18n-ngx-translate';
+    selectedLanguage = 'es';
     newClient!: Client;
 
     constructor(
@@ -21,8 +23,11 @@ export class ClientDataComponent implements OnInit{
         private formBuilder: FormBuilder,
         private router: ActivatedRoute,
         private routerPath: Router,
-        private toastr: ToastrService
-      ) { }
+        private toastr: ToastrService,
+        private translateService: TranslateService
+      ) {this.translateService.setDefaultLang(this.selectedLanguage);
+       this.translateService.use(this.selectedLanguage); }
+       
        ngOnInit() {
            this.clientDataForm = this.formBuilder.group({
             Username: ["", [Validators.required, Validators.maxLength(60), Validators.email ]],
@@ -85,12 +90,12 @@ export class ClientDataComponent implements OnInit{
                                         this.clientDataForm.get('Profile')?.value,
                                         this.clientDataForm.get('Position')?.value)
                                         .subscribe(client => {
-                                            this.routerPath.navigate([`/login-client`])
+                                            this.routerPath.navigate([`/home-client`])
       this.showSuccess(this.clientDataForm.get('Name')?.value)
       },
         error => {
           //console.log(error);  
-          this.showError(`Ha ocurrido un error: ${error.status} - ${error.statusText}`)
+          this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText}`)
         })
     }
      showError(error: string) {
@@ -101,7 +106,7 @@ export class ClientDataComponent implements OnInit{
     }
 
   showSuccess(client: String) {
-    this.toastr.success(`la Compañia  ${client} fue creada`, "Creación exitosa");
+    this.toastr.success(`${this.translateService.instant('CLIENT_DATA.BACK_RESPONSES.SUCESS_1')} ${client} ${this.translateService.instant('CLIENT_DATA.BACK_RESPONSES.SUCESS_2')}`, `${this.translateService.instant('BACK_RESPONSES.SUCESSFULL_1')}`);
     }
     cancelCreation():void{this.clientDataForm.reset();this.routerPath.navigate([`/login-client`])}
 }
