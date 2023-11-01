@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ClientProject } from '../client';
 import { ClientService } from '../client.service'
 import { ClientLoginService } from '../../client/client-login.service'
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-client-create-project',
@@ -14,7 +15,8 @@ import { ClientLoginService } from '../../client/client-login.service'
 })
 export class ClientCreateProjectComponent implements OnInit{
     projectDataForm!: FormGroup;
-    
+    title = 'angular-i18n-ngx-translate';
+    selectedLanguage = 'es';
     newProject!: ClientProject;
     
      constructor(
@@ -23,8 +25,11 @@ export class ClientCreateProjectComponent implements OnInit{
         private router: ActivatedRoute,
         private routerPath: Router,
         private toastr: ToastrService,
-        private clientLoginService: ClientLoginService
-      ) { }
+        private clientLoginService: ClientLoginService,
+        private translateService: TranslateService
+      ) {this.translateService.setDefaultLang(this.selectedLanguage);
+       this.translateService.use(this.selectedLanguage); }
+       
        ngOnInit() {
             this.projectDataForm = this.formBuilder.group({
                      ProjectName: ["", [Validators.required, Validators.maxLength(60), Validators.minLength(6) ]],
@@ -36,11 +41,11 @@ export class ClientCreateProjectComponent implements OnInit{
                     })
             this.clientLoginService.who_i_am().subscribe(res =>{
                 if(!res.is_authenticated){  
-                    this.showError("Credenciales invalidas");
+                    this.showError(`${this.translateService.instant('BACK_RESPONSES.INVALID_CREDENTIALS')}`);
                     this.routerPath.navigate(['/login-client'])
                 }
             }, error => {
-                this.showError("Credenciales invalidas. Inicie sesión nuevamente");
+                this.showError(`${this.translateService.instant('BACK_RESPONSES.INVALID_CREDENTIALS2')}`);
                 this.routerPath.navigate(['/login-client'])
               });
        }
@@ -58,20 +63,20 @@ export class ClientCreateProjectComponent implements OnInit{
                 if(res.is_authenticated){
                     let token = res.auth_headers.get("Authorization") || "token"
                     this.clientService.projectCreate(newProject, token).subscribe(project => {
-                                                 this.routerPath.navigate([`/login-client`])
+                                                 this.routerPath.navigate([`/home-client`])
                                                  this.showSuccess(newProject.project_name)
                     },
                     error => {
                       //console.log(error);  
-                      this.showError(`Ha ocurrido un error: ${error.status} - ${error.statusText}`)
+                      this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText}`)
                     })
                 }
                 else{
-                    this.showError("Credenciales invalidas");
+                    this.showError(`${this.translateService.instant('BACK_RESPONSES.INVALID_CREDENTIALS2')}`);
                     this.routerPath.navigate(['/login-client'])
                 }
             }, error => {
-                this.showError("Credenciales invalidas. Inicie sesión nuevamente");
+                this.showError(`${this.translateService.instant('BACK_RESPONSES.INVALID_CREDENTIALS2')}`);
                 this.routerPath.navigate(['/login-client'])
               });
        
@@ -84,9 +89,11 @@ export class ClientCreateProjectComponent implements OnInit{
         showWarning(warning: string) {
             this.toastr.warning(warning, "Error de autenticación")
         }
-
+        
        showSuccess(client: String) {
-            this.toastr.success(`El proyecto ${client} fue creado`, "Creación exitosa");
+            //this.toastr.success(`El proyecto ${client} fue creado`, "Creación exitosa");
+            this.toastr.success(`${this.translateService.instant('CREATE_PROJECT.BACK_RESPONSES.SUCESS_1')}  ${client} ${this.translateService.instant('CREATE_PROJECT.BACK_RESPONSES.SUCESS_2')}`, `${this.translateService.instant('BACK_RESPONSES.SUCESSFULL_1')}`);
+            console.log('translation', );
         }
         
         cancelCreation():void{this.projectDataForm.reset();this.routerPath.navigate([`/login-client`])}

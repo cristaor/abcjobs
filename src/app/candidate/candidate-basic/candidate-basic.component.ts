@@ -5,6 +5,7 @@ import { valHooks } from 'cypress/types/jquery';
 import { ToastrService } from 'ngx-toastr';
 import { Candidate } from '../candidate';
 import { CandidateService } from '../candidate.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-candidate-basic',
@@ -14,7 +15,8 @@ import { CandidateService } from '../candidate.service';
 export class CandidateBasicComponent implements OnInit{
 
     candidateBasicForm!: FormGroup;
-
+    title = 'angular-i18n-ngx-translate';
+    selectedLanguage = 'es';
     newCandidate!: Candidate;
 
     constructor(
@@ -22,8 +24,11 @@ export class CandidateBasicComponent implements OnInit{
         private formBuilder: FormBuilder,
         private router: ActivatedRoute,
         private routerPath: Router,
-        private toastr: ToastrService
-      ) { }
+        private toastr: ToastrService,
+        private translateService: TranslateService
+      ) {this.translateService.setDefaultLang(this.selectedLanguage);
+       this.translateService.use(this.selectedLanguage); 
+      }
   
     ngOnInit() {
           //myObj.checkForm();
@@ -89,7 +94,7 @@ ${this.candidateBasicForm.get('Address')?.value}
       },
         error => {
           //console.log(error);  
-          this.showError(`Ha ocurrido un error: ${error.status} - ${error.statusText}`)
+          this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText}`)
         })
     }
      
@@ -102,7 +107,7 @@ ${this.candidateBasicForm.get('Address')?.value}
     this.toastr.warning(warning, "Error de autenticación")
   }
 
-  showSuccess(candidate: Candidate) {
-    this.toastr.success(`El usuario candidato ${candidate.username} fue creado`, "Creación exitosa");
+  showSuccess(candidate: string) {
+    this.toastr.success(`${this.translateService.instant('CANDIDATE_BASIC.BACK_RESPONSES.SUCESS_1')} ${candidate} ${this.translateService.instant('CANDIDATE_BASIC.BACK_RESPONSES.SUCESS_2')}`, `${this.translateService.instant('BACK_RESPONSES.SUCESSFULL_1')}`);
   }
 }

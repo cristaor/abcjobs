@@ -12,8 +12,8 @@ import { CandidateTestComponent } from './candidate-test/candidate-test.componen
 import { CandidateResultsComponent } from './candidate-results/candidate-results.component';
 import { CandidateInterviewsComponent } from './candidate-interviews/candidate-interviews.component';
 import { CandidateHomeComponent } from './candidate-home/candidate-home.component';
-
-
+import {I18nModule} from '../i18n/i18n.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { CandidateHomeComponent } from './candidate-home/candidate-home.componen
     CandidateHomeComponent
   ],
   imports: [
-    CommonModule, HeaderCandidateModule ,ReactiveFormsModule, FormsModule
+    CommonModule, HeaderCandidateModule ,ReactiveFormsModule, FormsModule,  
+    I18nModule, TranslateModule
   ],
   exports: [CandidateLoginComponent,
     CandidateBasicComponent,

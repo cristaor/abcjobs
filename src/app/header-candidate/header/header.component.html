@@ -1,6 +1,8 @@
-<!--<script src="src/assets/js/abc.js"></script>-->
+<script src="src/assets/js/abc.js"></script>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-blueABC">
     <div class="container-fluid">
+        
        <a class="navbar-brand" href="#">ABC Jobs</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -9,14 +11,46 @@
           <ul class="navbar-nav mr-auto">
              
              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-                 Mis Datos
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'HEADER.CLIENT.MENU_1' | translate }}
                 </a>
-                <ul class="dropdown-menu bg-blueABC text-white-50" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" routerLink="/basic-candidate">Datos Basicos</a></li>
-                </ul>
+                <div class="dropdown-menu bg-blueABC text-white-50" aria-labelledby="navbarDropdown">
+                   <a class="dropdown-item" href="index_es.html">Datos Basicos</a>
+                   <a class="dropdown-item" href="academic_es.html">Datos Academicos</a>
+                   <a class="dropdown-item" href="job_es.html">Datos Laborales</a>
+				   <a class="dropdown-item" href="technical_es.html">Datos Tecnicos</a>
+                </div>
+             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'HEADER.CLIENT.MENU_2' | translate }}
+                </a>
+                <div class="dropdown-menu bg-blueABC " aria-labelledby="navbarDropdown2">
+                   <a class="dropdown-item" href="take_test_es.html">Realizar Prueba</a>
+                   <a class="dropdown-item" href="list_results_es.html">Ver resultados</a>
+                </div>
+             </li>
+			  <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               {{ 'HEADER.CLIENT.MENU_3' | translate }}
+                </a>
+                <div class="dropdown-menu bg-blueABC " aria-labelledby="navbarDropdown3">
+                   <a class="dropdown-item" href="list_interviews_es.html">Consultar</a>
+                </div>
              </li>
           </ul>
-       </div>    
+       </div>  
+    </div>
+    <div class="navbar-collapse collapse w-25 order-4 dual-collapse2">
+   <ul class="navbar-nav float-right text-right">
+       <li class="nav-item">
+          <a class="nav-link" >
+          <img (click)="selectLanguage('es')" src="../../assets/images/spain.png" class="float-right language" width="20%" height="20%" alt="{{ 'I18N.SPANISH_PAGE' | translate }}"></a>
+       </li>
+       <li class="nav-item">
+           <a class="nav-link" >
+            <img (click)="selectLanguage('en')" src="../../assets/images/united-states.png" class="float-right language" width="20%" height="20%" alt="{{ 'I18N.ENGLISH_PAGE' | translate }}"></a>
+       </li>
+   </ul>
     </div>
 </nav>
