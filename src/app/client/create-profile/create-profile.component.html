@@ -1,0 +1,187 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-blueABC">
+  <a class="navbar-brand" href="#">ABC Jobs</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav mr-auto">
+     </ul>
+  </div>
+<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+ <ul class="navbar-nav ml-auto">
+ </ul>
+ </div>
+ <div class="navbar-collapse collapse w-25 order-4 dual-collapse2">
+   <app-i18n/>
+ </div>
+
+</nav>
+<br>
+<br>
+<h2 class="text-center">{{ 'PROFILE.CREATE.CREATE_PROFILE' | translate }} </h2>
+<div class="container text-center float-lg-none">
+<hr >
+<div class="container text-center">
+<form  [formGroup]="profileForm" class="needs-validation" #formDirective="ngForm" (ngSubmit)="create_profile(profileForm.value,formDirective)">
+
+
+  <div class="row mt-3 align-items-center text-center">
+    <div class="col-3">
+      <label for="project_id" class="col-form-label float-lg-right">{{'PROFILE.CREATE.PROJECT' | translate}}</label>
+    </div>
+    <div class="col-3">
+     <select  size="1" class="form-control" formControlName="project_id" id="project_id" required>
+       <option *ngFor="let project of projects"  value=" {{project.projectId}}"> {{project.name}}</option>
+
+     </select>
+     <div class="invalid-feedback">
+       {{'PROFILE.CREATE.VALIDATOR.PROJECT' | translate}}
+     </div>
+    </div>
+
+  </div>
+
+
+  <div class="row mt-3 align-items-center text-center">
+   <div class="col-3">
+     <label for="name" class="col-form-label float-lg-right">
+      {{'PROFILE.CREATE.NAME' | translate}}</label>
+   </div>
+   <div class="col-9 input-group has-validation">
+     <input type="text" class="form-control" formControlName="name" id="name" required minlength="3" maxlength="100"
+     aria-describedby="emailHelp"
+     placeholder="{{'PROFILE.CREATE.ENTER_NAME' | translate}}" novalidate>
+     <div class="invalid-feedback">
+      {{'PROFILE.CREATE.VALIDATOR.NAME' | translate}}
+    </div>
+   </div>
+ </div>
+
+ <div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="title" class="col-form-label float-lg-right">
+      {{'PROFILE.CREATE.TITLE' | translate}}</label>
+  </div>
+  <div class="col-9 input-group has-validation">
+    <input type="text" class="form-control" formControlName="title" id="title" required minlength="3" maxlength="100"
+    aria-describedby="emailHelp" placeholder="{{'PROFILE.CREATE.ENTER_TITLE' | translate}}" novalidate>
+    <div class="invalid-feedback">
+     {{'PROFILE.CREATE.VALIDATOR.TITLE' | translate}}
+   </div>
+  </div>
+</div>
+
+
+ <div class="row mt-3 align-items-center text-center">
+   <div class="col-3">
+     <label for="technology" class="col-form-label float-lg-right">{{'PROFILE.CREATE.TECHNOLOGY' | translate}}</label>
+   </div>
+   <div class="col-3">
+    <select size="1" class="form-control" formControlName="technology" id="technology" required>
+      <option value="JAVA">JAVA</option>
+      <option value="PYTHON">PYTHON</option>
+      <option value="AWS">AWS</option>
+      <option value="GCP">GCP</option>
+      <option value="JAVASCRIPT">JAVASCRIPT</option>
+      <option value="HTML">HTML</option>
+      <option value="ANDROID">ANDROID</option>
+      <option value="ANGULAR">ANGULAR</option>
+    </select>
+    <div class="invalid-feedback">
+      {{'PROFILE.CREATE.VALIDATOR.TECHNOLOGY' | translate}}
+    </div>
+   </div>
+   <div class="col-4">
+    <label for="experience_in_years"
+    class="col-form-label float-lg-right">{{'PROFILE.CREATE.DURATION_EXPERIENCE' | translate}}</label>
+  </div>
+  <div class="col-2">
+    <input type="number" class="form-control"
+     formControlName="experience_in_years" id="experience_in_years" min="0" required />
+    <div class="invalid-feedback">
+      {{'PROFILE.CREATE.VALIDATOR.DURATION_EXPERIENCE' | translate}}
+    </div>
+  </div>
+ </div>
+
+
+
+ <div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="role" class="col-form-label float-lg-right">{{'PROFILE.CREATE.ROLE' | translate}}</label>
+  </div>
+  <div class="col-3">
+   <select size="1" class="form-control" formControlName="role" id="role" required>
+     <option value="SR_DEVELOPER">{{'PROFILE.CREATE.ROLE_SELECT.SR_DEVELOPER' | translate}}</option>
+     <option value="JR_DEVELOPER">{{'PROFILE.CREATE.ROLE_SELECT.JR_DEVELOPER' | translate}}</option>
+     <option value="TECHNICAL_LEADER">{{'PROFILE.CREATE.ROLE_SELECT.TECHNICAL_LEADER' | translate}}</option>
+     <option value="PRODUCT_ANALIST">{{'PROFILE.CREATE.ROLE_SELECT.PRODUCT_ANALIST' | translate}}</option>
+     <option value="PRODUCT_OWNER">{{'PROFILE.CREATE.ROLE_SELECT.PRODUCT_OWNER' | translate}}</option>
+     <option value="QA_JR">{{'PROFILE.CREATE.ROLE_SELECT.QA_JR' | translate}}</option>
+     <option value="QA_SR">{{'PROFILE.CREATE.ROLE_SELECT.QA_SR' | translate}}</option>
+    </select>
+   <div class="invalid-feedback">
+     {{'PROFILE.CREATE.VALIDATOR.ROLE' | translate}}
+   </div>
+  </div>
+
+  <div class="col-3">
+    <label for="category" class="col-form-label float-lg-right">{{'PROFILE.CREATE.CATEGORY' | translate}}</label>
+  </div>
+  <div class="col-3">
+   <select size="1" class="form-control" formControlName="category" id="category" required>
+    <option value="WEB">{{'PROFILE.CREATE.CATEGORY_SELECT.WEB' | translate}}</option>
+    <option value="MOVIL">{{'PROFILE.CREATE.CATEGORY_SELECT.MOVIL' | translate}}</option>
+    <option value="BACKEND">{{'PROFILE.CREATE.CATEGORY_SELECT.BACKEND' | translate}}</option>
+
+   </select>
+   <div class="invalid-feedback">
+     {{'PROFILE.CREATE.VALIDATOR.TECHNOLOGY' | translate}}
+   </div>
+  </div>
+</div>
+
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="description" class="col-form-label float-lg-right">{{'PROFILE.CREATE.DESCRIPTION' | translate}}</label>
+  </div>
+  <div class="col-9">
+    <textarea class="form-control" formControlName="description" id="description" minlength="5" required>
+    </textarea>
+    <div class="invalid-feedback">
+      {{'PROFILE.CREATE.VALIDATOR.DESCRIPTION' | translate}}
+    </div>
+
+  </div>
+
+</div>
+
+<div class="row mt-3 align-items-center ">
+   <div class="col-4 text-right">
+     <!--<a href="index_es.html"> -->
+     <button class="btn btn-primary" type="submit"  onmouseover="checkForm()" onfocus="checkForm()" >{{'UI.OK' | translate}}</button>
+     <!--</a>-->
+   </div>
+   <div class="col-1">
+
+   </div>
+   <div class="col-4 text-left">
+     <button type="reset" class="btn btn-danger" (click)="cancelCreation()">{{'UI.CANCEL' | translate}}</button>
+   </div>
+ </div>
+</form>
+
+</div>
+<br>
+<br>
+<br>
+<footer class="fixed-bottom">
+<div class="container-fluid bg-blueABC">
+  <div class="row">
+     <div class="text-center col-lg-20">
+   <br>
+     </div>
+  </div>
+</div>
+</footer>

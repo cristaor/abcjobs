@@ -206,16 +206,16 @@
     "CREATE":{
       "CREATE_TEST":"Create Test",
       "NAME":"Name",
-      "INGRESS_NAME":"Ingress the test name",
+      "INGRESS_NAME":"Enter the test name",
       "TECHNOLOGY":"Technology",
-      "INGRESS_TECHNOLOGY":"Ingress the technology",
+      "INGRESS_TECHNOLOGY":"Enter the technology",
       "DURATION":"Duration in minutes",
       "STATUS":"Status",
       "STATUS_ENABLED":"Enabled",
       "STATUS_DISABLED":"Disabled",
       "START_DATE":"Start Date",
       "END_DATE":"End Date",
-      "DESCRIPTION":"Descripción",
+      "DESCRIPTION":"Description",
       "UI":{
         "CREATED":"Test created successful",
         "ERROR":"Error creating test"
@@ -227,7 +227,54 @@
         "STATUS":"The status is required",
         "START_DATE":"The start date is required",
         "END_DATE":"The end date is required",
-        "DESCRIPTION":"Enter a name between 5 and 500 digits"
+        "DESCRIPTION":"Enter a description between 5 and 500 digits"
+      }
+    }
+  },
+
+
+  "PROFILE":{
+    "CREATE":{
+      "CREATE_PROFILE":"Create profile",
+      "PROJECT":"Project",
+      "NAME":"Name",
+      "ENTER_NAME":"Enter the profile name",
+      "TITLE":"Title",
+      "ENTER_TITLE":"Enter the title",
+      "TECHNOLOGY":"Technology",
+      "ENTER_TECHNOLOGY":"Enter the technology",
+      "DURATION_EXPERIENCE":"Experience in years",
+      "ROLE":"Role",
+      "CATEGORY":"Category",
+      "DESCRIPTION":"Description",
+      "ENTER_DESCRIPTION":"Enter Description",
+      "ROLE_SELECT":{
+        "SR_DEVELOPER":"Senior developer",
+        "JR_DEVELOPER":"Junior developer",
+        "TECHNICAL_LEADER":"Technical leader",
+        "PRODUCT_ANALIST":"Product analist",
+        "PRODUCT_OWNER":"Product owner",
+        "QA_JR":"Junior QA",
+        "QA_SR":"Senior QA"
+      },
+      "CATEGORY_SELECT":{
+        "WEB":"Web development",
+        "MOVIL":"Movil development",
+        "BACKEND":"Backend development"
+      },
+      "UI":{
+        "CREATED":"Profile create successful",
+        "ERROR":"Error creating the profile"
+      },
+      "VALIDATOR":{
+        "PROJECT":"Enter a project",
+        "NAME":"Enter the name of 6 and 100 characters",
+        "TECHNOLOGY":"The technology is required",
+        "DURATION_EXPERIENCE":"Enter the experience duration",
+        "TITLE":"The title is required",
+        "ROLE":"The role is required",
+        "CATEGORY":"The category is required",
+        "DESCRIPTION":"The description is required"
       }
     }
   }

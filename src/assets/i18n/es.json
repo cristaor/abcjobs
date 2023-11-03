@@ -230,5 +230,51 @@
         "DESCRIPTION":"Ingrese una descripción entre 5 y 500 caracteres"
       }
     }
+  },
+
+  "PROFILE":{
+    "CREATE":{
+      "CREATE_PROFILE":"Crear Perfil",
+      "PROJECT":"Proyecto",
+      "NAME":"Nombre",
+      "ENTER_NAME":"Ingrese el nombre del perfil",
+      "TITLE":"Titulo",
+      "ENTER_TITLE":"Ingrese el titulo",
+      "TECHNOLOGY":"Tecnología",
+      "ENTER_TECHNOLOGY":"Ingrese la tegnologia",
+      "DURATION_EXPERIENCE":"Años de experiencia",
+      "ROLE":"Rol",
+      "CATEGORY":"Category",
+      "DESCRIPTION":"Descripción",
+      "ENTER_DESCRIPTION":"Ingrese descripción",
+      "ROLE_SELECT":{
+        "SR_DEVELOPER":"Desarrollador Senior",
+        "JR_DEVELOPER":"Desarrollador Junior",
+        "TECHNICAL_LEADER":"Lider técnico",
+        "PRODUCT_ANALIST":"Analista de producto",
+        "PRODUCT_OWNER":"Dueño de producto",
+        "QA_JR":"Analista de calidad Junior",
+        "QA_SR":"Analista de calidad Senior"
+      },
+      "CATEGORY_SELECT":{
+        "WEB":"Desarrollado web",
+        "MOVIL":"Desarrollado movil",
+        "BACKEND":"Desarrollado backend"
+      },
+      "UI":{
+        "CREATED":"Prueba creada correctamente",
+        "ERROR":"Error creada correctamente"
+      },
+      "VALIDATOR":{
+        "PROJECT":"Ingrese un proyecto",
+        "NAME":"Ingrese un nombre entre 6 y 100 caracteres",
+        "TECHNOLOGY":"La tecnología es requerida",
+        "DURATION_EXPERIENCE":"Ingrese los años de experiencia",
+        "TITLE":"El titulo es requerido",
+        "ROLE":"El rol es requerido",
+        "CATEGORY":"La categoria es requerida",
+        "DESCRIPTION":"Ingrese una descripción entre 5 y 500 caracteres"
+      }
+    }
   }
 }
