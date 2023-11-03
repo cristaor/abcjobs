@@ -15,6 +15,7 @@ import { CandidateHomeComponent } from './candidate/candidate-home/candidate-hom
 
 import { ClientLoginComponent } from './client/client-login/client-login.component';
 import { ClientDataComponent } from './client/client-data/client-data.component';
+import { CreateProfileComponent } from './client/create-profile/create-profile.component';
 import { ClientCreateProjectComponent } from './client/client-create-project/client-create-project.component';
 import { ClientHomeComponent } from './client/client-home/client-home.component';
 
@@ -91,7 +92,14 @@ const routes: Routes = [
     path: 'project-client',
     component: ClientCreateProjectComponent,
     pathMatch: 'full'
+  },
+  {
+    path: 'project-profile',
+    component: CreateProfileComponent,
+    pathMatch: 'full'
   }
+
+
 ];
 
 @NgModule({
