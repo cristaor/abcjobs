@@ -1945,6 +1945,12 @@ pre code {
   border-color: #454d55;
 }
 
+.table .thead-blueABC th {
+  color: #fff;
+  background-color: #3465a4;
+  border-color: #454d55;
+}
+
 .table .thead-light th {
   color: #495057;
   background-color: #e9ecef;

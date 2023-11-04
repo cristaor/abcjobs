@@ -7,7 +7,8 @@
     "OK":"Aceptar",
     "CANCEL":"Cancelar",
     "SELECT":"Seleccione",
-    "CREATE": "Crear"
+    "CREATE": "Crear",
+    "SEARCH": "Buscar"
   },
   "HEADER":{
      "CANDIDATE":{
@@ -170,6 +171,58 @@
         "GET_ERROR": "Ha ocurrido un error"
     }
   },
+  "CLIENT_SEARCH":{
+    "TITLE": "Buscar Candidatos",
+    "MESSAGE": "Presione Buscar para mostrar el listado y seleccionar un candidato",
+    "LABEL":{
+      "PROJECT": "Proyecto",
+      "PROFILE": "Perfil",
+      "ROLE": "Rol",
+      "ROLEYEARS": "Años de experiencia",
+      "TECHNOLOGIES": "Tecnologias",
+      "ABILITIES": "Habilidades",
+      "TITLE": "Titulo/Curso",
+      "TITLEYEARS":"Años de graduado"
+      },
+    "PLACEHOLDER":{
+      "PROJECT": "Seleccione",
+      "PROFILE": "Seleccione",
+      "ROLE": "Nombre del Rol",
+      "TITLE": "Nombre del Titulo/Curso"
+    },
+    "OPTIONS":{
+        "ROLEFILTER":{
+            "OPTION_1":"Contiene",
+            "OPTION_2":"Comienza con",
+            "OPTION_3":"Igual a"
+        }
+    },
+    "VALIDATOR":{
+        "PROJECT": "Seleccione un Proyecto",
+        "PROFILE": "Seleccione un Pefil",
+        "ROLE": "Ingrese un Rol valido",
+        "ROLEYEARS": "Años de experiencia",
+        "TECHNOLOGIES": "Seleccione una Tecnologia",
+        "TITLE": "Ingrese un Titulo/Curso valido"
+    },
+    "TABLEHEADER":{
+        "C1":" No",
+        "C2": "Nombres",
+        "C3": "Apellidos",
+        "C4": "Edad",
+        "C5": "Roles[Exp]",
+        "C6": "Tecnologias[Exp]",
+        "C7": "Titulos/Cursos[Exp]",
+        "C8": "Habilidades[Exp]",
+        "C9": "Puntaje[Exp]",
+        "C10": "Asignar"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"The company",
+        "SUCESS_2":"was created",
+        "GET_ERROR": "Ha ocurrido un error"
+    }
+  },
   "CREATE_PROJECT":{
     "TITLE": "Crear Proyecto",
     "LABEL":{
@@ -202,6 +255,7 @@
         "GET_ERROR": "Ha ocurrido un error"
     }
   },
+
   "TEST":{
     "CREATE":{
       "CREATE_TEST":"Crear Prueba",

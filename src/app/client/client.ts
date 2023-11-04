@@ -74,3 +74,90 @@ export class ClientProject {
     }
     
 }
+
+export class CandidateRequestSearch {
+    roleFilter : string
+    role: string
+    roleExperience : string
+    technologies : string
+    abilities: string
+    titleFilter : string
+    title : string
+    titleExperience : string
+    
+   
+    
+    constructor( roleFilter : string, role: string,roleExperience : string,
+    technologies : string, abilities: string, titleFilter : string,title : string,
+    titleExperience : string)
+    {
+            this.roleFilter =roleFilter ;
+            this.role = role ;
+            this.roleExperience =roleExperience ;
+            this.technologies = technologies ;
+            this.abilities = abilities ;
+            this.titleFilter =titleFilter ;
+            this.title =title ;
+            this.titleExperience = titleExperience;
+    }
+    
+}
+
+export class TechnologyResponse {
+    technologyId : string
+    name: string
+    category : string
+    
+    
+    constructor(  technologyId : string, name: string,category : string)
+    {
+            this.technologyId = technologyId ;
+            this.name = name ;
+            this.category = category ;
+            
+    }
+}   
+
+export class AbilityResponse {
+    abilityId : string
+    name: string
+    category : string
+    
+    
+    constructor(  abilityId : string, name: string,category : string)
+    {
+            this.abilityId = abilityId ;
+            this.name = name ;
+            this.category = category ;
+            
+    }
+}   
+
+
+export class CandidateResponseSearch {
+    person_id : string
+    first_name: string
+    last_name: string
+    age : string
+    roles : string
+    technologies: string
+    titles: string
+    abilities : string
+    score : string
+    
+    constructor( person_id : string,first_name: string,last_name: string, age : string,
+    roles : string, technologies: string , titles: string, abilities : string,
+    score : string)
+    {
+            this.person_id = person_id ;
+            this.first_name = first_name ;
+            this.last_name = last_name ;
+            this.age = age ;
+            this.roles = roles ;
+            this.technologies = technologies;
+            this.titles = titles ;
+            this.abilities = abilities ;
+            this.score = score;
+    }
+    
+}

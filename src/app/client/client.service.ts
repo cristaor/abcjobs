@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Client, ClientProject } from './client';
-
+import { Client, ClientProject,CandidateRequestSearch,CandidateResponseSearch,TechnologyResponse,AbilityResponse  } from './client';
+import { ProfileListDetail } from './project'
 
 @Injectable({
   providedIn: 'root'
@@ -33,4 +33,27 @@ export class ClientService {
             "projectName": newProject.project_name,"startDate": newProject.start_date, "active": newProject.active,  "details": newProject.details
         },{ headers: headers_request})  
        }
+       
+  getProjects(token: string): Observable<ClientProject[]> {
+    const headers = new HttpHeaders({'Authorization': `${token}`})
+    return this.http.get<ClientProject[]>(`${this.backUrl}/projects/myself`, { headers: headers })
+  }
+  getProfiles(project_id: string,token: string): Observable<ProfileListDetail[]> {
+    const headers = new HttpHeaders({'Authorization': `${token}`})
+    return this.http.get<ProfileListDetail[]>(`${this.backUrl}/projects/profiles/${project_id}`, { headers: headers })
+  }
+  getTechnologies(token: string): Observable<TechnologyResponse[]> {
+    const headers = new HttpHeaders({'Authorization': `${token}`})
+    return this.http.get<TechnologyResponse[]>(`${this.backUrl}/technologies/`, { headers: headers })
+  }
+  
+  getAbilities(token: string): Observable<AbilityResponse[]> {
+    const headers = new HttpHeaders({'Authorization': `${token}`})
+    return this.http.get<AbilityResponse[]>(`${this.backUrl}/abilities/`, { headers: headers })
+  }
+  searchCandidate(request: CandidateRequestSearch, token: string): Observable<CandidateResponseSearch[]>
+  {
+    const headers = new HttpHeaders({'Authorization': `${token}`})
+    return this.http.get<CandidateResponseSearch[]>(`${this.backUrl}/candidates/search?roleFilter=${request.roleFilter}&role=${request.role}&roleExperience=${request.roleExperience}&technologies=${request.technologies}&abilities=${request.abilities}&titleFilter=${request.titleFilter}&title=${request.title}&titleExperience=${request.titleExperience}`, { headers: headers })    
+  }
 }
