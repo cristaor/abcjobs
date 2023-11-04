@@ -46,7 +46,7 @@ get_profiles(): Observable<Array<ProfileListDetail>> {
         'Authorization': token });
       let options = { headers: headers };
       res.person_id
-      let url = environment.backBaseUrl +'/projects';
+      let url = environment.backBaseUrl +'/projects/';
       let result = this.http.get<Array<ProfileListDetail>>(url,options);
       return result;
     }
