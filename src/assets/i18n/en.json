@@ -7,7 +7,8 @@
     "OK":"Accept",
     "CANCEL":"Cancel",
     "SELECT":"Choise",
-    "CREATE": "Create"
+    "CREATE": "Create",
+    "SEARCH": "Search"
   },
   "HEADER":{
      "CANDIDATE":{
@@ -163,6 +164,58 @@
         "PROFILE":"Enter a profile between 4 and 30 characters",
         "POSITION":"Enter a position between 4 and 30 characters",
         "POLICY":"You must accept the data policy"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"The company",
+        "SUCESS_2":"was created",
+        "GET_ERROR": "Ha ocurrido un error"
+    }
+  },
+  "CLIENT_SEARCH":{
+    "TITLE": "Search Candidates",
+    "MESSAGE": "Press Search to display the list of candidates and select one",
+    "LABEL":{
+      "PROJECT": "Project",
+      "PROFILE": "Profile",
+      "ROLE": "Role",
+      "ROLEYEARS": "Experience years",
+      "TECHNOLOGIES": "Tecnologies",
+      "ABILITIES": "Abilities",
+      "TITLE": "Title/Course",
+      "TITLEYEARS":"Graduated years"
+      },
+    "PLACEHOLDER":{
+      "PROJECT": "Select",
+      "PROFILE": "Select",
+      "ROLE": "Role name",
+      "TITLE": "Degree/Course name"
+    },
+    "OPTIONS":{
+        "ROLEFILTER":{
+            "OPTION_1":"Contains",
+            "OPTION_2":"Starts with",
+            "OPTION_3":"Equals to"
+        }
+    },
+    "VALIDATOR":{
+        "PROJECT": "Select a project",
+        "PROFILE": "Select a profile",
+        "ROLE": "Enter a valid Role",
+        "ROLEYEARS": "Experience years",
+        "TECHNOLOGIES": "Select a Technology",
+        "TITLE": "Enter a valid Degree/Course"
+    },
+    "TABLEHEADER":{
+        "C1":" No",
+        "C2": "First Name",
+        "C3": "Last Name",
+        "C4": "Age",
+        "C5": "Roles[Exp]",
+        "C6": "Technologies[Exp]",
+        "C7": "Titles[Exp]",
+        "C8": "Abilities[Exp]",
+        "C9": "Score",
+        "C10":"Assign"
     },
     "BACK_RESPONSES":{
         "SUCESS_1":"The company",

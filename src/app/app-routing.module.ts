@@ -18,6 +18,7 @@ import { ClientDataComponent } from './client/client-data/client-data.component'
 import { CreateProfileComponent } from './client/create-profile/create-profile.component';
 import { ClientCreateProjectComponent } from './client/client-create-project/client-create-project.component';
 import { ClientHomeComponent } from './client/client-home/client-home.component';
+import { ClientSearchComponent } from './client/client-search/client-search.component';
 
 import { RecruiterLoginComponent } from './recruiter/recruiter-login/recruiter-login.component';
 import { CreateTestComponent } from './test/create-test/create-test.component';
@@ -96,6 +97,11 @@ const routes: Routes = [
   {
     path: 'project-profile',
     component: CreateProfileComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'search-candidate',
+    component: ClientSearchComponent,
     pathMatch: 'full'
   }
 

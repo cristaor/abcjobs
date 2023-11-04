@@ -1,1 +1,173 @@
-<p>client-search works!</p>
+<client-header></client-header>
+
+<h2 class="text-center">{{ 'CLIENT_SEARCH.TITLE' | translate }}</h2>
+<div class="alert alert-success" role="alert">
+  {{ 'CLIENT_SEARCH.MESSAGE' | translate }}
+</div>
+    <div class="container text-center">
+		<form class="needs-validation" [formGroup]="candidateSearchForm" (ngSubmit)="searchCandidate(candidateSearchForm.value)" id="candidateSearch" novalidate #myForm="ngForm">
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3 float-lg-right">
+					<label for="Project" class="col-form-label float-lg-right">{{ 'CLIENT_SEARCH.LABEL.PROJECT' | translate }}</label>
+				</div>
+				<div class="col-8 input-group has-validation">
+					<select size="1" class="form-control" formControlName="Project" id="Project" required (change)="projectOnChange($event)">
+						<option selected disabled value="">{{ 'CLIENT_SEARCH.PLACEHOLDER.PROJECT' | translate }}</option>
+						<option *ngFor="let project of projects;" value="{{project.id}}">
+                                                    {{project.project_name}}
+                                                </option>
+					</select>
+                                        <div class="invalid-feedback">
+					{{ 'CLIENT_SEARCH.VALIDATOR.PROJECT' | translate }}
+                                         </div>
+				</div>
+			</div>
+                        <div class="row mt-2 align-items-center text-center">
+				<div class="col-3 float-lg-right">
+					<label for="Project" class="col-form-label float-lg-right">{{ 'CLIENT_SEARCH.LABEL.PROFILE' | translate }}</label>
+				</div>
+				<div class="col-8 input-group has-validation">
+					<select size="1" class="form-control" formControlName="Project" id="Project" required>
+						<option selected disabled value="">{{ 'CLIENT_SEARCH.PLACEHOLDER.PROFILE' | translate }}</option>
+						<option *ngFor="let profile of profiles;" >
+                                                    {{profile.name}}
+                                                </option>
+					</select>
+                                        <div class="invalid-feedback">
+					{{ 'CLIENT_SEARCH.VALIDATOR.PROFILE' | translate }}
+                                         </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center form-group">
+				<div class="col-3">
+					<label for="Role" class="col-form-label float-lg-right">{{ 'CLIENT_SEARCH.LABEL.ROLE' | translate }}</label>
+				</div>
+                                <div class="col-2">
+					<select size="1" class="form-control" formControlName="RoleFilter" id="RoleFilter" required>
+                                            <option selected disabled value="">{{ 'CLIENT_SEARCH.PLACEHOLDER.PROFILE' | translate }}</option>
+                                            <option value="contains">{{ 'CLIENT_SEARCH.OPTIONS.ROLEFILTER.OPTION_1' | translate }}</option>
+                                            <option value="starts">{{ 'CLIENT_SEARCH.OPTIONS.ROLEFILTER.OPTION_2' | translate }}</option>
+                                            <option value="equal">{{ 'CLIENT_SEARCH.OPTIONS.ROLEFILTER.OPTION_3' | translate }}</option></select>
+				</div>
+				<div class="col-3">
+					<input type="text" class="form-control" formControlName="Role" id="Role"  minlength="2" placeholder="{{ 'CLIENT_SEARCH.PLACEHOLDER.ROLE' | translate }}" pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					 <div   class="invalid-feedback">
+					{{ 'CLIENT_SEARCH.VALIDATOR.ROLE' | translate }}
+                                        </div>
+				</div>		
+				<div class="col-2">
+					<input type="number" class="form-control" formControlName="RoleYears" id="RoleYears" min="1" placeholder="1" pattern="[0-9]{1,2}">
+					<div class="invalid-feedback">
+					{{ 'CLIENT_SEARCH.VALIDATOR.ROLEYEAR' | translate }}
+                                        </div>
+				</div>
+                                <div class="col-2">
+					{{ 'CLIENT_SEARCH.LABEL.ROLEYEARS' | translate }}
+				</div>
+			</div>
+                        <div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Technologies" class="col-form-label float-lg-right">{{ 'CLIENT_SEARCH.LABEL.TECHNOLOGIES' | translate }}</label>
+				</div>
+				<div class="col-3">
+					<select size="5" class="form-control" formControlName="Technologies" id="Technologies" multiple>
+                                            <option *ngFor="let technology of technologies;">
+                                                    {{technology.name}}
+                                                </option>
+                                        </select>
+					<div class="invalid-feedback">
+					{{ 'CLIENT_SEARCH.VALIDATOR.TECHNOLOGIES' | translate }}
+				  </div>
+				</div>
+                                <div class="col-2">
+					<label for="Abilities" class="col-form-label float-lg-right">{{ 'CLIENT_SEARCH.LABEL.ABILITIES' | translate }}</label>
+				</div>
+				<div class="col-3">
+					<select size="5" class="form-control" formControlName="Abilities" id="Abilities" multiple>
+                                             <option *ngFor="let ability of abilities;">
+                                                    {{ability.name}}
+                                                </option>
+                                        </select>
+					<div class="invalid-feedback">
+					{{ 'CLIENT_SEARCH.VALIDATOR.ABILITIES' | translate }}
+				  </div>
+				</div>
+			</div>
+                        <div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Title" class="col-form-label float-lg-right">{{ 'CLIENT_SEARCH.LABEL.TITLE' | translate }}</label>
+				</div>
+                                <div class="col-2">
+                                    
+                                    <select size="1" class="form-control" formControlName="TitleFilter" id="TitleFilter" required>
+                                        <option selected disabled value="">{{ 'CLIENT_SEARCH.PLACEHOLDER.PROFILE' | translate }}</option>
+                                            <option value="contains">{{ 'CLIENT_SEARCH.OPTIONS.ROLEFILTER.OPTION_1' | translate }}</option>
+                                            <option value="starts">{{ 'CLIENT_SEARCH.OPTIONS.ROLEFILTER.OPTION_2' | translate }}</option>
+                                            <option value="equal">{{ 'CLIENT_SEARCH.OPTIONS.ROLEFILTER.OPTION_3' | translate }}</option>
+                                    </select>
+				</div>
+				<div class="col-3">
+					<input type="text" class="form-control" formControlName="Title" id="Title"  minlength="2"  placeholder="{{ 'CLIENT_SEARCH.PLACEHOLDER.TITLE' | translate }}" pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					 <div   class="invalid-feedback">
+					{{ 'CLIENT_SEARCH.VALIDATOR.TITLE' | translate }}
+                                        </div>
+				</div>		
+				<div class="col-2">
+					<input type="number" class="form-control" formControlName="TitleYears" id="TitleYears" min="1" placeholder="1" pattern="[0-9]{1,2}">
+					<div class="invalid-feedback">
+					{{ 'CLIENT_SEARCH.VALIDATOR.TITLEYEAR' | translate }}
+                                        </div>
+				</div>
+                                <div class="col-2">
+					{{ 'CLIENT_SEARCH.LABEL.TITLEYEARS' | translate }}
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center ">
+				<div class="col-5 text-right">
+					<button type="submit" class="btn btn-primary" onmouseover="checkForm()" onfocus="checkForm()">{{ 'UI.SEARCH' | translate }}</button>
+				</div>
+				<div class="col-1">
+
+				</div>
+				<div class="col-5 text-left">
+                                    <button type="reset" class="btn btn-danger" (click)="cancelSearch()">{{ 'UI.CANCEL' | translate }}</button>
+				</div>
+			</div>
+		</form>
+
+                 <hr>
+		<br>
+		<table *ngIf='showTable' class="table">
+		  <thead class="thead-blueABC">
+			<tr>
+			  <th scope="col" *ngFor="let x of table.headers">
+                              {{ x.key }}
+                          </th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let candidate of candidates; let i = index">
+                            <td> {{ i+1 }}</td>
+                            <td> {{ candidate.first_name }}</td>
+                            <td> {{ candidate.last_name }}</td>
+                            <td> {{ candidate.age }}</td>
+                            <td> {{ candidate.roles }}</td><!-- comment -->
+                            <td> {{ candidate.technologies }}</td>
+                            <td> {{ candidate.titles }}</td>
+                            <td> {{ candidate.abilities }}</td>
+                            <td> {{ candidate.score }}</td>
+                            <td><button type="button" class="btn btn-outline-success" (click)="assignCandidate()">Y</button> </td>
+			</tr>
+		  </tbody>
+		</table>
+    
+        
+    </div>
+
+    
+	<br>
+	<br>
+	<br>
+
+
+
