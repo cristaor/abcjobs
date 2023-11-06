@@ -5,11 +5,15 @@ import { environment } from 'src/environments/environment';
 import { Observable,of,map,catchError } from 'rxjs';
 import {concatMap} from 'rxjs/operators';
 import {ProfileResponse,ProfileRequest,ProfileListDetail} from 'src/app/client/project';
+import {ProjectMember} from 'src/app/client/project-member';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
 
+private backUrl: string = environment.backBaseUrl;
+newMember!:ProjectMember
 constructor(private http: HttpClient,private loginService:ClientLoginService) { }
 
 create_profile(request: ProfileRequest): Observable<boolean> {
@@ -56,6 +60,14 @@ get_profiles(): Observable<Array<ProfileListDetail>> {
     );
 }
 
+memberCreate(personId:string, projectId:string, profileId:string, token: string): Observable<any> {  
+        const headers_request = new HttpHeaders({'Authorization': `${token}`})
+        
+        console.log(`Token ${token}`)
+        return this.http.post<any>(`${this.backUrl}/members`, {
+            "active": 1,"description": "Nuevo miembro","personId": personId, "profileId": profileId, "projectId": projectId
+        },{ headers: headers_request})  
+       }
 
 }
 
