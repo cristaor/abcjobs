@@ -27,7 +27,7 @@
 					<label for="Project" class="col-form-label float-lg-right">{{ 'CLIENT_SEARCH.LABEL.PROFILE' | translate }}</label>
 				</div>
 				<div class="col-8 input-group has-validation">
-					<select size="1" class="form-control" formControlName="Project" id="Project" required>
+					<select size="1" class="form-control" formControlName="Profile" id="Profile" required>
 						<option selected disabled value="">{{ 'CLIENT_SEARCH.PLACEHOLDER.PROFILE' | translate }}</option>
 						<option *ngFor="let profile of profiles;" >
                                                     {{profile.name}}
@@ -156,7 +156,7 @@
                             <td> {{ candidate.titles }}</td>
                             <td> {{ candidate.abilities }}</td>
                             <td> {{ candidate.score }}</td>
-                            <td><button type="button" class="btn btn-outline-success" (click)="assignCandidate()">Y</button> </td>
+                            <td><button type="button" class="btn btn-outline-success" (click)="assignCandidate(candidate,i)">Y</button> </td>
 			</tr>
 		  </tbody>
 		</table>

@@ -8,6 +8,10 @@ import { ClientService } from '../client.service'
 import { ClientLoginService } from '../../client/client-login.service'
 import {TranslateService} from '@ngx-translate/core';
 import { ProfileListDetail } from '../project'
+import {ProjectMember} from 'src/app/client/project-member';
+import { ProfileService } from '../project.service'
+
+
 
 export interface TableHead{
         key: string;
@@ -32,7 +36,7 @@ export class ClientSearchComponent implements OnInit{
     newCandidate!: Client;
     token!: any
     showTable: boolean = false;
-    
+    newMember!: ProjectMember;
     
     constructor(
         private clientService: ClientService,
@@ -41,7 +45,8 @@ export class ClientSearchComponent implements OnInit{
         private routerPath: Router,
         private toastr: ToastrService,
         private translateService: TranslateService,
-        private clientLoginService: ClientLoginService
+        private clientLoginService: ClientLoginService,
+        private profileService: ProfileService
       ) {this.translateService.setDefaultLang(this.selectedLanguage);
        this.translateService.use(this.selectedLanguage); }
 
@@ -57,6 +62,7 @@ export class ClientSearchComponent implements OnInit{
     ngOnInit() {
            this.candidateSearchForm = this.formBuilder.group({
             Project:["", [Validators.required]],
+            Profile:["", [Validators.required]],
             RoleFilter: ["", [Validators.required]],
             Role:  ["", [Validators.required, Validators.maxLength(20), Validators.minLength(2)]],
             RoleYears:  ["", [Validators.required, Validators.pattern("^[0-9]*$"), Validators.maxLength(2), Validators.minLength(1)]],
@@ -208,7 +214,37 @@ export class ClientSearchComponent implements OnInit{
     
     cancelSearch():void{this.candidateSearchForm.reset();this.routerPath.navigate([`/home-client`])}
     
-    assignCandidate():void{}
+    assignCandidate(candidate: CandidateResponseSearch, row: number):void{
+            
+            let projectId = `${this.candidateSearchForm.get('Project')?.value}`;
+            let profileId = `${this.candidateSearchForm.get('Profile')?.value}`;
+            let personId=candidate.person_id;
+      
+            console.log(`Enviando: ${projectId}: ${profileId} - ${personId}`);
+            
+            this.clientLoginService.who_i_am().subscribe(res =>{
+                
+                if(res.is_authenticated){
+                    let token = res.auth_headers.get("Authorization") || "token"
+                    this.profileService.memberCreate(personId, projectId, profileId , token).subscribe(project => {
+                                                 this.showSuccess("Candidato Asignado")
+                    },
+                    error => {
+                      //console.log(error);  
+                      this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText}`)
+                    })
+                }
+                else{
+                    this.showError(`${this.translateService.instant('BACK_RESPONSES.INVALID_CREDENTIALS2')}`);
+                    this.routerPath.navigate(['/login-client'])
+                }
+            }, error => {
+                this.showError(`${this.translateService.instant('BACK_RESPONSES.INVALID_CREDENTIALS2')}`);
+                this.routerPath.navigate(['/login-client'])
+              });
+       
+       }
+    
     
     showError(error: string) {
             this.toastr.error(error, "Error")
