@@ -8,9 +8,14 @@
 					<label for="title" class="col-form-label float-lg-right">Tecnología</label>
 				</div>
 				<div class="col-8 input-group has-validation">
-					<input type="text" class="form-control" formControlName="name" id="name" required placeholder="Ingrese el nombre del role">
+                                        <select size="1" class="form-control" formControlName="name" id="name" required>
+						<option selected disabled value="">Seleccione</option>
+						<option *ngFor="let technology of technologies;">
+                                                    {{technology.name}}
+                                                </option>
+					</select>
 					<div *ngIf="candidateTechnologyForm.get('name')?.hasError('required') && candidateTechnologyForm.get('name')?.touched" class="invalid-feedback">
-					Ingrese una nombre mayor a 6 caracteres.
+					Seleccione una tecnologia.
 				  </div>
 				</div>
 			</div>

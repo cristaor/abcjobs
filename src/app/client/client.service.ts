@@ -28,6 +28,7 @@ export class ClientService {
        }
   projectCreate(newProject: ClientProject, token: string): Observable<any> {  
         const headers_request = new HttpHeaders({'Authorization': `${token}`})
+        headers_request.append('Access-Control-Allow-Origin', '*')
         console.log(`Token ${token}`)
         return this.http.post<any>(`${this.backUrl}/projects`, {
             "projectName": newProject.project_name,"startDate": newProject.start_date, "active": newProject.active,  "details": newProject.details
@@ -37,25 +38,30 @@ export class ClientService {
   getProjects(token: string): Observable<ClientProject[]> {
     const headers = new HttpHeaders({'Content-Type': 'application/json',
     'Authorization': `${token}`})
+    headers.append('Access-Control-Allow-Origin', '*')
     return this.http.get<ClientProject[]>(`${this.backUrl}/projects/myself`, { headers: headers })
   }
   getProfiles(project_id: string,token: string): Observable<ProfileListDetail[]> {
     const headers = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `${token}`})
+    headers.append('Access-Control-Allow-Origin', '*')
     return this.http.get<ProfileListDetail[]>(`${this.backUrl}/projects/profiles/${project_id}`, { headers: headers })
   }
   getTechnologies(token: string): Observable<TechnologyResponse[]> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 
     'Authorization': `${token}`})
+    headers.append('Access-Control-Allow-Origin', '*')
     return this.http.get<TechnologyResponse[]>(`${this.backUrl}/technologies/`, { headers: headers })
   }
   
   getAbilities(token: string): Observable<AbilityResponse[]> {
     const headers = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `${token}`})
+    headers.append('Access-Control-Allow-Origin', '*')
     return this.http.get<AbilityResponse[]>(`${this.backUrl}/abilities/`, { headers: headers })
   }
   searchCandidate(request: CandidateRequestSearch, token: string): Observable<CandidateResponseSearch[]>
   {
     const headers = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `${token}`})
+    headers.append('Access-Control-Allow-Origin', '*')
     return this.http.get<CandidateResponseSearch[]>(`${this.backUrl}/candidates/search?roleFilter=${request.roleFilter}&role=${request.role}&roleExperience=${request.roleExperience}&technologies=${request.technologies}&abilities=${request.abilities}&titleFilter=${request.titleFilter}&title=${request.title}&titleExperience=${request.titleExperience}`, { headers: headers })    
   }
 }

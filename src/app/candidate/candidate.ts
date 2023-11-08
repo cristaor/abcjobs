@@ -141,3 +141,18 @@ export class CandidateTechnologyInfo {
         && this.description !== ""
     }
 }
+
+export class TechnologyResponse {
+    technologyId : string
+    name: string
+    category : string
+    
+    
+    constructor(  technologyId : string, name: string,category : string)
+    {
+            this.technologyId = technologyId ;
+            this.name = name ;
+            this.category = category ;
+            
+    }
+}   
