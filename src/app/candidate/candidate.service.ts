@@ -91,6 +91,7 @@ export class CandidateService {
     getTechnologies(token: string): Observable<TechnologyResponse[]> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 
     'Authorization': `${token}`})
+    headers.append('Access-Control-Allow-Origin', '*')
     return this.http.get<TechnologyResponse[]>(`${this.backUrl}/technologies/`, { headers: headers })
   }
 }

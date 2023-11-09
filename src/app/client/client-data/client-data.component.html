@@ -40,7 +40,7 @@
 					<label for="Name" class="col-form-label float-lg-right">{{ 'CLIENT_DATA.LABEL.NAME' | translate }}</label>
 				</div>
 				<div class="col-8">
-					<input type="text" class="form-control" minlength="2" formControlName="Name" id="Name" required placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.NAME' | translate }}"  pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					<input type="text" class="form-control" minlength="2" formControlName="Name" id="Name" required placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.NAME' | translate }}"  pattern="(?=^.{2,80}$)(?=.*[A-Z]|[a-z]).*$">
 					<div class="invalid-feedback">
 					{{ 'CLIENT_DATA.VALIDATOR.NAME' | translate }}
 				  </div>
@@ -80,7 +80,7 @@
 					<label for="City" class="col-form-label float-lg-right">{{ 'CLIENT_DATA.LABEL.CITY' | translate }}</label>
 				</div>
 				<div class="col-8">
-					<input type="text" class="form-control" formControlName="City" id="City"  minlength="2" required placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.CITY' | translate }}" pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					<input type="text" class="form-control" formControlName="City" id="City"  minlength="2" required placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.CITY' | translate }}" pattern="(?=^.{2,50}$)(?=.*[A-Z]|[a-z]).*$">
 					<div class="invalid-feedback">
 					{{ 'CLIENT_DATA.VALIDATOR.CITY' | translate }}
 				  </div>
