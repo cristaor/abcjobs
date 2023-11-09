@@ -62,7 +62,7 @@ describe('Iniciar Sesion Empresa', () => {
         cy.get('button[type="submit"]').contains('Crear').click({force: true});    
         
         cy.wait(6000);
-        cy.get('app-client-login');
+        cy.get('app-client-home');
         
         cy.visit('/login-client')
         cy.wait(3000) 

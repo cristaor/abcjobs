@@ -37,6 +37,7 @@ who_i_am(): Observable<UserAuthenticated> {
     return of(new UserAuthenticated(false,"","",new Map(),""));
   }
   let headers = new HttpHeaders().set('Authorization', "Bearer "+token);
+  headers.append('Access-Control-Allow-Origin', '*')
   let result = this.http.get<MyselfResponse>(url,{ headers: headers} );
   console.info(result);
   return result.pipe(
