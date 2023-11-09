@@ -50,13 +50,13 @@ export class ClientService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 
     'Authorization': `${token}`})
     headers.append('Access-Control-Allow-Origin', '*')
-    return this.http.get<TechnologyResponse[]>(`${this.backUrl}/technologies/`, { headers: headers })
+    return this.http.get<TechnologyResponse[]>(`${this.backUrl}/technologies`, { headers: headers })
   }
   
   getAbilities(token: string): Observable<AbilityResponse[]> {
     const headers = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `${token}`})
     headers.append('Access-Control-Allow-Origin', '*')
-    return this.http.get<AbilityResponse[]>(`${this.backUrl}/abilities/`, { headers: headers })
+    return this.http.get<AbilityResponse[]>(`${this.backUrl}/abilities`, { headers: headers })
   }
   searchCandidate(request: CandidateRequestSearch, token: string): Observable<CandidateResponseSearch[]>
   {
