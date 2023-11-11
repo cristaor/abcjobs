@@ -1,0 +1,152 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-blueABC">
+  <a class="navbar-brand" href="#">ABC Jobs</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" 
+  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav mr-auto">
+     </ul>
+  </div>
+<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+ <ul class="navbar-nav ml-auto">
+ </ul>
+ </div>
+ <div class="navbar-collapse collapse w-25 order-4 dual-collapse2">
+   <app-i18n/>
+ </div>
+
+</nav>
+<br>
+<br>
+<h2 class="text-center">{{ 'TEST.REGISTER.REGISTER_TEST' | translate }} </h2>
+<div class="container text-center float-lg-none">
+<hr >
+
+<div class="container text-center">
+<form  [formGroup]="loginForm" class="needs-validation" 
+#formDirective="ngForm" (ngSubmit)="register_test(loginForm.value)">
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="name" class="col-form-label float-lg-right">{{'TEST.REGISTER.NAME' | translate}}</label>
+  </div>
+  <div class="col-9">
+   <select  size="1" class="form-control" formControlName="name" id="name" 
+   required (change)="select_test(this.loginForm.controls['name'].value)">
+     <option *ngFor="let test of tests"  value="{{test.name}}"> {{test.name}}</option>
+
+   </select>
+   <div class="invalid-feedback">
+     {{'TEST.REGISTER.VALIDATOR.NAME' | translate}}
+   </div>
+  </div>
+
+</div>
+
+ <div class="row mt-3 align-items-center text-center">
+   <div class="col-3">
+     <label for="technology" class="col-form-label float-lg-right">{{'TEST.REGISTER.TECHNOLOGY' | translate}}</label>
+   </div>
+   <div class="col-9">
+    <select [attr.disabled]="isDisabled" class="form-control" formControlName="technology" id="technology" >
+      <option value="JAVA">JAVA</option>
+      <option value="PYTHON">PYTHON</option>
+      <option value="AWS">AWS</option>
+      <option value="GCP">GCP</option>
+      <option value="JAVASCRIPT">JAVASCRIPT</option>
+    </select>
+   </div>
+ </div>
+
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="test_date" class="col-form-label float-lg-right">{{'TEST.REGISTER.TEST_DATE' | translate}}</label>
+  </div>
+  <div class="col-9">
+    <input type="date" class="form-control" formControlName="test_date" id="test_date" required/>
+    <div class="invalid-feedback">
+      {{'TEST.REGISTER.VALIDATOR.TEST_DATE' | translate}}
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="candidate_document" class="col-form-label float-lg-right">{{'TEST.REGISTER.CANDIDATE' | translate}}</label>
+  </div>
+  <div class="col-4">
+    <input type="text" class="form-control" formControlName="candidate_document" id="candidate_document" required placeholder="{{'TEST.REGISTER.PLACEHOLDER.CANDIDATE_DOCUMENT' | translate}}"/>
+       <div class="invalid-feedback">
+      
+      {{'TEST.REGISTER.VALIDATOR.DOCUMENT' | translate}}
+    </div>
+ </div>
+  <div class="col-1">
+    <button  type="button"  class="btn btn-primary" style="display: inline-block;" (click)="get_candidate(this.loginForm.controls['candidate_document'].value)">Buscar</button>
+  </div>
+  <div class="col-4">
+    <input type="text" ng-disabled=true class="form-control" formControlName="candidate_name" id="candidate_name" required placeholder="{{'TEST.REGISTER.PLACEHOLDER.CANDIDATE_NAME' | translate}}"/>
+    <div class="invalid-feedback">
+      {{'TEST.REGISTER.VALIDATOR.CANDIDATE_NAME' | translate}}
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="points" class="col-form-label float-lg-right">{{'TEST.REGISTER.POINTS' | translate}}</label>
+  </div>
+  <div class="col-9">
+   <input type="number" max="100" min="0" size="3" class="form-control" formControlName="points" id="points" value ="" required>
+   <div class="invalid-feedback">
+    {{'TEST.REGISTER.VALIDATOR.POINTS' | translate}}
+  </div>
+  </div>
+</div>
+
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="observation" class="col-form-label float-lg-right">{{'TEST.REGISTER.OBSERVATION' | translate}}</label>
+  </div>
+  <div class="col-9">
+    <textarea class="form-control" formControlName="observation" id="observation">
+    </textarea>
+  </div>
+</div>
+
+<div class="row mt-3 align-items-center ">
+   <div class="col-4 text-right">
+     <!--<a href="index_es.html"> -->
+     <button class="btn btn-primary" type="submit"  onmouseover="checkForm()" onfocus="checkForm()" >{{'UI.OK' | translate}}</button>
+     <!--</a>-->
+   </div>
+   <div class="col-1">
+
+   </div>
+   <div class="col-4 text-left">
+     <button type="reset" class="btn btn-danger" 
+     (click)="cancelCreation()">{{'UI.CANCEL' | translate}}</button>
+   </div>
+ </div>
+</form>
+
+</div>
+<br>
+<br>
+<br>
+<footer class="fixed-bottom">
+<div class="container-fluid bg-blueABC">
+  <div class="row">
+     <div class="text-center col-lg-20">
+   <br>
+     </div>
+  </div>
+</div>
+</footer>

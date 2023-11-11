@@ -22,7 +22,7 @@ import { ClientSearchComponent } from './client/client-search/client-search.comp
 
 import { RecruiterLoginComponent } from './recruiter/recruiter-login/recruiter-login.component';
 import { CreateTestComponent } from './test/create-test/create-test.component';
-
+import { RegisterResultTestComponent } from './test/register-result-test/register-result-test.component';
 const routes: Routes = [
 {
     path: '',
@@ -49,6 +49,12 @@ const routes: Routes = [
     component: CreateTestComponent,
     pathMatch: 'full'
   },
+  {
+    path: 'test/register-result',
+    component: RegisterResultTestComponent,
+    pathMatch: 'full'
+  },
+  
 {
     path: 'login-candidate',
     component: CandidateLoginComponent,
