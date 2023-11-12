@@ -302,7 +302,8 @@
     },
       "UI":{
         "CREATED":"Result registered succesfully",
-        "ERROR":"Error registering the result correctamente"
+        "ERROR":"Error registering the result",
+        "SEARCH":"Search"
       },
       "VALIDATOR":{
         "NAME":"Select a test",
