@@ -45,7 +45,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'test/register-result',
+    path: 'register-result-test',
     component: RegisterResultTestComponent,
     pathMatch: 'full'
   },
