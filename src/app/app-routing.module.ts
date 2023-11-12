@@ -45,15 +45,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'test',
-    component: CreateTestComponent,
-    pathMatch: 'full'
-  },
-  {
     path: 'test/register-result',
     component: RegisterResultTestComponent,
     pathMatch: 'full'
   },
+  {
+    path: 'test',
+    component: CreateTestComponent,
+    pathMatch: 'full'
+  },
+
   
 {
     path: 'login-candidate',
