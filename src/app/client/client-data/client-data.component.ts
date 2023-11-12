@@ -73,14 +73,15 @@ export class ClientDataComponent implements OnInit{
                     
                     
         `)
-       
-         this.clientService.clientCreate(this.clientDataForm.get('Document')?.value,
+         let document = this.clientDataForm.get('Document')?.value.replace(/^0+/, '');
+         let taxpayer = this.clientDataForm.get('TaxPayerId')?.value.replace(/^0+/, '');
+         this.clientService.clientCreate(document,
                                         this.clientDataForm.get('DocumentType')?.value,
                                         this.clientDataForm.get('FirstName')?.value,
                                         this.clientDataForm.get('LastName')?.value,
                                         this.clientDataForm.get('Username')?.value,
                                         this.clientDataForm.get('Password')?.value,
-                                        this.clientDataForm.get('TaxPayerId')?.value,
+                                        taxpayer,
                                         this.clientDataForm.get('Name')?.value,
                                         this.clientDataForm.get('Country')?.value,
                                         this.clientDataForm.get('City')?.value,

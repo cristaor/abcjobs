@@ -9,6 +9,8 @@ import { ToastrService } from 'ngx-toastr';
 import { CandidateTechnologyInfo } from '../candidate';
 import { CandidateService } from '../candidate.service';
 import {ClientLoginService} from '../../client/client-login.service'
+import { TechnologyResponse,AbilityResponse } from '../../client/client';
+
 @Component({
   selector: 'app-candidate-technology',
   templateUrl: './candidate-technology.component.html',
@@ -17,7 +19,8 @@ import {ClientLoginService} from '../../client/client-login.service'
 export class CandidateTechnologyComponent implements OnInit{
 
   candidateTechnologyForm!: FormGroup;
-
+  technologies!: Array<TechnologyResponse>
+  token!: any
   constructor(
     private candidateService: CandidateService,
     private clientLoginService: ClientLoginService,
@@ -31,18 +34,42 @@ export class CandidateTechnologyComponent implements OnInit{
 
     //myObj.checkForm();
     this.candidateTechnologyForm = this.formBuilder.group({
-      name: ["",[Validators.required, Validators.maxLength(60), Validators.minLength(6)]],
+      name: ["",[Validators.required]],
       experience_years: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
       level: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
       description:  ["", [Validators.required]],
     })
+    this.clientLoginService.who_i_am().subscribe(res =>{
+                if(res.is_authenticated){
+                    this.token = res.auth_headers.get("Authorization") || "token"
+                    this.getTechnologies(this.token)
+                }
+                else{ 
+                    this.showError("Credenciales Invalidas");
+                    this.routerPath.navigate(['/login-client'])
+                }
+            }, error => {
+                this.showError("Credenciales invalidas. Inicie sesión nuevamente");
+                this.routerPath.navigate(['/login-client'])
+              });
   }
 
   cancelCreation():void{
     this.candidateTechnologyForm.reset();
     this.routerPath.navigate([`/login-candidate`])
   }
-
+    
+  getTechnologies(token: any): void {
+    this.candidateService.getTechnologies(token)
+      .subscribe(technologies => {
+        this.technologies = technologies
+        //console.log(JSON.stringify(technologies,null,4))
+      },
+      error => {
+               //console.log(error);  
+              this.showError(`Error : ${error.status} - ${error.statusText}`)
+      })
+    }
   createTechnologyInfo(technology_info: CandidateTechnologyInfo) {
       
     this.clientLoginService.who_i_am().subscribe(res =>{

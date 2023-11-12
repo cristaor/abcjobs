@@ -47,6 +47,7 @@ get_profiles(): Observable<Array<ProfileListDetail>> {
       let token = res.auth_headers.get("Authorization") || "token"
       let headers = new HttpHeaders({
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
         'Authorization': token });
       let options = { headers: headers };
       res.person_id
@@ -62,7 +63,7 @@ get_profiles(): Observable<Array<ProfileListDetail>> {
 
 memberCreate(personId:string, projectId:string, profileId:string, token: string): Observable<any> {  
         const headers_request = new HttpHeaders({'Authorization': `${token}`})
-        
+        headers_request.append('Access-Control-Allow-Origin', '*')
         console.log(`Token ${token}`)
         return this.http.post<any>(`${this.backUrl}/members`, {
             "active": 1,"description": "Nuevo miembro","personId": personId, "profileId": profileId, "projectId": projectId

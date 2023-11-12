@@ -11,7 +11,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/abcjobs",
             "index": "src/index.html",
@@ -68,7 +68,16 @@
                     "with": "src/environments/environment.development.ts"
                 }
               ]
-            }
+            },
+            "e2e": {
+                "extractLicenses": false,
+                "sourceMap": true,
+                "namedChunks": true,
+                "vendorChunk": true,
+                "customWebpackConfig": {
+                  "path": "./cypress/coverage.webpack.ts"
+                }
+              }
           },
           "defaultConfiguration": "production"
         },
@@ -79,10 +88,18 @@
               "browserTarget": "abcjobs:build:production"
             },
             "development": {
-              "browserTarget": "abcjobs:build:development"
+              "browserTarget": "abcjobs:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
+        },
+        "serve-coverage": {
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "browserTarget": "abcjobs:build:e2e",
+            "proxyConfig": "src/proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -153,7 +170,24 @@
               "devServerTarget": "abcjobs:serve:production"
             }
           }
-        }
+        },
+        "e2e-ci": {
+            "builder": "@cypress/schematic:cypress",
+            "options": {
+              "devServerTarget": "abcjobs:serve-coverage",
+              "headless": true,
+              "watch": true,
+              "codecoverageexclude": [
+                  "src/app/recruiter/**",
+                  "src/app/header-recruiter/**"          
+                        ]
+            },
+            "configurations": {
+              "production": {
+                "devServerTarget": "abcjobs:serve-coverage:production"
+              }
+            }
+          }
       }
     }
   },

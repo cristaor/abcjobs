@@ -31,7 +31,7 @@
     </div>
     <div class="col-3">
      <select  size="1" class="form-control" formControlName="project_id" id="project_id" required>
-       <option *ngFor="let project of projects"  value=" {{project.projectId}}"> {{project.name}}</option>
+       <option *ngFor="let project of projects2"  value="{{project.id}}"> {{project.project_name}}</option>
 
      </select>
      <div class="invalid-feedback">

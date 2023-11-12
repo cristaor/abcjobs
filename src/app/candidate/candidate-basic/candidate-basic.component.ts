@@ -76,7 +76,8 @@ ${this.candidateBasicForm.get('ResidenceCountry')?.value}-
 ${this.candidateBasicForm.get('ResidenceCity')?.value}-
 ${this.candidateBasicForm.get('Address')?.value}
         `)
-        this.candidateService.candidateCreate(this.candidateBasicForm.get('Username')?.value,
+        let document = this.candidateBasicForm.get('Username')?.value.replace(/^0+/, '');
+        this.candidateService.candidateCreate(document,
                                         this.candidateBasicForm.get('Password')?.value,
                                         this.candidateBasicForm.get('Document')?.value,
                                         this.candidateBasicForm.get('DocumentType')?.value,

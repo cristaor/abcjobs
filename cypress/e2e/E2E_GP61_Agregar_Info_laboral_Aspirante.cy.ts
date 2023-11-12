@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 import { Utilities } from "./utilities/utilities"
 
 
-describe('Iniciar Sesion Candidato/Aspirante', () => {
+describe('Agregar informacion Laboral de Candidato/Aspirante', () => {
 
     let utility = new Utilities();
    
@@ -69,28 +69,30 @@ describe('Iniciar Sesion Candidato/Aspirante', () => {
         //espera 4 seg para iniciar sesion
         cy.wait(4000);
         cy.get('app-candidate-home'); 
-    });
-    
-    
-    it('2. Prueba Negtiva: Desplegar la opción de ingresar, validar que se \
-    muestra el formulario, ingresar datos aleatorios, pulsar Aceptar. Luego validar que se genere el mensaje de error y no cambie de pantalla', () => {
-
-        cy.visit('/login-candidate')
+        
+        
+        cy.visit('/technical-role-candidate')
         cy.wait(3000) 
         //Search for Title
-        utility.getMessage('Ingrese su usuario y clave', 'div');
-        //genera datos para el formulario
-        let username = faker.internet.email();
-        let password = faker.internet.password({ length: 20});
-        cy.get("input[formcontrolname='user']").type(username,{force: true});
-        cy.get("input[formcontrolname='password']").type(password,{force: true});
+        utility.getMessage('Información Técnica de roles', 'h2');
         
-        //pulsar Ingresar
-        cy.get('button[type="submit"]').contains('Aceptar').click({force: true});    
+        let role_name = faker.person.jobType()
+        let experience_years = faker.number.int({ min: 1, max: 2 })
+        let description = faker.lorem.lines({ min: 2, max: 3 })
+        
+        cy.get("input[formcontrolname='name']").type(role_name,{force: true});
+        cy.get("select[formcontrolname='experience_years']").select(experience_years)
+        cy.get("textarea[formcontrolname='description']").type(description,{force: true});
+        
+        //pulsar crear
+        cy.get('button[type="submit"]').contains('Aceptar').trigger('mouseover')
+        cy.wait(100);
+        cy.get('button[type="submit"]').contains('Aceptar').click({force: true}); 
         
         //espera 4 seg para iniciar sesion
-        cy.wait(4000);
-        cy.get('app-candidate-login'); 
+        cy.wait(6000);
+        cy.get('app-candidate-home');
+        
     });
      
 });
