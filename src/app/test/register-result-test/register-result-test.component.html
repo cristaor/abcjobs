@@ -86,10 +86,12 @@
     </div>
  </div>
   <div class="col-1">
-    <button  type="button"  class="btn btn-primary" style="display: inline-block;" (click)="get_candidate(this.loginForm.controls['candidate_document'].value)">Buscar</button>
+    <button  type="button"  class="btn btn-primary" 
+    style="display: inline-block;" (click)="get_candidate(this.loginForm.controls['candidate_document'].value)">{{'TEST.REGISTER.UI.SEARCH' | translate}}</button>
   </div>
   <div class="col-4">
-    <input type="text" ng-disabled=true class="form-control" formControlName="candidate_name" id="candidate_name" required placeholder="{{'TEST.REGISTER.PLACEHOLDER.CANDIDATE_NAME' | translate}}"/>
+    <input type="text" ng-disabled=true class="form-control" formControlName="candidate_name" id="candidate_name" 
+    required placeholder="{{'TEST.REGISTER.PLACEHOLDER.CANDIDATE_NAME' | translate}}"/>
     <div class="invalid-feedback">
       {{'TEST.REGISTER.VALIDATOR.CANDIDATE_NAME' | translate}}
     </div>

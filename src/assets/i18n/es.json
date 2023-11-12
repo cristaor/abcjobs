@@ -303,7 +303,8 @@
     },
       "UI":{
         "CREATED":"Resultado registrado correctamente",
-        "ERROR":"Error creada correctamente"
+        "ERROR":"Error creada correctamente",
+        "SEARCH":"Buscar"
       },
       "VALIDATOR":{
         "NAME":"Seleccione una prueba",
