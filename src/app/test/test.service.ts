@@ -77,8 +77,7 @@ get_avalible_tests(): Observable<Array<TestItemResponse>> {
         'Access-Control-Allow-Origin': '*',
         'Authorization': token });
       let options = { headers: headers };
-      res.person_id
-      let url = environment.backBaseUrl +'/enabled_tests/';
+      let url = environment.backBaseUrl +'/enabled_tests';
       let result = this.http.get<Array<TestItemResponse>>(url,options);
       return result;
     }
