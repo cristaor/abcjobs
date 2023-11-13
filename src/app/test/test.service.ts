@@ -103,7 +103,7 @@ get_candidate_by_ids(ids:Array<string>): Observable<Array<CandidateResponse>> {
       if ( ids.length==1 && ids[0]==""){
         return of([]);
       }
-      let url = environment.backBaseUrl +'/candidates/?documents='+ids.join(",");
+      let url = environment.backBaseUrl +'/candidates?documents='+ids.join(",");
       let result = this.http.get<Array<CandidateResponse>>(url,options);
       return result;
     }
