@@ -16,6 +16,7 @@ import { CandidateHomeComponent } from './candidate/candidate-home/candidate-hom
 
 import { ClientLoginComponent } from './client/client-login/client-login.component';
 import { ClientDataComponent } from './client/client-data/client-data.component';
+import { ClientEditDataComponent } from './client/client-edit-data/client-edit-data.component';
 import { CreateProfileComponent } from './client/create-profile/create-profile.component';
 import { ClientCreateProjectComponent } from './client/client-create-project/client-create-project.component';
 import { ClientHomeComponent } from './client/client-home/client-home.component';
@@ -23,7 +24,9 @@ import { ClientSearchComponent } from './client/client-search/client-search.comp
 
 import { RecruiterLoginComponent } from './recruiter/recruiter-login/recruiter-login.component';
 import { CreateTestComponent } from './test/create-test/create-test.component';
+
 import { RegisterResultTestComponent } from './test/register-result-test/register-result-test.component';
+
 const routes: Routes = [
 {
     path: '',
@@ -95,6 +98,11 @@ const routes: Routes = [
   {
     path: 'basic-client',
     component: ClientDataComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'basic-client-edit',
+    component: ClientEditDataComponent,
     pathMatch: 'full'
   },
   {

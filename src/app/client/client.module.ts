@@ -12,6 +12,7 @@ import { ClientInterviewsComponent } from './client-interviews/client-interviews
 import { ClientHomeComponent } from './client-home/client-home.component';
 import { CreateProfileComponent  } from './create-profile/create-profile.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ClientEditDataComponent } from './client-edit-data/client-edit-data.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ClientEvaluateComponent,
     ClientInterviewsComponent,
     ClientHomeComponent,
-    CreateProfileComponent
+    CreateProfileComponent,
+    ClientEditDataComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ClientEvaluateComponent,
     ClientInterviewsComponent,
     ClientHomeComponent,
-    CreateProfileComponent
+    CreateProfileComponent,
+    ClientEditDataComponent
   ]
 })
 export class ClientModule { }
