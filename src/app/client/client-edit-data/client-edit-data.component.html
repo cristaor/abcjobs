@@ -1,0 +1,202 @@
+<client-header></client-header>
+
+<h2 class="text-center">{{ 'CLIENT_DATA.TITLE' | translate }} </h2>
+    <div class="container text-center">
+		<form class="needs-validation" [formGroup]="clientDataForm" (ngSubmit)="updateClient(clientDataForm.value)" id="createClient" novalidate #myForm="ngForm">
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3 float-lg-right">
+					<label for="Username" class="col-form-label float-lg-right">{{ 'CLIENT_DATA.LABEL.USERNAME' | translate }}</label>
+				</div>
+				<div class="col-8 input-group has-validation">
+					<input type="email" class="form-control" formControlName="Username" id="Username" aria-describedby="emailHelp" required placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.USERNAME' | translate }}">
+					<div *ngIf="clientDataForm.get('Username')?.hasError('required') && clientDataForm.get('Username')?.touched" class="invalid-feedback">
+					{{ 'CLIENT_DATA.VALIDATOR.USERNAME' | translate }}
+                                         </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center form-group">
+				<div class="col-3">
+					<label for="Password" class="col-form-label float-lg-right">{{ 'CLIENT_DATA.LABEL.PASSWORD' | translate }}</label>
+				</div>
+				<div class="col-2">
+					<input type="password" class="form-control" formControlName="Password" id="Password"  minlength="6" required placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.PASSWORD' | translate }}" pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+					 <div   class="invalid-feedback">
+					{{ 'CLIENT_DATA.VALIDATOR.PASSWORD' | translate }}
+                                        </div>
+				</div>
+
+				<div class="col-2">
+					<label for="TaxPayerId" class="col-form-label float-lg-right" >{{ 'CLIENT_DATA.LABEL.TAXPAYERID' | translate }}</label>
+				</div>
+				<div class="col-4">
+					<input type="text" class="form-control" formControlName="TaxPayerId" id="TaxPayerId" minlength="6" required placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.TAXPAYERID' | translate }}" pattern="[0-9]{6,30}">
+					<div class="invalid-feedback">
+					{{ 'CLIENT_DATA.VALIDATOR.TAXPAYERID' | translate }}
+				  </div>
+				</div>
+			</div>
+                        <div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Name" class="col-form-label float-lg-right">{{ 'CLIENT_DATA.LABEL.NAME' | translate }}</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" minlength="2" formControlName="Name" id="Name" required placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.NAME' | translate }}"  pattern="(?=^.{2,80}$)(?=.*[A-Z]|[a-z]).*$">
+					<div class="invalid-feedback">
+					{{ 'CLIENT_DATA.VALIDATOR.NAME' | translate }}
+				  </div>
+				</div>
+			</div>
+                        <div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Years" class="col-form-label float-lg-right">{{ 'CLIENT_DATA.LABEL.YEARS' | translate }}</label>
+				</div>
+				<div class="col-2">
+					<input type="number" class="form-control" formControlName="Years" id="Years" minlength="1" required placeholder="0" pattern="[0-9]{1,3}">
+
+					<div class="invalid-feedback">
+					{{ 'CLIENT_DATA.VALIDATOR.YEARS' | translate }}
+				  </div>
+				</div>
+				<div class="col-2">
+					<label for="PhoneNumber" class="col-form-label float-lg-right">{{ 'CLIENT_DATA.LABEL.PHONENUMBER' | translate }}</label>
+				</div>
+				<div class="col-4">
+					<input type="text" class="form-control" formControlName="PhoneNumber" id="PhoneNumber" minlength="6" required placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.PHONENUMBER' | translate }}" pattern="[0-9]{6,20}">
+					<div class="invalid-feedback">
+					{{ 'CLIENT_DATA.VALIDATOR.PHONENUMBER' | translate }}
+				  </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Address" class="col-form-label float-lg-right" >{{ 'CLIENT_DATA.LABEL.ADDRESS' | translate }}</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" formControlName="Address" id="Address" placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.ADDRESS' | translate }}">
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="City" class="col-form-label float-lg-right">{{ 'CLIENT_DATA.LABEL.CITY' | translate }}</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" formControlName="City" id="City"  minlength="2" required placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.CITY' | translate }}" pattern="(?=^.{2,50}$)(?=.*[A-Z]|[a-z]).*$">
+					<div class="invalid-feedback">
+					{{ 'CLIENT_DATA.VALIDATOR.CITY' | translate }}
+				  </div>
+				</div>
+			</div>
+
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Country" class="col-form-label float-lg-right">{{ 'CLIENT_DATA.LABEL.COUNTRY' | translate }}</label>
+				</div>
+				<div class="col-8">
+					<select size="1" class="form-control" formControlName="Country" id="Country" required>
+						<option selected disabled value="">{{ 'CLIENT_DATA.PLACEHOLDER.COUNTRY' | translate }}</option>
+						<option value="CO">Colombia</option>
+						<option value="US">Estados Unidos</option>
+					</select>
+					<div class="invalid-feedback">
+					{{ 'CLIENT_DATA.VALIDATOR.COUNTRY' | translate }}
+				  </div>
+				</div>
+			</div>
+                        <hr >
+                        <h5 class="text-center">{{ 'CLIENT_DATA.TITLE2' | translate }}</h5>
+                        <div class="row mt-2 align-items-center text-center form-group">
+				<div class="col-3">
+					<label for="DocumentType" class="col-form-label float-lg-right">{{ 'CLIENT_DATA.LABEL.DOCUMENTTYPE' | translate }}</label>
+				</div>
+				<div class="col-2">
+					<select formControlName="DocumentType" size="1" class="form-control"  id="DocumentType" required>
+						<option selected disabled value="">{{ 'CLIENT_DATA.PLACEHOLDER.DOCUMENTTYPE' | translate }}</option>
+						<option value="CC">Cédula de ciudadanía</option>
+                                                <option value="NI">ID Nacional</option>
+						<option value="PA">Pasaporte</option>
+
+					</select>
+					 <div   class="invalid-feedback">
+					{{ 'CLIENT_DATA.VALIDATOR.DOCUMENTTYPE' | translate }}
+                                        </div>
+				</div>
+                                <div class="col-2">
+					<label for="Document" class="col-form-label float-lg-right">{{ 'CLIENT_DATA.LABEL.DOCUMENT' | translate }}</label>
+
+				</div>
+				<div class="col-4">
+					<input type="text" class="form-control" formControlName="Document" id="Document" minlength="6" required placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.DOCUMENT' | translate }}" pattern="[0-9]{6,30}">
+					<div class="invalid-feedback">
+					{{ 'CLIENT_DATA.VALIDATOR.DOCUMENT' | translate }}
+				  </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="FirstName" class="col-form-label float-lg-right">{{ 'CLIENT_DATA.LABEL.FIRSTNAME' | translate }}</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" minlength="2" formControlName="FirstName" id="FirstName" required placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.FIRSTNAME' | translate }}"  pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					<div class="invalid-feedback">
+					{{ 'CLIENT_DATA.VALIDATOR.FIRSTNAME' | translate }}
+				  </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="LastName" class="col-form-label float-lg-right" >{{ 'CLIENT_DATA.LABEL.LASTNAME' | translate }}</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" formControlName="LastName" id="LastName" minlength="2" required placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.LASTNAME' | translate }}" pattern="(?=^.{2,30}$)(?=.*[A-Z]|[a-z]).*$">
+					<div class="invalid-feedback">
+					{{ 'CLIENT_DATA.VALIDATOR.LASTNAME' | translate }}
+				  </div>
+				</div>
+			</div>
+                        <div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Profile" class="col-form-label float-lg-right" >{{ 'CLIENT_DATA.LABEL.PROFILE' | translate }}</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" formControlName="Profile" id="Profile" minlength="4" required placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.PROFILE' | translate }}" pattern="(?=^.{2,50}$)(?=.*[A-Z]|[a-z]).*$">
+					<div class="invalid-feedback">
+					{{ 'CLIENT_DATA.VALIDATOR.PROFILE' | translate }}
+				  </div>
+				</div>
+			</div>
+                        <div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Position" class="col-form-label float-lg-right" >{{ 'CLIENT_DATA.LABEL.POSITION' | translate }}</label>
+				</div>
+				<div class="col-8">
+					<input type="text" class="form-control" formControlName="Position" id="Position" minlength="4" required placeholder="{{ 'CLIENT_DATA.PLACEHOLDER.POSITION' | translate }}" pattern="(?=^.{4,80}$)(?=.*[A-Z]|[a-z]).*$">
+					<div class="invalid-feedback">
+					{{ 'CLIENT_DATA.VALIDATOR.POSITION' | translate }}
+				  </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3">
+					<label for="Policy" class="col-form-label float-lg-right">{{ 'CLIENT_DATA.LABEL.POLICY' | translate }}</label>
+				</div>
+				<div class="col-8">
+					<input class="form-check-input" type="checkbox" formControlName="Policy" id="Policy" required>
+						<label class="form-check-label" for="flexCheckDefault">
+						{{ 'CLIENT_DATA.PLACEHOLDER.POLICY' | translate }}
+					  </label>
+					<div class="invalid-feedback">
+					{{ 'CLIENT_DATA.VALIDATOR.POLICY' | translate }}
+				  </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center ">
+				
+			</div>
+		</form>
+
+    </div>
+	<br>
+	<br>
+	<br>
+
+
