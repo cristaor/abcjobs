@@ -4,13 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderClientModule} from '../header-client/header-client.module'
 import {I18nModule} from '../i18n/i18n.module'
 import {CreateTestComponent} from './create-test/create-test.component'
-
+import {RegisterResultTestComponent} from './register-result-test/register-result-test.component'
 import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
   declarations: [
-    CreateTestComponent
+    CreateTestComponent,
+    RegisterResultTestComponent
   ],
   imports: [
     CommonModule,

@@ -283,6 +283,37 @@
         "END_DATE":"La fecha final es requerida",
         "DESCRIPTION":"Ingrese una descripción entre 5 y 500 caracteres"
       }
+    },
+    "REGISTER":{
+      "REGISTER_TEST":"Cargar Prueba",
+      "NAME":"Nombre",
+      "ENTER_NAME":"Ingrese la prueba",
+      "TECHNOLOGY":"Tecnología",
+      "ENTER_TECHNOLOGY":"Ingrese el nombre de la tegnologia",
+      "CANDIDATE":"Candidato",
+      "TEST_DATE":"Fecha",
+      "OBSERVATION":"Observaciones",
+      "POINTS":"Puntaje",
+      "PLACEHOLDER":{
+        "CANDIDATE_DOCUMENT": "Documento candidato",
+        "CANDIDATE_NAME": "Nombre candidato"
+      },
+      "TOAST":{
+        "CANDIDATE_NOT_FOUND": "Candidato no encontrado con el documento [{0}]"
+    },
+      "UI":{
+        "CREATED":"Resultado registrado correctamente",
+        "ERROR":"Error creada correctamente",
+        "SEARCH":"Buscar"
+      },
+      "VALIDATOR":{
+        "NAME":"Seleccione una prueba",
+        "TECHNOLOGY":"La tecnología es requerida",
+        "DOCUMENT":"El documento es requerido",
+        "CANDIDATE_NAME": "Debe ingresar un candidato valido",
+        "POINTS":"Ingrese un puntaje para el candidato entre 0 y 100",
+        "TEST_DATE":"La fecha es requerida"
+      }
     }
   },
 
@@ -315,6 +346,7 @@
         "MOVIL":"Desarrollado movil",
         "BACKEND":"Desarrollado backend"
       },
+
       "UI":{
         "CREATED":"Prueba creada correctamente",
         "ERROR":"Error creada correctamente"

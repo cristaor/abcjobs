@@ -282,6 +282,37 @@
         "END_DATE":"The end date is required",
         "DESCRIPTION":"Enter a description between 5 and 500 digits"
       }
+    },
+    "REGISTER":{
+      "REGISTER_TEST":"Load Test Results",
+      "NAME":"Name",
+      "ENTER_NAME":"Enter the test",
+      "TECHNOLOGY":"Technology",
+      "ENTER_TECHNOLOGY":"Enter the technology",
+      "CANDIDATE":"Candidate",
+      "TEST_DATE":"Date",
+      "OBSERVATION":"Observations",
+      "POINTS":"Points",
+      "PLACEHOLDER":{
+        "CANDIDATE_DOCUMENT": "Candidate document",
+        "CANDIDATE_NAME": "Candidate name"
+      },
+      "TOAST":{
+        "CANDIDATE_NOT_FOUND": "Candidate not found by document [{0}]"
+    },
+      "UI":{
+        "CREATED":"Result registered succesfully",
+        "ERROR":"Error registering the result",
+        "SEARCH":"Search"
+      },
+      "VALIDATOR":{
+        "NAME":"Select a test",
+        "TECHNOLOGY":"The technology is required",
+        "DOCUMENT":"The document is required",
+        "CANDIDATE_NAME": "The candidate must be a valid candidate",
+        "POINTS":"Enter a result between 0 and 100",
+        "TEST_DATE":"The date is required"
+      }
     }
   },
 

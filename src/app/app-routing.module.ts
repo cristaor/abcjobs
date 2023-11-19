@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home/home.component';
 import { CandidateAcademicComponent } from './candidate/candidate-academic/candidate-academic.component';
 import { CandidateBasicComponent } from './candidate/candidate-basic/candidate-basic.component';
 import { CandidateInterviewsComponent } from './candidate/candidate-interviews/candidate-interviews.component';
+import { CandidateFullInfoComponent } from './candidate/candidate-full-info/candidate-full-info.component';
 import { CandidateLaboralComponent } from './candidate/candidate-laboral/candidate-laboral.component';
 import { CandidateLoginComponent } from './candidate/candidate-login/candidate-login.component';
 import { CandidateResultsComponent } from './candidate/candidate-results/candidate-results.component';
@@ -24,6 +25,7 @@ import { ClientSearchComponent } from './client/client-search/client-search.comp
 import { RecruiterLoginComponent } from './recruiter/recruiter-login/recruiter-login.component';
 import { CreateTestComponent } from './test/create-test/create-test.component';
 
+import { RegisterResultTestComponent } from './test/register-result-test/register-result-test.component';
 
 const routes: Routes = [
 {
@@ -47,10 +49,17 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'register-result-test',
+    component: RegisterResultTestComponent,
+    pathMatch: 'full'
+  },
+  {
     path: 'test',
     component: CreateTestComponent,
     pathMatch: 'full'
   },
+
+  
 {
     path: 'login-candidate',
     component: CandidateLoginComponent,
@@ -109,6 +118,11 @@ const routes: Routes = [
   {
     path: 'search-candidate',
     component: ClientSearchComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'candidate-full-info',
+    component: CandidateFullInfoComponent,
     pathMatch: 'full'
   }
 
