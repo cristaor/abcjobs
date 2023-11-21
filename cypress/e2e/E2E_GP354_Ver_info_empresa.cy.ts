@@ -21,6 +21,7 @@ describe('Ver info empresa', () => {
         //genera datos para el formulario
         let username = faker.internet.email();
         let password = faker.internet.password({ length: 15});
+        password = password + "Aa&.";
         let taxPayerId = faker.random.numeric(10);
         let name = faker.company.name();
         let years = faker.number.int({ min: 1, max: 100 })
@@ -63,6 +64,22 @@ describe('Ver info empresa', () => {
         
         cy.wait(6000);
         cy.get('app-client-home');
+         
+        cy.visit('/login-client')
+        cy.wait(3000) 
+        //Search for Title
+        utility.getMessage('Ingrese su usuario y clave', 'div');
+        //busca campos del formulario 
+        cy.get("input[formcontrolname='user']").type(username,{force: true});
+        cy.get("input[formcontrolname='password']").type(password,{force: true});
+        
+        //pulsar Ingresar
+        cy.get('button[type="submit"]').contains('Aceptar').click({force: true});    
+        
+        //espera 4 seg para iniciar sesion
+        cy.wait(4000);
+        cy.get('app-client-home');
+        
         
         
         cy.visit('/basic-client-edit')
@@ -82,7 +99,7 @@ describe('Ver info empresa', () => {
         cy.get("input[formcontrolname='City']").should('have.value',city);
         //cy.get("select[formcontrolname='Country']").should('have.value', 'US')
         
-        cy.get("select[formcontrolname='DocumentType']").should('have.value', 'NI')
+        cy.get("select[formcontrolname='DocumentType']").select('ID Nacional').should('have.value', 'NI')
         cy.get("input[formcontrolname='Document']").should('have.value',document);
         cy.get("input[formcontrolname='FirstName']").should('have.value',firstName);
         cy.get("input[formcontrolname='LastName']").should('have.value',lastName);

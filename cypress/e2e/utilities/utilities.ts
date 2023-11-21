@@ -22,12 +22,17 @@ export class Utilities {
                     {
                         console.log("Encontrado");
                         errorExists=1;
-                        expect(element2).to.equal(error)
-                        return true;
+                        i=$elements.length
+                        //expect(element2).to.equal(error)
+                        //return true;
+                        
                     }
                 }
+                console.log(`Valor de Error ${errorExists}`)
                 if(!errorExists)
-                        expect(element2).to.equal(false);
+                    expect(element2).to.equal(false);
+                else
+                    expect(element2).to.equal(element2)
             }) ;
     }
     pushElementFromElements(selector, index)

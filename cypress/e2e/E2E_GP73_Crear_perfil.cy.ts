@@ -39,6 +39,7 @@ describe('Crear Perfil', () => {
         //genera datos para el formulario
         let username = faker.internet.email();
         let password = faker.internet.password({ length: 15});
+         password = password + "Aa&.";
         let taxPayerId = faker.random.numeric(10);
         let name = faker.company.name();
         let years = faker.number.int({ min: 1, max: 100 })

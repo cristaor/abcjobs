@@ -19,6 +19,7 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
+.nyc_output/
 
 # Visual Studio Code
 .vscode/*
@@ -41,3 +42,7 @@ testem.log
 .DS_Store
 Thumbs.db
 /nbproject/private/
+
+
+#Tests outputs
+cypress/screenshots/

@@ -255,6 +255,22 @@
         "GET_ERROR": "Ha ocurrido un error"
     }
   },
+  "PROJECTS_LIST":{
+    "TITLE": "Lista de Proyectos",
+    "TABLEHEADER":{
+        "C1":" Nombre",
+        "C2": "Fecha Inicio",
+        "C3": "Activo",
+        "C4": "Descripcion",
+        "C5": "Equipo",
+        "C6": "Ver"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"La empresa",
+        "SUCESS_2":"no tiene proyectos",
+        "GET_ERROR": "Ha ocurrido un error"
+    }
+  },
 
   "TEST":{
     "CREATE":{

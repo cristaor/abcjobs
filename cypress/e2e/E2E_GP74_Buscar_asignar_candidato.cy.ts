@@ -40,6 +40,7 @@ describe('Buscar Candidato', () => {
         //genera datos para el formulario
         let username2 = faker.internet.email();
         let password2 = faker.internet.password({ length: 15});
+         password2 = password2 + "Aa&.";
         let document2 = faker.random.numeric(9);
         let firstName2 = faker.person.firstName();
         let lastName2 = faker.person.lastName();
@@ -123,6 +124,7 @@ describe('Buscar Candidato', () => {
         //genera datos para el formulario
         let username = faker.internet.email();
         let password = faker.internet.password({ length: 15});
+         password = password + "Aa&.";
         let taxPayerId = faker.random.numeric(10);
         let name = faker.company.name();
         let years = faker.number.int({ min: 1, max: 100 })
@@ -141,7 +143,7 @@ describe('Buscar Candidato', () => {
         cy.get("input[formcontrolname='Password']").type(password,{force: true});
         cy.get("input[formcontrolname='TaxPayerId']").type(taxPayerId,{force: true});
         cy.get("input[formcontrolname='Name']").type(name,{force: true});
-        cy.get("input[formcontrolname='Years']").type(years,{force: true});
+        cy.get("input[formcontrolname='Years']").type(years.toString(),{force: true});
         cy.get("input[formcontrolname='PhoneNumber']").type(phoneNumber,{force: true});
         cy.get("input[formcontrolname='Address']").type(address,{force: true});  
         cy.get("input[formcontrolname='City']").type(city,{force: true});
@@ -266,7 +268,7 @@ describe('Buscar Candidato', () => {
          cy.get("input[formcontrolname='Role']").type(role_info ,{force: true});
          
          
-         cy.get("input[formcontrolname='RoleYears']").type(experience_years2 ,{force: true});
+         cy.get("input[formcontrolname='RoleYears']").type(experience_years2.toString() ,{force: true});
          cy.get("select[formcontrolname='TitleFilter']").select(title_filter);
          cy.get('button[type="submit"]').contains('Buscar').click({force: true});
          
