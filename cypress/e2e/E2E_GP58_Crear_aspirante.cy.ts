@@ -21,6 +21,7 @@ describe('Crear Usuario', () => {
         //genera datos para el formulario
         let username = faker.internet.email();
         let password = faker.internet.password({ length: 15});
+        password = password + "Aa&.";
         let document = faker.random.numeric(9);
         let firstName = faker.person.firstName();
         let lastName = faker.person.lastName();

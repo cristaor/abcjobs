@@ -24,7 +24,6 @@ describe('Crear Proyecto', () => {
         //genera datos para el formulario
         let username = faker.internet.email();
         let password = faker.internet.password({ length: 15});
-         password = password + "Aa&.";
         let taxPayerId = faker.random.numeric(10);
         let name = faker.company.name();
         let years = faker.number.int({ min: 1, max: 100 })
@@ -106,6 +105,14 @@ describe('Crear Proyecto', () => {
         
         cy.wait(6000);
         cy.get('app-client-home');
+        
+        cy.visit('/project-client-list')
+        cy.wait(3000) 
+        //Search for Title
+        utility.getMessage('Lista de Proyectos', 'h2');
+        utility.getMessage('Nombre', 'th');
+        utility.getMessage('Fecha Inicio', 'th');
+        utility.getMessage(projectName, 'th');
     });
     
      

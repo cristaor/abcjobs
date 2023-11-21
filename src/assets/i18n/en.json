@@ -255,6 +255,22 @@
         "GET_ERROR": "An error has ocurred"
     }
   },
+  "PROJECTS_LIST":{
+    "TITLE": "Projects List",
+    "TABLEHEADER":{
+        "C1":"Name",
+        "C2": "Start date",
+        "C3": "Active",
+        "C4": "Details",
+        "C5": "Team",
+        "C6": "View"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"Comapany ",
+        "SUCESS_2":"has not projects created",
+        "GET_ERROR": "An error has ocurred"
+    }
+  },
   "TEST":{
     "CREATE":{
       "CREATE_TEST":"Create Test",
