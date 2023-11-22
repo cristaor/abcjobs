@@ -97,7 +97,7 @@ export class ClientEditDataComponent implements OnInit{
       },
       error => {
                //console.log(error);  
-              this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText}`)
+              this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText} - ${error.error.detail}`)
       })
     }
     updateClient(newClient: Client){}

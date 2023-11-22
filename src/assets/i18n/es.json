@@ -31,7 +31,8 @@
         "INVALID_CREDENTIALS":"Credenciales invalidas",
         "INVALID_CREDENTIALS2":"Credenciales expiradas. Inicie sesión nuevamente",
         "GET_ERROR": "Ha ocurrido un error",
-        "SUCESSFULL_1": "Creación exitosa"
+        "SUCESSFULL_1": "Creación exitosa",
+        "INVALID_PROJECT": "Proyecto Invalido"
   },
   "HOME":
   {
@@ -271,7 +272,22 @@
         "GET_ERROR": "Ha ocurrido un error"
     }
   },
-
+  "PROJECTS_MEMBERS_LIST":{
+    "TITLE": "Lista de Miembros",
+    "SUBTITLE": "Proyecto",
+    "TABLEHEADER":{
+        "C1":" Nombre Miembro",
+        "C2": "Perfil",
+        "C3": "Activo",
+        "C4": "Desempeño",
+        "C5": "Descripcion"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"La empresa",
+        "SUCESS_2":"no tiene proyectos",
+        "GET_ERROR": "Ha ocurrido un error"
+    }
+  },
   "TEST":{
     "CREATE":{
       "CREATE_TEST":"Crear Prueba",

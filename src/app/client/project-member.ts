@@ -18,3 +18,30 @@ export class ProjectMember {
     }
     
 }
+
+export class ProjectMemberResponse {
+    id : string
+    name: string
+    profile : string
+    active : string
+    performance: string
+    description : string
+    person_id : string 
+    project_id : string
+    
+    constructor( id : string, name: string , profile : string, active : string,performance: string, description : string, person_id : string
+    , project_id : string)
+    {
+            this.id = id ;
+            this.name = name;
+            this.profile = profile ;
+            this.active = active ;
+            this.performance = performance ;
+            this.description = description ;
+            this.person_id= person_id ;
+            
+            this.project_id = project_id;
+            
+    }
+    
+}

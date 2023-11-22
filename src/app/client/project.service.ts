@@ -5,7 +5,8 @@ import { environment } from 'src/environments/environment';
 import { Observable,of,map,catchError } from 'rxjs';
 import {concatMap} from 'rxjs/operators';
 import {ProfileResponse,ProfileRequest,ProfileListDetail} from 'src/app/client/project';
-import {ProjectMember} from 'src/app/client/project-member';
+import {ProjectMember, ProjectMemberResponse } from 'src/app/client/project-member';
+import { ClientProject} from './client';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,9 @@ export class ProfileService {
 
 private backUrl: string = environment.backBaseUrl;
 newMember!:ProjectMember
+members!: Array<ProjectMemberResponse>
+projects!: Array<ClientProject>
+
 constructor(private http: HttpClient,private loginService:ClientLoginService) { }
 
 create_profile(request: ProfileRequest): Observable<boolean> {
@@ -61,7 +65,7 @@ get_profiles(): Observable<Array<ProfileListDetail>> {
     );
 }
 
-memberCreate(personId:string, projectId:string, profileId:string, token: string): Observable<any> {  
+    memberCreate(personId:string, projectId:string, profileId:string, token: string): Observable<any> {  
         const headers_request = new HttpHeaders({'Authorization': `${token}`})
         headers_request.append('Access-Control-Allow-Origin', '*')
         console.log(`Token ${token}`)
@@ -69,6 +73,18 @@ memberCreate(personId:string, projectId:string, profileId:string, token: string)
             "active": 1,"description": "Nuevo miembro","personId": personId, "profileId": profileId, "projectId": projectId
         },{ headers: headers_request})  
        }
-
+       
+    getMembers(projectId:string, token :string):Observable<ProjectMemberResponse[]> {
+        const headers = new HttpHeaders({'Content-Type': 'application/json',
+        'Authorization': `${token}`})
+        headers.append('Access-Control-Allow-Origin', '*')
+        return this.http.get<ProjectMemberResponse[]>(`${this.backUrl}/projects/members/${projectId}`, { headers: headers })
+    }
+    getProject(projectId: number, token: string): Observable<ClientProject[]> {
+    const headers = new HttpHeaders({'Content-Type': 'application/json',
+    'Authorization': `${token}`})
+    headers.append('Access-Control-Allow-Origin', '*')
+    return this.http.get<ClientProject[]>(`${this.backUrl}/projects/${projectId.toString()}`, { headers: headers })
+  }
 }
 
