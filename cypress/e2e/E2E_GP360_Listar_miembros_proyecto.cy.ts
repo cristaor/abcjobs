@@ -41,6 +41,7 @@ describe('Buscar Candidato', () => {
         let username2 = faker.internet.email();
         let password2 = faker.internet.password({ length: 15});
          password2 = password2 + "Aa&.";
+        //let document2 = faker.random.numeric(9);
         let document2 = faker.string.numeric({ length: 9, exclude: ['0'] })
         let firstName2 = faker.person.firstName();
         let lastName2 = faker.person.lastName();
@@ -125,6 +126,7 @@ describe('Buscar Candidato', () => {
         let username = faker.internet.email();
         let password = faker.internet.password({ length: 15});
          password = password + "Aa&.";
+        //let taxPayerId = faker.random.numeric(10);
         let taxPayerId = faker.string.numeric({ length: 10, exclude: ['0'] })
         let name = faker.company.name();
         let years = faker.number.int({ min: 1, max: 100 })
@@ -277,10 +279,32 @@ describe('Buscar Candidato', () => {
         cy.get("th").contains("Nombres");
         cy.get("th").contains("Puntaje");
         cy.get("th").contains("Puntaje");
-        cy.get('button[type="button"]').first().click({force: true});
+        cy.get('button[type="button"]').contains("Y").click({force: true});
         
+        cy.wait(3000) 
         cy.get('app-client-search');
         
+        
+        cy.visit('/project-client-list')
+        cy.wait(3000) 
+        //Search for Title
+        utility.getMessage('Lista de Proyectos', 'h2');
+        utility.getMessage('Nombre', 'th');
+        utility.getMessage('Fecha Inicio', 'th');
+        utility.getMessage(projectName, 'th');
+        
+        cy.get('button[type="button"]').contains("Ver").click({force: true});
+        
+        cy.wait(3000)
+        
+        //Members list 
+        cy.get('app-client-project-members');
+        utility.getMessage('Lista de Miembros', 'h2');
+        cy.get("th").contains("Nombre");
+        cy.get("th").contains("Perfil");
+        cy.get("th").contains("Activo");
+        cy.get("th").contains(firstName2);
+        cy.get("td").contains(profile_name);
         
         
     });

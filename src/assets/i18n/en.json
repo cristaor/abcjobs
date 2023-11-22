@@ -31,7 +31,8 @@
         "INVALID_CREDENTIALS":"Invalid Credentials",
         "INVALID_CREDENTIALS2":"Expired credentials. Sign in again",
         "GET_ERROR": "An error has occurred",
-        "SUCESSFULL_1": "Successful creation"
+        "SUCESSFULL_1": "Successful creation",
+        "INVALID_PROJECT": "Invalid project"
   },
   "HOME":
   {
@@ -268,6 +269,22 @@
     "BACK_RESPONSES":{
         "SUCESS_1":"Comapany ",
         "SUCESS_2":"has not projects created",
+        "GET_ERROR": "An error has ocurred"
+    }
+  },
+  "PROJECTS_MEMBERS_LIST":{
+    "TITLE": "Member List",
+    "SUBTITLE": "Project",
+    "TABLEHEADER":{
+        "C1":"Member name",
+        "C2": "Profile",
+        "C3": "Active",
+        "C4": "Performance",
+        "C5": "Description"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"Project",
+        "SUCESS_2":"has not members",
         "GET_ERROR": "An error has ocurred"
     }
   },

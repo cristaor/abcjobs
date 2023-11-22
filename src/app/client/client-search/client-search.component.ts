@@ -214,11 +214,11 @@ export class ClientSearchComponent implements OnInit{
     
     cancelSearch():void{this.candidateSearchForm.reset();this.routerPath.navigate([`/home-client`])}
     
-    assignCandidate(candidate: CandidateResponseSearch, row: number):void{
+    assignCandidate(person_id: string, row: number):void{
             
             let projectId = `${this.candidateSearchForm.get('Project')?.value}`;
             let profileId = `${this.candidateSearchForm.get('Profile')?.value}`;
-            let personId=candidate.person_id;
+            let personId = person_id;
       
             console.log(`Enviando: ${projectId}: ${profileId} - ${personId}`);
             
@@ -230,8 +230,8 @@ export class ClientSearchComponent implements OnInit{
                                                  this.showSuccess("Candidato Asignado")
                     },
                     error => {
-                      //console.log(error);  
-                      this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText}`)
+                      console.log(error);  
+                      this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText}- ${error.error.detail}`)
                     })
                 }
                 else{

@@ -14,6 +14,7 @@ import { CreateProfileComponent  } from './create-profile/create-profile.compone
 import { TranslateModule } from '@ngx-translate/core';
 import { ClientEditDataComponent } from './client-edit-data/client-edit-data.component';
 import { ClientProjectsListComponent } from './client-projects-list/client-projects-list.component';
+import { ClientProjectMembersComponent } from './client-project-members/client-project-members.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ClientProjectsListComponent } from './client-projects-list/client-proje
     ClientHomeComponent,
     CreateProfileComponent,
     ClientEditDataComponent,
-    ClientProjectsListComponent
+    ClientProjectsListComponent,
+    ClientProjectMembersComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +49,8 @@ import { ClientProjectsListComponent } from './client-projects-list/client-proje
     ClientHomeComponent,
     CreateProfileComponent,
     ClientEditDataComponent,
-    ClientProjectsListComponent
+    ClientProjectsListComponent,
+    ClientProjectMembersComponent
   ]
 })
 export class ClientModule { }
