@@ -16,6 +16,7 @@ import { ClientEditDataComponent } from './client-edit-data/client-edit-data.com
 import { ClientProjectsListComponent } from './client-projects-list/client-projects-list.component';
 import { ClientProjectMembersComponent } from './client-project-members/client-project-members.component';
 import { ClientEvaluationCreateComponent } from './client-evaluation-create/client-evaluation-create.component';
+import { ClientEvaluationListComponent } from './client-evaluation-list/client-evaluation-list.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ClientEvaluationCreateComponent } from './client-evaluation-create/clie
     ClientEditDataComponent,
     ClientProjectsListComponent,
     ClientProjectMembersComponent,
-    ClientEvaluationCreateComponent
+    ClientEvaluationCreateComponent,
+    ClientEvaluationListComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +55,8 @@ import { ClientEvaluationCreateComponent } from './client-evaluation-create/clie
     ClientEditDataComponent,
     ClientProjectsListComponent,
     ClientProjectMembersComponent,
-    ClientEvaluationCreateComponent
+    ClientEvaluationCreateComponent,
+    ClientEvaluationListComponent
   ]
 })
 export class ClientModule { }

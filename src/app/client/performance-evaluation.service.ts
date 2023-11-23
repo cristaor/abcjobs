@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ClientProject } from './client';
 import { ProjectMemberResponse } from './project-member'
-import { PerformanceEvaluation } from './performance-evaluation'
+import { PerformanceEvaluation,PerformanceEvaluationResponse } from './performance-evaluation'
 
 @Injectable({
   providedIn: 'root'
@@ -32,4 +32,11 @@ export class PerformanceEvaluationService {
               "person_id": newEvaluation.person_id, "member_id": newEvaluation.member_id
         },{ headers: headers_request})
        }
+  
+  getEvaluations(projectId:string, token :string):Observable<PerformanceEvaluationResponse[]> {
+        const headers = new HttpHeaders({'Content-Type': 'application/json',
+        'Authorization': `${token}`})
+        headers.append('Access-Control-Allow-Origin', '*')
+        return this.http.get<PerformanceEvaluationResponse[]>(`${this.backUrl}/evaluations/${projectId}`, { headers: headers })
+    }
 }

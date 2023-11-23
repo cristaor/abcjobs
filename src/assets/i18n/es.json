@@ -292,11 +292,35 @@
         "C3": "Activo",
         "C4": "Descripcion",
         "C5": "Equipo",
-        "C6": "Ver"
+        "C6": "Evaluaciones"
+    },
+    "LABEL":{
+      "MEMBERS": "Ver",
+      "EVALUATIONS": "Ir"
     },
     "BACK_RESPONSES":{
         "SUCESS_1":"La empresa",
         "SUCESS_2":"no tiene proyectos",
+        "GET_ERROR": "Ha ocurrido un error"
+    }
+  },
+  "EVALUATION_LIST":{
+    "TITLE": "Evaluaciones de desempeño",
+    "SUBTITLE": "Proyecto",
+    "TABLEHEADER":{
+        "C1":"No",
+        "C2": "Fecha",
+        "C3": "Miembro",
+        "C4": "Calificacion",
+        "C5": "Observacion",
+        "C6": "Detalle"
+    },
+    "LABEL":{
+        "DETAILS": "Ver"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"EL proyecto",
+        "SUCESS_2":"tiene evaluaciones de desempeño",
         "GET_ERROR": "Ha ocurrido un error"
     }
   },
