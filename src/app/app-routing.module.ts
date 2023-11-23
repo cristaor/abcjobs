@@ -23,6 +23,7 @@ import { ClientHomeComponent } from './client/client-home/client-home.component'
 import { ClientSearchComponent } from './client/client-search/client-search.component';
 import { ClientProjectsListComponent } from './client/client-projects-list/client-projects-list.component';
 import { ClientProjectMembersComponent } from './client/client-project-members/client-project-members.component';
+import { ClientEvaluationCreateComponent } from './client/client-evaluation-create/client-evaluation-create.component';
 
 import { RecruiterLoginComponent } from './recruiter/recruiter-login/recruiter-login.component';
 import { CreateTestComponent } from './test/create-test/create-test.component';
@@ -135,7 +136,14 @@ const routes: Routes = [
     path: 'candidate-full-info',
     component: CandidateFullInfoComponent,
     pathMatch: 'full'
+  },
+  {
+    path: 'client-evaluation-create',
+    component: ClientEvaluationCreateComponent,
+    pathMatch: 'full'
   }
+
+
 
 
 ];
