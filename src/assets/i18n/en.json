@@ -289,11 +289,35 @@
         "C3": "Active",
         "C4": "Details",
         "C5": "Team",
-        "C6": "View"
+        "C6": "Evaluations"
+    },
+    "LABEL":{
+      "MEMBERS": "View",
+      "EVALUATIONS": "Go"
     },
     "BACK_RESPONSES":{
         "SUCESS_1":"Comapany ",
         "SUCESS_2":"has not projects created",
+        "GET_ERROR": "An error has ocurred"
+    }
+  },
+  "EVALUATION_LIST":{
+    "TITLE": "Performance Evaluations List",
+    "SUBTITLE": "Project",
+    "TABLEHEADER":{
+        "C1":"No",
+        "C2": "Date",
+        "C3": "Member",
+        "C4": "Score",
+        "C5": "Observation",
+        "C6": "Details"
+    },
+    "LABEL":{
+        "DETAILS": "View"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"Project",
+        "SUCESS_2":"has performance evaluations",
         "GET_ERROR": "An error has ocurred"
     }
   },

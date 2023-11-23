@@ -67,6 +67,9 @@ export class ClientProjectsListComponent  implements OnInit{
     viewMembers(project_id: number, token: any):void {
         this.routerPath.navigate([`/project-client-members/${project_id}`])
     }
+    viewEvaluations(project_id: number, token: any):void {
+        this.routerPath.navigate([`/client-evaluation-list/${project_id}`])
+    }
       showError(error: string) {
             this.toastr.error(error, "Error")
         }
