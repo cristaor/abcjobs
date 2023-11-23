@@ -224,6 +224,34 @@
         "GET_ERROR": "Ha ocurrido un error"
     }
   },
+  "CREATE_EVALUATION":{
+    "TITLE": "Crear Evaluación de Desempeño",
+    "LABEL":{
+      "PROJECT": "Proyecto",
+      "MEMBER": "Miembro",
+      "SCORE": "Calificacion",
+      "YEAR": "Año",
+      "ACTIVE":"Activo",
+      "DETAILS":"Descripcion"
+      },
+    "PLACEHOLDER":{
+        "PROJECT": "Seleccione",
+        "MEMBER": "Seleccione",
+        "SCORE": "Seleccione",
+        "DETAILS":"Ingrese la Observación de la evaluacion"
+    },
+    "VALIDATOR":{
+        "PROJECT": "Seleccione un proyecto",
+        "MEMBER": "Seleccione un miembro",
+        "SCORE": "Seleccione una calificacion",
+        "DETAILS":"El detalle de la eveluacion debe ser mayor a 10 caracteres"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"La evaluacion",
+        "SUCESS_2":"fue creada",
+        "GET_ERROR": "Ha ocurrido un error"
+    }
+  },
   "CREATE_PROJECT":{
     "TITLE": "Crear Proyecto",
     "LABEL":{

@@ -224,6 +224,31 @@
         "GET_ERROR": "Ha ocurrido un error"
     }
   },
+  "CREATE_EVALUATION":{
+    "TITLE": "Create Performance Evaluation",
+    "LABEL":{
+      "PROJECT": "Project",
+      "MEMBER": "Member",
+      "SCORE": "Score"
+      },
+    "PLACEHOLDER":{
+        "PROJECT": "Select",
+        "MEMBER": "Select",
+        "SCORE": "Select",
+        "DETAILS":"Enter the Evaluation Observation"
+    },
+    "VALIDATOR":{
+        "PROJECT": "Select a project",
+        "MEMBER": "Select a member",
+        "SCORE": "Select a score",
+        "DETAILS":"The evaluation detail must be greater than 10 characters"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"Evaluation",
+        "SUCESS_2":"has been created",
+        "GET_ERROR": "An error has ocurred"
+    }
+  },
   "CREATE_PROJECT":{
     "TITLE": "Create Project",
     "LABEL":{

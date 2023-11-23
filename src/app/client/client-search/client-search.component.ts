@@ -37,7 +37,7 @@ export class ClientSearchComponent implements OnInit{
     token!: any
     showTable: boolean = false;
     newMember!: ProjectMember;
-    
+
     constructor(
         private clientService: ClientService,
         private formBuilder: FormBuilder,
@@ -57,8 +57,8 @@ export class ClientSearchComponent implements OnInit{
     candidates!: Array<CandidateResponseSearch>
     allHeaders!: TableHead[]
     table!: DynamicTable
-    
-     
+
+
     ngOnInit() {
            this.candidateSearchForm = this.formBuilder.group({
             Project:["", [Validators.required]],
@@ -79,7 +79,7 @@ export class ClientSearchComponent implements OnInit{
                     this.getTechnologies(this.token)
                     this.getAbilities(this.token)
                 }
-                else{ 
+                else{
                     this.showError(`${this.translateService.instant('BACK_RESPONSES.INVALID_CREDENTIALS')}`);
                     this.routerPath.navigate(['/login-client'])
                 }
@@ -87,22 +87,22 @@ export class ClientSearchComponent implements OnInit{
                 this.showError(`${this.translateService.instant('BACK_RESPONSES.INVALID_CREDENTIALS2')}`);
                 this.routerPath.navigate(['/login-client'])
               });
-              
-        
+
+
         this.table = { headers: [], data: []}
     }
-    
+
     getProjects(token: any): void {
     this.clientService.getProjects(token)
       .subscribe(projects => {
         this.projects = projects
       },
       error => {
-               //console.log(error);  
-              this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText}`)
+               //console.log(error);
+              this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText} - ${error.error.detail}`)
       })
     }
-    
+
     getTechnologies(token: any): void {
     this.clientService.getTechnologies(token)
       .subscribe(technologies => {
@@ -110,11 +110,11 @@ export class ClientSearchComponent implements OnInit{
         //console.log(JSON.stringify(technologies,null,4))
       },
       error => {
-               //console.log(error);  
+               //console.log(error);
               this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText}`)
       })
     }
-    
+
     getAbilities(token: any): void {
     this.clientService.getAbilities(token)
       .subscribe(abilities => {
@@ -122,27 +122,27 @@ export class ClientSearchComponent implements OnInit{
         //console.log(JSON.stringify(technologies,null,4))
       },
       error => {
-               //console.log(error);  
-              this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText}`)
+               //console.log(error);
+              this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText}- ${error.error.detail}`)
       })
     }
-    
+
     projectOnChange(e:any){
         console.log(`Seleccionado ${e.target.value}`)
         this.getProfiles(e.target.value, this.token)
     }
-    
+
     getProfiles(project_id:string, token: any): void {
     this.clientService.getProfiles(project_id, token)
       .subscribe(profiles => {
         this.profiles = profiles
       },
       error => {
-               //console.log(error);  
-              this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText}`)
+               //console.log(error);
+              this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText}- ${error.error.detail}`)
       })
     }
-    
+
     toggleShowTable(): void {
     this.showTable = !this.showTable;
     }
@@ -153,7 +153,7 @@ export class ClientSearchComponent implements OnInit{
                data: rows
            };
            this.allHeaders = headers;
-           
+
     }
 
     searchCandidate(request: CandidateRequestSearch)
@@ -166,17 +166,17 @@ export class ClientSearchComponent implements OnInit{
         request.titleFilter = `${this.candidateSearchForm.get('TitleFilter')?.value}`;
         request.title = `${this.candidateSearchForm.get('Title')?.value}`;
         request.titleExperience = `${this.candidateSearchForm.get('TitleYears')?.value}`;
-        
+
         console.log(JSON.stringify(request,null, 4));
         console.log(`Tecnologias: ${request.technologies}`)
-        
+
         this.clientLoginService.who_i_am().subscribe(res =>{
-                
+
                 if(res.is_authenticated){
                     let token = res.auth_headers.get("Authorization") || "token"
                     this.clientService.searchCandidate(request, token).subscribe(candidates => {
                         this.showSuccess("Existen candidatos")
-                        
+
                         const headers=[
                             `${this.translateService.instant('CLIENT_SEARCH.TABLEHEADER.C1')}`,
                             `${this.translateService.instant('CLIENT_SEARCH.TABLEHEADER.C2')}`,
@@ -189,16 +189,16 @@ export class ClientSearchComponent implements OnInit{
                             `${this.translateService.instant('CLIENT_SEARCH.TABLEHEADER.C9')}`,
                             `${this.translateService.instant('CLIENT_SEARCH.TABLEHEADER.C10')}`
         ].map((x, i) =>({key: x, index: i} as TableHead));
-                     
+
                         this.candidates = candidates
                         if (candidates.length > 0) {
                              this.drawTable(headers, this.candidates)
                              this.toggleShowTable()
                         }
-                                                 
+
                     },
                     error => {
-                      //console.log(error);  
+                      //console.log(error);
                       this.showWarning(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText}`)
                     })
                 }
@@ -211,26 +211,26 @@ export class ClientSearchComponent implements OnInit{
                 this.routerPath.navigate(['/login-client'])
               });
     }
-    
+
     cancelSearch():void{this.candidateSearchForm.reset();this.routerPath.navigate([`/home-client`])}
-    
+
     assignCandidate(person_id: string, row: number):void{
-            
+
             let projectId = `${this.candidateSearchForm.get('Project')?.value}`;
             let profileId = `${this.candidateSearchForm.get('Profile')?.value}`;
             let personId = person_id;
-      
+
             console.log(`Enviando: ${projectId}: ${profileId} - ${personId}`);
-            
+
             this.clientLoginService.who_i_am().subscribe(res =>{
-                
+
                 if(res.is_authenticated){
                     let token = res.auth_headers.get("Authorization") || "token"
                     this.profileService.memberCreate(personId, projectId, profileId , token).subscribe(project => {
                                                  this.showSuccess("Candidato Asignado")
                     },
                     error => {
-                      console.log(error);  
+                      console.log(error);
                       this.showError(`${this.translateService.instant('BACK_RESPONSES.GET_ERROR')}: ${error.status} - ${error.statusText}- ${error.error.detail}`)
                     })
                 }
@@ -242,18 +242,18 @@ export class ClientSearchComponent implements OnInit{
                 this.showError(`${this.translateService.instant('BACK_RESPONSES.INVALID_CREDENTIALS2')}`);
                 this.routerPath.navigate(['/login-client'])
               });
-       
+
        }
-    
-    
+
+
     showError(error: string) {
             this.toastr.error(error, "Error")
         }
-        
+
         showWarning(warning: string) {
             this.toastr.warning(warning, "Warning")
         }
-        
+
        showSuccess(message: String) {
             //this.toastr.success(`El proyecto ${client} fue creado`, "Creación exitosa");
             this.toastr.success(`${message}`);
