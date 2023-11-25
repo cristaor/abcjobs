@@ -400,7 +400,44 @@
       }
     }
   },
-
+  "INTERVIEW":{
+    "SCHEDULE":{
+      "SCHEDULE_INTERVIEW":"Programar Entrevista",
+      "PROJECT":"Projecto",
+      "MEET_URL":"URL de entrevista",
+      "DATE":"Fecha",
+      "CANDIDATE":"Candidato",
+      "DURATION":"Duración",
+      "DURATIONS":{
+        "A":"30 Minutos",
+        "B":"1 Hora",
+        "C":"1 Hora 30 Minutos",
+        "D":"2 Horas",
+        "E":"3 Horas"
+      },
+      "PLACEHOLDER":{
+        "CANDIDATE_DOCUMENT": "Documento candidato",
+        "CANDIDATE_NAME": "Nombre candidato",
+        "MEET_URL": "http://meet.com/dw3fw"
+      },
+      "TOAST":{
+        "CANDIDATE_NOT_FOUND": "Candidato no encontrado con el documento [{0}]"
+    },
+      "UI":{
+        "CREATED":"Entreviste programada correctamente",
+        "ERROR":"Programando la entrevista, el candidato ya tiene una entrevista asignada.",
+        "SEARCH":"Buscar"
+      },
+      "VALIDATOR":{
+        "PROJECT":"Seleccione un projecto",
+        "MEET_URL":"Ingrese una URL valida. Incluya http://",
+        "DOCUMENT":"El documento es requerido",
+        "CANDIDATE_NAME": "Debe ingresar un candidato valido",
+        "DURATION":"Seleccione la duración de la entrevista",
+        "DATE":"La fecha es requerida y debe estar en el futuro"
+      }
+    }
+  },
   "PROFILE":{
     "CREATE":{
       "CREATE_PROFILE":"Crear Perfil",

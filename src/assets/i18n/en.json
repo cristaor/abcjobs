@@ -398,6 +398,44 @@
     }
   },
 
+  "INTERVIEW":{
+    "SCHEDULE":{
+      "SCHEDULE_INTERVIEW":"Schedule Interview",
+      "PROJECT":"Project",
+      "MEET_URL":"Meet URL",
+      "DATE":"Date",
+      "CANDIDATE":"Candidate",
+      "DURATION":"Duration",
+      "DURATIONS":{
+        "A":"30 Minutes",
+        "B":"1 Hour",
+        "C":"1 Hour 30 Minutes",
+        "D":"2 Hours",
+        "E":"3 Hours"
+      },
+      "PLACEHOLDER":{
+        "CANDIDATE_DOCUMENT": "Candidate Document",
+        "CANDIDATE_NAME": "Candidate Name",
+        "MEET_URL": "http://meet.com/dw3fw"
+      },
+      "TOAST":{
+        "CANDIDATE_NOT_FOUND": "Candidate not found by document [{0}]"
+    },
+      "UI":{
+        "CREATED":"Interview scheduled successfully",
+        "ERROR":"Scheduling the interview, el candidato ya tiene una entrevista asignada.",
+        "SEARCH":"Search"
+      },
+      "VALIDATOR":{
+        "PROJECT":"Enter a project",
+        "MEET_URL":"Enter a valid meet URL. Incluya http://",
+        "DOCUMENT":"The document is required",
+        "CANDIDATE_NAME": "The name is required",
+        "DURATION":"Enter the meet duration",
+        "DATE":"The date is required and must to be in the future"
+      }
+    }
+  },
 
   "PROFILE":{
     "CREATE":{
