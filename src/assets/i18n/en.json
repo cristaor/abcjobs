@@ -423,7 +423,7 @@
     },
       "UI":{
         "CREATED":"Interview scheduled successfully",
-        "ERROR":"Scheduling the interview, el candidato ya tiene una entrevista asignada.",
+        "ERROR":"Scheduling the interview, candidate has a schedule interview.",
         "SEARCH":"Search"
       },
       "VALIDATOR":{
