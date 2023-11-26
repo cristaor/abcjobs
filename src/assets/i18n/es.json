@@ -438,8 +438,26 @@
         "DATE":"La fecha es requerida y debe estar en el futuro",
         "PROFILE":"El perfil es requerido"
       }
+    },
+    "LIST":{
+      "LIST_INTERVIEW":"Listado de Entrevistas",
+      "PROFILE":"Perfil posición",
+      "MEET_URL":"URL entrevista",
+      "DATE":"Fecha entrevista",
+      "DURATION":"Duracion entrevista",
+      "STATUS":"Estado entrevista",
+      "MINUTES":"Minutos",
+      "STATUS_":{
+        "SCHEDULED":"PROGRAMADA",
+        "DONE":"FINALIZADA",
+        "CANCELLED":"CANCELADA"
+      },
+      "TOAST":{
+        "INTERVIEWS_NOT_FOUND": "No se encontraron entrevistas programadas"
     }
-  },
+  }
+},
+
   "PROFILE":{
     "CREATE":{
       "CREATE_PROFILE":"Crear Perfil",

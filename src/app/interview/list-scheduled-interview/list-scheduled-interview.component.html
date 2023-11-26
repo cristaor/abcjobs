@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-blueABC">
+  <a class="navbar-brand" href="#">ABC Jobs</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav mr-auto">
+     </ul>
+  </div>
+<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+ <ul class="navbar-nav ml-auto">
+ </ul>
+ </div>
+ <div class="navbar-collapse collapse w-25 order-4 dual-collapse2">
+   <app-i18n/>
+ </div>
+
+</nav>
+<br>
+<br>
+<h2 class="text-center">{{ 'INTERVIEW.LIST.LIST_INTERVIEW' | translate }} </h2>
+<div class="container text-center float-lg-none">
+<hr >
+
+<div class="container text-center">
+<form  [formGroup]="loginForm" class="needs-validation"
+#formDirective="ngForm" >
+
+
+
+
+<div class="row mt-3 align-items-center text-center"></div>
+<div class="col-12">
+<table class="table">
+  <thead>
+    <tr *ngIf="interviews.length>0">
+      <th scope="col">{{'INTERVIEW.LIST.PROFILE' | translate}}</th>
+      <th scope="col">{{'INTERVIEW.LIST.DATE' | translate}}</th>
+      <th scope="col">{{'INTERVIEW.LIST.DURATION' | translate}}</th>
+      <th scope="col">{{'INTERVIEW.LIST.MEET_URL' | translate}}</th>
+      <th scope="col">{{'INTERVIEW.LIST.STATUS' | translate}}</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let interview of interviews">
+      <td>{{interview.profile_id}}</td>
+      <td>{{interview.start_timestamp.toLocaleString()}}</td>
+      <td>{{interview.duration_minutes}} {{'INTERVIEW.LIST.MINUTES' | translate}}</td>
+      <td><a href="{{interview.meet_url}}">{{interview.meet_url}}</a></td>
+      <td>{{'INTERVIEW.LIST.STATUS_.'+interview.status | translate}}</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+<div class="row mt-3 align-items-center ">
+   <div class="col-6">
+
+   </div>
+   <div class="col-6 text-left">
+     <button class="btn btn-danger"
+     (click)="cancelCreation()">{{'UI.CANCEL' | translate}}</button>
+   </div>
+ </div>
+</form>
+
+</div>
+<br>
+<br>
+<br>
+<footer class="fixed-bottom">
+<div class="container-fluid bg-blueABC">
+  <div class="row">
+     <div class="text-center col-lg-20">
+   <br>
+     </div>
+  </div>
+</div>
+</footer>

@@ -4,12 +4,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderClientModule} from '../header-client/header-client.module'
 import {I18nModule} from '../i18n/i18n.module'
 import {ScheduleInterviewComponent} from './schedule-interview/schedule-interview.component'
+import {ListScheduledInterviewComponent} from './list-scheduled-interview/list-scheduled-interview.component'
+
+
 import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
   declarations: [
-    ScheduleInterviewComponent
+    ScheduleInterviewComponent,
+    ListScheduledInterviewComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +24,8 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule
   ],
   exports:[
-    ScheduleInterviewComponent
+    ScheduleInterviewComponent,
+    ListScheduledInterviewComponent
   ]
 })
 export class InterviewModule { }
