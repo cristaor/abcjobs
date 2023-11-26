@@ -1,0 +1,24 @@
+/* styles.css */
+.table-container {
+    width: 100%;
+}
+
+.table-header {
+width: 100%;
+}
+
+.table-header th {
+background-color: #0e549e;
+color: white;
+width: 12.5%;
+}
+
+.table-header td {
+    border: 1px solid #ddd; /* Establece un borde de 1 píxel sólido con un color gris claro */
+    padding: 8px; /* Ajusta el espacio interno de las celdas */
+  }
+
+.title {
+margin-bottom: 20px; /* Ajusta el espacio entre el título y la tabla según tus preferencias */
+text-align: center;
+}

@@ -1,1 +1,82 @@
-<p>recruiter-interviews works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-blueABC">
+    <a class="navbar-brand" href="#">ABC Jobs</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav mr-auto">
+       </ul>
+    </div>
+  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+   <ul class="navbar-nav ml-auto">
+   </ul>
+   </div>
+   
+  
+  </nav>
+  <br>
+  <br>
+
+  <h2 class="text-center">Listado de entrevistas</h2>
+    <div class="container text-center">
+		<form class="needs-validation" id="addTechnologyInfo" novalidate>
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3 float-lg-right">
+					<label for="title" class="col-form-label float-lg-right">Empresa</label>
+				</div>
+				<div class="col-8 input-group has-validation">
+                                        <select size="1" class="form-control" formControlName="company" id="company" required (change)="companyOnChange($event)">
+						<option selected disabled value="">Seleccione</option>
+						<option *ngFor="let company of companies;" [value]="company.taxpayerId">
+                                                    {{company.name}}
+                                                </option>
+					</select>
+                </div>
+            </div>
+            <div class="row mt-2 align-items-center text-center">
+				<div class="col-3 float-lg-right">
+					<label for="title" class="col-form-label float-lg-right">Proyecto</label>
+				</div>
+				<div class="col-8 input-group has-validation">
+                                        <select size="1" class="form-control" formControlName="project" id="project" required (change)="projectOnChange($event)">
+						<option selected disabled value="">Seleccione</option>
+						<option *ngFor="let project of projects;" [value]="project.projectId">
+                                                    {{project.name}}
+                                                </option>
+					</select>
+                </div>
+            </div>
+            
+		</form>
+       
+    </div>
+	<br>
+
+
+    <br/>
+
+    <div class="table-container">
+        <hr>
+    <table class="table-header">
+        <thead style="background-color: blue; color: white;">
+          <tr>
+            <th>#</th>
+            <th>Candidato</th>
+            <th>Fecha</th>
+            <th>Calificación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let registro of registros; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ registro.full_name }}</td>
+            <td>{{ registro.date }}</td>
+            <td>{{ registro.qualification }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+
+

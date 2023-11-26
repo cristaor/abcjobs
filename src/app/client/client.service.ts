@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Client, ClientProject,CandidateRequestSearch,CandidateResponseSearch,TechnologyResponse,AbilityResponse  } from './client';
 import { ProfileListDetail } from './project'
+import { Interview, Project } from '../interview/interview';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +44,14 @@ export class ClientService {
     headers.append('Access-Control-Allow-Origin', '*')
     return this.http.get<ClientProject[]>(`${this.backUrl}/projects/myself`, { headers: headers })
   }
+
+  getProjectsByCompany(company_id: string): Observable<Project[]> {
+    const headers = new HttpHeaders({'Access-Control-Allow-Origin': '*'})
+    
+    
+    return this.http.get<Project[]>(`${this.backUrl}/projects/?company_id=`+company_id, { headers: headers })
+  }
+
   getProfiles(project_id: string,token: string): Observable<ProfileListDetail[]> {
     const headers = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `${token}`})
     headers.append('Access-Control-Allow-Origin', '*')

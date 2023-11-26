@@ -24,6 +24,17 @@ export class ScheduleInterviewRequest {
   }
 }
 
+export class Project {
+  projectId:string;
+  name:string;
+  constructor(
+    projectId:string,
+    name:string){
+      this.projectId=projectId;
+    this.name=name;
+  }
+}
+
 export class Interview {
   project_id:string;
   profile_id:string;
