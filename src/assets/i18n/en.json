@@ -444,7 +444,7 @@
       "DATE":"Interview date",
       "DURATION":"Interview duration",
       "STATUS":"Interview status",
-      "MINUTES":"MInutes",
+      "MINUTES":"Minutes",
       "STATUS_":{
         "SCHEDULED":"SCHEDULED",
         "DONE":"DONE",

@@ -47,7 +47,7 @@
     <tr *ngFor="let interview of interviews">
       <td>{{interview.profile_id}}</td>
       <td>{{interview.start_timestamp.toLocaleString()}}</td>
-      <td>{{interview.duration_minutes}} {{'INTERVIEW.LIST.STATUS' | translate}}</td>
+      <td>{{interview.duration_minutes}} {{'INTERVIEW.LIST.MINUTES' | translate}}</td>
       <td><a href="{{interview.meet_url}}">{{interview.meet_url}}</a></td>
       <td>{{'INTERVIEW.LIST.STATUS_.'+interview.status | translate}}</td>
     </tr>
