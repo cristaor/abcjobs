@@ -33,7 +33,7 @@ import { CandidateFullInfoComponent } from './candidate-full-info/candidate-full
     CandidateFullInfoComponent
   ],
   imports: [
-    CommonModule, HeaderCandidateModule ,ReactiveFormsModule, FormsModule,  
+    CommonModule, HeaderCandidateModule ,ReactiveFormsModule, FormsModule,
     I18nModule, TranslateModule
   ],
   exports: [CandidateLoginComponent,
@@ -46,7 +46,8 @@ import { CandidateFullInfoComponent } from './candidate-full-info/candidate-full
     CandidateResultsComponent,
     CandidateInterviewsComponent,
     CandidateHomeComponent,
-    CandidateFullInfoComponent
+    CandidateFullInfoComponent,
+    HeaderCandidateModule
     ]
 })
 export class CandidateModule { }
