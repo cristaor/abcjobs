@@ -24,6 +24,30 @@ export class ScheduleInterviewRequest {
   }
 }
 
+export class Interview {
+  project_id:string;
+  profile_id:string;
+  meet_url:string;
+  candidate_document:string;
+  start_timestamp:Date;
+  duration_minutes:BigInteger;
+  status:string;
+  constructor(
+    project_id:string,
+    profile_id:string,
+    meet_url:string,
+    candidate_document:string,
+    start_timestamp:Date,
+    duration_minutes:BigInteger){
+      this.profile_id=profile_id;
+    this.status=status;
+    this.project_id=project_id;
+    this.meet_url=meet_url;
+    this.start_timestamp=start_timestamp;
+    this.duration_minutes=duration_minutes;
+    this.candidate_document=candidate_document;
+  }
+}
 
 export class ScheduleInterviewResponse{
   detail:string;

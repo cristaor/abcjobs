@@ -436,7 +436,24 @@
         "DATE":"The date is required and must to be in the future",
         "PROFILE":"The profile is required"
       }
+    },
+    "LIST":{
+      "LIST_INTERVIEW":"List of Inteviews",
+      "PROFILE":"Position profile",
+      "MEET_URL":"Meet URL",
+      "DATE":"Interview date",
+      "DURATION":"Interview duration",
+      "STATUS":"Interview status",
+      "MINUTES":"MInutes",
+      "STATUS_":{
+        "SCHEDULED":"SCHEDULED",
+        "DONE":"DONE",
+        "CANCELLED":"CANCELLED"
+      },
+      "TOAST":{
+        "INTERVIEWS_NOT_FOUND": "Scheduled interviews not found"
     }
+  }
   },
 
   "PROFILE":{
