@@ -5,6 +5,8 @@ import { HeaderRecruiterModule} from '../header-recruiter/header-recruiter.modul
 import {I18nModule} from '../i18n/i18n.module'
 import {ScheduleInterviewComponent} from './schedule-interview/schedule-interview.component'
 import {ListScheduledInterviewComponent} from './list-scheduled-interview/list-scheduled-interview.component'
+import {FindInterviewComponent} from './find-interview/find-interview.component'
+import { HeaderCandidateModule } from '../header-candidate/header-candidate.module';
 
 
 import { TranslateModule } from '@ngx-translate/core';
@@ -13,11 +15,13 @@ import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   declarations: [
     ScheduleInterviewComponent,
-    ListScheduledInterviewComponent
+    ListScheduledInterviewComponent,
+    FindInterviewComponent
   ],
   imports: [
     CommonModule,
     HeaderRecruiterModule,
+    HeaderCandidateModule,
     I18nModule,
     ReactiveFormsModule,
     FormsModule,
@@ -25,7 +29,9 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   exports:[
     ScheduleInterviewComponent,
-    ListScheduledInterviewComponent
+    ListScheduledInterviewComponent,
+    FindInterviewComponent,
+    HeaderCandidateModule
   ]
 })
 export class InterviewModule { }

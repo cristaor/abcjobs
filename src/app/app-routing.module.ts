@@ -35,6 +35,7 @@ import { RegisterResultTestComponent } from './test/register-result-test/registe
 
 import { ScheduleInterviewComponent } from './interview/schedule-interview/schedule-interview.component';
 import {ListScheduledInterviewComponent} from './interview/list-scheduled-interview/list-scheduled-interview.component'
+import {FindInterviewComponent} from './interview/find-interview/find-interview.component'
 
 const routes: Routes = [
 {
@@ -77,6 +78,12 @@ const routes: Routes = [
     component: ListScheduledInterviewComponent,
     pathMatch: 'full'
   },
+  {
+    path: 'find-interviews',
+    component: FindInterviewComponent,
+    pathMatch: 'full'
+  },
+
 {
     path: 'login-candidate',
     component: CandidateLoginComponent,

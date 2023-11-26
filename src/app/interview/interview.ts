@@ -101,3 +101,107 @@ export class ProjectMemberResponse {
   }
 
 }
+
+export class InterviewResultAbility {
+  ability_id:string
+  qualification:string
+
+  constructor(  ability_id:string,
+    qualification:string){
+      this.ability_id=ability_id;
+      this.qualification=qualification;
+    }
+  }
+export class InterviewResult {
+  id:BigInteger
+  project_id:string
+  profile_id:string
+  candidate_document:string
+  date:Date
+  recording_file:string
+  test_file:string
+  observation:string
+  qualification:number
+  abilities:Array<InterviewResultAbility>
+  constructor(
+    id:BigInteger,
+    project_id:string,
+    profile_id:string,
+    candidate_document:string,
+    date:Date,
+    test_file:string,
+    observation:string,
+    qualification:number,
+    recording_file:string,
+    abilities:Array<InterviewResultAbility>
+    ){
+
+    this.profile_id=profile_id;
+    this.test_file=test_file;
+    this.project_id=project_id;
+    this.id=id;
+    this.date=date;
+    this.recording_file=recording_file;
+    this.candidate_document=candidate_document;
+    this.observation=observation;
+    this.qualification=qualification;
+    this.abilities=abilities;
+  }
+}
+
+
+export class AbilityResponse {
+  abilityId : string
+  name: string
+  category : string
+  details:string
+
+  constructor(  abilityId : string, name: string,category : string, details:string)
+  {
+          this.abilityId = abilityId ;
+          this.name = name ;
+          this.category = category ;
+          this.details = details;
+
+  }
+}
+
+
+export class Ability {
+  abilityId : string
+  qualification: string
+  name: string
+  category : string
+  details:string
+
+  constructor(  response : AbilityResponse,qualification: string)
+  {
+          this.abilityId = response.abilityId ;
+          this.name = response.name ;
+          this.category = response.category ;
+          this.qualification=qualification;
+          this.details=response.details;
+  }
+}
+export class ClientProject {
+  id : number
+  project_name : string
+  start_date : string
+  active : string
+  creation_time : string
+  details : string
+  company_id : string
+  constructor( id : number, project_name : string, start_date : string, active : string
+  ,creation_time : string, details : string, company_id : string)
+  {
+          this.id =id ;
+          this.project_name =project_name ;
+          this.start_date =start_date ;
+          this.active =active ;
+          this.creation_time =creation_time ;
+          this.details =details ;
+          this.company_id =company_id ;
+
+  }
+
+}
