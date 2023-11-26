@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-blueABC">
+  <a class="navbar-brand" href="#">ABC Jobs</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav mr-auto">
+     </ul>
+  </div>
+<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+ <ul class="navbar-nav ml-auto">
+ </ul>
+ </div>
+ <div class="navbar-collapse collapse w-25 order-4 dual-collapse2">
+   <app-i18n/>
+ </div>
+
+</nav>
+<br>
+<br>
+<h2 class="text-center">{{ 'INTERVIEW.LIST.LIST_INTERVIEW' | translate }} </h2>
+<div class="container text-center float-lg-none">
+<hr >
+
+<div class="container text-center">
+<form  [formGroup]="loginForm" class="needs-validation"
+#formDirective="ngForm" >
+
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="interview_result_id" class="col-form-label float-lg-right">{{'INTERVIEW.SCHEDULE.PROJECT' | translate}}</label>
+  </div>
+  <div class="col-9">
+   <select  size="1" class="form-control" formControlName="interview_result_id" id="interview_result_id"
+   required (change)="select_result(this.loginForm.controls['interview_result_id'].value)">
+     <option *ngFor="let result of interview_results"  value="{{result.id}}">{{result.project_id}} -  {{result.profile_id}} - {{result.candidate_document}}</option>
+   </select>
+   <div class="invalid-feedback">
+     {{'INTERVIEW.SCHEDULE.VALIDATOR.PROJECT' | translate}}
+   </div>
+  </div>
+
+</div>
+
+
+<div class="row mt-3 align-items-center text-center"></div>
+<div class="col-12">
+<table class="table" *ngIf="interview_result">
+  <thead>
+    <tr >
+      <th scope="col">{{'INTERVIEW.LIST.DATE' | translate}}</th>
+      <th scope="col">{{'INTERVIEW.LIST.PROJECT' | translate}}</th>
+      <th scope="col">{{'INTERVIEW.LIST.DURATION' | translate}}</th>
+      <th scope="col">{{'INTERVIEW.LIST.MEET_URL' | translate}}</th>
+      <th scope="col">{{'INTERVIEW.LIST.STATUS' | translate}}</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{interview_result.profile_id}}</td>
+      <td>{{interview_result.date.toLocaleString()}}</td>
+      <td>{{interview_result.recording_file}} </td>
+      <td>{{interview_result.observation}}</td>
+      <td>{{'INTERVIEW.LIST.STATUS_.'+interview_result.profile_id }}</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+<div class="row mt-3 align-items-center ">
+   <div class="col-6">
+
+   </div>
+   <div class="col-6 text-left">
+     <button class="btn btn-danger"
+     (click)="cancelCreation()">{{'UI.CANCEL' | translate}}</button>
+   </div>
+ </div>
+</form>
+
+</div>
+<br>
+<br>
+<br>
+<footer class="fixed-bottom">
+<div class="container-fluid bg-blueABC">
+  <div class="row">
+     <div class="text-center col-lg-20">
+   <br>
+     </div>
+  </div>
+</div>
+</footer>

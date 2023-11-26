@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Observable,of,map,catchError, Subscription } from 'rxjs';
 import {concatMap} from 'rxjs/operators';
 
-import {ScheduleInterviewRequest,ScheduleInterviewResponse, CandidateResponse, ProjectMemberResponse,Interview} from './interview';
+import {ScheduleInterviewRequest,ScheduleInterviewResponse, InterviewResult,CandidateResponse, ProjectMemberResponse,Interview} from './interview';
 
 import { ProfileListDetail } from './../client/project'
 @Injectable({
@@ -61,6 +61,46 @@ get_interviews(): Observable<Array<Interview>> {
 }
 
 
+get_interview_results(): Observable<Array<InterviewResult>> {
+
+  let result = this.loginService.who_i_am();
+  return result.pipe(
+    concatMap(res => {
+      let token = res.auth_headers.get("Authorization") || "token"
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Authorization': token });
+      let options = { headers: headers };
+
+      let url = environment.backBaseUrl +'/interviews/result';
+      let result = this.http.get<Array<InterviewResult>>(url,options);
+      return result;
+    }
+    )).pipe(
+      catchError(() =>
+         of([]))
+    );
+}
+
+get_interview_result(id:BigInteger): Observable<InterviewResult> {
+
+  let result = this.loginService.who_i_am();
+  return result.pipe(
+    concatMap(res => {
+      let token = res.auth_headers.get("Authorization") || "token"
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Authorization': token });
+      let options = { headers: headers };
+
+      let url = environment.backBaseUrl +'/interviews/result/'+ id;
+      let result = this.http.get<InterviewResult>(url,options);
+      return result;
+    }
+    ));
+}
 
 getMembers(project_id:string): Observable<Array<ProjectMemberResponse>> {
 

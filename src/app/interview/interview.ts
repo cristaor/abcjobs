@@ -90,3 +90,50 @@ export class ProjectMemberResponse {
   }
 
 }
+
+export class InterviewResultAbility {
+  ability_id:BigInteger
+  qualification:BigInteger
+
+  constructor(  ability_id:BigInteger,
+    qualification:BigInteger){
+      this.ability_id=ability_id;
+      this.qualification=qualification;
+    }
+  }
+export class InterviewResult {
+  id:BigInteger
+  project_id:string
+  profile_id:string
+  candidate_document:string
+  date:Date
+  recording_file:string
+  test_file:string
+  observation:string
+  qualification:number
+  abilities:Array<InterviewResultAbility>
+  constructor(
+    id:BigInteger,
+    project_id:string,
+    profile_id:string,
+    candidate_document:string,
+    date:Date,
+    test_file:string,
+    observation:string,
+    qualification:number,
+    recording_file:string,
+    abilities:Array<InterviewResultAbility>
+    ){
+
+    this.profile_id=profile_id;
+    this.test_file=test_file;
+    this.project_id=project_id;
+    this.id=id;
+    this.date=date;
+    this.recording_file=recording_file;
+    this.candidate_document=candidate_document;
+    this.observation=observation;
+    this.qualification=qualification;
+    this.abilities=abilities;
+  }
+}
