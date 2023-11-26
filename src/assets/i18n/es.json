@@ -404,6 +404,7 @@
     "SCHEDULE":{
       "SCHEDULE_INTERVIEW":"Programar Entrevista",
       "PROJECT":"Projecto",
+      "PROFILE":"Perfil",
       "MEET_URL":"URL de entrevista",
       "DATE":"Fecha",
       "CANDIDATE":"Candidato",
@@ -434,7 +435,8 @@
         "DOCUMENT":"El documento es requerido",
         "CANDIDATE_NAME": "Debe ingresar un candidato valido",
         "DURATION":"Seleccione la duración de la entrevista",
-        "DATE":"La fecha es requerida y debe estar en el futuro"
+        "DATE":"La fecha es requerida y debe estar en el futuro",
+        "PROFILE":"El perfil es requerido"
       }
     }
   },

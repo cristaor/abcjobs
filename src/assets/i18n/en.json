@@ -405,6 +405,7 @@
       "MEET_URL":"Meet URL",
       "DATE":"Date",
       "CANDIDATE":"Candidate",
+      "PROFILE":"Profile",
       "DURATION":"Duration",
       "DURATIONS":{
         "A":"30 Minutes",
@@ -432,7 +433,8 @@
         "DOCUMENT":"The document is required",
         "CANDIDATE_NAME": "The name is required",
         "DURATION":"Enter the meet duration",
-        "DATE":"The date is required and must to be in the future"
+        "DATE":"The date is required and must to be in the future",
+        "PROFILE":"The profile is required"
       }
     }
   },

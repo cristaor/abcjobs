@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, FormGroupDirective, Validators } from "@angular
 import { InterviewService } from "../interview.service";
 import { ToastrService } from 'ngx-toastr';
 import {Router} from "@angular/router"
-import { ScheduleInterviewRequest} from '../interview';
+import { ScheduleInterviewRequest,ProjectMemberResponse} from '../interview';
 import {TranslateService} from '@ngx-translate/core';
 import { ProfileListDetail } from './../../client/project'
 @Component({
@@ -14,16 +14,26 @@ export class ScheduleInterviewComponent implements OnInit {
   loginForm!: FormGroup;
   minDate :any;
   projects!:ProfileListDetail[];
-
-  project_item!:ProfileListDetail;
+  profiles!:string[];
+  candidates!:Set<ProjectMemberResponse>;
   isDisabled: boolean = false;
 
   select_test(test_name:any){
-    console.info(test_name)
-    this.project_item=this.projects.filter(x=>x.name==test_name)[0];
-    console.info(this.project_item)
-
+    console.info(test_name);
+    this.profiles=this.projects.filter(x=>x.projectId==test_name)[0].profiles;
+    console.info(this.profiles);
+    this.getMembers(test_name,this.profiles[0]);
   }
+
+  getMembers(project_id:string,profile:string){
+    console.info(project_id);
+    console.info(profile);
+    this.interviewService.getMembers(project_id).subscribe(result =>{
+      console.info(result);
+      this.candidates=new Set(result.filter(x=>x.profile==profile));
+    });
+  }
+
 
   get_candidate(id:string){
     this.interviewService.get_candidate_by_ids([id]).subscribe(result =>{
@@ -55,9 +65,9 @@ export class ScheduleInterviewComponent implements OnInit {
 
   this.loginForm = this.formBuilder.group({
     project_id:["", [Validators.required]],
+    profile_id:["", [Validators.required]],
     meet_url: ["", [Validators.required]],
-    candidate_document: ["", [Validators.required]],
-    candidate_name: ["", [Validators.required]],
+    candidate: ["", [Validators.required]],
     start_timestamp: ["", [Validators.required]],
     duration_minutes: ["", [Validators.required]]
   });
@@ -84,8 +94,8 @@ export class ScheduleInterviewComponent implements OnInit {
     }
 
     this.interviewService.schedule_interview(
-      new ScheduleInterviewRequest(value.project_id,value.meet_url,
-        value.candidate_document,value.start_timestamp,value.duration_minutes)).subscribe(result =>{
+      new ScheduleInterviewRequest(value.project_id,value.profile_id, value.meet_url,
+        value.candidate,value.start_timestamp,value.duration_minutes)).subscribe(result =>{
       console.info(result)
       if (!result){
         this.translateService.get('INTERVIEW.SCHEDULE.UI.ERROR')

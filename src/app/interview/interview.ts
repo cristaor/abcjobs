@@ -1,5 +1,6 @@
 export class ScheduleInterviewRequest {
   project_id:string;
+  profile_id:string;
   meet_url:string;
   candidate_document:string;
   start_timestamp:Date;
@@ -8,10 +9,12 @@ export class ScheduleInterviewRequest {
 
   constructor(
     project_id:string,
+    profile_id:string,
     meet_url:string,
     candidate_document:string,
     start_timestamp:Date,
     duration_minutes:BigInteger){
+      this.profile_id=profile_id;
     this.status='SCHEDULED';
     this.project_id=project_id;
     this.meet_url=meet_url;
@@ -40,4 +43,26 @@ export class CandidateResponse {
     this.fullName=fullName;
     this.document=document;
   }
+}
+
+
+
+export class ProjectMemberResponse {
+  name: string
+  project : string
+  person_id : string
+  profile : string
+
+  constructor(  name: string , project : string, person_id : string
+  , profile : string)
+  {
+
+          this.name = name;
+          this.project = project ;
+          this.person_id= person_id ;
+
+          this.profile = profile;
+
+  }
+
 }

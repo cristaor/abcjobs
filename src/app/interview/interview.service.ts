@@ -4,8 +4,9 @@ import {ClientLoginService} from 'src/app/client/client-login.service';
 import { environment } from 'src/environments/environment';
 import { Observable,of,map,catchError, Subscription } from 'rxjs';
 import {concatMap} from 'rxjs/operators';
-import {ScheduleInterviewRequest,ScheduleInterviewResponse, CandidateResponse} from './interview';
-import { isNull } from 'cypress/types/lodash';
+
+import {ScheduleInterviewRequest,ScheduleInterviewResponse, CandidateResponse, ProjectMemberResponse} from './interview';
+
 import { ProfileListDetail } from './../client/project'
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ get_projects(): Observable<Array<ProfileListDetail>> {
         'Authorization': token });
       let options = { headers: headers };
       res.person_id
-      let url = environment.backBaseUrl +'/projects/';
+      let url = environment.backBaseUrl +'/projects/enabled_profiles';
       let result = this.http.get<Array<ProfileListDetail>>(url,options);
       return result;
     }
@@ -39,6 +40,28 @@ get_projects(): Observable<Array<ProfileListDetail>> {
 
 
 
+
+getMembers(project_id:string): Observable<Array<ProjectMemberResponse>> {
+
+  let result = this.loginService.who_i_am();
+  return result.pipe(
+    concatMap(res => {
+      let token = res.auth_headers.get("Authorization") || "token"
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Authorization': token });
+      let options = { headers: headers };
+      let url = environment.backBaseUrl +'/projects/members/'+project_id;
+      let r= this.http.get<Array<ProjectMemberResponse>>(url,options);
+
+      return r;
+    }
+    )).pipe(
+      catchError(() =>
+         of([]))
+    );
+}
 
 
 schedule_interview(results: ScheduleInterviewRequest): Observable<boolean> {
