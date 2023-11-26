@@ -455,7 +455,27 @@
       "TOAST":{
         "INTERVIEWS_NOT_FOUND": "No se encontraron entrevistas programadas"
     }
+  },
+  "FIND":{
+    "DETAIL_INTERVIEW":"Detalle Entrevistas",
+    "PROJECT":"Proyecto",
+    "PROFILE":"Perfil",
+    "ESSAY":"Ensayo",
+    "RECORD":"Grabación",
+    "EVALUATION":"Evaluación",
+    "DATE":"Fecha entrevista",
+    "DURATION":"Duracion entrevista",
+    "OBSERVATION":"Observación",
+    "ABILITY":"Habilidad",
+    "ABILITIES":"Información Habilidades Blandas",
+    "LEVEL":"Nivel(1-10)",
+    "INTERVIEW":"Información Entrevista",
+    "DESCRIPTION":"Descripción",
+    "CANDIDATE":"Candidato",
+    "TOAST":{
+      "INTERVIEWS_NOT_FOUND": "No se encontraron entrevistas"
   }
+}
 },
 
   "PROFILE":{

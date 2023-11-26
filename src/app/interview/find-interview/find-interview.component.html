@@ -19,7 +19,7 @@
 </nav>
 <br>
 <br>
-<h2 class="text-center">{{ 'INTERVIEW.LIST.LIST_INTERVIEW' | translate }} </h2>
+<h2 class="text-center">{{ 'INTERVIEW.FIND.DETAIL_INTERVIEW' | translate }} </h2>
 <div class="container text-center float-lg-none">
 <hr >
 
@@ -45,32 +45,72 @@
 </div>
 
 
-<div class="row mt-3 align-items-center text-center"></div>
+<div class="row mt-3 align-items-center text-center" *ngIf="candidate">
+  <div class="col-2"><b>{{'INTERVIEW.FIND.CANDIDATE' | translate}}</b></div>
+  <div class="col-4"><b>{{candidate.fullName}}</b></div>
+  <div class="col-4"><b>{{candidate.document}}</b></div>
+</div>
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-12"><b>{{'INTERVIEW.FIND.INTERVIEW' | translate}}</b></div>
+</div>
+<div class="row mt-3 align-items-center text-center">
 <div class="col-12">
-<table class="table" *ngIf="interview_result">
-  <thead>
-    <tr >
-      <th scope="col">{{'INTERVIEW.LIST.DATE' | translate}}</th>
-      <th scope="col">{{'INTERVIEW.LIST.PROJECT' | translate}}</th>
-      <th scope="col">{{'INTERVIEW.LIST.DURATION' | translate}}</th>
-      <th scope="col">{{'INTERVIEW.LIST.MEET_URL' | translate}}</th>
-      <th scope="col">{{'INTERVIEW.LIST.STATUS' | translate}}</th>
+<table class="table table-bordered" *ngIf="interview_result">
+  <thead class="">
+    <tr class="table-primary" >
+      <th scope="col">{{'INTERVIEW.FIND.DATE' | translate}}</th>
+      <th scope="col">{{'INTERVIEW.FIND.PROJECT' | translate}}</th>
+      <th scope="col">{{'INTERVIEW.FIND.PROFILE' | translate}}</th>
+      <th scope="col">{{'INTERVIEW.FIND.ESSAY' | translate}}</th>
+      <th scope="col">{{'INTERVIEW.FIND.RECORD' | translate}}</th>
+      <th scope="col">{{'INTERVIEW.FIND.EVALUATION' | translate}}</th>
+      <th scope="col">{{'INTERVIEW.FIND.OBSERVATION' | translate}}</th>
 
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>{{interview_result.profile_id}}</td>
+    <tr >
       <td>{{interview_result.date.toLocaleString()}}</td>
+      <td *ngIf="project" >{{project.project_name}}</td>
+      <td *ngIf="project == null" > </td>
+      <td>{{interview_result.profile_id}}</td>
+      <td>{{interview_result.test_file}} </td>
       <td>{{interview_result.recording_file}} </td>
+      <td>{{interview_result.qualification}} </td>
       <td>{{interview_result.observation}}</td>
-      <td>{{'INTERVIEW.LIST.STATUS_.'+interview_result.profile_id }}</td>
     </tr>
 
   </tbody>
 </table>
 </div>
+</div>
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-12"><b>{{'INTERVIEW.FIND.ABILITIES' | translate}}</b></div>
+</div>
+<div class="row mt-3 align-items-center text-left">
+  <div class="col-12">
+  <table class="table table-bordered" *ngIf="abilities">
+    <thead>
+      <tr class="table-primary"  >
+        <th scope="col">{{'INTERVIEW.FIND.ABILITY' | translate}}</th>
+        <th scope="col">{{'INTERVIEW.FIND.LEVEL' | translate}}</th>
+        <th scope="col">{{'INTERVIEW.FIND.DESCRIPTION' | translate}}</th>
 
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let ability of abilities">
+      <tr>
+        <td><b>{{ability.name}}</b></td>
+        <td>{{ability.qualification}}</td>
+        <td>{{ability.details}} </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+  </div>
+  </div>
 <div class="row mt-3 align-items-center ">
    <div class="col-6">
 
@@ -80,6 +120,7 @@
      (click)="cancelCreation()">{{'UI.CANCEL' | translate}}</button>
    </div>
  </div>
+
 </form>
 
 </div>

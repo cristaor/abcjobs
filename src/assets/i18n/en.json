@@ -453,7 +453,27 @@
       "TOAST":{
         "INTERVIEWS_NOT_FOUND": "Scheduled interviews not found"
     }
+  },
+  "FIND":{
+    "DETAIL_INTERVIEW":"Interview Detail",
+    "PROJECT":"Project",
+    "PROFILE":"Profile",
+    "ESSAY":"Essay",
+    "RECORD":"Record",
+    "EVALUATION":"Evaluación",
+    "DATE":"Date",
+    "OBSERVATION":"Observation",
+    "ABILITY":"Ability",
+    "ABILITIES":"Soft Skills Information",
+    "LEVEL":"Level(1-10)",
+    "INTERVIEW":"Interview Information",
+    "DESCRIPTION":"Description",
+    "CANDIDATE":"Candidate",
+    "TOAST":{
+      "INTERVIEWS_NOT_FOUND": "No interviews found"
   }
+}
+
   },
 
   "PROFILE":{
