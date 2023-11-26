@@ -32,12 +32,29 @@
   </div>
   <div class="col-9">
    <select  size="1" class="form-control" formControlName="project_id" id="project_id"
-   required (change)="select_test(this.loginForm.controls['name'].value)">
+   required (change)="select_test(this.loginForm.controls['project_id'].value)">
      <option *ngFor="let test of projects"  value="{{test.projectId}}"> {{test.name}}</option>
 
    </select>
    <div class="invalid-feedback">
      {{'INTERVIEW.SCHEDULE.VALIDATOR.PROJECT' | translate}}
+   </div>
+  </div>
+
+</div>
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="profile_id" class="col-form-label float-lg-right">{{'INTERVIEW.SCHEDULE.PROFILE' | translate}}</label>
+  </div>
+  <div class="col-9">
+   <select  size="1" class="form-control" formControlName="profile_id" id="project_id"
+   required (change)="getMembers(this.loginForm.controls['project_id'].value,this.loginForm.controls['profile_id'].value)" >
+     <option *ngFor="let profile of profiles"  value="{{profile}}"> {{profile}}</option>
+
+   </select>
+   <div class="invalid-feedback">
+     {{'INTERVIEW.SCHEDULE.VALIDATOR.PROFILE' | translate}}
    </div>
   </div>
 
@@ -75,26 +92,22 @@
 
 <div class="row mt-3 align-items-center text-center">
   <div class="col-3">
-    <label for="candidate_document" class="col-form-label float-lg-right">{{'INTERVIEW.SCHEDULE.CANDIDATE' | translate}}</label>
+    <label for="candidate" class="col-form-label float-lg-right">{{'INTERVIEW.SCHEDULE.CANDIDATE' | translate}}</label>
   </div>
-  <div class="col-4">
-    <input type="text" class="form-control" formControlName="candidate_document" id="candidate_document" required placeholder="{{'INTERVIEW.SCHEDULE.PLACEHOLDER.CANDIDATE_DOCUMENT' | translate}}"/>
-       <div class="invalid-feedback">
+  <div class="col-9">
+
+    <select  size="1" class="form-control" formControlName="candidate" id="candidate"
+    required>
+      <option *ngFor="let candidate of candidates"  value="{{candidate.person_id}}"> {{candidate.name}}</option>
+
+    </select>
+
+
+    <div class="invalid-feedback">
 
       {{'INTERVIEW.SCHEDULE.VALIDATOR.DOCUMENT' | translate}}
     </div>
  </div>
-  <div class="col-1">
-    <button  type="button"  class="btn btn-primary"
-    style="display: inline-block;" (click)="get_candidate(this.loginForm.controls['candidate_document'].value)">{{'INTERVIEW.SCHEDULE.UI.SEARCH' | translate}}</button>
-  </div>
-  <div class="col-4">
-    <input type="text" ng-disabled=true class="form-control" formControlName="candidate_name" id="candidate_name"
-    required placeholder="{{'INTERVIEW.SCHEDULE.PLACEHOLDER.CANDIDATE_NAME' | translate}}"/>
-    <div class="invalid-feedback">
-      {{'INTERVIEW.SCHEDULE.VALIDATOR.CANDIDATE_NAME' | translate}}
-    </div>
-  </div>
 
 </div>
 

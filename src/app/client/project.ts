@@ -37,8 +37,10 @@ export class ProfileResponse{
 export class ProfileListDetail{
   projectId:string;
   name:string;
-  constructor(projectId:string,name:string){
+  profiles:Array<string>;
+  constructor(projectId:string,name:string,profiles:Array<string>){
     this.projectId=projectId;
     this.name=name;
+    this.profiles=profiles;
   }
 }
