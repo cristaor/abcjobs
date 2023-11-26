@@ -33,7 +33,7 @@
                            
                             <td>{{evaluation.score}}</td>
                             <td>{{evaluation.details}}</td>
-                            <td><button type="button" class="btn btn-outline-success" (click)="viewEvaluation(evaluation.id,i)">{{ 'EVALUATION_LIST.LABEL.DETAILS' | translate }}</button> </td>
+                            <td><button type="button" class="btn btn-outline-success" (click)="viewEvaluation(evaluation.project_id, evaluation.person_id)">{{ 'EVALUATION_LIST.LABEL.DETAILS' | translate }}</button> </td>
                             
 			</tr>
 		  </tbody>
