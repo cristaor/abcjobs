@@ -1,0 +1,80 @@
+<client-header></client-header>
+
+<h2 class="text-center">{{ 'CREATE_EVALUATION.TITLE' | translate }}</h2>
+<br>
+<hr>
+    <div class="container text-center">
+		<form class="needs-validation" [formGroup]="evaluationDataForm" (ngSubmit)="updateEvaluation(evaluationDataForm.value)" id="evaluationUpdate" novalidate #myForm="ngForm">
+			<div class="row mt-2 align-items-center text-center">
+				<div class="col-3 float-lg-right">
+					<label for="Project" class="col-form-label float-lg-right">{{ 'CREATE_EVALUATION.LABEL.PROJECT' | translate }}</label>
+				</div>
+				<div class="col-8 input-group has-validation">
+					<select size="1" class="form-control" formControlName="Project" id="Project" required>
+						<option selected>{{ projectName }}</option>
+					</select>
+                                        <div class="invalid-feedback">
+					{{ 'CREATE_EVALUATION.VALIDATOR.PROJECT' | translate }}
+                                         </div>
+				</div>
+			</div>
+                        <div class="row mt-2 align-items-center text-center">
+				<div class="col-3 float-lg-right">
+					<label for="Member" class="col-form-label float-lg-right">{{ 'CREATE_EVALUATION.LABEL.MEMBER' | translate }}</label>
+				</div>
+				<div class="col-8 input-group has-validation">
+					<select size="1" class="form-control" formControlName="Member" id="Member" required>
+                                            <option selected>{{ newEvaluation.person_name }}</option>
+					</select>
+                                        <div class="invalid-feedback">
+					{{ 'CREATE_EVALUATION.VALIDATOR.MEMBER' | translate }}
+                                         </div>
+				</div>
+			</div>
+			<div class="row mt-2 align-items-center text-center form-group">
+				<div class="col-3">
+					<label for="Score" class="col-form-label float-lg-right">{{ 'CREATE_EVALUATION.LABEL.SCORE' | translate }}</label>
+				</div>
+                                <div class="col-5">
+					<select size="1" class="form-control" formControlName="Score" id="Score" required>
+                                            <option selected value=""></option>
+                                            <option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option>10</option>
+                                        </select>
+                                    <div class="invalid-feedback">
+					{{ 'CREATE_EVALUATION.VALIDATOR.SCORE' | translate }}
+                                         </div>
+                                    </div>
+			</div>
+                        <div class="row mt-2 align-items-center text-center">
+                            <div class="col-3">
+                                            <label for="Details" class="col-form-label float-lg-right" >{{ 'CREATE_EVALUATION.LABEL.DETAILS' | translate }}</label>
+                            </div>
+                            <div class="col-8">
+					<textarea class="form-control" formControlName="Details" id="Details" rows="4" minlength="10" required placeholder="{{ 'CREATE_EVALUATION.PLACEHOLDER.DETAILS' | translate }}"></textarea>
+					<div class="invalid-feedback">
+							{{ 'CREATE_EVALUATION.VALIDATOR.DETAILS' | translate }}
+                                        </div>
+			    </div>
+                            
+			</div>
+	
+		</form>
+        
+    </div>
+
+    
+	<br>
+	<br>
+	<br>
+
+
+

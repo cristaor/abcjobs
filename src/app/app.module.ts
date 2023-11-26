@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { HeaderCandidateModule } from './header-candidate/header-candidate.module';
 import { HeaderClientModule } from './header-client/header-client.module';
@@ -46,6 +47,7 @@ export function createTranslateLoader(http: HttpClient) {
       preventDuplicates: true,
     }),
     BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

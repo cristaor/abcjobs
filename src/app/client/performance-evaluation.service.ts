@@ -39,4 +39,12 @@ export class PerformanceEvaluationService {
         headers.append('Access-Control-Allow-Origin', '*')
         return this.http.get<PerformanceEvaluationResponse[]>(`${this.backUrl}/evaluations/${projectId}`, { headers: headers })
     }
+    
+  getEvaluation(projectId: string, memberId: string, token: string):Observable<PerformanceEvaluationResponse[]> {
+        const headers = new HttpHeaders({'Content-Type': 'application/json',
+        'Authorization': `${token}`})
+        headers.append('Access-Control-Allow-Origin', '*')
+        return this.http.get<PerformanceEvaluationResponse[]>(`${this.backUrl}/evaluations/${projectId}/${memberId}`, { headers: headers })
+    }
+    
 }

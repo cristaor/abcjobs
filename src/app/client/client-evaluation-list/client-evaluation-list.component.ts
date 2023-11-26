@@ -78,8 +78,8 @@ export class ClientEvaluationListComponent implements OnInit{
               })
         }
         
-        viewEvaluation(evaluation_id: number, token: any):void {
-            //this.routerPath.navigate([`/project-client-members/${project_id}`])
+        viewEvaluation(project_id: string, person_id: string):void {
+            this.routerPath.navigate([`/client-evaluation-edit/${project_id}/${person_id}`])
         }
         showError(error: string) {
             this.toastr.error(error, "Error")

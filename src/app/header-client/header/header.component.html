@@ -7,32 +7,34 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  {{ 'HEADER.CLIENT.MENU_1' | translate }} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </a>
-                  <div class="dropdown-menu bg-blueABC text-white-50" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="index_es.html">Datos basicos</a>
-                  </div>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  {{ 'HEADER.CLIENT.MENU_2' | translate }} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </a>
-                  <div class="dropdown-menu bg-blueABC " aria-labelledby="navbarDropdown2">
-                    <a class="dropdown-item" href="create_project_es.html">Crear proyecto</a>
-                    <a class="dropdown-item" href="search_candidates_es.html">Buscar Candidato</a>
-            <a class="dropdown-item" href="evaluate_performance_es.html">Evaluar desempeño</a>
-                  </div>
-              </li>
-          <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  {{ 'HEADER.CLIENT.MENU_3' | translate }}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </a>
-                  <div class="dropdown-menu bg-blueABC " aria-labelledby="navbarDropdown3">
-                    <a class="dropdown-item" href="list_interviews_es.html">Lista de entrevistas</a>
-                  </div>
-              </li>
-
-      </ul>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ 'HEADER.CLIENT.MENU_1' | translate }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item bg-blueABC text-white-50" href="basic-client-edit">Datos basicos</a></li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ 'HEADER.CLIENT.MENU_2' | translate }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item bg-blueABC text-white-50" href="project-client">Crear proyecto</a></li>
+              <li><a class="dropdown-item bg-blueABC text-white-50" href="project-profile">Crear Perfil</a></li>
+              <li><a class="dropdown-item bg-blueABC text-white-50" href="project-client-list">Lista de proyectos</a></li>
+              <li><a class="dropdown-item bg-blueABC text-white-50" href="search-candidate">Buscar Candidato</a></li>
+              <li><a class="dropdown-item bg-blueABC text-white-50" href="client-evaluation-create">Evaluar desempeño</a></li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ 'HEADER.CLIENT.MENU_3' | translate }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item bg-blueABC text-white-50" href="#">Lista de entrevistas</a></li>
+            </ul>
+        </div>
     </div>
   </div>
   <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
