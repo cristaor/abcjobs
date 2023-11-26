@@ -28,6 +28,7 @@ import { ClientEvaluationListComponent } from './client/client-evaluation-list/c
 import { ClientEvaluationEditComponent } from './client/client-evaluation-edit/client-evaluation-edit.component';
 
 import { RecruiterLoginComponent } from './recruiter/recruiter-login/recruiter-login.component';
+import { RecruiterInterviewsComponent } from './recruiter/recruiter-interviews/recruiter-interviews.component';
 import { CreateTestComponent } from './test/create-test/create-test.component';
 
 import { RegisterResultTestComponent } from './test/register-result-test/register-result-test.component';
@@ -164,9 +165,12 @@ const routes: Routes = [
     path: 'client-evaluation-list/:projectId',
     component: ClientEvaluationListComponent,
     pathMatch: 'full'
+  },
+{
+    path: 'interviews',
+    component: RecruiterInterviewsComponent,
+    pathMatch: 'full'
   }
-
-
 
 ];
 

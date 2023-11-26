@@ -24,14 +24,14 @@ export class ScheduleInterviewRequest {
   }
 }
 
-export class Project {
-  projectId:string;
-  name:string;
-  constructor(
-    projectId:string,
-    name:string){
-      this.projectId=projectId;
-    this.name=name;
+export class Data {
+  full_name: string;
+  qualification: string;
+  date: string
+  constructor(full_name: string, qualification: string, date: string) {
+    this.full_name = full_name;
+    this.qualification = qualification;
+    this.date = date
   }
 }
 
@@ -57,6 +57,66 @@ export class Interview {
     this.start_timestamp=start_timestamp;
     this.duration_minutes=duration_minutes;
     this.candidate_document=candidate_document;
+  }
+}
+
+export class Project {
+  projectId:string;
+  name:string;
+  constructor(
+    projectId:string,
+    name:string){
+      this.projectId=projectId;
+    this.name=name;
+  }
+}
+
+export class InterviewResult {
+  id: string;
+  project_id:string;
+  candidate_document:string;
+  constructor(
+    id:string,
+    project_id:string, candidate_document: string){
+      this.id=id;
+    this.project_id=project_id;
+    this.candidate_document = candidate_document
+  }
+}
+
+export class InterviewResultDetail {
+  id: string;
+  project_id:string;
+  candidate_document:string;
+  qualification: string;
+  date: string;
+  constructor(
+    id:string,
+    project_id:string, candidate_document: string, qualification: string, date: string){
+      this.id=id;
+    this.project_id=project_id;
+    this.candidate_document = candidate_document
+    this.qualification= qualification
+    this.date= date
+  }
+}
+
+export class CandidateDetail {
+  fullName: string;
+  constructor(
+    fullName:string){
+      this.fullName=fullName;
+  }
+}
+
+export class Company {
+  taxpayerId: string;
+  name: string
+  constructor(
+    taxpayerId:string,
+    name:string){
+      this.taxpayerId=taxpayerId;
+    this.name=name;
   }
 }
 
