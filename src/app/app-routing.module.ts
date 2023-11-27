@@ -28,6 +28,7 @@ import { ClientEvaluationListComponent } from './client/client-evaluation-list/c
 import { ClientEvaluationEditComponent } from './client/client-evaluation-edit/client-evaluation-edit.component';
 
 import { RecruiterLoginComponent } from './recruiter/recruiter-login/recruiter-login.component';
+import { RecruiterHomeComponent } from './recruiter/recruiter-home/recruiter-home.component';
 import { CreateTestComponent } from './test/create-test/create-test.component';
 
 import { RegisterResultTestComponent } from './test/register-result-test/register-result-test.component';
@@ -50,6 +51,11 @@ const routes: Routes = [
   {
     path: 'home-candidate',
     component: CandidateHomeComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'home-recruiter',
+    component: RecruiterHomeComponent,
     pathMatch: 'full'
   },
   {
