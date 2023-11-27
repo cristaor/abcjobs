@@ -1,2 +1,101 @@
-<header-recruiter></header-recruiter>
-<p>recruiter-login works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-blueABC">
+  <a class="navbar-brand" href="#">ABC Jobs</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav mr-auto">
+     </ul>
+  </div>
+<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+ <ul class="navbar-nav ml-auto">
+ </ul>
+ </div>
+ <div class="navbar-collapse collapse w-25 order-4 dual-collapse2">
+   <app-i18n/>
+ </div>
+
+</nav>
+<br>
+<br>
+<h2 class="text-center">{{ 'LOGIN.WELCOME' | translate }}</h2>
+<div class="container text-center float-lg-none">
+<hr >
+<div class="row mt-20 font-weight-bold text-center">
+ <font color="#729FCF">{{'LOGIN.ENTER_USER_PASSWORD' | translate}}</font></div>
+
+</div>
+<div class="container text-center">
+<form  [formGroup]="loginForm" class="needs-validation"  (ngSubmit)="!loginForm.invalid && login(loginForm.value)">
+ <div class="row mt-3 align-items-center text-center">
+   <div class="col-4">
+     <label for="user" class="col-form-label float-lg-right">{{'LOGIN.USER' | translate}}</label>
+   </div>
+   <div class="col-5 input-group has-validation">
+     <input type="text" class="form-control" formControlName="user" id="user" aria-describedby="emailHelp" placeholder="{{'LOGIN.USER' | translate}}" novalidate>
+   </div>
+   <div class="col-4"></div>
+   <div  class="col-5"
+
+     class="alert alert-danger alert-dismissible fade show"
+     *ngIf="loginForm.get('user')!.hasError('required') && loginForm.get('user')!.touched"
+   >
+   {{'LOGIN.VALIDATOR.USERNAME' | translate}}
+   </div>
+ </div>
+ <div class="row mt-3 align-items-center text-center">
+   <div class="col-4">
+     <label for="password" class="col-form-label float-lg-right">{{'LOGIN.PASSWORD' | translate}}</label>
+   </div>
+   <div class="col-5">
+     <input type="password" formControlName="password" class="form-control" id="password" placeholder="{{'LOGIN.PASSWORD' | translate}}" minlength="6" required>
+   </div>
+   <div class="col-4"></div>
+   <div  class="col-5"
+
+     class="alert alert-danger alert-dismissible fade show"
+     *ngIf="loginForm.get('password')!.hasError('required') && loginForm.get('password')!.touched"
+   >
+   {{'LOGIN.VALIDATOR.PASSWORD' | translate}}
+   </div>
+ </div>
+
+<div class="row mt-3 align-items-center ">
+   <div class="col-4 text-right">
+     <!--<a href="index_es.html"> -->
+     <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">{{'UI.OK' | translate}}</button>
+     <!--</a>-->
+   </div>
+   <div class="col-1">
+
+   </div>
+   <div class="col-4 text-left">
+     <button type="reset" class="btn btn-danger">{{'UI.CANCEL' | translate}}</button>
+   </div>
+ </div>
+
+ <div class="row mt-3 align-items-center ">
+   <div class="col-5">
+       <label for="Clave" class="col-form-label float-lg-right">{{'LOGIN.FORGOT' | translate}}</label>
+     </div>
+     <div class="col-6 text-left">
+       <a href="#" class="nav-link">{{'LOGIN.REMEMBERME' | translate}}</a>
+     </div>
+
+   </div>
+</form>
+
+
+</div>
+<br>
+<br>
+<br>
+<footer class="fixed-bottom">
+<div class="container-fluid bg-blueABC">
+  <div class="row">
+     <div class="text-center col-lg-20">
+   <br>
+     </div>
+  </div>
+</div>
+</footer>

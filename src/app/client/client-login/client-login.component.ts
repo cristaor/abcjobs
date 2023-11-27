@@ -12,7 +12,7 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./client-login.component.css']
 })
 export class ClientLoginComponent implements OnInit {
-  title = 'angular-i18n-ngx-translate';
+  title = 'ABC';
   selectedLanguage = 'es';
   loginForm!: FormGroup;
 
@@ -51,7 +51,14 @@ export class ClientLoginComponent implements OnInit {
         console.warn(res);
         if(res.is_authenticated){
           this.toastr.success("Login success","Confirmation" );
-          this.router.navigate(['/home-client'])
+          if(res.role == 'RECRUITER'){
+            this.router.navigate(['/home-recruiter']);
+          }else if (res.role == 'CANDIDATE'){
+            this.router.navigate(['/home-candidate']);
+          }
+          else if (res.role == 'CLIENT'){
+            this.router.navigate(['/home-client']);
+          }
         }else{
           this.toastr.error(`${this.translateService.instant('BACK_RESPONSES.INVALID_CREDENTIALS')}`,"Error");
         }

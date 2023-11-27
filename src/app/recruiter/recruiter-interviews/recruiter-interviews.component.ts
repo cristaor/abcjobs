@@ -18,16 +18,16 @@ export class RecruiterInterviewsComponent implements OnInit {
 
     this.interviewService.get_companies().subscribe(result => {
       if (result.length>0){
-        this.companies = result;  
+        this.companies = result;
       }
       else {
         this.translateService.get('INTERVIEW.LIST.TOAST.INTERVIEWS_NOT_FOUND')
         .subscribe((res: string)=>{
-          this.toastr.error(res,"Error" );  
-        })  
+          this.toastr.error(res,"Error" );
+        })
       }
     })
-    
+
 
   }
 
@@ -40,9 +40,11 @@ export class RecruiterInterviewsComponent implements OnInit {
   projects: Project[]=[]
 
   registros: Data[]=[]
-  
-  
-  
+
+
+  open_result(id :string){
+    this.router.navigate(['/find-interviews/'+id]);
+  }
 
   constructor(
     private interviewService:InterviewService,
@@ -91,15 +93,15 @@ export class RecruiterInterviewsComponent implements OnInit {
           this.interviewService.getCandidatesByDocument(result.candidate_document)
           .subscribe(candidates => {
 
-            this.registros.push(new Data(candidates[0].fullName, result.qualification, result.date))
+            this.registros.push(new Data(candidates[0].fullName, result.qualification, result.date,result.id))
           })
 
         })
       })
     })
 
-   
-    
+
+
 
     // por cada una voy al servidor para invocar el /interviews/result/{id} y de aquí obtengo la calificación
     // por cada uno también voy al servidor a buscar datos del candidato filtrado por documento para obtener nombres y apellidos. candidates?documents=101075209,8978

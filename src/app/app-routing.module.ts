@@ -13,7 +13,7 @@ import { CandidateTechnicalRoleComponent } from './candidate/candidate-technical
 import { CandidateTechnologyComponent } from './candidate/candidate-technology/candidate-technology.component';
 import { CandidateTestComponent } from './candidate/candidate-test/candidate-test.component';
 import { CandidateHomeComponent } from './candidate/candidate-home/candidate-home.component';
-
+import { RecruiterHomeComponent } from './recruiter/recruiter-home/recruiter-home.component'
 import { ClientLoginComponent } from './client/client-login/client-login.component';
 import { ClientDataComponent } from './client/client-data/client-data.component';
 import { ClientEditDataComponent } from './client/client-edit-data/client-edit-data.component';
@@ -54,6 +54,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'home-recruiter',
+    component: RecruiterHomeComponent,
+    pathMatch: 'full'
+  },
+  {
     path: 'home-client',
     component: ClientHomeComponent,
     pathMatch: 'full'
@@ -79,7 +84,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'find-interviews',
+    path: 'find-interviews/:id',
     component: FindInterviewComponent,
     pathMatch: 'full'
   },

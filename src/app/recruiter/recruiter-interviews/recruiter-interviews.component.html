@@ -12,8 +12,8 @@
    <ul class="navbar-nav ml-auto">
    </ul>
    </div>
-   
-  
+
+
   </nav>
   <br>
   <br>
@@ -47,9 +47,9 @@
 					</select>
                 </div>
             </div>
-            
+
 		</form>
-       
+
     </div>
 	<br>
 
@@ -65,6 +65,7 @@
             <th>Candidato</th>
             <th>Fecha</th>
             <th>Calificación</th>
+            <th>Ver</th>
           </tr>
         </thead>
         <tbody>
@@ -73,10 +74,11 @@
             <td>{{ registro.full_name }}</td>
             <td>{{ registro.date }}</td>
             <td>{{ registro.qualification }}</td>
+            <td><button type="button" class="btn btn-outline-success" (click)="open_result(registro.id)"></button> </td>
           </tr>
         </tbody>
       </table>
     </div>
-  
+
 
 
