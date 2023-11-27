@@ -31,7 +31,8 @@
         "INVALID_CREDENTIALS":"Credenciales invalidas",
         "INVALID_CREDENTIALS2":"Credenciales expiradas. Inicie sesión nuevamente",
         "GET_ERROR": "Ha ocurrido un error",
-        "SUCESSFULL_1": "Creación exitosa"
+        "SUCESSFULL_1": "Creación exitosa",
+        "INVALID_PROJECT": "Proyecto Invalido"
   },
   "HOME":
   {
@@ -223,6 +224,34 @@
         "GET_ERROR": "Ha ocurrido un error"
     }
   },
+  "CREATE_EVALUATION":{
+    "TITLE": "Crear Evaluación de Desempeño",
+    "LABEL":{
+      "PROJECT": "Proyecto",
+      "MEMBER": "Miembro",
+      "SCORE": "Calificacion",
+      "YEAR": "Año",
+      "ACTIVE":"Activo",
+      "DETAILS":"Descripcion"
+      },
+    "PLACEHOLDER":{
+        "PROJECT": "Seleccione",
+        "MEMBER": "Seleccione",
+        "SCORE": "Seleccione",
+        "DETAILS":"Ingrese la Observación de la evaluacion"
+    },
+    "VALIDATOR":{
+        "PROJECT": "Seleccione un proyecto",
+        "MEMBER": "Seleccione un miembro",
+        "SCORE": "Seleccione una calificacion",
+        "DETAILS":"El detalle de la eveluacion debe ser mayor a 10 caracteres"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"La evaluacion",
+        "SUCESS_2":"fue creada",
+        "GET_ERROR": "Ha ocurrido un error"
+    }
+  },
   "CREATE_PROJECT":{
     "TITLE": "Crear Proyecto",
     "LABEL":{
@@ -255,7 +284,62 @@
         "GET_ERROR": "Ha ocurrido un error"
     }
   },
-
+  "PROJECTS_LIST":{
+    "TITLE": "Lista de Proyectos",
+    "TABLEHEADER":{
+        "C1":" Nombre",
+        "C2": "Fecha Inicio",
+        "C3": "Activo",
+        "C4": "Descripcion",
+        "C5": "Equipo",
+        "C6": "Evaluaciones"
+    },
+    "LABEL":{
+      "MEMBERS": "Ver",
+      "EVALUATIONS": "Ir"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"La empresa",
+        "SUCESS_2":"no tiene proyectos",
+        "GET_ERROR": "Ha ocurrido un error"
+    }
+  },
+  "EVALUATION_LIST":{
+    "TITLE": "Evaluaciones de desempeño",
+    "SUBTITLE": "Proyecto",
+    "TABLEHEADER":{
+        "C1":"No",
+        "C2": "Fecha",
+        "C3": "Miembro",
+        "C4": "Calificacion",
+        "C5": "Observacion",
+        "C6": "Detalle"
+    },
+    "LABEL":{
+        "DETAILS": "Ver"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"EL proyecto",
+        "SUCESS_2":"tiene evaluaciones de desempeño",
+        "GET_ERROR": "Ha ocurrido un error"
+    }
+  },
+  "PROJECTS_MEMBERS_LIST":{
+    "TITLE": "Lista de Miembros",
+    "SUBTITLE": "Proyecto",
+    "TABLEHEADER":{
+        "C1":" Nombre Miembro",
+        "C2": "Perfil",
+        "C3": "Activo",
+        "C4": "Desempeño",
+        "C5": "Descripcion"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"La empresa",
+        "SUCESS_2":"no tiene proyectos",
+        "GET_ERROR": "Ha ocurrido un error"
+    }
+  },
   "TEST":{
     "CREATE":{
       "CREATE_TEST":"Crear Prueba",
@@ -303,7 +387,8 @@
     },
       "UI":{
         "CREATED":"Resultado registrado correctamente",
-        "ERROR":"Error creada correctamente"
+        "ERROR":"Error creada correctamente",
+        "SEARCH":"Buscar"
       },
       "VALIDATOR":{
         "NAME":"Seleccione una prueba",
@@ -315,6 +400,83 @@
       }
     }
   },
+  "INTERVIEW":{
+    "SCHEDULE":{
+      "SCHEDULE_INTERVIEW":"Programar Entrevista",
+      "PROJECT":"Projecto",
+      "PROFILE":"Perfil",
+      "MEET_URL":"URL de entrevista",
+      "DATE":"Fecha",
+      "CANDIDATE":"Candidato",
+      "DURATION":"Duración",
+      "DURATIONS":{
+        "A":"30 Minutos",
+        "B":"1 Hora",
+        "C":"1 Hora 30 Minutos",
+        "D":"2 Horas",
+        "E":"3 Horas"
+      },
+      "PLACEHOLDER":{
+        "CANDIDATE_DOCUMENT": "Documento candidato",
+        "CANDIDATE_NAME": "Nombre candidato",
+        "MEET_URL": "http://meet.com/dw3fw"
+      },
+      "TOAST":{
+        "CANDIDATE_NOT_FOUND": "Candidato no encontrado con el documento [{0}]"
+    },
+      "UI":{
+        "CREATED":"Entreviste programada correctamente",
+        "ERROR":"Programando la entrevista, el candidato ya tiene una entrevista asignada.",
+        "SEARCH":"Buscar"
+      },
+      "VALIDATOR":{
+        "PROJECT":"Seleccione un projecto",
+        "MEET_URL":"Ingrese una URL valida. Incluya http://",
+        "DOCUMENT":"El documento es requerido",
+        "CANDIDATE_NAME": "Debe ingresar un candidato valido",
+        "DURATION":"Seleccione la duración de la entrevista",
+        "DATE":"La fecha es requerida y debe estar en el futuro",
+        "PROFILE":"El perfil es requerido"
+      }
+    },
+    "LIST":{
+      "LIST_INTERVIEW":"Listado de Entrevistas",
+      "PROFILE":"Perfil posición",
+      "MEET_URL":"URL entrevista",
+      "DATE":"Fecha entrevista",
+      "DURATION":"Duracion entrevista",
+      "STATUS":"Estado entrevista",
+      "MINUTES":"Minutos",
+      "STATUS_":{
+        "SCHEDULED":"PROGRAMADA",
+        "DONE":"FINALIZADA",
+        "CANCELLED":"CANCELADA"
+      },
+      "TOAST":{
+        "INTERVIEWS_NOT_FOUND": "No se encontraron entrevistas programadas"
+    }
+  },
+  "FIND":{
+    "DETAIL_INTERVIEW":"Detalle Entrevistas",
+    "PROJECT":"Proyecto",
+    "PROFILE":"Perfil",
+    "ESSAY":"Ensayo",
+    "RECORD":"Grabación",
+    "EVALUATION":"Evaluación",
+    "DATE":"Fecha entrevista",
+    "DURATION":"Duracion entrevista",
+    "OBSERVATION":"Observación",
+    "ABILITY":"Habilidad",
+    "ABILITIES":"Información Habilidades Blandas",
+    "LEVEL":"Nivel(1-10)",
+    "INTERVIEW":"Información Entrevista",
+    "DESCRIPTION":"Descripción",
+    "CANDIDATE":"Candidato",
+    "TOAST":{
+      "INTERVIEWS_NOT_FOUND": "No se encontraron entrevistas"
+  }
+}
+},
 
   "PROFILE":{
     "CREATE":{

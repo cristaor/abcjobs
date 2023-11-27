@@ -1,7 +1,7 @@
 import { Utilities } from "./utilities/utilities"
 import { faker } from '@faker-js/faker';
 
-describe('Crear Usuario', () => {
+describe('Crear Candidato', () => {
 
     let utility = new Utilities();
    
@@ -21,7 +21,8 @@ describe('Crear Usuario', () => {
         //genera datos para el formulario
         let username = faker.internet.email();
         let password = faker.internet.password({ length: 15});
-        let document = faker.random.numeric(9);
+        password = password + "Aa&.";
+        let document = faker.string.numeric({ length: 9, exclude: ['0'] })
         let firstName = faker.person.firstName();
         let lastName = faker.person.lastName();
         let age = faker.number.int({ min: 1, max: 47 })

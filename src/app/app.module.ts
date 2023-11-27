@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { HeaderCandidateModule } from './header-candidate/header-candidate.module';
 import { HeaderClientModule } from './header-client/header-client.module';
@@ -16,7 +17,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { I18nModule } from './i18n/i18n.module';
-import {TestModule} from './test/test.module'
+import {TestModule} from './test/test.module';
+import {InterviewModule} from './interview/interview.module';
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -38,12 +40,14 @@ export function createTranslateLoader(http: HttpClient) {
     ClientModule,
     RecruiterModule,
     TestModule,
+    InterviewModule,
     ToastrModule.forRoot({
       timeOut: 7000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
     BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

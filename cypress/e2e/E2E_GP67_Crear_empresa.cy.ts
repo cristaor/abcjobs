@@ -1,7 +1,7 @@
 import { Utilities } from "./utilities/utilities"
 import { faker } from '@faker-js/faker';
 
-describe('Crear Usuario', () => {
+describe('Crear Empresa', () => {
 
     let utility = new Utilities();
    
@@ -18,14 +18,15 @@ describe('Crear Usuario', () => {
         //genera datos para el formulario
         let username = faker.internet.email();
         let password = faker.internet.password({ length: 15});
-        let taxPayerId = faker.random.numeric(10);
+        password = password + "Aa&.";
+        let taxPayerId = faker.string.numeric({ length: 10, exclude: ['0'] })
         let name = faker.company.name();
         let years = faker.number.int({ min: 1, max: 100 })
         let phoneNumber = faker.random.numeric(10);
         let address = faker.location.streetAddress({ useFullAddress: true })
         let city = faker.location.city();
        
-        let document = faker.random.numeric(9);
+        let document = faker.string.numeric({ length: 9, exclude: ['0'] })
         let firstName = faker.person.firstName();
         let lastName = faker.person.lastName();
         let profile =faker.person.jobType();
@@ -36,7 +37,7 @@ describe('Crear Usuario', () => {
         cy.get("input[formcontrolname='Password']").type(password,{force: true});
         cy.get("input[formcontrolname='TaxPayerId']").type(taxPayerId,{force: true});
         cy.get("input[formcontrolname='Name']").type(name,{force: true});
-        cy.get("input[formcontrolname='Years']").type(years,{force: true});
+        cy.get("input[formcontrolname='Years']").type(years.toString(),{force: true});
         cy.get("input[formcontrolname='PhoneNumber']").type(phoneNumber,{force: true});
         cy.get("input[formcontrolname='Address']").type(address,{force: true});  
         cy.get("input[formcontrolname='City']").type(city,{force: true});

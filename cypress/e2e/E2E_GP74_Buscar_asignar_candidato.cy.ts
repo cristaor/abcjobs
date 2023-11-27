@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 import { Utilities } from "./utilities/utilities"
 
 
-describe('Buscar Candidato', () => {
+describe('Buscar/Asignar Candidato', () => {
 
     let utility = new Utilities();
    
@@ -40,7 +40,8 @@ describe('Buscar Candidato', () => {
         //genera datos para el formulario
         let username2 = faker.internet.email();
         let password2 = faker.internet.password({ length: 15});
-        let document2 = faker.random.numeric(9);
+         password2 = password2 + "Aa&.";
+        let document2 = faker.string.numeric({ length: 9, exclude: ['0'] })
         let firstName2 = faker.person.firstName();
         let lastName2 = faker.person.lastName();
         let age2 = faker.number.int({ min: 1, max: 47 })
@@ -123,14 +124,15 @@ describe('Buscar Candidato', () => {
         //genera datos para el formulario
         let username = faker.internet.email();
         let password = faker.internet.password({ length: 15});
-        let taxPayerId = faker.random.numeric(10);
+         password = password + "Aa&.";
+        let taxPayerId = faker.string.numeric({ length: 10, exclude: ['0'] })
         let name = faker.company.name();
         let years = faker.number.int({ min: 1, max: 100 })
         let phoneNumber = faker.random.numeric(10);
         let address = faker.location.streetAddress({ useFullAddress: true })
         let city = faker.location.city();
        
-        let document = faker.random.numeric(9);
+        let document = faker.string.numeric({ length: 9, exclude: ['0'] })
         let firstName = faker.person.firstName();
         let lastName = faker.person.lastName();
         let profile =faker.person.jobType();
@@ -141,7 +143,7 @@ describe('Buscar Candidato', () => {
         cy.get("input[formcontrolname='Password']").type(password,{force: true});
         cy.get("input[formcontrolname='TaxPayerId']").type(taxPayerId,{force: true});
         cy.get("input[formcontrolname='Name']").type(name,{force: true});
-        cy.get("input[formcontrolname='Years']").type(years,{force: true});
+        cy.get("input[formcontrolname='Years']").type(years.toString(),{force: true});
         cy.get("input[formcontrolname='PhoneNumber']").type(phoneNumber,{force: true});
         cy.get("input[formcontrolname='Address']").type(address,{force: true});  
         cy.get("input[formcontrolname='City']").type(city,{force: true});
@@ -266,7 +268,7 @@ describe('Buscar Candidato', () => {
          cy.get("input[formcontrolname='Role']").type(role_info ,{force: true});
          
          
-         cy.get("input[formcontrolname='RoleYears']").type(experience_years2 ,{force: true});
+         cy.get("input[formcontrolname='RoleYears']").type(experience_years2.toString() ,{force: true});
          cy.get("select[formcontrolname='TitleFilter']").select(title_filter);
          cy.get('button[type="submit"]').contains('Buscar').click({force: true});
          
@@ -278,6 +280,9 @@ describe('Buscar Candidato', () => {
         cy.get('button[type="button"]').first().click({force: true});
         
         cy.get('app-client-search');
+        
+        
+        
     });
 
      

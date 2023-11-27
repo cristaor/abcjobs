@@ -1,1 +1,57 @@
-<p>header works!</p>
+<script src="src/assets/js/abc.js"></script>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-blueABC">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">ABC Jobs</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ 'HEADER.RECRUITER.MENU_1' | translate }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item bg-blueABC text-white-50" href="basic-client-edit">Datos basicos</a></li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ 'HEADER.RECRUITER.MENU_2' | translate }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item bg-blueABC text-white-50" href="find-interviews">Consultar</a></li>
+              <li><a class="dropdown-item bg-blueABC text-white-50" href="#">Cargar Entrevista</a></li>
+              <li><a class="dropdown-item bg-blueABC text-white-50" href="interview">Programar Entrevista</a></li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ 'HEADER.RECRUITER.MENU_3' | translate }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item bg-blueABC text-white-50" href="test">Crear Prueba</a></li>
+              <li><a class="dropdown-item bg-blueABC text-white-50" href="register-result-test">Registrar Resultado</a></li>
+            </ul>
+        </div>
+    </div>
+  </div>
+  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+    <ul class="navbar-nav ml-auto">
+  </ul>
+  </div>
+  <div class="navbar-collapse collapse w-25 order-4 dual-collapse2">
+    <ul class="navbar-nav float-right text-right">
+        <li class="nav-item">
+            <a class="nav-link" >
+            <img (click)="selectLanguage('es')" src="../../assets/images/spain.png" class="float-right language" width="30%" height="30%" alt="{{ 'I18N.SPANISH_PAGE' | translate }}"></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" >
+              <img (click)="selectLanguage('en')" src="../../assets/images/united-states.png" class="float-right language" width="30%" height="30%" alt="{{ 'I18N.ENGLISH_PAGE' | translate }}"></a>
+        </li>
+    </ul>
+    </div>
+</nav>
+
+

@@ -12,6 +12,12 @@ import { ClientInterviewsComponent } from './client-interviews/client-interviews
 import { ClientHomeComponent } from './client-home/client-home.component';
 import { CreateProfileComponent  } from './create-profile/create-profile.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ClientEditDataComponent } from './client-edit-data/client-edit-data.component';
+import { ClientProjectsListComponent } from './client-projects-list/client-projects-list.component';
+import { ClientProjectMembersComponent } from './client-project-members/client-project-members.component';
+import { ClientEvaluationCreateComponent } from './client-evaluation-create/client-evaluation-create.component';
+import { ClientEvaluationListComponent } from './client-evaluation-list/client-evaluation-list.component';
+import { ClientEvaluationEditComponent } from './client-evaluation-edit/client-evaluation-edit.component';
 
 
 @NgModule({
@@ -23,7 +29,13 @@ import { TranslateModule } from '@ngx-translate/core';
     ClientEvaluateComponent,
     ClientInterviewsComponent,
     ClientHomeComponent,
-    CreateProfileComponent
+    CreateProfileComponent,
+    ClientEditDataComponent,
+    ClientProjectsListComponent,
+    ClientProjectMembersComponent,
+    ClientEvaluationCreateComponent,
+    ClientEvaluationListComponent,
+    ClientEvaluationEditComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +53,13 @@ import { TranslateModule } from '@ngx-translate/core';
     ClientEvaluateComponent,
     ClientInterviewsComponent,
     ClientHomeComponent,
-    CreateProfileComponent
+    CreateProfileComponent,
+    ClientEditDataComponent,
+    ClientProjectsListComponent,
+    ClientProjectMembersComponent,
+    ClientEvaluationCreateComponent,
+    ClientEvaluationListComponent,
+    ClientEvaluationEditComponent
   ]
 })
 export class ClientModule { }

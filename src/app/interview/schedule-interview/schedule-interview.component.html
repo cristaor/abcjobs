@@ -1,0 +1,149 @@
+<header-recruiter></header-recruiter>
+
+<br>
+<br>
+<h2 class="text-center">{{ 'INTERVIEW.SCHEDULE.SCHEDULE_INTERVIEW' | translate }} </h2>
+<div class="container text-center float-lg-none">
+<hr >
+
+<div class="container text-center">
+<form  [formGroup]="loginForm" class="needs-validation"
+#formDirective="ngForm" (ngSubmit)="schedule_interview(loginForm.value)">
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="project_id" class="col-form-label float-lg-right">{{'INTERVIEW.SCHEDULE.PROJECT' | translate}}</label>
+  </div>
+  <div class="col-9">
+   <select  size="1" class="form-control" formControlName="project_id" id="project_id"
+   required (change)="select_test(this.loginForm.controls['project_id'].value)">
+     <option *ngFor="let test of projects"  value="{{test.projectId}}"> {{test.name}}</option>
+
+   </select>
+   <div class="invalid-feedback">
+     {{'INTERVIEW.SCHEDULE.VALIDATOR.PROJECT' | translate}}
+   </div>
+  </div>
+
+</div>
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="profile_id" class="col-form-label float-lg-right">{{'INTERVIEW.SCHEDULE.PROFILE' | translate}}</label>
+  </div>
+  <div class="col-9">
+   <select  size="1" class="form-control" formControlName="profile_id" id="project_id"
+   required (change)="getMembers(this.loginForm.controls['project_id'].value,this.loginForm.controls['profile_id'].value)" >
+     <option *ngFor="let profile of profiles"  value="{{profile}}"> {{profile}}</option>
+
+   </select>
+   <div class="invalid-feedback">
+     {{'INTERVIEW.SCHEDULE.VALIDATOR.PROFILE' | translate}}
+   </div>
+  </div>
+
+</div>
+
+ <div class="row mt-3 align-items-center text-center">
+   <div class="col-3">
+     <label for="meet_url" class="col-form-label float-lg-right">{{'INTERVIEW.SCHEDULE.MEET_URL' | translate}}</label>
+   </div>
+   <div class="col-9">
+      <input type="url" class="form-control" formControlName="meet_url" id="meet_url"
+      required placeholder="{{'INTERVIEW.SCHEDULE.PLACEHOLDER.MEET_URL' | translate}}"/>
+      <div class="invalid-feedback">
+        {{'INTERVIEW.SCHEDULE.VALIDATOR.MEET_URL' | translate}}
+      </div>
+    </div>
+ </div>
+
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="start_timestamp" class="col-form-label float-lg-right">{{'INTERVIEW.SCHEDULE.DATE' | translate}}</label>
+  </div>
+  <div class="col-9">
+    <input type="datetime-local" class="form-control" formControlName="start_timestamp"
+    min="{{minDate}}" id="start_timestamp" required/>
+    <div class="invalid-feedback">
+      {{'INTERVIEW.SCHEDULE.VALIDATOR.DATE' | translate}}
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="candidate" class="col-form-label float-lg-right">{{'INTERVIEW.SCHEDULE.CANDIDATE' | translate}}</label>
+  </div>
+  <div class="col-9">
+
+    <select  size="1" class="form-control" formControlName="candidate" id="candidate"
+    required>
+      <option *ngFor="let candidate of candidates"  value="{{candidate.person_id}}"> {{candidate.name}}</option>
+
+    </select>
+
+
+    <div class="invalid-feedback">
+
+      {{'INTERVIEW.SCHEDULE.VALIDATOR.DOCUMENT' | translate}}
+    </div>
+ </div>
+
+</div>
+
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="duration_minutes" class="col-form-label float-lg-right">{{'INTERVIEW.SCHEDULE.DURATION' | translate}}</label>
+  </div>
+  <div class="col-9">
+  <select class="form-control"
+  formControlName="duration_minutes" id="duration_minutes" required>
+    <option value="30"> {{'INTERVIEW.SCHEDULE.DURATIONS.A' | translate}}</option>
+    <option value="60">    {{'INTERVIEW.SCHEDULE.DURATIONS.B' | translate}}</option>
+    <option value="90">    {{'INTERVIEW.SCHEDULE.DURATIONS.C' | translate}}</option>
+    <option value="120">    {{'INTERVIEW.SCHEDULE.DURATIONS.D' | translate}}</option>
+    <option value="180">    {{'INTERVIEW.SCHEDULE.DURATIONS.E' | translate}}</option>
+  </select>
+
+   <div class="invalid-feedback">
+    {{'INTERVIEW.SCHEDULE.VALIDATOR.DURATION' | translate}}
+  </div>
+  </div>
+
+
+</div>
+
+
+<div class="row mt-3 align-items-center ">
+   <div class="col-4 text-right">
+     <!--<a href="index_es.html"> -->
+     <button class="btn btn-primary" type="submit"  onmouseover="checkForm()" onfocus="checkForm()" >{{'UI.OK' | translate}}</button>
+     <!--</a>-->
+   </div>
+   <div class="col-1">
+
+   </div>
+   <div class="col-4 text-left">
+     <button type="reset" class="btn btn-danger"
+     (click)="cancelCreation()">{{'UI.CANCEL' | translate}}</button>
+   </div>
+ </div>
+</form>
+
+</div>
+<br>
+<br>
+<br>
+<footer class="fixed-bottom">
+<div class="container-fluid bg-blueABC">
+  <div class="row">
+     <div class="text-center col-lg-20">
+   <br>
+     </div>
+  </div>
+</div>
+</footer>

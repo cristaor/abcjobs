@@ -147,7 +147,7 @@
 		  </thead>
 		  <tbody>
 			<tr *ngFor="let candidate of candidates; let i = index">
-                            <td> {{ i+1 }}</td>
+                            <td> {{ candidate.person_id }}</td>
                             <td> {{ candidate.first_name }}</td>
                             <td> {{ candidate.last_name }}</td>
                             <td> {{ candidate.age }}</td>
@@ -156,7 +156,7 @@
                             <td> {{ candidate.titles }}</td>
                             <td> {{ candidate.abilities }}</td>
                             <td> {{ candidate.score }}</td>
-                            <td><button type="button" class="btn btn-outline-success" (click)="assignCandidate(candidate,i)">Y</button> </td>
+                            <td><button type="button" class="btn btn-outline-success" (click)="assignCandidate(candidate.person_id,i)">Y</button> </td>
 			</tr>
 		  </tbody>
 		</table>

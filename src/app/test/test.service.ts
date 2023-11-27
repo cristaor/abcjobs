@@ -77,8 +77,7 @@ get_avalible_tests(): Observable<Array<TestItemResponse>> {
         'Access-Control-Allow-Origin': '*',
         'Authorization': token });
       let options = { headers: headers };
-      res.person_id
-      let url = environment.backBaseUrl +'/enabled_tests/';
+      let url = environment.backBaseUrl +'/enabled_tests';
       let result = this.http.get<Array<TestItemResponse>>(url,options);
       return result;
     }
@@ -104,7 +103,7 @@ get_candidate_by_ids(ids:Array<string>): Observable<Array<CandidateResponse>> {
       if ( ids.length==1 && ids[0]==""){
         return of([]);
       }
-      let url = environment.backBaseUrl +'/candidates/?documents='+ids.join(",");
+      let url = environment.backBaseUrl +'/candidates?documents='+ids.join(",");
       let result = this.http.get<Array<CandidateResponse>>(url,options);
       return result;
     }

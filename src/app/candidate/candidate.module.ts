@@ -14,6 +14,9 @@ import { CandidateInterviewsComponent } from './candidate-interviews/candidate-i
 import { CandidateHomeComponent } from './candidate-home/candidate-home.component';
 import {I18nModule} from '../i18n/i18n.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { CandidateFullInfoComponent } from './candidate-full-info/candidate-full-info.component';
+
+
 
 @NgModule({
   declarations: [
@@ -26,10 +29,11 @@ import { TranslateModule } from '@ngx-translate/core';
     CandidateTestComponent,
     CandidateResultsComponent,
     CandidateInterviewsComponent,
-    CandidateHomeComponent
+    CandidateHomeComponent,
+    CandidateFullInfoComponent
   ],
   imports: [
-    CommonModule, HeaderCandidateModule ,ReactiveFormsModule, FormsModule,  
+    CommonModule, HeaderCandidateModule ,ReactiveFormsModule, FormsModule,
     I18nModule, TranslateModule
   ],
   exports: [CandidateLoginComponent,
@@ -41,7 +45,9 @@ import { TranslateModule } from '@ngx-translate/core';
     CandidateTestComponent,
     CandidateResultsComponent,
     CandidateInterviewsComponent,
-    CandidateHomeComponent
+    CandidateHomeComponent,
+    CandidateFullInfoComponent,
+    HeaderCandidateModule
     ]
 })
 export class CandidateModule { }

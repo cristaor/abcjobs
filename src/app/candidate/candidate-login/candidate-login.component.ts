@@ -16,7 +16,7 @@ export class CandidateLoginComponent implements OnInit {
          loginForm!: FormGroup;
    title = 'angular-i18n-ngx-translate';
   selectedLanguage = 'es';
-  
+
   ngOnInit() {
   this.loginForm = this.formBuilder.group({
     user:["", [Validators.required, Validators.minLength(2)]],
@@ -38,7 +38,7 @@ export class CandidateLoginComponent implements OnInit {
       this.translateService.use(lang);
       console.log(lang)
   }
-  
+
   login(value:any) {
 
     this.candidateLoginService.login(new CandidateLogin(value.user,value.password)).subscribe(result =>{
@@ -51,7 +51,14 @@ export class CandidateLoginComponent implements OnInit {
         console.warn(res);
         if(res.is_authenticated){
           this.toastr.success("Login success","Confirmation" );
-          this.router.navigate(['/home-candidate'])
+          if(res.role == 'RECRUITER'){
+            this.router.navigate(['/home-recruiter']);
+          }else if (res.role == 'CANDIDATE'){
+            this.router.navigate(['/home-candidate']);
+          }
+          else if (res.role == 'CLIENT'){
+            this.router.navigate(['/home-client']);
+          }
         }else{
           this.toastr.error(`${this.translateService.instant('BACK_RESPONSES.INVALID_CREDENTIALS')}`,"Error");
         }

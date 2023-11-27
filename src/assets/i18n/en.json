@@ -31,7 +31,8 @@
         "INVALID_CREDENTIALS":"Invalid Credentials",
         "INVALID_CREDENTIALS2":"Expired credentials. Sign in again",
         "GET_ERROR": "An error has occurred",
-        "SUCESSFULL_1": "Successful creation"
+        "SUCESSFULL_1": "Successful creation",
+        "INVALID_PROJECT": "Invalid project"
   },
   "HOME":
   {
@@ -223,6 +224,31 @@
         "GET_ERROR": "Ha ocurrido un error"
     }
   },
+  "CREATE_EVALUATION":{
+    "TITLE": "Create Performance Evaluation",
+    "LABEL":{
+      "PROJECT": "Project",
+      "MEMBER": "Member",
+      "SCORE": "Score"
+      },
+    "PLACEHOLDER":{
+        "PROJECT": "Select",
+        "MEMBER": "Select",
+        "SCORE": "Select",
+        "DETAILS":"Enter the Evaluation Observation"
+    },
+    "VALIDATOR":{
+        "PROJECT": "Select a project",
+        "MEMBER": "Select a member",
+        "SCORE": "Select a score",
+        "DETAILS":"The evaluation detail must be greater than 10 characters"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"Evaluation",
+        "SUCESS_2":"has been created",
+        "GET_ERROR": "An error has ocurred"
+    }
+  },
   "CREATE_PROJECT":{
     "TITLE": "Create Project",
     "LABEL":{
@@ -252,6 +278,62 @@
     "BACK_RESPONSES":{
         "SUCESS_1":"Project",
         "SUCESS_2":"was created",
+        "GET_ERROR": "An error has ocurred"
+    }
+  },
+  "PROJECTS_LIST":{
+    "TITLE": "Projects List",
+    "TABLEHEADER":{
+        "C1":"Name",
+        "C2": "Start date",
+        "C3": "Active",
+        "C4": "Details",
+        "C5": "Team",
+        "C6": "Evaluations"
+    },
+    "LABEL":{
+      "MEMBERS": "View",
+      "EVALUATIONS": "Go"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"Comapany ",
+        "SUCESS_2":"has not projects created",
+        "GET_ERROR": "An error has ocurred"
+    }
+  },
+  "EVALUATION_LIST":{
+    "TITLE": "Performance Evaluations List",
+    "SUBTITLE": "Project",
+    "TABLEHEADER":{
+        "C1":"No",
+        "C2": "Date",
+        "C3": "Member",
+        "C4": "Score",
+        "C5": "Observation",
+        "C6": "Details"
+    },
+    "LABEL":{
+        "DETAILS": "View"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"Project",
+        "SUCESS_2":"has performance evaluations",
+        "GET_ERROR": "An error has ocurred"
+    }
+  },
+  "PROJECTS_MEMBERS_LIST":{
+    "TITLE": "Member List",
+    "SUBTITLE": "Project",
+    "TABLEHEADER":{
+        "C1":"Member name",
+        "C2": "Profile",
+        "C3": "Active",
+        "C4": "Performance",
+        "C5": "Description"
+    },
+    "BACK_RESPONSES":{
+        "SUCESS_1":"Project",
+        "SUCESS_2":"has not members",
         "GET_ERROR": "An error has ocurred"
     }
   },
@@ -302,7 +384,8 @@
     },
       "UI":{
         "CREATED":"Result registered succesfully",
-        "ERROR":"Error registering the result correctamente"
+        "ERROR":"Error registering the result",
+        "SEARCH":"Search"
       },
       "VALIDATOR":{
         "NAME":"Select a test",
@@ -315,6 +398,83 @@
     }
   },
 
+  "INTERVIEW":{
+    "SCHEDULE":{
+      "SCHEDULE_INTERVIEW":"Schedule Interview",
+      "PROJECT":"Project",
+      "MEET_URL":"Meet URL",
+      "DATE":"Date",
+      "CANDIDATE":"Candidate",
+      "PROFILE":"Profile",
+      "DURATION":"Duration",
+      "DURATIONS":{
+        "A":"30 Minutes",
+        "B":"1 Hour",
+        "C":"1 Hour 30 Minutes",
+        "D":"2 Hours",
+        "E":"3 Hours"
+      },
+      "PLACEHOLDER":{
+        "CANDIDATE_DOCUMENT": "Candidate Document",
+        "CANDIDATE_NAME": "Candidate Name",
+        "MEET_URL": "http://meet.com/dw3fw"
+      },
+      "TOAST":{
+        "CANDIDATE_NOT_FOUND": "Candidate not found by document [{0}]"
+    },
+      "UI":{
+        "CREATED":"Interview scheduled successfully",
+        "ERROR":"Scheduling the interview, candidate has a schedule interview.",
+        "SEARCH":"Search"
+      },
+      "VALIDATOR":{
+        "PROJECT":"Enter a project",
+        "MEET_URL":"Enter a valid meet URL. Incluya http://",
+        "DOCUMENT":"The document is required",
+        "CANDIDATE_NAME": "The name is required",
+        "DURATION":"Enter the meet duration",
+        "DATE":"The date is required and must to be in the future",
+        "PROFILE":"The profile is required"
+      }
+    },
+    "LIST":{
+      "LIST_INTERVIEW":"List of Inteviews",
+      "PROFILE":"Position profile",
+      "MEET_URL":"Meet URL",
+      "DATE":"Interview date",
+      "DURATION":"Interview duration",
+      "STATUS":"Interview status",
+      "MINUTES":"Minutes",
+      "STATUS_":{
+        "SCHEDULED":"SCHEDULED",
+        "DONE":"DONE",
+        "CANCELLED":"CANCELLED"
+      },
+      "TOAST":{
+        "INTERVIEWS_NOT_FOUND": "Scheduled interviews not found"
+    }
+  },
+  "FIND":{
+    "DETAIL_INTERVIEW":"Interview Detail",
+    "PROJECT":"Project",
+    "PROFILE":"Profile",
+    "ESSAY":"Essay",
+    "RECORD":"Record",
+    "EVALUATION":"Evaluación",
+    "DATE":"Date",
+    "OBSERVATION":"Observation",
+    "ABILITY":"Ability",
+    "ABILITIES":"Soft Skills Information",
+    "LEVEL":"Level(1-10)",
+    "INTERVIEW":"Interview Information",
+    "DESCRIPTION":"Description",
+    "CANDIDATE":"Candidate",
+    "TOAST":{
+      "INTERVIEWS_NOT_FOUND": "No interviews found"
+  }
+}
+
+  },
 
   "PROFILE":{
     "CREATE":{

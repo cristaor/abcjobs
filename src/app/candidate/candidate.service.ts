@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Candidate, CandidateAcademicInfo, CandidateTechnicalRoleInfo, CandidateTechnologyInfo, TechnologyResponse } from './candidate';
+import { Candidate, CandidateAcademicInfo, CandidateFullInfo, CandidateTechnicalRoleInfo, CandidateTechnologyInfo, TechnologyResponse } from './candidate';
 import { UserAuthenticated } from '../client/client-login';
 
 
@@ -94,4 +94,11 @@ export class CandidateService {
     headers.append('Access-Control-Allow-Origin', '*')
     return this.http.get<TechnologyResponse[]>(`${this.backUrl}/technologies`, { headers: headers })
   }
+
+    getFullInfo(token: string): Observable<CandidateFullInfo> {
+
+      
+      let headers_s = new HttpHeaders().set('Authorization', token);
+      return this.http.get<any>(`${this.backUrl}/candidates/myself`, {headers: headers_s})
+    }
 }

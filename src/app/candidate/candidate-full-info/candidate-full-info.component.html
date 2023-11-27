@@ -1,0 +1,125 @@
+<header-candidate></header-candidate>
+<br>
+<h2 class="text-center">Mis datos</h2>
+<div class="table-container">
+    <h2 class="title">Información básica</h2>
+<table class="table-header">
+    <thead style="background-color: blue; color: white;">
+      <tr>
+        <th>Tipo de documento</th>
+        <th>Documento</th>
+        <th>Nombre completo</th>
+        <th>Edad</th>
+        <th>Teléfono</th>
+        <th>Dirección</th>
+        <th>País Origen</th>
+        <th>Ciudad residencia</th>
+        <th>País residencia</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ registros.info.document_type }}</td>
+        <td>{{ registros.info.document }}</td>
+        <td>{{ registros.info.first_name }} {{ registros.info.last_name }}</td>
+        <td>{{ registros.professional_data.basic_info.age }}</td>
+        <td>{{ registros.info.phone_number }}</td>
+        <td>{{ registros.professional_data.basic_info.address }}</td>
+        <td>{{ registros.professional_data.basic_info.origin_country }}</td>
+        <td>{{ registros.professional_data.basic_info.residence_country }}</td>
+        <td>{{ registros.professional_data.basic_info.residence_city }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br/>
+
+
+<div class="table-container">
+    <h2 class="title">Información académica</h2>
+    <hr>
+<table class="table-header">
+    <thead style="background-color: blue; color: white;">
+      <tr>
+        <th>Título</th>
+        <th>Institución</th>
+        <th>País</th>
+        <th>Fecha Inicio</th>
+        <th>Fecha finalización</th>
+        <th>Descripción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let academic_info of registros.professional_data.academic_info">
+        <td>{{ academic_info.title }}</td>
+        <td>{{ academic_info.institution }}</td>
+        <td>{{ academic_info.country }}</td>
+        <td>{{ academic_info.start_date | date:'yyyy-MM-dd'}}</td>
+        <td>{{ academic_info.end_date | date:'yyyy-MM-dd'}}</td>
+        <td>{{ academic_info.description}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<div class="table-container">
+    <h2 class="title">Información Laboral</h2>
+    <hr>
+<table class="table-header">
+    <thead style="background-color: blue; color: white;">
+      <tr>
+        <th>Cargo</th>
+        <th>Nombre de la compañía</th>
+        <th>País</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Fecha de inicio</th>
+        <th>Fecha de finalización</th>
+        <th>Descripción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let laboral_info of registros.professional_data.laboral_info">
+        <td>{{ laboral_info.position }}</td>
+        <td>{{ laboral_info.company_name }}</td>
+        <td>{{ laboral_info.company_country }}</td>
+        <td>{{ laboral_info.company_address }}</td>
+        <td>{{ laboral_info.company_phone }}</td>
+        <td>{{ laboral_info.start_date | date:'yyyy-MM-dd' }}</td>
+        <td>{{ laboral_info.end_date | date:'yyyy-MM-dd' }}</td>
+        <td>{{ laboral_info.description }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<div class="table-container">
+    <h2 class="title">Información de tecnologías</h2>
+    <hr>
+<table class="table-header">
+    <thead style="background-color: blue; color: white;">
+      <tr>
+        <th>Nombre de tecnología</th>
+        <th>Experiencia en años</th>
+        <th>Nivel (1-10)</th>
+        <th>Descripción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let technology_info of registros.professional_data.technology_info">
+        <td>{{ technology_info.name }}</td>
+        <td>{{ technology_info.experience_years }}</td>
+        <td>{{ technology_info.level }}</td>
+        <td>{{ technology_info.description }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<br/>
