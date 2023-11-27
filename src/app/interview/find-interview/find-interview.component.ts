@@ -2,7 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { InterviewService } from "../interview.service";
 import { ToastrService } from 'ngx-toastr';
-import {Router} from "@angular/router";
+import {Router,ActivatedRoute} from "@angular/router";
 import { InterviewResult,AbilityResponse,Ability,ClientProject,CandidateResponse} from '../interview';
 import {TranslateService} from '@ngx-translate/core';
 @Component({
@@ -62,12 +62,17 @@ export class FindInterviewComponent implements OnInit {
 
   ngOnInit() {
 
+
+
+    this.select_result(this.active_router.snapshot.params['id']);
+
+
     this.interviewService.get_abilities().subscribe(result =>{
       this.all_abilities = result;
 
     });
 
-    this.interviewService.get_interview_results().subscribe(result =>{
+    /*this.interviewService.get_interview_results().subscribe(result =>{
       console.info(result);
       console.info("--------------->");
       if (result.length>0){
@@ -80,7 +85,7 @@ export class FindInterviewComponent implements OnInit {
       });
       //setTimeout(() => this.router.navigate([`/home-candidate`]), 5000);
       }
-    });
+    });*/
 
     this.loginForm = this.formBuilder.group({
       interview_result_id:["", [Validators.required]],
@@ -93,11 +98,12 @@ export class FindInterviewComponent implements OnInit {
     private interviewService:InterviewService,
     private toastr: ToastrService,
     private router: Router,
+    private active_router: ActivatedRoute,
     private translateService:TranslateService
   ) {
   }
 
-  cancelCreation():void{this.router.navigate([`/home-candidate`])}
+  cancelCreation():void{this.router.navigate([`/interviews`])}
 }
 
 

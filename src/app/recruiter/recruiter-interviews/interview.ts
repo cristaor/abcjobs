@@ -27,11 +27,13 @@ export class ScheduleInterviewRequest {
 export class Data {
   full_name: string;
   qualification: string;
-  date: string
-  constructor(full_name: string, qualification: string, date: string) {
+  date: string;
+  id:string;
+  constructor(full_name: string, qualification: string, date: string,id:string ) {
     this.full_name = full_name;
     this.qualification = qualification;
-    this.date = date
+    this.date = date;
+    this.id=id;
   }
 }
 
