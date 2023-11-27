@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 import { Utilities } from "./utilities/utilities"
 
 
-describe('Listar miembrs proyecto', () => {
+describe('Consultar detalle Evaluacion Desempeño', () => {
 
     let utility = new Utilities();
    
@@ -14,23 +14,7 @@ describe('Listar miembrs proyecto', () => {
    it('1. Prueba Positiva: Desplegar la opción de ingresar, validar que se \
     muestra el formulario, ingresar datos aleatorios, pulsar Aceptar. Luego validar que se genere el mensaje de exito y se encuentre en el home', () => {
 
-        /*
-        cy.visit('/login-client')
-        cy.wait(3000) 
-        //Search for Title
-        utility.getMessage('Ingrese su usuario y clave', 'div');
-        //busca campos del formulario 
-        cy.get("input[formcontrolname='user']").type("cperez@aol.co",{force: true});
-        cy.get("input[formcontrolname='password']").type("HRerv3498&.",{force: true});
-        
-        //pulsar Ingresar
-        cy.get('button[type="submit"]').contains('Aceptar').click({force: true});    
-        
-        //espera 4 seg para iniciar sesion
-        cy.wait(4000);
-        cy.get('app-client-home'); 
-        
-        */
+       
         utility.showCreateCandidate();
         //validar que se despliegue el componente crear
         cy.get('app-candidate-basic');
@@ -41,7 +25,6 @@ describe('Listar miembrs proyecto', () => {
         let username2 = faker.internet.email();
         let password2 = faker.internet.password({ length: 15});
          password2 = password2 + "Aa&.";
-        //let document2 = faker.random.numeric(9);
         let document2 = faker.string.numeric({ length: 9, exclude: ['0'] })
         let firstName2 = faker.person.firstName();
         let lastName2 = faker.person.lastName();
@@ -126,7 +109,6 @@ describe('Listar miembrs proyecto', () => {
         let username = faker.internet.email();
         let password = faker.internet.password({ length: 15});
          password = password + "Aa&.";
-        //let taxPayerId = faker.random.numeric(10);
         let taxPayerId = faker.string.numeric({ length: 10, exclude: ['0'] })
         let name = faker.company.name();
         let years = faker.number.int({ min: 1, max: 100 })
@@ -280,11 +262,32 @@ describe('Listar miembrs proyecto', () => {
         cy.get("th").contains("Puntaje");
         cy.get("th").contains("Puntaje");
         cy.get('button[type="button"]').contains("Y").click({force: true});
+
         
-        cy.wait(3000) 
+        cy.wait(3000);
+        
         cy.get('app-client-search');
         
+        //Crear una evaluacion
+        cy.visit('/client-evaluation-create');
+        cy.wait(3000);
+        utility.getMessage('Crear Evaluación de Desempeño', 'h2');
         
+        
+        let score = faker.number.int({ min: 1, max: 10 })
+        let evaluation_description = faker.lorem.lines({ min: 2, max: 3 })
+        
+        cy.get("select[formcontrolname='Project']").select(1);
+        cy.wait(3000);
+        cy.get("select[formcontrolname='Member']").select(1);
+        cy.get("select[formcontrolname='Score']").select(score);
+        cy.get("textarea[formcontrolname='Details']").type(evaluation_description ,{force: true}); 
+        cy.get('button[type="submit"]').contains('Crear').click({force: true});
+        
+        cy.wait(4000);
+        cy.get('app-client-home');
+        
+        //Ir a la lista de proyectos
         cy.visit('/project-client-list')
         cy.wait(3000) 
         //Search for Title
@@ -293,19 +296,26 @@ describe('Listar miembrs proyecto', () => {
         utility.getMessage('Fecha Inicio', 'th');
         utility.getMessage(projectName, 'th');
         
+        cy.get('button[type="button"]').contains("Ir").click({force: true});
+        
+        cy.wait(3000)
+        
+        //Ir a lista de evluaciones
+        //Search for Title
+        utility.getMessage("Evaluaciones de desempeño", 'h2');
+        cy.get("th").contains("No");
+        cy.get("th").contains("Fecha");
+        cy.get("th").contains("Miembro");
+        
         cy.get('button[type="button"]').contains("Ver").click({force: true});
         
         cy.wait(3000)
         
-        //Members list 
-        cy.get('app-client-project-members');
-        utility.getMessage('Lista de Miembros', 'h2');
-        cy.get("th").contains("Nombre");
-        cy.get("th").contains("Perfil");
-        cy.get("th").contains("Activo");
-        cy.get("th").contains(firstName2);
-        cy.get("td").contains(profile_name);
+        utility.getMessage("Crear Evaluación de Desempeño", 'h2');
         
+        cy.get("select[formcontrolname='Project']").should('have.value',projectName)
+        //cy.get("input[formcontrolname='Score']").should('have.value',score)
+        //cy.get("textarea[formcontrolname='Details']").contains(evaluation_description);
         
     });
 

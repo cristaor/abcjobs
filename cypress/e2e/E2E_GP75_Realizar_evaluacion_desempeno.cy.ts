@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 import { Utilities } from "./utilities/utilities"
 
 
-describe('Buscar Candidato', () => {
+describe('Realizar evaluacion Desempeño', () => {
 
     let utility = new Utilities();
    
