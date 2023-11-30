@@ -62,11 +62,11 @@ describe('Ver info empresa', () => {
         cy.wait(1000);
         cy.get('button[type="submit"]').contains('Crear').click({force: true});    
         
-        cy.wait(6000);
+        cy.wait(3000);
         cy.get('app-client-home');
          
         cy.visit('/login-client')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Ingrese su usuario y clave', 'div');
         //busca campos del formulario 
@@ -77,13 +77,13 @@ describe('Ver info empresa', () => {
         cy.get('button[type="submit"]').contains('Aceptar').click({force: true});    
         
         //espera 4 seg para iniciar sesion
-        cy.wait(4000);
+        cy.wait(3000);
         cy.get('app-client-home');
         
         
         
         cy.visit('/basic-client-edit')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Datos Básicos', 'h2');
         utility.getMessage('Datos Contacto', 'h5');

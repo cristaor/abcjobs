@@ -53,11 +53,11 @@ describe('Iniciar Sesion Candidato/Aspirante', () => {
         cy.wait(100);
         cy.get('button[type="submit"]').contains('Crear').click({force: true});    
         
-        cy.wait(6000);
+        cy.wait(3000);
         cy.get('app-candidate-home');
 
         cy.visit('/login-candidate')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Ingrese su usuario y clave', 'div');
         //busca campos del formulario 
@@ -68,7 +68,7 @@ describe('Iniciar Sesion Candidato/Aspirante', () => {
         cy.get('button[type="submit"]').contains('Aceptar').click({force: true});    
         
         //espera 4 seg para iniciar sesion
-        cy.wait(4000);
+        cy.wait(3000);
         cy.get('app-candidate-home'); 
     });
     
@@ -77,7 +77,7 @@ describe('Iniciar Sesion Candidato/Aspirante', () => {
     muestra el formulario, ingresar datos aleatorios, pulsar Aceptar. Luego validar que se genere el mensaje de error y no cambie de pantalla', () => {
 
         cy.visit('/login-candidate')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Ingrese su usuario y clave', 'div');
         //genera datos para el formulario
@@ -90,7 +90,7 @@ describe('Iniciar Sesion Candidato/Aspirante', () => {
         cy.get('button[type="submit"]').contains('Aceptar').click({force: true});    
         
         //espera 4 seg para iniciar sesion
-        cy.wait(4000);
+        cy.wait(3000);
         cy.get('app-candidate-login'); 
     });
      

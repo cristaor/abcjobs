@@ -55,7 +55,7 @@ describe('Listar Entrevistas', () => {
 
          
         cy.visit('/login-candidate')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Ingrese su usuario y clave', 'div');
         //busca campos del formulario 
@@ -72,7 +72,7 @@ describe('Listar Entrevistas', () => {
         
         
         cy.visit('/list-interviews')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Listado de Entrevistas', 'h2');
         

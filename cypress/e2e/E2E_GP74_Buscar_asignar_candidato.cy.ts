@@ -74,7 +74,7 @@ describe('Buscar/Asignar Candidato', () => {
         cy.get('app-candidate-home');
 
         cy.visit('/login-candidate')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Ingrese su usuario y clave', 'div');
         //busca campos del formulario 
@@ -90,11 +90,12 @@ describe('Buscar/Asignar Candidato', () => {
         
         
         cy.visit('/technical-role-candidate')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Información Técnica de roles', 'h2');
         
-        let role_name2 = faker.person.jobType()
+        let role_num = faker.number.int({ min: 1, max: 20 })
+        let role_name2 = faker.person.jobType() + " " + role_num.toString()
         let experience_years2 = faker.number.int({ min: 1, max: 2 })
         let description2 = faker.lorem.lines({ min: 2, max: 3 })
         
@@ -166,7 +167,7 @@ describe('Buscar/Asignar Candidato', () => {
         cy.get('app-client-home');
         
         cy.visit('/login-client')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Ingrese su usuario y clave', 'div');
         //busca campos del formulario 
@@ -184,7 +185,7 @@ describe('Buscar/Asignar Candidato', () => {
         //Proyectos
         
         cy.visit('/project-client')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Crear Proyecto', 'h2');
         
@@ -217,14 +218,15 @@ describe('Buscar/Asignar Candidato', () => {
         //Perfiles
           
         cy.visit('/project-profile');    
-        cy.wait(3000); 
+        cy.wait(1000); 
        
        //Search for Title
         utility.getMessage('Crear Perfil', 'h2');
        
-        let profile_name = faker.person.jobType() + " " + faker.person.jobArea()
-        let title = faker.person.jobTitle();
         let technology_select = faker.number.int({ min: 0, max: 6 })
+        let profile_name = faker.person.jobType() + " " + faker.person.jobArea() + " " + technology_select 
+        let title = faker.person.jobTitle();
+  
         
         
         let role_select = faker.number.int({ min: 0, max: 5 })
@@ -251,7 +253,7 @@ describe('Buscar/Asignar Candidato', () => {
         cy.get('app-client-home');
         
         cy.visit('/search-candidate');    
-        cy.wait(3000);
+        cy.wait(1000);
          utility.getMessage('Buscar Candidatos', 'h2');
          
         let role_filter = faker.number.int({ min: 1, max: 2 })

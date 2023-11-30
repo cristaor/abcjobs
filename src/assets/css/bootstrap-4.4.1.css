@@ -26,10 +26,10 @@
   --danger: #dc3545;
   --light: #f8f9fa;
   --dark: #343a40;
-  --blueABC: #729FCF;
+  --blueABC: #3465a4;
   --redABC:	#d11779;
   --greenABC: #077104;
-  --darkblueABC: #3465a4;
+  --darkblueABC: #0B0B3B;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -2569,8 +2569,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #729FCF;
-  border-color: #729FCF;
+  background-color: #063970;
+  border-color: #063970;
 }
 
 .btn-primary:hover {
@@ -2753,13 +2753,13 @@ fieldset:disabled a.btn {
 }
 
 .btn-danger {
-  color: #fff;
-  background-color: #d11779;
+  color: #000;
+  background-color: #dB9F92;
   border-color: #dc3545;
 }
 
 .btn-danger:hover {
-  color: #fff;
+  color: #000;
   background-color: #c82333;
   border-color: #bd2130;
 }
@@ -6778,7 +6778,7 @@ button.bg-light:focus {
 }
 
 .bg-blueABC {
-  background-color: #729FCF !important;
+  background-color: #063970 !important;
 }
 
 

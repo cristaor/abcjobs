@@ -62,7 +62,7 @@ describe('Crear Proyecto', () => {
         cy.wait(100);
         cy.get('button[type="submit"]').contains('Crear').click({force: true});    
         
-        cy.wait(6000);
+        cy.wait(3000);
         cy.get('app-client-home');
         
         cy.visit('/login-client')
@@ -77,11 +77,11 @@ describe('Crear Proyecto', () => {
         cy.get('button[type="submit"]').contains('Aceptar').click({force: true});    
         
         //espera 4 seg para iniciar sesion
-        cy.wait(4000);
+        cy.wait(3000);
         cy.get('app-client-home'); 
         
         cy.visit('/project-client')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Crear Proyecto', 'h2');
         
@@ -104,7 +104,7 @@ describe('Crear Proyecto', () => {
         cy.wait(1000);
         cy.get('button[type="submit"]').contains('Crear').click({force: true});    
         
-        cy.wait(6000);
+        cy.wait(3000);
         cy.get('app-client-home');
     });
     

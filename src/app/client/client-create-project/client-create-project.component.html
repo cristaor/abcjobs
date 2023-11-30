@@ -58,7 +58,7 @@
 				  </div>
 				</div>
 				<div class="col-3">
-					<select size="1" class="form-control" formControlName="Month" id="Month" required>
+					<select size="1" class="form-control" formControlName="Month" id="Month" aria-label="Month" required>
                                             <option selected disabled value="">{{ 'CREATE_PROJECT.PLACEHOLDER.MONTH' | translate }}</option>
 						<option value="01">	Enero	</option>
 						<option value="02">	Febrero	</option>
@@ -78,7 +78,7 @@
 				    </div>
 				</div>
 				<div class="col-2">
-					<select size="1" class="form-control" formControlName="Year" id="Year" required>
+					<select size="1" class="form-control" formControlName="Year" id="Year" aria-label="Year" required>
 						<option selected disabled value="">{{ 'CREATE_PROJECT.PLACEHOLDER.YEAR' | translate }}</option>
 						<option>2024</option><option>2025</option>
 					</select>

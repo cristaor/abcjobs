@@ -5,7 +5,7 @@ import {I18nModule} from '../i18n/i18n.module'
 import { TranslateModule } from '@ngx-translate/core';
 import { RecruiterLoginComponent } from './recruiter-login/recruiter-login.component';
 import { RecruiterDataComponent } from './recruiter-data/recruiter-data.component';
-import { RecruiterLoadInterviewComponent } from './recruiter-load-interview/recruiter-load-interview.component';
+//import { RecruiterLoadInterviewComponent } from './recruiter-load-interview/recruiter-load-interview.component';
 import { RecruiterInterviewsComponent } from './recruiter-interviews/recruiter-interviews.component';
 import { HeaderRecruiterModule} from '../header-recruiter/header-recruiter.module';
 import { RecruiterHomeComponent } from './recruiter-home/recruiter-home.component'
@@ -15,7 +15,7 @@ import { RecruiterHomeComponent } from './recruiter-home/recruiter-home.componen
   declarations: [
     RecruiterLoginComponent,
     RecruiterDataComponent,
-    RecruiterLoadInterviewComponent,
+    //RecruiterLoadInterviewComponent,
     RecruiterInterviewsComponent,
     RecruiterHomeComponent
   ],
@@ -30,7 +30,7 @@ import { RecruiterHomeComponent } from './recruiter-home/recruiter-home.componen
   exports:[
     RecruiterLoginComponent,
     RecruiterDataComponent,
-    RecruiterLoadInterviewComponent,
+    //RecruiterLoadInterviewComponent,
     RecruiterInterviewsComponent,
     RecruiterHomeComponent
   ]

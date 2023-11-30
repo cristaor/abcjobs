@@ -177,6 +177,7 @@
         "e2e-ci": {
             "builder": "@cypress/schematic:cypress",
             "options": {
+              "browser": "chrome",
               "devServerTarget": "abcjobs:serve-coverage",
               "headless": true,
               "watch": true,

@@ -24,7 +24,7 @@
 			</div>
                         <div class="row mt-2 align-items-center text-center">
 				<div class="col-3 float-lg-right">
-					<label for="Project" class="col-form-label float-lg-right">{{ 'CLIENT_SEARCH.LABEL.PROFILE' | translate }}</label>
+					<label for="Profile" class="col-form-label float-lg-right">{{ 'CLIENT_SEARCH.LABEL.PROFILE' | translate }}</label>
 				</div>
 				<div class="col-8 input-group has-validation">
 					<select size="1" class="form-control" formControlName="Profile" id="Profile" required>
@@ -43,7 +43,7 @@
 					<label for="Role" class="col-form-label float-lg-right">{{ 'CLIENT_SEARCH.LABEL.ROLE' | translate }}</label>
 				</div>
                                 <div class="col-2">
-					<select size="1" class="form-control" formControlName="RoleFilter" id="RoleFilter" required>
+					<select size="1" class="form-control" formControlName="RoleFilter" id="RoleFilter" aria-label="RoleFilter" required>
                                             <option selected disabled value="">{{ 'CLIENT_SEARCH.PLACEHOLDER.PROFILE' | translate }}</option>
                                             <option value="contains">{{ 'CLIENT_SEARCH.OPTIONS.ROLEFILTER.OPTION_1' | translate }}</option>
                                             <option value="starts">{{ 'CLIENT_SEARCH.OPTIONS.ROLEFILTER.OPTION_2' | translate }}</option>
@@ -99,7 +99,7 @@
 				</div>
                                 <div class="col-2">
                                     
-                                    <select size="1" class="form-control" formControlName="TitleFilter" id="TitleFilter" required>
+                                    <select size="1" class="form-control" formControlName="TitleFilter" id="TitleFilter" aria-label="TitleFilter" required>
                                         <option selected disabled value="">{{ 'CLIENT_SEARCH.PLACEHOLDER.PROFILE' | translate }}</option>
                                             <option value="contains">{{ 'CLIENT_SEARCH.OPTIONS.ROLEFILTER.OPTION_1' | translate }}</option>
                                             <option value="starts">{{ 'CLIENT_SEARCH.OPTIONS.ROLEFILTER.OPTION_2' | translate }}</option>

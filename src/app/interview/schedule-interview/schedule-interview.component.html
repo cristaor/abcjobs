@@ -15,7 +15,7 @@
   </div>
   <div class="col-9">
    <select  size="1" class="form-control" formControlName="project_id" id="project_id"
-   required (change)="select_test(this.loginForm.controls['project_id'].value)">
+   (change)="select_test(this.loginForm.controls['project_id'].value)" required>
      <option *ngFor="let test of projects"  value="{{test.projectId}}"> {{test.name}}</option>
 
    </select>
@@ -31,7 +31,7 @@
     <label for="profile_id" class="col-form-label float-lg-right">{{'INTERVIEW.SCHEDULE.PROFILE' | translate}}</label>
   </div>
   <div class="col-9">
-   <select  size="1" class="form-control" formControlName="profile_id" id="project_id"
+   <select  size="1" class="form-control" formControlName="profile_id" id="profile_id"
    required (change)="getMembers(this.loginForm.controls['project_id'].value,this.loginForm.controls['profile_id'].value)" >
      <option *ngFor="let profile of profiles"  value="{{profile}}"> {{profile}}</option>
 

@@ -20,7 +20,7 @@ describe('Iniciar Sesion ABC', () => {
 
 
         cy.visit('/login-recruiter')
-        cy.wait(3000)
+        cy.wait(1000)
         //Search for Title
         utility.getMessage('Ingrese su usuario y clave', 'div');
         //busca campos del formulario
@@ -40,7 +40,7 @@ describe('Iniciar Sesion ABC', () => {
     muestra el formulario, ingresar datos aleatorios, pulsar Aceptar. Luego validar que se genere el mensaje de error y no cambie de pantalla', () => {
 
         cy.visit('/login-recruiter')
-        cy.wait(3000)
+        cy.wait(1000)
         //Search for Title
         utility.getMessage('Ingrese su usuario y clave', 'div');
         //genera datos para el formulario

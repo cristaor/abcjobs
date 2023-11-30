@@ -28,7 +28,7 @@ describe('Listar Entrevistas', () => {
         cy.wait(2000)
 
         cy.visit('/list-interviews')
-        cy.wait(4000)
+        cy.wait(2000)
 
         //Search for Title
         utility.getMessage('Listado de Entrevistas', 'h2');
