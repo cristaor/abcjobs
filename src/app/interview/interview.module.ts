@@ -7,7 +7,7 @@ import {ScheduleInterviewComponent} from './schedule-interview/schedule-intervie
 import {ListScheduledInterviewComponent} from './list-scheduled-interview/list-scheduled-interview.component'
 import {FindInterviewComponent} from './find-interview/find-interview.component'
 import { HeaderCandidateModule } from '../header-candidate/header-candidate.module';
-
+import {RegisterInterviewComponent} from './register-interview/register-interview.component'
 
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -16,7 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
   declarations: [
     ScheduleInterviewComponent,
     ListScheduledInterviewComponent,
-    FindInterviewComponent
+    FindInterviewComponent,
+    RegisterInterviewComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +32,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ScheduleInterviewComponent,
     ListScheduledInterviewComponent,
     FindInterviewComponent,
-    HeaderCandidateModule
+    HeaderCandidateModule,
+    RegisterInterviewComponent
   ]
 })
 export class InterviewModule { }

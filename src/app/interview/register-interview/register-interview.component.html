@@ -1,0 +1,177 @@
+<header-recruiter></header-recruiter>
+
+<br>
+<br>
+<h2 class="text-center">{{ 'INTERVIEW.REGISTER.LOAD_INTERVIEW' | translate }} </h2>
+<div class="container text-center float-lg-none">
+<hr >
+
+<div class="container text-center">
+<form  [formGroup]="loginForm" class="needs-validation"
+#formDirective="ngForm" (ngSubmit)="register_interview(loginForm.value)">
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="index" class="col-form-label float-lg-right">{{'INTERVIEW.REGISTER.INTERVIEW' | translate}}</label>
+  </div>
+  <div class="col-9">
+   <select  size="1" class="form-control" formControlName="index" id="index"
+   required (change)="select_test(this.loginForm.controls['index'].value)">
+     <option *ngFor="let pending_interview of pending_interviews; index as i"  value="{{i}}"> {{pending_interview.candidate_name}} - {{pending_interview.profile_id}} - {{pending_interview.project_name}}</option>
+
+   </select>
+   <div class="invalid-feedback">
+     {{'INTERVIEW.REGISTER.VALIDATOR.INTERVIEW' | translate}}
+   </div>
+  </div>
+
+</div>
+
+ <div class="row mt-3 align-items-center text-center">
+   <div class="col-3">
+     <label for="essay_url" class="col-form-label float-lg-right">{{'INTERVIEW.REGISTER.ESSAY_FILE' | translate}}</label>
+   </div>
+   <div class="col-9">
+      <input type="url" class="form-control" formControlName="essay_url" id="essay_url"
+      required placeholder="{{'INTERVIEW.REGISTER.PLACEHOLDER.ESSAY_FILE' | translate}}"/>
+      <div class="invalid-feedback">
+        {{'INTERVIEW.REGISTER.VALIDATOR.ESSAY_FILE' | translate}}
+      </div>
+    </div>
+ </div>
+ <div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="record_url" class="col-form-label float-lg-right">{{'INTERVIEW.REGISTER.RECORD_FILE' | translate}}</label>
+  </div>
+  <div class="col-9">
+     <input type="url" class="form-control" formControlName="record_url" id="record_url"
+     required placeholder="{{'INTERVIEW.REGISTER.PLACEHOLDER.ESSAY_FILE' | translate}}"/>
+     <div class="invalid-feedback">
+       {{'INTERVIEW.REGISTER.VALIDATOR.RECORD_FILE' | translate}}
+     </div>
+   </div>
+</div>
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="date" class="col-form-label float-lg-right">{{'INTERVIEW.REGISTER.DATE' | translate}}</label>
+  </div>
+  <div class="col-9">
+    <input type="datetime-local" class="form-control" formControlName="date"
+    min="{{minDate}}" id="date" [attr.disabled]="isDisabled"/>
+    <div class="invalid-feedback">
+      {{'INTERVIEW.SCHEDULE.VALIDATOR.DATE' | translate}}
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3">
+    <label for="observations" class="col-form-label float-lg-right">{{'INTERVIEW.REGISTER.OBSERVATION' | translate}}</label>
+  </div>
+  <div class="col-9">
+    <textarea class="form-control" minlength="6" formControlName="observations" id="observations"
+    required>
+    </textarea>
+
+     <div class="invalid-feedback">
+    {{'INTERVIEW.REGISTER.VALIDATOR.OBSERVATION' | translate}}
+  </div>
+  </div>
+
+
+</div>
+
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-3"></div>
+  <div class="col-3">
+    <label for="observations" class="col-form-label float-lg-right">{{'INTERVIEW.REGISTER.ABILITIES' | translate}}</label>
+  </div>
+  <div class="col-3">
+    <button type="button" class="btn btn-primary" (click)="add_item()" >
+      {{'INTERVIEW.REGISTER.ADD' | translate}}
+    </button>
+  </div>
+  <div class="col-3"></div>
+</div>
+
+<div class="row mt-3 align-items-center text-center">
+  <div class="col-1 text-center" ></div>
+<div class="col-10 text-center" >
+
+
+  <div class="container text-center" *ngFor="let itemForm of items.controls; let i=index" [formGroup]="itemForm" >
+
+    <div class="row mt-3 align-items-center text-center">
+      <div class="col-3">
+        <label for="abilityId" class="col-form-label float-lg-right">{{'INTERVIEW.REGISTER.ABILITY' | translate}}</label>
+      </div>
+      <div class="col-3">
+
+        <select  size="1" class="form-control" formControlName="abilityId" id="abilityId"
+        required>
+          <option *ngFor="let ability of all_abilities"  value="{{ability.abilityId}}"> {{ability.name}}</option>
+        </select>
+        <div class="invalid-feedback">
+          {{'INTERVIEW.REGISTER.VALIDATOR.ABILITY' | translate}}
+        </div>
+      </div>
+      <div class="col-2">
+        <label for="level" class="col-form-label float-lg-right">{{'INTERVIEW.REGISTER.LEVEL' | translate}}</label>
+      </div>
+        <div class="col-3">
+            <select  size="1" class="form-control" formControlName="level" id="level"
+        required >
+          <option *ngFor="let n of [1,2,3,4,5,6,7,8,9,10]"  value="{{n}}"> {{n}}</option>
+        </select>
+        <div class="invalid-feedback">
+          {{'INTERVIEW.REGISTER.VALIDATOR.LEVEL' | translate}}
+        </div>
+      </div>
+      <div class="col-1" align-items-right>
+      <button type="button" class="btn btn-danger" (click)="remove_item(i)" >
+        Remove
+      </button>
+    </div>
+  </div>
+</div>
+<div class="col-1 text-center" ></div>
+</div>
+
+</div>
+
+
+<div class="row mt-3 align-items-center ">
+   <div class="col-4 text-right">
+     <!--<a href="index_es.html"> -->
+     <button class="btn btn-primary" type="submit"  onmouseover="checkForm()"
+      onfocus="checkForm()" >{{'UI.OK' | translate}}</button>
+     <!--</a>-->
+   </div>
+   <div class="col-1">
+
+   </div>
+   <div class="col-4 text-left">
+     <button type="reset" class="btn btn-danger"
+     (click)="cancelCreation()">{{'UI.CANCEL' | translate}}</button>
+   </div>
+ </div>
+</form>
+
+</div>
+<br>
+<br>
+<br>
+<footer class="fixed-bottom">
+<div class="container-fluid bg-blueABC">
+  <div class="row">
+     <div class="text-center col-lg-20">
+   <br>
+     </div>
+  </div>
+</div>
+</footer>

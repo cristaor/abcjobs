@@ -36,7 +36,7 @@ import { RegisterResultTestComponent } from './test/register-result-test/registe
 import { ScheduleInterviewComponent } from './interview/schedule-interview/schedule-interview.component';
 import {ListScheduledInterviewComponent} from './interview/list-scheduled-interview/list-scheduled-interview.component'
 import {FindInterviewComponent} from './interview/find-interview/find-interview.component'
-
+import {RegisterInterviewComponent} from './interview/register-interview/register-interview.component'
 const routes: Routes = [
 {
     path: '',
@@ -68,6 +68,12 @@ const routes: Routes = [
     component: RegisterResultTestComponent,
     pathMatch: 'full'
   },
+  {
+    path: 'register-interview',
+    component: RegisterInterviewComponent,
+    pathMatch: 'full'
+  },
+
   {
     path: 'test',
     component: CreateTestComponent,

@@ -205,3 +205,62 @@ export class ClientProject {
   }
 
 }
+
+
+export class PendingInterview{
+  candidate_document:string;
+  candidate_name:string;
+  project_id:string;
+  project_name:string;
+  profile_id:string;
+  date:Date;
+  constructor(candidate_document:string,candidate_name:string,
+    project_id:string,project_name:string, profile_id:string, date:Date){
+    this.candidate_document=candidate_document;
+    this.candidate_name=candidate_name;
+    this.project_id=project_id;
+    this.project_name=project_name;
+    this.profile_id=profile_id;
+    this.date=date;
+  }
+}
+
+export class AbilityResult  {
+  ability_id : number
+  qualification: number
+
+  constructor(  ability_id:number, qualification:number)
+  {
+          this.ability_id = ability_id ;
+          this.qualification = qualification ;
+  }
+}
+
+export class RegisterInterview{
+  candidate_document:string;
+  project_id:string;
+  profile_id:string;
+  observation:string;
+  test_file:string;
+  recording_file:string;
+  date:string;
+  abilities:Array<AbilityResult>;
+  constructor(candidate_document:string,
+    project_id:string,
+    date:string,
+    profile_id:string,
+
+    observation:string,
+    test_file:string,
+    recording_file:string,
+    abilities:Array<AbilityResult>){
+    this.candidate_document=candidate_document;
+    this.project_id=project_id;
+    this.date=date;
+    this.profile_id=profile_id;
+    this.observation=observation;
+    this.recording_file=recording_file;
+    this.test_file=test_file;
+    this.abilities=abilities;
+  }
+}

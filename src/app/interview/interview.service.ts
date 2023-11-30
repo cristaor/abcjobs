@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Observable,of,map,catchError, Subscription } from 'rxjs';
 import {concatMap} from 'rxjs/operators';
 
-import {ScheduleInterviewRequest,ClientProject,ScheduleInterviewResponse, AbilityResponse,InterviewResult,CandidateResponse, ProjectMemberResponse,Interview} from './interview';
+import {AbilityResult, RegisterInterview,ScheduleInterviewRequest,ClientProject,ScheduleInterviewResponse,PendingInterview, AbilityResponse,InterviewResult,CandidateResponse, ProjectMemberResponse,Interview} from './interview';
 
 import { ProfileListDetail } from './../client/project'
 @Injectable({
@@ -200,6 +200,58 @@ getProject(projectId: string): Observable<Array<ClientProject>> {
     }
     ));
 }
+
+
+
+
+
+get_pending_interviews(): Observable<Array<PendingInterview>> {
+
+  let result = this.loginService.who_i_am();
+  return result.pipe(
+    concatMap(res => {
+      let token = res.auth_headers.get("Authorization") || "token"
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Authorization': token });
+      let options = { headers: headers };
+      let url = environment.backBaseUrl +'/pending-interviews';
+      let result = this.http.get<Array<PendingInterview>>(url,options);
+      return result;
+    }
+    )).pipe(
+      catchError(() =>
+         of([]))
+    );
+}
+
+
+
+register_interview(results: RegisterInterview): Observable<boolean> {
+  let url = environment.backBaseUrl +'/interviews/result';
+  let result = this.loginService.who_i_am();
+  return result.pipe(
+    concatMap(res => {
+      let token = res.auth_headers.get("Authorization") || "token"
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': token });
+      let options = { headers: headers };
+      let result = this.http.post<ScheduleInterviewResponse>(url,results,options);
+      return result.pipe(map(r=>
+        true
+        ),catchError(() =>
+        of(false))
+        );
+    }
+    )).pipe(
+      catchError(() =>
+         of(false))
+    );
+
+}
+
 
 }
 

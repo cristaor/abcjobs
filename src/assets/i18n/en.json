@@ -472,6 +472,37 @@
     "TOAST":{
       "INTERVIEWS_NOT_FOUND": "No interviews found"
   }
+},
+"REGISTER":{
+  "LOAD_INTERVIEW":"Load Interview",
+  "INTERVIEW":"Interview",
+  "ESSAY_FILE":"Essay file",
+  "RECORD_FILE":"Video file",
+  "EVALUATION":"Evaluation",
+  "DATE":"Date",
+  "OBSERVATION":"Observation",
+  "ABILITY":"Ability",
+  "ABILITIES":"Abilities",
+  "LEVEL":"Level(1-10)",
+  "ADD":"Add",
+  "VALIDATOR":{
+    "ESSAY_FILE":"Enter a valid URL. Include http://",
+    "RECORD_FILE":"Enter a valid URL. Include http://",
+    "OBSERVATION":"Observations are required",
+    "LEVEL":"Select a qualification",
+    "ABILITY":"Select an ability",
+    "INTERVIEW":"Select an interview"
+  },
+  "PLACEHOLDER":{
+    "ESSAY_FILE": "http://file.com/dw3fw",
+    "RECORD_FILE": "http://file.com/as95"
+  },
+  "TOAST":{
+    "INTERVIEWS_NOT_FOUND": "No interviews found",
+    "INTERVIEWS_SUCCESSFULLY":"Inteview created successfully",
+    "DUPLICATED_HABILITY": "It is not posible to mark an ability more than one time",
+    "REQUIRED_HABILITY": "Add at least one ability"
+  }
 }
 
   },

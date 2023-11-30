@@ -475,6 +475,37 @@
     "TOAST":{
       "INTERVIEWS_NOT_FOUND": "No se encontraron entrevistas"
   }
+},
+"REGISTER":{
+  "LOAD_INTERVIEW":"Cargar Entrevista",
+  "INTERVIEW":"Entrevista",
+  "ESSAY_FILE":"Archivo ensayo",
+  "RECORD_FILE":"Archivo grabación",
+  "EVALUATION":"Evaluación",
+  "DATE":"Fecha entrevista",
+  "OBSERVATION":"Observación",
+  "ABILITY":"Habilidad",
+  "ABILITIES":"Habilidades",
+  "LEVEL":"Nivel(1-10)",
+  "ADD":"Agregar",
+  "VALIDATOR":{
+    "ESSAY_FILE":"Ingrese una URL valida. Incluya http://",
+    "RECORD_FILE":"Ingrese una URL valida. Incluya http://",
+    "OBSERVATION":"Las observaciones son requeridas",
+    "LEVEL":"Seleccione una calificación",
+    "ABILITY":"Seleccione una habilidad a calificar",
+    "INTERVIEW":"Seleccione una entrevista"
+  },
+  "PLACEHOLDER":{
+    "ESSAY_FILE": "http://file.com/dw3fw",
+    "RECORD_FILE": "http://file.com/as95"
+  },
+  "TOAST":{
+    "INTERVIEWS_NOT_FOUND": "No se encontraron entrevistas",
+    "INTERVIEWS_SUCCESSFULLY":"Entrevista registrada correctamente",
+    "DUPLICATED_HABILITY": "No es posible calificar habilidades mas de una vez",
+    "REQUIRED_HABILITY": "Debe seleccionar al menos una habilidad"
+  }
 }
 },
 
