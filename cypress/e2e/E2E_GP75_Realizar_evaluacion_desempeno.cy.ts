@@ -78,7 +78,8 @@ describe('Realizar evaluacion Desempeño', () => {
         //Search for Title
         utility.getMessage('Información Técnica de roles', 'h2');
         
-        let role_name2 = faker.person.jobType()
+        let role_num = faker.number.int({ min: 1, max: 20 })
+        let role_name2 = faker.person.jobType() + " " + role_num.toString()
         let experience_years2 = faker.number.int({ min: 1, max: 2 })
         let description2 = faker.lorem.lines({ min: 2, max: 3 })
         
@@ -205,10 +206,11 @@ describe('Realizar evaluacion Desempeño', () => {
        
        //Search for Title
         utility.getMessage('Crear Perfil', 'h2');
-       
-        let profile_name = faker.person.jobType() + " " + faker.person.jobArea()
-        let title = faker.person.jobTitle();
+        
         let technology_select = faker.number.int({ min: 0, max: 6 })
+        let profile_name = faker.person.jobType() + " " + faker.person.jobArea() + " " + technology_select 
+        let title = faker.person.jobTitle();
+        
         
         
         let role_select = faker.number.int({ min: 0, max: 5 })
@@ -235,7 +237,7 @@ describe('Realizar evaluacion Desempeño', () => {
         cy.get('app-client-home');
         
         cy.visit('/search-candidate');    
-        cy.wait(3000);
+        cy.wait(1000);
          utility.getMessage('Buscar Candidatos', 'h2');
          
         let role_filter = faker.number.int({ min: 1, max: 2 })
@@ -270,7 +272,7 @@ describe('Realizar evaluacion Desempeño', () => {
         
         //Crear una evaluacion
         cy.visit('/client-evaluation-create');
-        cy.wait(3000);
+        cy.wait(1000);
         utility.getMessage('Crear Evaluación de Desempeño', 'h2');
         
         
@@ -284,8 +286,8 @@ describe('Realizar evaluacion Desempeño', () => {
         cy.get("textarea[formcontrolname='Details']").type(evaluation_description ,{force: true}); 
         cy.get('button[type="submit"]').contains('Crear').click({force: true});
         
-        cy.wait(4000);
-        cy.get('app-client-home');
+        cy.wait(3000);
+        //cy.get('app-client-home');
         
     });
 

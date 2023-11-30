@@ -62,7 +62,7 @@ describe('Crear Empresa', () => {
         cy.wait(1000);
         cy.get('button[type="submit"]').contains('Crear').click({force: true});    
         
-        cy.wait(6000);
+        cy.wait(3000);
         cy.get('app-client-home');
         
         
@@ -80,7 +80,7 @@ describe('Crear Empresa', () => {
           
         cy.get('button[type="reset"]').contains('Cancelar').click({force: true});    
         
-        cy.wait(4000);
+        cy.wait(3000);
         cy.get('app-client-login');
         
         

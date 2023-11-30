@@ -58,7 +58,7 @@ describe('MOstrar informacion Candidato', () => {
         cy.get('app-candidate-home');
 
         cy.visit('/login-candidate')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Ingrese su usuario y clave', 'div');
         //busca campos del formulario 
@@ -74,7 +74,7 @@ describe('MOstrar informacion Candidato', () => {
         
         
         cy.visit('/technical-role-candidate')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Información Técnica de roles', 'h2');
         
@@ -100,7 +100,7 @@ describe('MOstrar informacion Candidato', () => {
         
         
         cy.visit('/candidate-full-info')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Información básica', 'h2');
         utility.getMessage('Información académica', 'h2');

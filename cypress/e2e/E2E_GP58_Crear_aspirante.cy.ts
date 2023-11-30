@@ -51,7 +51,7 @@ describe('Crear Candidato', () => {
         cy.wait(100);
         cy.get('button[type="submit"]').contains('Crear').click({force: true});    
         
-        cy.wait(4000);
+        cy.wait(3000);
         cy.get('app-candidate-home');
         
         
@@ -102,7 +102,7 @@ describe('Crear Candidato', () => {
         cy.wait(100);
         cy.get('button[type="reset"]').contains('Cancelar').click({force: true});    
         
-        cy.wait(4000);
+        cy.wait(3000);
         cy.get('app-candidate-login');
         
         

@@ -5,7 +5,7 @@
 		<form class="needs-validation" [formGroup]="candidateTechnologyForm" (ngSubmit)="createTechnologyInfo(candidateTechnologyForm.value)" id="addTechnologyInfo" novalidate>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3 float-lg-right">
-					<label for="title" class="col-form-label float-lg-right">Tecnología</label>
+					<label for="name" class="col-form-label float-lg-right">Tecnología</label>
 				</div>
 				<div class="col-8 input-group has-validation">
                                         <select size="1" class="form-control" formControlName="name" id="name" required>
@@ -21,7 +21,7 @@
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Experiencia" class="col-form-label float-lg-right">Experiencia en años</label>
+					<label for="experience_years" class="col-form-label float-lg-right">Experiencia en años</label>
 				</div>
 				<div class="col-8">
 					<select size="1" class="form-control" formControlName="experience_years" id="experience_years" required>
@@ -61,7 +61,7 @@
 
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Experiencia" class="col-form-label float-lg-right">Nivel</label>
+					<label for="level" class="col-form-label float-lg-right">Nivel</label>
 				</div>
 				<div class="col-8">
 					<select size="1" class="form-control" formControlName="level" id="level" required>
@@ -85,7 +85,7 @@
 			
 		    <div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Direccion" class="col-form-label float-lg-right" >Descripción</label>
+					<label for="description" class="col-form-label float-lg-right" >Descripción</label>
 			  </div>
 				<div class="col-8">
 					<textarea class="form-control" formControlName="description" id="description" rows="3" minlength="6" required placeholder="Ingrese la descripción de la tecnología"></textarea>

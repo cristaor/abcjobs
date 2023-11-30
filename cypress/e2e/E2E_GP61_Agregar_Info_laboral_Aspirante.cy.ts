@@ -53,11 +53,11 @@ describe('Agregar informacion Laboral de Candidato/Aspirante', () => {
         cy.wait(100);
         cy.get('button[type="submit"]').contains('Crear').click({force: true});    
         
-        cy.wait(6000);
+        cy.wait(3000);
         cy.get('app-candidate-home');
 
         cy.visit('/login-candidate')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Ingrese su usuario y clave', 'div');
         //busca campos del formulario 
@@ -68,12 +68,12 @@ describe('Agregar informacion Laboral de Candidato/Aspirante', () => {
         cy.get('button[type="submit"]').contains('Aceptar').click({force: true});    
         
         //espera 4 seg para iniciar sesion
-        cy.wait(4000);
+        cy.wait(3000);
         cy.get('app-candidate-home'); 
         
         
         cy.visit('/technical-role-candidate')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Información Técnica de roles', 'h2');
         
@@ -91,7 +91,7 @@ describe('Agregar informacion Laboral de Candidato/Aspirante', () => {
         cy.get('button[type="submit"]').contains('Aceptar').click({force: true}); 
         
         //espera 4 seg para iniciar sesion
-        cy.wait(6000);
+        cy.wait(3000);
         cy.get('app-candidate-home');
         
     });

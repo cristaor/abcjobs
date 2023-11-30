@@ -1,8 +1,8 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-//const backBaseUrl = 'https://backend-test-dw7pbvtayq-uc.a.run.app';
-const backBaseUrl = 'http://localhost:8000';
+const backBaseUrl = 'https://backend-test-dw7pbvtayq-uc.a.run.app';
+//const backBaseUrl = 'http://localhost:8000';
 //const backBaseUrl = 'https://sandbox-g8-eporra-back.herokuapp.com';
 
 export const environment = {

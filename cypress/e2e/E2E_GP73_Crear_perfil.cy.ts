@@ -77,11 +77,11 @@ describe('Crear Perfil', () => {
         cy.wait(100);
         cy.get('button[type="submit"]').contains('Crear').click({force: true});    
         
-        cy.wait(6000);
+        cy.wait(3000);
         cy.get('app-client-home');
         
         cy.visit('/login-client')
-        cy.wait(3000) 
+        cy.wait(1000) 
         //Search for Title
         utility.getMessage('Ingrese su usuario y clave', 'div');
         //busca campos del formulario 
@@ -92,7 +92,7 @@ describe('Crear Perfil', () => {
         cy.get('button[type="submit"]').contains('Aceptar').click({force: true});    
         
         //espera 4 seg para iniciar sesion
-        cy.wait(4000);
+        cy.wait(3000);
         cy.get('app-client-home'); 
         
         
@@ -120,24 +120,25 @@ describe('Crear Perfil', () => {
         cy.wait(1000);
         cy.get('button[type="submit"]').contains('Crear').click({force: true});    
         
-        cy.wait(6000);
+        cy.wait(3000);
         cy.get('app-client-home');
         
           
         cy.visit('/project-profile');    
-        cy.wait(3000); 
+        cy.wait(1000); 
        
        //Search for Title
         utility.getMessage('Crear Perfil', 'h2');
        
-        let profile_name = faker.person.jobType() + " " + faker.person.jobArea()
-        let title = faker.person.jobTitle();
         let technology_select = faker.number.int({ min: 0, max: 6 })
+        let profile_name = faker.person.jobType() + " " + faker.person.jobArea() + " " + technology_select 
+        let title = faker.person.jobTitle();
+        
         let role_select = faker.number.int({ min: 0, max: 5 })
         let category_select = faker.number.int({ min: 0, max: 2 })
         let description = faker.lorem.lines({ min: 2, max: 3 })
         
-        cy.wait(5000); 
+        cy.wait(3000); 
         //busca campos del formulario 
         cy.get("select[formcontrolname='project_id']").select(0);
         cy.get("input[formcontrolname='name']").type(profile_name,{force: true}); 
@@ -153,7 +154,7 @@ describe('Crear Perfil', () => {
         cy.wait(200);
         cy.get('button[type="submit"]').contains('Aceptar').click({force: true});    
         
-        cy.wait(4000);
+        cy.wait(3000);
         cy.get('app-client-home');
         
     

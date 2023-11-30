@@ -27,7 +27,7 @@
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Pais_residencia" class="col-form-label float-lg-right">Pais</label>
+					<label for="country" class="col-form-label float-lg-right">Pais</label>
 				</div>
 				<div class="col-8">
 					<select size="1" class="form-control" formControlName="country" id="country" required>
@@ -42,7 +42,7 @@
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Inicio" class="col-form-label float-lg-right">Inicio</label>
+					<label for="start_date_month" class="col-form-label float-lg-right">Inicio</label>
 				</div>
 				<div class="col-4">
 					<select size="1" class="form-control" formControlName="start_date_month" id="start_date_month" required>
@@ -66,7 +66,7 @@
 				  </div>
 				</div>
 				<div class="col-4">
-					<select size="1" class="form-control" formControlName="start_date_year" id="start_date_year" required>
+					<select size="1" class="form-control" formControlName="start_date_year" id="start_date_year" aria-label="start_date_year" required>
 						<option selected disabled value="">Seleccione</option>
 						<option>2010</option>
 						<option>2011</option>
@@ -84,7 +84,7 @@
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Fin" class="col-form-label float-lg-right">Fin</label>
+					<label for="end_date_month" class="col-form-label float-lg-right">Fin</label>
 				</div>
 				<div class="col-4">
 					<select size="1" class="form-control" formControlName="end_date_month" id="end_date_month" required>
@@ -107,7 +107,7 @@
 					  </div>
 				</div>
 				<div class="col-4">
-					<select size="1" class="form-control" formControlName="end_date_year" id="end_date_year" required>
+					<select size="1" class="form-control" formControlName="end_date_year" id="end_date_year" aria-label="end_date_year" required>
 						<option selected disabled value="">Seleccione</option>
 						<option>2010</option>
 						<option>2011</option>
@@ -125,7 +125,7 @@
 			</div>
 			<div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="" class="col-form-label float-lg-right"></label>
+					<label for="current" class="col-form-label float-lg-right">Estado</label>
 				</div>
 				<div class="col-8">
 					<input class="form-check-input" type="checkbox" formControlName="current" id="current"> 
@@ -136,7 +136,7 @@
 			</div>
 		  <div class="row mt-2 align-items-center text-center">
 				<div class="col-3">
-					<label for="Direccion" class="col-form-label float-lg-right" >Descripción</label>
+					<label for="description" class="col-form-label float-lg-right" >Descripción</label>
 			  </div>
 				<div class="col-8">
 					<textarea class="form-control" formControlName="description" id="description" rows="3" minlength="30" required placeholder="Ingrese el detalle del titulo"></textarea>
