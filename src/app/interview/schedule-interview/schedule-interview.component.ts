@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, FormGroupDirective, Validators } from "@angular
 import { InterviewService } from "../interview.service";
 import { ToastrService } from 'ngx-toastr';
 import {Router} from "@angular/router"
-import { ScheduleInterviewRequest,ProjectMemberResponse} from '../interview';
+import { ScheduleInterviewRequest,ProjectMemberResponse,ProjectMember} from '../interview';
 import {TranslateService} from '@ngx-translate/core';
 import { ProfileListDetail } from './../../client/project'
 @Component({
@@ -15,7 +15,7 @@ export class ScheduleInterviewComponent implements OnInit {
   minDate :any;
   projects!:ProfileListDetail[];
   profiles!:string[];
-  candidates!:Set<ProjectMemberResponse>;
+  candidates!:Array<ProjectMember>;
   isDisabled: boolean = false;
 
   select_test(test_name:any){
@@ -29,10 +29,31 @@ export class ScheduleInterviewComponent implements OnInit {
     console.info(project_id);
     console.info(profile);
     this.interviewService.getMembers(project_id).subscribe(result =>{
-      console.info(result);
-      this.candidates=new Set(result.filter(x=>x.profile==profile));
+
+      this.interviewService.get_all_interviews().subscribe(res =>{
+
+        var inter = res.filter(x=>x.profile_id==profile && x.project_id ==project_id).map(y=>y.candidate_document);
+        console.info(result);
+        this.candidates=[];
+        var members = result.filter(x=>x.profile==profile);
+        members.forEach((element)=>{
+          if (!(inter.includes(element.person_id) )){
+            this.candidates.push(new ProjectMember(element, element.person_id in inter));
+          }
+        });
+
+
+        if (this.candidates.length==0){
+          this.translateService.get("INTERVIEW.SCHEDULE.TOAST.DOES_NOT_EXIST_CANDIDATES_TO_SCHEDULED").subscribe(result2=>{
+            this.toastr.error(result2,"Error");
+          });
+        }else{
+          this.loginForm.controls["candidate"].setValue(this.candidates[0].project_member_response.person_id);
+        }
+      });
     });
   }
+
 
 
   get_candidate(id:string){
@@ -45,7 +66,7 @@ export class ScheduleInterviewComponent implements OnInit {
         this.translateService.get("TEST.REGISTER.TOAST.CANDIDATE_NOT_FOUND").subscribe(result=>{
           this.loginForm.controls["candidate_name"].setValue("")
           this.toastr.error((result+"").replace("{0}",id),"Error");
-        })
+        });
       }
       });
   }
@@ -58,7 +79,7 @@ export class ScheduleInterviewComponent implements OnInit {
         this.projects = result;
       }else{
         this.toastr.error("No se encontraron pruebas","Error" );
-        setTimeout(() => this.router.navigate([`/home-client`]), 5000);
+        setTimeout(() => this.router.navigate([`/home-recruiter`]), 5000);
       }
 
     });
@@ -68,7 +89,8 @@ export class ScheduleInterviewComponent implements OnInit {
     profile_id:["", [Validators.required]],
     meet_url: ["", [Validators.required]],
     candidate: ["", [Validators.required]],
-    start_timestamp: ["", [Validators.required]],
+    date: ["", [Validators.required]],
+    time: ["", [Validators.required]],
     duration_minutes: ["", [Validators.required]]
   });
   this.minDate = new Date(Date.now()).toISOString().substring(0,16);
@@ -95,7 +117,7 @@ export class ScheduleInterviewComponent implements OnInit {
 
     this.interviewService.schedule_interview(
       new ScheduleInterviewRequest(value.project_id,value.profile_id, value.meet_url,
-        value.candidate,value.start_timestamp,value.duration_minutes)).subscribe(result =>{
+        value.candidate,value.date+"T"+value.time,value.duration_minutes)).subscribe(result =>{
       console.info(result)
       if (!result){
         this.translateService.get('INTERVIEW.SCHEDULE.UI.ERROR')
@@ -106,14 +128,14 @@ export class ScheduleInterviewComponent implements OnInit {
       }else{
         this.translateService.get('INTERVIEW.SCHEDULE.UI.CREATED').subscribe((res: string) => {
           this.toastr.success(res,"Confirmation" );
-          this.router.navigate([`/home-client`])
+          this.router.navigate([`/home-recruiter`])
       });
     }});
 
 
   }
 
-  cancelCreation():void{this.loginForm.reset();this.router.navigate([`/home-client`])}
+  cancelCreation():void{this.loginForm.reset();this.router.navigate([`/home-recruiter`])}
 }
 
 

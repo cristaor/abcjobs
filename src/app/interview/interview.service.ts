@@ -67,6 +67,27 @@ get_interviews(): Observable<Array<Interview>> {
     );
 }
 
+get_all_interviews(): Observable<Array<Interview>> {
+
+  let result = this.loginService.who_i_am();
+  return result.pipe(
+    concatMap(res => {
+      let token = res.auth_headers.get("Authorization") || "token"
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Authorization': token });
+      let options = { headers: headers };
+
+      let url = environment.backBaseUrl +'/interviews';
+      let result = this.http.get<Array<Interview>>(url,options);
+      return result;
+    }
+    )).pipe(
+      catchError(() =>
+         of([]))
+    );
+}
 
 get_interview_results(): Observable<Array<InterviewResult>> {
 
