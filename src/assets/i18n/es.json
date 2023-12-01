@@ -407,6 +407,7 @@
       "PROFILE":"Perfil",
       "MEET_URL":"URL de entrevista",
       "DATE":"Fecha",
+      "HOUR":"Hora",
       "CANDIDATE":"Candidato",
       "DURATION":"Duración",
       "DURATIONS":{
@@ -422,10 +423,12 @@
         "MEET_URL": "http://meet.com/dw3fw"
       },
       "TOAST":{
-        "CANDIDATE_NOT_FOUND": "Candidato no encontrado con el documento [{0}]"
+        "CANDIDATE_NOT_FOUND": "Candidato no encontrado con el documento [{0}]",
+        "DOES_NOT_EXIST_CANDIDATES_TO_SCHEDULED":"No se encontraron candidatos para asignar a la entrevista"
+
     },
       "UI":{
-        "CREATED":"Entreviste programada correctamente",
+        "CREATED":"Entrevista programada correctamente",
         "ERROR":"Programando la entrevista, el candidato ya tiene una entrevista asignada.",
         "SEARCH":"Buscar"
       },
@@ -433,9 +436,11 @@
         "PROJECT":"Seleccione un projecto",
         "MEET_URL":"Ingrese una URL valida. Incluya http://",
         "DOCUMENT":"El documento es requerido",
+        "CANDIDATE":"El candidato es requerido",
         "CANDIDATE_NAME": "Debe ingresar un candidato valido",
         "DURATION":"Seleccione la duración de la entrevista",
         "DATE":"La fecha es requerida y debe estar en el futuro",
+        "TIME":"La hora es requerida",
         "PROFILE":"El perfil es requerido"
       }
     },

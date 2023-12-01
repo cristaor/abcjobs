@@ -59,17 +59,26 @@
 
 <div class="row mt-3 align-items-center text-center">
   <div class="col-3">
-    <label for="start_timestamp" class="col-form-label float-lg-right">{{'INTERVIEW.SCHEDULE.DATE' | translate}}</label>
+    <label for="date" class="col-form-label float-lg-right">{{'INTERVIEW.SCHEDULE.DATE' | translate}}</label>
   </div>
-  <div class="col-9">
-    <input type="datetime-local" class="form-control" formControlName="start_timestamp"
-    min="{{minDate}}" id="start_timestamp" required/>
+  <div class="col-3">
+    <input type="date" class="form-control" formControlName="date"
+    min="{{minDate}}" id="date" required/>
     <div class="invalid-feedback">
       {{'INTERVIEW.SCHEDULE.VALIDATOR.DATE' | translate}}
     </div>
 
   </div>
+  <div class="col-3">
+    <label for="time" class="col-form-label float-lg-right">{{'INTERVIEW.SCHEDULE.HOUR' | translate}}</label>
+  </div>
+  <div class="col-3">
+    <input type="time" class="form-control" formControlName="time"  id="time" required/>
+    <div class="invalid-feedback">
+      {{'INTERVIEW.SCHEDULE.VALIDATOR.TIME' | translate}}
+    </div>
 
+  </div>
 </div>
 
 
@@ -81,14 +90,12 @@
 
     <select  size="1" class="form-control" formControlName="candidate" id="candidate"
     required>
-      <option *ngFor="let candidate of candidates"  value="{{candidate.person_id}}"> {{candidate.name}}</option>
-
+      <option *ngFor="let candidate of candidates" value="{{candidate.project_member_response.person_id}}">{{candidate.project_member_response.name}}
+    </option>
     </select>
 
-
     <div class="invalid-feedback">
-
-      {{'INTERVIEW.SCHEDULE.VALIDATOR.DOCUMENT' | translate}}
+      {{'INTERVIEW.SCHEDULE.VALIDATOR.CANDIDATE' | translate}}
     </div>
  </div>
 

@@ -3,7 +3,7 @@ export class ScheduleInterviewRequest {
   profile_id:string;
   meet_url:string;
   candidate_document:string;
-  start_timestamp:Date;
+  start_timestamp:string;
   duration_minutes:BigInteger;
   status:string;
 
@@ -12,7 +12,7 @@ export class ScheduleInterviewRequest {
     profile_id:string,
     meet_url:string,
     candidate_document:string,
-    start_timestamp:Date,
+    start_timestamp:string,
     duration_minutes:BigInteger){
       this.profile_id=profile_id;
     this.status='SCHEDULED';
@@ -97,11 +97,23 @@ export class ProjectMemberResponse {
           this.person_id= person_id ;
 
           this.profile = profile;
-
   }
-
 }
 
+
+export class ProjectMember {
+  project_member_response: ProjectMemberResponse
+  enabled : boolean
+
+
+  constructor( project_member_response: ProjectMemberResponse,enabled : boolean)
+  {
+
+          this.project_member_response = project_member_response;
+          this.enabled = enabled ;
+
+  }
+}
 export class InterviewResultAbility {
   ability_id:string
   qualification:string
